@@ -1,4 +1,4 @@
-# Lightbox
+# The Archive
 
 A multi-user library of the books, movies, TV series and anime you've finished, are in the middle of, or plan to get to. Accounts, sessions and storage run on the CoffeeCoders Backbone API (`docs/backend-arch-docs`).
 
@@ -40,7 +40,7 @@ Browser ──Server Actions──▶ Next.js server ──▶ Backbone
 
 **UI.** Components still work with one merged `MediaItem` (catalog + overrides + personal fields, built by `lib/media/model.ts`), so search, filters, sorting, genres, stats and progress rules are unchanged. `lib/media/store.tsx` holds the collection client-side, applies edits optimistically, sends them to the server one at a time in order, and rolls back with a message if one fails.
 
-**Migration.** Collections saved in this browser's `localStorage` (the old `lightbox:collection:v1`) are offered for import after sign-in, and stay available from the account menu until imported. The menu also imports/exports JSON and adds the sample titles (`lib/media/seed.json`). Imports are additive and skip titles already in the collection.
+**Migration.** Collections saved in this browser's `localStorage` (the old `the-archive:collection:v1`) are offered for import after sign-in, and stay available from the account menu until imported. The menu also imports/exports JSON and adds the sample titles (`lib/media/seed.json`). Imports are additive and skip titles already in the collection.
 
 ## Layout
 

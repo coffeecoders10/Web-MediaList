@@ -8,7 +8,7 @@ import { jwtVerify, SignJWT } from "jose";
  * httpOnly cookie. It holds just what the app needs on every request.
  */
 
-export const SESSION_COOKIE = "lightbox_session";
+export const SESSION_COOKIE = "the_archive_session";
 export const SESSION_DAYS = 30;
 
 export interface SessionUser {

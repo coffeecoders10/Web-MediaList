@@ -41,7 +41,7 @@ interface Workspace {
 
 const WorkspaceContext = createContext<Workspace | null>(null);
 
-const EDIT_KEY = "lightbox:edit-mode";
+const EDIT_KEY = "the-archive:edit-mode";
 const editListeners = new Set<() => void>();
 
 function subscribeEdit(listener: () => void) {

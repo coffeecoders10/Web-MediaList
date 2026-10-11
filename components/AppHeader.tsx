@@ -38,7 +38,7 @@ export function AppHeader() {
     const url = URL.createObjectURL(new Blob([exportJson()], { type: "application/json" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `lightbox-collection-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `the-archive-collection-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
     notify("Collection exported");

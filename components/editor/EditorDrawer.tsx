@@ -294,7 +294,7 @@ function EditorForm({ target }: { target: EditorTarget }) {
             label="Poster image link"
             htmlFor={id("posterUrl")}
             error={errors.posterUrl}
-            hint="Optional. Without one, Lightbox draws a cover for you."
+            hint="Optional. Without one, The Archive draws a cover for you."
           >
             <input {...text("posterUrl", { type: "url", placeholder: "https://" })} />
           </Field>

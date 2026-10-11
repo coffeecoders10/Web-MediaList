@@ -5,6 +5,7 @@ import { Toggle } from "radix-ui";
 import Link from "next/link";
 import { useActionState, useId, useState } from "react";
 import { login, signup, type AuthFormState } from "@/app/actions/auth";
+import { BuiltBy } from "@/components/BuiltBy";
 import { Wordmark } from "@/components/Wordmark";
 import { Cover } from "@/components/Cover";
 import { Button } from "@/components/ui/Button";
@@ -29,7 +30,7 @@ const COPY = {
     action: login,
     submit: "Sign in",
     pending: "Signing in…",
-    switchText: "New to Lightbox?",
+    switchText: "New to The Archive?",
     switchLink: { href: "/signup", label: "Create an account" },
   },
   signup: {
@@ -63,7 +64,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
             </div>
           ))}
         </div>
-        <p className={styles.tagline}>Everything you’ve read and watched, in one light.</p>
+        <p className={styles.tagline}>Every story you’ve finished, filed away and kept.</p>
       </aside>
 
       <section className={styles.panel} aria-labelledby={id("heading")}>
@@ -141,6 +142,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         <p className={styles.switch}>
           {copy.switchText} <Link href={copy.switchLink.href}>{copy.switchLink.label}</Link>
         </p>
+
+        <BuiltBy />
       </section>
     </div>
   );
