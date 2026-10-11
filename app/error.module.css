@@ -1,0 +1,20 @@
+.page {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: 0.75rem;
+  max-width: 30rem;
+  min-height: 100dvh;
+  margin-inline: auto;
+  padding: 2rem var(--gutter);
+}
+
+.page h1 {
+  font-size: var(--fs-lg);
+  font-stretch: 112%;
+  font-weight: 700;
+}
+
+.page p {
+  color: var(--ink-2);
+}

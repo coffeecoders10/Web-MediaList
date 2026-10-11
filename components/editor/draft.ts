@@ -11,6 +11,7 @@ export interface Draft {
   status: Status;
   rating: number | null;
   genres: string[];
+  tags: string[];
   synopsis: string;
   notes: string;
   posterUrl: string;
@@ -44,6 +45,7 @@ export function emptyDraft(category: Category = "book"): Draft {
     status: "planned",
     rating: null,
     genres: [],
+    tags: [],
     synopsis: "",
     notes: "",
     posterUrl: "",
@@ -71,6 +73,7 @@ export function toDraft(item: MediaItem): Draft {
     status: item.status,
     rating: item.rating,
     genres: item.genres,
+    tags: item.tags,
     synopsis: item.synopsis,
     notes: item.notes,
     posterUrl: item.posterUrl,
@@ -132,17 +135,22 @@ export function validate(d: Draft): DraftErrors {
   return e;
 }
 
-/** Builds the stored entry from a validated draft; `base` supplies id and dates when editing. */
+/**
+ * Builds the item from a validated draft; `base` supplies id and dates when editing. A new item gets a
+ * temporary id and catalogId 0: the server decides which shared catalog entry it becomes.
+ */
 export function fromDraft(d: Draft, base: MediaItem | null): MediaItem {
   const now = new Date().toISOString();
   const common = {
     id: base?.id ?? newId(d.title),
+    catalogId: base?.catalogId ?? 0,
     title: d.title.trim(),
     creator: d.creator.trim(),
     year: isBlank(d.year) ? null : Number(d.year),
     status: d.status,
     rating: d.rating,
     genres: d.genres,
+    tags: d.tags,
     synopsis: d.synopsis.trim(),
     notes: d.notes.trim(),
     posterUrl: d.posterUrl.trim(),

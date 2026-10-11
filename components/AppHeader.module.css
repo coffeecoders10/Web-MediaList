@@ -143,6 +143,22 @@
   background: var(--table-hover);
 }
 
+.menuLabel {
+  display: grid;
+  gap: 0.125rem;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--fs-sm);
+}
+
+.menuLabel strong {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.menuLabel span {
+  color: var(--ink-3);
+}
+
 .menuSep {
   height: 1px;
   margin: 0.25rem;

@@ -275,11 +275,6 @@ a.rowLabel:hover {
   text-decoration: underline;
 }
 
-.skeleton {
-  height: 20rem;
-  border-radius: var(--r-lg);
-  background: var(--table-raised);
-}
 
 @media (max-width: 520px) {
   .row {

@@ -10,12 +10,14 @@ interface GenreInputProps {
   value: string[];
   onChange: (genres: string[]) => void;
   suggestions: string[];
+  /** What the entries are called, for the placeholder and screen readers. Defaults to "genre". */
+  noun?: string;
 }
 
 const clean = (text: string) => text.trim().replace(/\s+/g, " ");
 
 /** Tag-style genre entry: Enter or comma adds, Backspace on an empty field removes the last one. */
-export function GenreInput({ id, value, onChange, suggestions }: GenreInputProps) {
+export function GenreInput({ id, value, onChange, suggestions, noun = "genre" }: GenreInputProps) {
   const [text, setText] = useState("");
   const has = (g: string) => value.some((v) => v.toLowerCase() === g.toLowerCase());
 
@@ -41,7 +43,7 @@ export function GenreInput({ id, value, onChange, suggestions }: GenreInputProps
   return (
     <div className={styles.wrap}>
       {value.length > 0 && (
-        <ul className={styles.tags} aria-label="Selected genres">
+        <ul className={styles.tags} aria-label={`Selected ${noun}s`}>
           {value.map((g) => (
             <li key={g} className={styles.tag}>
               {g}
@@ -59,11 +61,11 @@ export function GenreInput({ id, value, onChange, suggestions }: GenreInputProps
         onChange={(e) => setText(e.target.value)}
         onKeyDown={onKeyDown}
         onBlur={() => add(text)}
-        placeholder="Type a genre, press Enter"
+        placeholder={`Type a ${noun}, press Enter`}
         autoComplete="off"
       />
       {open.length > 0 && (
-        <ul className={styles.suggestions} aria-label="Suggested genres">
+        <ul className={styles.suggestions} aria-label={`Suggested ${noun}s`}>
           {open.map((s) => (
             <li key={s}>
               <button type="button" className={styles.suggestion} onClick={() => add(s)}>

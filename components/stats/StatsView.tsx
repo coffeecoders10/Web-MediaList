@@ -23,18 +23,8 @@ function Panel({ title, note, children, className }: { title: string; note?: Rea
 }
 
 export function StatsView() {
-  const { items, ready } = useMedia();
-  // The clock is only read once the collection has loaded in the browser, never during prerender.
-  const stats = useMemo(() => (ready ? computeStats(items, new Date()) : null), [items, ready]);
-
-  if (!stats) {
-    return (
-      <div className={`shell ${styles.page}`} aria-busy="true">
-        <h1 className={styles.heading}>Stats</h1>
-        <div className={styles.skeleton} />
-      </div>
-    );
-  }
+  const { items } = useMedia();
+  const stats = useMemo(() => computeStats(items, new Date()), [items]);
 
   if (stats.total === 0) {
     return (

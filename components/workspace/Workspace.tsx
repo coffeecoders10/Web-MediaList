@@ -6,6 +6,7 @@ import {
   createContext,
   use,
   useCallback,
+  useEffect,
   useMemo,
   useState,
   useSyncExternalStore,
@@ -13,6 +14,7 @@ import {
 } from "react";
 import { Button } from "@/components/ui/Button";
 import { EditorDrawer } from "@/components/editor/EditorDrawer";
+import { loadSample } from "@/lib/media/sample";
 import { useMedia } from "@/lib/media/store";
 import type { MediaItem } from "@/lib/media/types";
 import styles from "./Workspace.module.css";
@@ -33,6 +35,8 @@ interface Workspace {
   closeEditor: () => void;
   requestDelete: (item: MediaItem, onDeleted?: () => void) => void;
   notify: (message: string, action?: Notice["action"]) => void;
+  /** Adds the bundled sample titles to the collection, reporting the result. */
+  addSampleTitles: () => Promise<void>;
 }
 
 const WorkspaceContext = createContext<Workspace | null>(null);
@@ -73,6 +77,15 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     setNotices((prev) => [...prev, { id: ++noticeSeq, message, action }]);
   }, []);
 
+  const { onError, add } = media;
+  useEffect(() => onError((message) => notify(message)), [onError, notify]);
+
+  const addSampleTitles = useCallback(async () => {
+    const result = await add(await loadSample());
+    if (!result.ok) return notify(result.error);
+    notify(result.items.length ? `Added ${result.items.length} sample ${result.items.length === 1 ? "title" : "titles"}` : "You already have all the sample titles");
+  }, [add, notify]);
+
   const confirmDelete = () => {
     if (!pendingDelete) return;
     const { item, onDeleted } = pendingDelete;
@@ -91,8 +104,9 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       closeEditor: () => setEditor(null),
       requestDelete: (item, onDeleted) => setPendingDelete({ item, onDeleted }),
       notify,
+      addSampleTitles,
     }),
-    [editMode, editor, notify],
+    [editMode, editor, notify, addSampleTitles],
   );
 
   return (

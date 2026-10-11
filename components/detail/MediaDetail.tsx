@@ -19,7 +19,7 @@ import { ProgressPanel } from "./ProgressPanel";
 import styles from "./MediaDetail.module.css";
 
 export function MediaDetail({ id }: { id: string }) {
-  const { get, items, ready, save } = useMedia();
+  const { get, items, save } = useMedia();
   const { editMode, openEditor, requestDelete } = useWorkspace();
   const router = useRouter();
   const item = get(id);
@@ -34,14 +34,6 @@ export function MediaDetail({ id }: { id: string }) {
       .slice(0, 6)
       .map((r) => r.o);
   }, [items, item]);
-
-  if (!ready) {
-    return (
-      <div className={`shell ${styles.page}`} aria-busy="true">
-        <div className={styles.skeleton} />
-      </div>
-    );
-  }
 
   if (!item) {
     return (

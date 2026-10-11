@@ -22,8 +22,8 @@ import { NowShowing } from "./NowShowing";
 import styles from "./LibraryView.module.css";
 
 export function LibraryView() {
-  const { items, ready } = useMedia();
-  const { editMode, openEditor } = useWorkspace();
+  const { items } = useMedia();
+  const { editMode, openEditor, addSampleTitles } = useWorkspace();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -52,15 +52,11 @@ export function LibraryView() {
   );
 
   const activeCount = activeFilterCount(filters);
-  const showNowShowing = ready && activeCount === 0;
+  const showNowShowing = activeCount === 0;
 
   return (
     <div className={`shell ${styles.page}`}>
-      {!ready ? (
-        <div className={styles.skeletonPanel} aria-hidden="true" />
-      ) : (
-        showNowShowing && <NowShowing items={inProgress} onShowPlanned={() => update({ statuses: ["planned"] })} />
-      )}
+      {showNowShowing && <NowShowing items={inProgress} onShowPlanned={() => update({ statuses: ["planned"] })} />}
 
       <section className={styles.browse} aria-labelledby="library-heading">
         <h1 id="library-heading" className="sr-only">
@@ -70,8 +66,8 @@ export function LibraryView() {
 
         <div className={styles.summary} aria-live="polite">
           <p>
-            {ready ? `${results.length} ${results.length === 1 ? "title" : "titles"}` : "Loading your collection"}
-            {ready && activeCount > 0 && items.length !== results.length && <span className={styles.of}> of {items.length}</span>}
+            {`${results.length} ${results.length === 1 ? "title" : "titles"}`}
+            {activeCount > 0 && items.length !== results.length && <span className={styles.of}> of {items.length}</span>}
           </p>
           {activeCount > 0 && (
             <Button variant="quiet" size="sm" onClick={() => update({ ...DEFAULT_FILTERS, view: filters.view, sort: filters.sort })}>
@@ -80,23 +76,22 @@ export function LibraryView() {
           )}
         </div>
 
-        {!ready ? (
-          <div className={styles.grid} aria-hidden="true">
-            {Array.from({ length: 10 }, (_, i) => (
-              <div key={i} className={styles.skeletonCard} />
-            ))}
-          </div>
-        ) : results.length === 0 ? (
+        {results.length === 0 ? (
           <div className={styles.empty}>
             {items.length === 0 ? (
               <>
                 <h2>Your collection is empty</h2>
-                <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title."}</p>
-                {editMode && (
-                  <Button variant="solid" onClick={() => openEditor({ mode: "new" })}>
-                    Add a title
+                <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title, or start from the sample titles."}</p>
+                <div className={styles.emptyActions}>
+                  {editMode && (
+                    <Button variant="solid" onClick={() => openEditor({ mode: "new" })}>
+                      Add a title
+                    </Button>
+                  )}
+                  <Button variant={editMode ? "outline" : "solid"} onClick={() => void addSampleTitles()}>
+                    Add the sample titles
                   </Button>
-                )}
+                </div>
               </>
             ) : (
               <>

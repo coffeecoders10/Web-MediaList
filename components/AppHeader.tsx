@@ -1,12 +1,16 @@
 "use client";
 
-import { DotsHorizontalIcon, DownloadIcon, PlusIcon, ResetIcon, UploadIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, DownloadIcon, ExitIcon, MixIcon, PersonIcon, PlusIcon, UploadIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
+import { logout } from "@/app/actions/auth";
+import { useUser } from "@/components/Providers";
 import { Button } from "@/components/ui/Button";
+import { Wordmark } from "@/components/Wordmark";
 import { useWorkspace } from "@/components/workspace/Workspace";
+import { dismissLegacyOffer, markLegacyImported, readLegacyItems, useLegacy } from "@/lib/media/legacy";
 import { useMedia } from "@/lib/media/store";
 import styles from "./AppHeader.module.css";
 import dialog from "@/components/workspace/Workspace.module.css";
@@ -17,24 +21,18 @@ const NAV = [
   { href: "/stats", label: "Stats" },
 ];
 
-function Wordmark() {
-  return (
-    <Link href="/" className={styles.wordmark} aria-label="Lightbox, home">
-      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-        <rect x="1" y="1" width="20" height="20" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" />
-        <rect x="6" y="6" width="10" height="10" rx="2" fill="var(--lit)" />
-      </svg>
-      <span>Lightbox</span>
-    </Link>
-  );
-}
+const summarize = (added: number, skipped: number) =>
+  `Imported ${added} ${added === 1 ? "title" : "titles"}${skipped ? `, ${skipped} already in your collection` : ""}`;
 
 export function AppHeader() {
   const pathname = usePathname();
-  const { editMode, setEditMode, openEditor, notify } = useWorkspace();
-  const { exportJson, importJson, resetToSample } = useMedia();
+  const { editMode, setEditMode, openEditor, notify, addSampleTitles } = useWorkspace();
+  const { exportJson, importJson, add } = useMedia();
+  const user = useUser();
+  const legacy = useLegacy(user.userId);
   const fileRef = useRef<HTMLInputElement>(null);
-  const [confirmReset, setConfirmReset] = useState(false);
+  const [offerOpen, setOfferOpen] = useState(true);
+  const [importing, setImporting] = useState(false);
 
   const download = () => {
     const url = URL.createObjectURL(new Blob([exportJson()], { type: "application/json" }));
@@ -48,9 +46,21 @@ export function AppHeader() {
 
   const onFile = async (file: File | undefined) => {
     if (!file) return;
-    const count = await importJson(await file.text());
-    notify(count ? `Imported ${count} ${count === 1 ? "title" : "titles"}` : "That file has no usable titles. Nothing was changed.");
+    const result = await importJson(await file.text());
     if (fileRef.current) fileRef.current.value = "";
+    if (!result) return notify("That file has no usable titles. Nothing was changed.");
+    if (!result.ok) return notify(result.error);
+    notify(summarize(result.items.length, result.skipped));
+  };
+
+  const importFromBrowser = async () => {
+    setImporting(true);
+    const result = await add(readLegacyItems());
+    setImporting(false);
+    if (!result.ok) return notify(result.error);
+    markLegacyImported(user.userId);
+    setOfferOpen(false);
+    notify(summarize(result.items.length, result.skipped));
   };
 
   return (
@@ -86,21 +96,34 @@ export function AppHeader() {
 
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-              <Button variant="quiet" size="sm" icon aria-label="Collection data">
-                <DotsHorizontalIcon />
+              <Button variant="quiet" size="sm" icon aria-label="Account and collection data">
+                <PersonIcon />
               </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content className={styles.menu} align="end" sideOffset={8}>
-                <DropdownMenu.Item className={styles.menuItem} onSelect={download}>
-                  <DownloadIcon /> Export as JSON
+                <DropdownMenu.Label className={styles.menuLabel}>
+                  <strong>{user.fullName || user.username}</strong>
+                  <span>@{user.username}</span>
+                </DropdownMenu.Label>
+                <DropdownMenu.Separator className={styles.menuSep} />
+                <DropdownMenu.Item className={styles.menuItem} onSelect={() => void addSampleTitles()}>
+                  <MixIcon /> Add sample titles
                 </DropdownMenu.Item>
+                {legacy.count > 0 && (
+                  <DropdownMenu.Item className={styles.menuItem} disabled={importing} onSelect={() => void importFromBrowser()}>
+                    <ArchiveIcon /> Import {legacy.count} saved in this browser
+                  </DropdownMenu.Item>
+                )}
                 <DropdownMenu.Item className={styles.menuItem} onSelect={() => fileRef.current?.click()}>
                   <UploadIcon /> Import from JSON
                 </DropdownMenu.Item>
+                <DropdownMenu.Item className={styles.menuItem} onSelect={download}>
+                  <DownloadIcon /> Export as JSON
+                </DropdownMenu.Item>
                 <DropdownMenu.Separator className={styles.menuSep} />
-                <DropdownMenu.Item className={styles.menuItem} onSelect={() => setConfirmReset(true)}>
-                  <ResetIcon /> Restore sample collection
+                <DropdownMenu.Item className={styles.menuItem} onSelect={() => void logout()}>
+                  <ExitIcon /> Sign out
                 </DropdownMenu.Item>
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
@@ -115,29 +138,26 @@ export function AppHeader() {
         </div>
       </div>
 
-      <AlertDialog.Root open={confirmReset} onOpenChange={setConfirmReset}>
+      <AlertDialog.Root open={legacy.count > 0 && !legacy.dismissed && offerOpen} onOpenChange={setOfferOpen}>
         <AlertDialog.Portal>
           <AlertDialog.Overlay className={dialog.overlay} />
           <AlertDialog.Content className={dialog.alert}>
-            <AlertDialog.Title className={dialog.alertTitle}>Restore the sample collection?</AlertDialog.Title>
+            <AlertDialog.Title className={dialog.alertTitle}>
+              Bring {legacy.count} {legacy.count === 1 ? "title" : "titles"} into your account?
+            </AlertDialog.Title>
             <AlertDialog.Description className={dialog.alertBody}>
-              Every title you added or changed will be replaced by the original sample data. Export first if you want a copy.
+              This browser has a collection saved from before accounts. Importing adds it to your account so it follows you to other
+              devices. The copy in this browser is kept.
             </AlertDialog.Description>
             <div className={dialog.alertActions}>
               <AlertDialog.Cancel asChild>
-                <Button variant="outline">Cancel</Button>
-              </AlertDialog.Cancel>
-              <AlertDialog.Action asChild>
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    resetToSample();
-                    notify("Sample collection restored");
-                  }}
-                >
-                  Restore sample
+                <Button variant="outline" onClick={() => dismissLegacyOffer(user.userId)}>
+                  Not now
                 </Button>
-              </AlertDialog.Action>
+              </AlertDialog.Cancel>
+              <Button variant="solid" disabled={importing} onClick={() => void importFromBrowser()}>
+                {importing ? "Importing…" : "Import"}
+              </Button>
             </div>
           </AlertDialog.Content>
         </AlertDialog.Portal>

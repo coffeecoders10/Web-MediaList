@@ -14,7 +14,10 @@ export interface CoverArt {
 }
 
 interface MediaBase {
+  /** Collection key, `${category}-${catalogId}`. Temporary (and catalogId 0) until the server files the entry. */
   id: string;
+  /** Id of the shared catalog entry within its category; 0 for entries not yet in the catalog. */
+  catalogId: number;
   title: string;
   /** Author, director or studio. */
   creator: string;
@@ -23,6 +26,7 @@ interface MediaBase {
   /** 0–10 in half-point steps; null when unrated. */
   rating: number | null;
   genres: string[];
+  tags: string[];
   synopsis: string;
   notes: string;
   posterUrl: string;
@@ -74,6 +78,14 @@ export const STATUS_LABEL: Record<Status, string> = {
   "on-hold": "On hold",
   dropped: "Dropped",
 };
+
+/** Key of a collection entry: stable, URL-safe, and unique across categories. */
+export const itemKey = (category: Category, catalogId: number) => `${category}-${catalogId}`;
+
+export function parseItemKey(key: string): { category: Category; catalogId: number } | null {
+  const match = /^(book|movie|series|anime)-([1-9]\d*)$/.exec(key);
+  return match ? { category: match[1] as Category, catalogId: Number(match[2]) } : null;
+}
 
 export function isCategory(value: unknown): value is Category {
   return typeof value === "string" && (CATEGORIES as readonly string[]).includes(value);

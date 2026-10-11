@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
-import { AppHeader } from "@/components/AppHeader";
-import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -24,12 +22,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={archivo.variable}>
-      <body>
-        <Providers>
-          <AppHeader />
-          <main>{children}</main>
-        </Providers>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

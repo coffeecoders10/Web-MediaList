@@ -1,0 +1,148 @@
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 100dvh;
+}
+
+@media (min-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
+  }
+}
+
+/* The lit panel: the single backlit surface, as on the library's Now showing strip. */
+.lit {
+  display: none;
+  position: relative;
+  align-content: center;
+  justify-items: start;
+  gap: 3rem;
+  padding: 3rem var(--gutter);
+  margin: 1rem 0 1rem 1rem;
+  border-radius: var(--r-lg);
+  background: linear-gradient(160deg, var(--lit-edge), var(--lit) 42%, oklch(0.8 0.014 230));
+  color: var(--lit-ink);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .lit {
+    display: grid;
+  }
+}
+
+.covers {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  width: min(100%, 34rem);
+}
+
+.coverSlot {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: var(--r-sm);
+  box-shadow: 0 18px 36px oklch(0.2 0.03 245 / 0.35);
+}
+
+.coverSlot[data-slot="0"] {
+  transform: translateY(-1.5rem);
+}
+
+.coverSlot[data-slot="2"] {
+  transform: translateY(1.25rem);
+}
+
+.tagline {
+  max-width: 18ch;
+  font-size: var(--fs-xl);
+  font-stretch: 118%;
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--lit-ink);
+}
+
+.panel {
+  display: grid;
+  align-content: center;
+  justify-items: stretch;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+  padding: 2.5rem var(--gutter);
+}
+
+.head {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: var(--fs-xl);
+  font-stretch: 118%;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  color: var(--ink-2);
+}
+
+.form {
+  display: grid;
+  gap: 1.125rem;
+}
+
+.alert {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid oklch(0.72 0.17 25 / 0.5);
+  border-radius: var(--r-md);
+  background: oklch(0.72 0.17 25 / 0.1);
+  color: var(--danger);
+  font-size: var(--fs-sm);
+  font-weight: 550;
+}
+
+.secret {
+  position: relative;
+}
+
+.secretInput {
+  padding-right: 2.75rem;
+}
+
+.reveal {
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  background: none;
+  border: 0;
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  color: var(--ink-3);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.reveal:hover,
+.reveal[data-state="on"] {
+  color: var(--ink);
+}
+
+.submit {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.switch {
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.switch a {
+  color: var(--accent);
+  font-weight: 600;
+}

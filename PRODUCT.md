@@ -12,7 +12,7 @@ Next.js 16 App Router, React 19, TypeScript, Radix UI primitives, CSS Modules / 
 
 ## Users
 
-One person: the owner of the collection. They log books, movies, TV series and anime they have finished, are in the middle of, or plan to consume, and they also show the collection off. (Inferred from the brief; not interviewed.)
+Several people, each with an account and their own collection. They log books, movies, TV series and anime they have finished, are in the middle of, or plan to consume, and they also show the collection off. Titles live in a shared catalog; each person's status, progress, rating and notes are their own. (Inferred from the brief; not interviewed.)
 
 ## Product Purpose
 
@@ -21,8 +21,8 @@ A personal media tracker and showcase. It holds a collection of Books, Movies, T
 ## Capabilities and Constraints
 
 - Statuses: Completed, In Progress, Planned, On Hold, Dropped.
-- Data: a local JSON seed file with sample entries. Edits persist in localStorage and never modify the seed. The data layer must be swappable for a database later without refactoring the UI.
-- No backend, auth or database yet.
+- Data: shared catalog and per-user collections on the Backbone API (see README). The bundled JSON seed is optional sample data a user can add. Collections that predate accounts are importable from the browser's localStorage.
+- Accounts: username and password through Backbone, with a signed cookie session.
 - Dark theme only is required by the brief.
 
 ## Evidence on Hand
@@ -34,7 +34,7 @@ No real collection data or poster assets exist. Sample entries and artwork are i
 - The collection is the hero; chrome recedes.
 - Looking and editing are the same place: edit mode changes what you can do, not where you are.
 - Progress is always legible at a glance.
-- Data access sits behind one interface so storage can change.
+- Shared facts live in the catalog; personal facts live with the person. Editing never changes what other people see.
 
 ## Accessibility & Inclusion
 

@@ -8,7 +8,7 @@ import { describedBy, Field, inputClass, textareaClass } from "@/components/ui/F
 import { CategoryIcon, StatusGlyph } from "@/components/ui/Icons";
 import { Select } from "@/components/ui/Select";
 import { useWorkspace, type EditorTarget } from "@/components/workspace/Workspace";
-import { allGenres } from "@/lib/media/filters";
+import { allGenres, allTags } from "@/lib/media/filters";
 import { useMedia } from "@/lib/media/store";
 import { CATEGORIES, CATEGORY_LABEL, STATUS_LABEL, STATUSES, isCategory, type Category, type Status } from "@/lib/media/types";
 import { emptyDraft, fromDraft, toDraft, validate, type Draft, type DraftErrors } from "./draft";
@@ -42,13 +42,16 @@ export function EditorDrawer() {
 
 function EditorForm({ target }: { target: EditorTarget }) {
   const uid = useId();
-  const { get, save, items } = useMedia();
+  const { get, save, add, items } = useMedia();
   const { closeEditor, notify } = useWorkspace();
   const base = target.mode === "edit" ? (get(target.id) ?? null) : null;
   const [draft, setDraft] = useState<Draft>(() => (base ? toDraft(base) : emptyDraft()));
   const [errors, setErrors] = useState<DraftErrors>({});
+  const [saving, setSaving] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const genreSuggestions = useMemo(() => allGenres(items).map((g) => g.name), [items]);
+  const tagSuggestions = useMemo(() => allTags(items), [items]);
 
   const set = <K extends keyof Draft>(key: K, value: Draft[K]) => setDraft((d) => ({ ...d, [key]: value }));
   const id = (name: string) => `${uid}-${name}`;
@@ -62,8 +65,9 @@ function EditorForm({ target }: { target: EditorTarget }) {
     ...props,
   });
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (saving) return;
     const found = validate(draft);
     setErrors(found);
     if (Object.keys(found).length) {
@@ -71,8 +75,22 @@ function EditorForm({ target }: { target: EditorTarget }) {
       return;
     }
     const item = fromDraft(draft, base);
-    save(item);
-    notify(base ? `Saved changes to “${item.title}”` : `Added “${item.title}”`);
+
+    if (base) {
+      save(item);
+      notify(`Saved changes to “${item.title}”`);
+      closeEditor();
+      return;
+    }
+
+    // A new title waits for the server, which decides whether it is already in the shared catalog.
+    setSaving(true);
+    setFormError(null);
+    const result = await add([item]);
+    setSaving(false);
+    if (!result.ok) return setFormError(result.error);
+    if (result.items.length === 0) return setFormError("That title is already in your collection.");
+    notify(result.matched ? `Added “${item.title}”, already in the shared catalog` : `Added “${item.title}”`);
     closeEditor();
   };
 
@@ -260,6 +278,10 @@ function EditorForm({ target }: { target: EditorTarget }) {
             <GenreInput id={id("genres")} value={draft.genres} onChange={(g) => set("genres", g)} suggestions={genreSuggestions} />
           </Field>
 
+          <Field label="Tags" htmlFor={id("tags")}>
+            <GenreInput id={id("tags")} value={draft.tags} onChange={(t) => set("tags", t)} suggestions={tagSuggestions} noun="tag" />
+          </Field>
+
           <Field label="Synopsis" htmlFor={id("synopsis")}>
             <textarea {...text("synopsis")} className={textareaClass} rows={3} />
           </Field>
@@ -285,17 +307,27 @@ function EditorForm({ target }: { target: EditorTarget }) {
               <input {...text("finishedAt", { type: "date" })} />
             </Field>
           </div>
+          {base && (
+            <p className={styles.note}>
+              Changes to the title, genres or totals apply to your copy only. The shared catalog entry stays as it is for everyone else.
+            </p>
+          )}
           {draft.status === "completed" && (
             <p className={styles.note}>Completed titles are saved as fully {category === "book" ? "read" : "watched"}.</p>
           )}
         </div>
 
         <footer className={styles.foot}>
+          {formError && (
+            <p className={styles.footError} role="alert">
+              {formError}
+            </p>
+          )}
           <Dialog.Close asChild>
             <Button variant="outline">Cancel</Button>
           </Dialog.Close>
-          <Button type="submit" variant="solid">
-            {base ? "Save changes" : "Add to collection"}
+          <Button type="submit" variant="solid" disabled={saving} aria-busy={saving}>
+            {base ? "Save changes" : saving ? "Adding…" : "Add to collection"}
           </Button>
         </footer>
       </form>

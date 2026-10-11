@@ -73,6 +73,14 @@
   background: var(--table-raised);
 }
 
+.footError {
+  margin-right: auto;
+  align-self: center;
+  color: var(--danger);
+  font-size: var(--fs-sm);
+  font-weight: 550;
+}
+
 .row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -14,6 +14,9 @@ const count = (v: unknown): number => (typeof v === "number" && Number.isFinite(
 const countOrNull = (v: unknown): number | null => (count(v) > 0 ? count(v) : null);
 const dateOrNull = (v: unknown): string | null => (typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v) ? v.slice(0, 10) : null);
 
+const strings = (v: unknown): string[] =>
+  Array.isArray(v) ? [...new Set(v.map((g) => str(g)).filter(Boolean))] : [];
+
 function art(v: unknown): CoverArt | undefined {
   if (!v || typeof v !== "object") return undefined;
   const { hue, pattern } = v as Raw;
@@ -22,7 +25,7 @@ function art(v: unknown): CoverArt | undefined {
 }
 
 /**
- * Validates untrusted data (seed file, localStorage, imports) and fills in defaults.
+ * Validates untrusted data (seed file, legacy localStorage, imports, client requests) and fills in defaults.
  * Returns null when the record cannot be recovered into a usable entry.
  */
 export function normalizeItem(input: unknown): MediaItem | null {
@@ -38,12 +41,14 @@ export function normalizeItem(input: unknown): MediaItem | null {
 
   const base = {
     id,
+    catalogId: count(raw.catalogId),
     title,
     creator: str(raw.creator),
     year: countOrNull(raw.year),
     status: isStatus(raw.status) ? raw.status : ("planned" as const),
     rating,
-    genres: Array.isArray(raw.genres) ? [...new Set(raw.genres.map((g) => str(g)).filter(Boolean))] : [],
+    genres: strings(raw.genres),
+    tags: strings(raw.tags),
     synopsis: str(raw.synopsis),
     notes: str(raw.notes),
     posterUrl: str(raw.posterUrl),

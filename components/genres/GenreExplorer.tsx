@@ -11,18 +11,10 @@ import { CATEGORIES, CATEGORY_LABEL } from "@/lib/media/types";
 import styles from "./GenreExplorer.module.css";
 
 export function GenreExplorer() {
-  const { items, ready } = useMedia();
+  const { items } = useMedia();
   const router = useRouter();
   const params = useSearchParams();
   const genres = useMemo(() => allGenres(items), [items]);
-
-  if (!ready) {
-    return (
-      <div className={`shell ${styles.page}`} aria-busy="true">
-        <div className={styles.skeleton} />
-      </div>
-    );
-  }
 
   if (genres.length === 0) {
     return (

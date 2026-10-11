@@ -46,6 +46,11 @@
   padding: 3rem 0;
 }
 
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 .empty h2 {
   font-size: var(--fs-lg);
   font-stretch: 112%;

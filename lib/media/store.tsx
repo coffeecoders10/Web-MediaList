@@ -1,88 +1,132 @@
 "use client";
 
-import { createContext, use, useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, use, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { addToCollection, removeFromCollection, saveToCollection } from "@/app/actions/library";
+import type { AddSummary } from "./api";
 import { normalizeList } from "./normalize";
-import { mediaRepository } from "./repository";
 import type { MediaItem } from "./types";
+
+export type AddOutcome = ({ ok: true } & AddSummary) | { ok: false; error: string };
 
 interface MediaStore {
   items: MediaItem[];
-  /** False until the collection has been read from storage. */
-  ready: boolean;
   get: (id: string) => MediaItem | undefined;
-  /** Creates or replaces an entry and stamps its update time. */
+  /** Saves changes to an entry already in the collection (also re-adds one that was just removed). Optimistic. */
   save: (item: MediaItem) => void;
+  /** Adds new titles; waits for the server because it decides their ids. */
+  add: (items: MediaItem[]) => Promise<AddOutcome>;
   remove: (id: string) => MediaItem | undefined;
   exportJson: () => string;
-  /** Returns the number of entries imported, or 0 when the file held none. */
-  importJson: (json: string) => Promise<number>;
-  resetToSample: () => void;
+  /** Adds the titles in a JSON export. Returns how many were new to the collection, or null when the file held none. */
+  importJson: (json: string) => Promise<AddOutcome | null>;
+  /** Registers a listener for background failures (a save the server rejected). Returns its unsubscribe. */
+  onError: (listener: (message: string) => void) => () => void;
 }
 
 const MediaContext = createContext<MediaStore | null>(null);
 
-export function MediaProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<MediaItem[]>([]);
-  const [ready, setReady] = useState(false);
+/** Imports go up in slices so a large file stays under the request size limit. */
+const CHUNK = 100;
+
+export function MediaProvider({ initialItems, children }: { initialItems: MediaItem[]; children: ReactNode }) {
+  const [items, setItems] = useState(initialItems);
+  const itemsRef = useRef(items);
+  const listeners = useRef(new Set<(message: string) => void>());
+  // Writes go to the server one at a time, in the order they were made, so a quick run of
+  // edits can never arrive out of order and leave an older value behind.
+  const queue = useRef<Promise<unknown>>(Promise.resolve());
 
   useEffect(() => {
-    let cancelled = false;
-    mediaRepository.list().then((list) => {
-      if (cancelled) return;
-      setItems(list);
-      setReady(true);
-    });
-    return () => {
-      cancelled = true;
-    };
+    itemsRef.current = items;
+  }, [items]);
+
+  const fail = useCallback((message: string) => listeners.current.forEach((l) => l(message)), []);
+
+  const enqueue = useCallback(<T,>(task: () => Promise<T>): Promise<T> => {
+    const run = queue.current.then(task, task);
+    queue.current = run.catch(() => {});
+    return run;
   }, []);
 
   const get = useCallback((id: string) => items.find((i) => i.id === id), [items]);
 
-  const save = useCallback((item: MediaItem) => {
-    const stamped = { ...item, updatedAt: new Date().toISOString() } as MediaItem;
-    setItems((prev) => {
-      const exists = prev.some((i) => i.id === stamped.id);
-      return exists ? prev.map((i) => (i.id === stamped.id ? stamped : i)) : [stamped, ...prev];
-    });
-    void mediaRepository.save(stamped);
-  }, []);
+  const save = useCallback(
+    (item: MediaItem) => {
+      const stamped = { ...item, updatedAt: new Date().toISOString() } as MediaItem;
+      const before = itemsRef.current.find((i) => i.id === stamped.id);
+      setItems((prev) => (prev.some((i) => i.id === stamped.id) ? prev.map((i) => (i.id === stamped.id ? stamped : i)) : [stamped, ...prev]));
+      void enqueue(() => saveToCollection(stamped)).then((result) => {
+        if (result.ok) return;
+        // Put back what was there before this edit.
+        setItems((prev) => (before ? prev.map((i) => (i.id === before.id ? before : i)) : prev.filter((i) => i.id !== stamped.id)));
+        fail(`Couldn't save “${stamped.title}”. ${result.error}`);
+      });
+    },
+    [enqueue, fail],
+  );
+
+  const add = useCallback(
+    async (batch: MediaItem[]): Promise<AddOutcome> => {
+      const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
+      for (let i = 0; i < batch.length; i += CHUNK) {
+        let result;
+        try {
+          result = await enqueue(() => addToCollection(batch.slice(i, i + CHUNK)));
+        } catch {
+          return { ok: false, error: "Couldn't reach the server. Check your connection and try again." };
+        }
+        if (!result.ok) return result;
+        summary.items.push(...result.items);
+        summary.created += result.created;
+        summary.matched += result.matched;
+        summary.skipped += result.skipped;
+      }
+      const added = summary.items;
+      setItems((prev) => [...added, ...prev.filter((p) => !added.some((a) => a.id === p.id))]);
+      return { ok: true, ...summary };
+    },
+    [enqueue],
+  );
 
   const remove = useCallback(
     (id: string) => {
-      const removed = items.find((i) => i.id === id);
+      const removed = itemsRef.current.find((i) => i.id === id);
+      if (!removed) return undefined;
       setItems((prev) => prev.filter((i) => i.id !== id));
-      void mediaRepository.remove(id);
+      void enqueue(() => removeFromCollection(id)).then((result) => {
+        if (result.ok) return;
+        setItems((prev) => (prev.some((i) => i.id === id) ? prev : [removed, ...prev]));
+        fail(`Couldn't delete “${removed.title}”. ${result.error}`);
+      });
       return removed;
     },
-    [items],
+    [enqueue, fail],
   );
 
   const exportJson = useCallback(() => JSON.stringify(items, null, 2), [items]);
 
-  const importJson = useCallback(async (json: string) => {
-    let parsed: unknown;
-    try {
-      parsed = JSON.parse(json);
-    } catch {
-      return 0;
-    }
-    const list = normalizeList(parsed);
-    if (list.length === 0) return 0;
-    setItems(list);
-    await mediaRepository.replaceAll(list);
-    return list.length;
-  }, []);
+  const importJson = useCallback(
+    async (json: string) => {
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(json);
+      } catch {
+        return null;
+      }
+      const list = normalizeList(parsed);
+      return list.length === 0 ? null : add(list);
+    },
+    [add],
+  );
 
-  const resetToSample = useCallback(() => {
-    const sample = mediaRepository.sample();
-    setItems(sample);
-    void mediaRepository.replaceAll(sample);
+  const onError = useCallback((listener: (message: string) => void) => {
+    listeners.current.add(listener);
+    return () => void listeners.current.delete(listener);
   }, []);
 
   const value = useMemo(
-    () => ({ items, ready, get, save, remove, exportJson, importJson, resetToSample }),
-    [items, ready, get, save, remove, exportJson, importJson, resetToSample],
+    () => ({ items, get, save, add, remove, exportJson, importJson, onError }),
+    [items, get, save, add, remove, exportJson, importJson, onError],
   );
 
   return <MediaContext value={value}>{children}</MediaContext>;

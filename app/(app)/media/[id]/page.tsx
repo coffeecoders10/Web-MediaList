@@ -1,13 +1,7 @@
 import { Suspense } from "react";
 import { MediaDetail } from "@/components/detail/MediaDetail";
-import seed from "@/lib/media/seed.json";
 
-// Entries you add yourself live in the browser, so only the sample ids are prerendered.
-// Any other id is rendered on demand and looked up client-side.
-export function generateStaticParams() {
-  return seed.map(({ id }) => ({ id }));
-}
-
+// Each user's collection is private and loaded per request, so there is nothing to prerender by id.
 async function Detail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   return <MediaDetail id={id} />;
