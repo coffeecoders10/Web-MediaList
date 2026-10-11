@@ -1,0 +1,292 @@
+.page {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: clamp(1.25rem, 0.8rem + 2vw, 2.5rem) 5rem;
+}
+
+.heading {
+  font-size: var(--fs-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.lead {
+  max-width: 34ch;
+  font-size: var(--fs-xl);
+  font-stretch: 105%;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink-2);
+}
+.lead strong {
+  color: var(--ink);
+  font-weight: 750;
+}
+.lead a {
+  color: var(--ink);
+}
+
+/* Status split: segments are separated by a 2px gap of table, never touching. */
+.statusBar {
+  display: grid;
+  gap: 0.875rem;
+  max-width: 56rem;
+}
+
+.segments {
+  display: flex;
+  gap: 2px;
+  height: 0.875rem;
+  list-style: none;
+  padding: 0;
+}
+.segment {
+  flex-basis: 0;
+  min-width: 6px;
+  background: var(--seg);
+  border-radius: 3px;
+}
+.segment[data-status="completed"] { --seg: var(--st-completed); }
+.segment[data-status="in-progress"] { --seg: var(--st-in-progress); }
+.segment[data-status="planned"] { --seg: var(--st-planned); }
+.segment[data-status="on-hold"] { --seg: var(--st-on-hold); }
+.segment[data-status="dropped"] { --seg: var(--st-dropped); }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  list-style: none;
+  padding: 0;
+}
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.legendCount {
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 880px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  background: var(--table-raised);
+  border-radius: var(--r-lg);
+}
+
+.panelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+.panelHead h2 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  font-stretch: 112%;
+}
+.panelHead p {
+  font-size: var(--fs-sm);
+  color: var(--ink-3);
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1.25rem 2rem;
+}
+.totals dt {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.totals dd {
+  font-size: var(--fs-lg);
+  font-stretch: 112%;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.rows {
+  display: grid;
+  gap: 0.875rem;
+  list-style: none;
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) 3.5rem;
+  align-items: center;
+  gap: 0.875rem;
+}
+.rowLabel {
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a.rowLabel:hover {
+  text-decoration: underline;
+}
+
+.rowTrack {
+  display: block;
+  height: 0.625rem;
+}
+.rowTotal {
+  display: block;
+  height: 100%;
+  background: var(--rule-strong);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 4px;
+}
+.rowDone {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+.rowValue {
+  text-align: right;
+  font-weight: 700;
+}
+.muted {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+/* Column charts: fixed plot height, counts labelled directly above each bar. */
+.columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: clamp(0.25rem, 0.1rem + 0.8vw, 0.75rem);
+  align-items: end;
+  height: 12rem;
+  list-style: none;
+  padding: 0;
+}
+
+.column {
+  display: grid;
+  grid-template-rows: 1.25rem minmax(0, 1fr) 2.25rem;
+  justify-items: center;
+  height: 100%;
+}
+
+.columnCount {
+  align-self: end;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  padding-bottom: 0.25rem;
+}
+
+.columnBar {
+  align-self: end;
+  width: 100%;
+  max-width: 2.5rem;
+  background: var(--accent);
+  border-radius: 4px 4px 0 0;
+  transition: height 500ms var(--ease-out);
+}
+.columnBar[data-empty] {
+  height: 2px !important;
+  background: var(--rule-strong);
+  border-radius: 0;
+}
+
+.columnLabel {
+  display: grid;
+  justify-items: center;
+  padding-top: 0.5rem;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.year {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  opacity: 0.8;
+}
+
+.recent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 0.5rem 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.5rem 0;
+}
+
+.thumb {
+  flex: none;
+  width: 2.5rem;
+}
+
+.recentText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-sm);
+}
+.recentLink {
+  overflow: hidden;
+  font-size: var(--fs-base);
+  font-weight: 650;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recentLink:hover {
+  text-decoration: underline;
+}
+
+.skeleton {
+  height: 20rem;
+  border-radius: var(--r-lg);
+  background: var(--table-raised);
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 5rem minmax(0, 1fr) 3rem;
+    gap: 0.625rem;
+  }
+  .columns {
+    height: 10rem;
+  }
+}

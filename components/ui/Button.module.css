@@ -1,0 +1,93 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font-weight: 550;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    transform 90ms var(--ease-out);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.md {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: var(--fs-base);
+}
+
+.sm {
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  font-size: var(--fs-sm);
+}
+
+.icon.md {
+  width: 2.5rem;
+  padding: 0;
+}
+.icon.sm {
+  width: 2rem;
+  padding: 0;
+}
+
+.solid {
+  background: var(--ink);
+  color: var(--table);
+}
+.solid:hover:not(:disabled) {
+  background: oklch(1 0 0);
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--rule-strong);
+  color: var(--ink);
+}
+.outline:hover:not(:disabled) {
+  background: var(--table-hover);
+}
+
+.quiet {
+  background: transparent;
+  color: var(--ink-2);
+}
+.quiet:hover:not(:disabled) {
+  background: var(--table-hover);
+  color: var(--ink);
+}
+
+.danger {
+  background: transparent;
+  border-color: oklch(0.72 0.17 25 / 0.55);
+  color: var(--danger);
+}
+.danger:hover:not(:disabled) {
+  background: oklch(0.72 0.17 25 / 0.14);
+}
+
+/* Sits on top of artwork, so it carries its own dark backing. */
+.float {
+  background: oklch(0.14 0.014 245 / 0.88);
+  border-color: oklch(1 0 0 / 0.14);
+  color: var(--ink);
+  backdrop-filter: blur(6px);
+}
+.float:hover:not(:disabled) {
+  background: oklch(0.26 0.018 245 / 0.95);
+}

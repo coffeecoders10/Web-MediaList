@@ -1,0 +1,82 @@
+.page {
+  display: grid;
+  gap: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+  padding-block: clamp(1.25rem, 0.8rem + 2vw, 2.5rem) 5rem;
+}
+
+.browse {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2rem;
+  color: var(--ink-2);
+  font-weight: 550;
+}
+
+.of {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr));
+  gap: 2rem 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+.empty {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  max-width: 28rem;
+  padding: 3rem 0;
+}
+
+.empty h2 {
+  font-size: var(--fs-lg);
+  font-stretch: 112%;
+  font-weight: 700;
+}
+
+.empty p {
+  color: var(--ink-2);
+}
+
+.skeletonPanel {
+  height: 17rem;
+  border-radius: var(--r-lg);
+  background: var(--table-raised);
+}
+
+.skeletonCard {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--r-sm);
+  background: var(--table-raised);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeletonPanel,
+  .skeletonCard {
+    animation: breathe 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes breathe {
+  50% {
+    background: var(--table-hover);
+  }
+}

@@ -1,0 +1,80 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--fs-sm);
+  font-weight: 550;
+  color: var(--ink-2);
+}
+
+.status[data-status="completed"] svg { color: var(--st-completed); }
+.status[data-status="in-progress"] svg { color: var(--st-in-progress); }
+.status[data-status="planned"] svg { color: var(--st-planned); }
+.status[data-status="on-hold"] svg { color: var(--st-on-hold); }
+.status[data-status="dropped"] svg { color: var(--st-dropped); }
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: var(--fs-sm);
+  color: var(--tag-ink, var(--ink-3));
+}
+
+.rating {
+  font-weight: 700;
+  font-stretch: 112%;
+  font-size: var(--fs-base);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.ratingLg {
+  font-size: var(--fs-lg);
+}
+
+.unrated {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.outOf {
+  margin-left: 0.15em;
+  font-size: 0.72em;
+  font-weight: 500;
+  font-stretch: 100%;
+  color: var(--ink-3);
+}
+
+.leader {
+  display: grid;
+  gap: 0.375rem;
+  --lead: var(--st-in-progress);
+}
+.leader[data-status="completed"] { --lead: var(--st-completed); }
+.leader[data-status="planned"] { --lead: var(--st-planned); }
+.leader[data-status="on-hold"] { --lead: var(--st-on-hold); }
+.leader[data-status="dropped"] { --lead: var(--st-dropped); }
+
+/* The track is a ruler: ticks every tenth. Surfaces can retint it with --leader-* variables. */
+.track {
+  position: relative;
+  height: 0.5rem;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(10% - 1px), var(--leader-tick, oklch(0.16 0.014 245 / 0.8)) calc(10% - 1px) 10%),
+    var(--leader-track, oklch(0.9 0.01 245 / 0.22));
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--leader-fill, var(--lead));
+  border-radius: 2px;
+  transition: width 420ms var(--ease-out);
+}
+
+.leaderLabel {
+  font-size: var(--fs-xs);
+  color: var(--leader-text, var(--ink-2));
+}

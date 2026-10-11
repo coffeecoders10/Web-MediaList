@@ -1,49 +1,196 @@
+/* Lightbox design tokens. The ground is a dark table; the one lit surface is the
+   "Now showing" panel. Colour is reserved for status, so the rest stays neutral. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  /* Table surfaces */
+  --table: oklch(0.165 0.014 245);
+  --table-raised: oklch(0.205 0.016 245);
+  --table-hover: oklch(0.255 0.018 245);
+  --table-input: oklch(0.145 0.014 245);
+  --rule: oklch(0.36 0.02 245 / 0.55);
+  --rule-strong: oklch(0.5 0.022 245 / 0.7);
+
+  /* Ink */
+  --ink: oklch(0.95 0.008 95);
+  --ink-2: oklch(0.78 0.014 245);
+  --ink-3: oklch(0.67 0.018 245);
+
+  /* Lit glass (the light-table panel) */
+  --lit: oklch(0.86 0.012 230);
+  --lit-edge: oklch(0.98 0.006 230);
+  --lit-ink: oklch(0.2 0.02 245);
+  --lit-ink-2: oklch(0.38 0.025 245);
+
+  --accent: oklch(0.84 0.1 205);
+  --accent-ink: oklch(0.18 0.03 215);
+  --danger: oklch(0.72 0.17 25);
+
+  /* Status marks: hue and glyph always travel together */
+  --st-completed: oklch(0.8 0.15 155);
+  --st-in-progress: oklch(0.86 0.15 92);
+  --st-planned: oklch(0.78 0.11 265);
+  --st-on-hold: oklch(0.76 0.13 320);
+  --st-dropped: oklch(0.7 0.18 25);
+
+  /* Type */
+  --font: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  --fs-display: clamp(2.5rem, 1.4rem + 4.6vw, 5.25rem);
+
+  /* Shape and space */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --header-h: 3.5rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 180ms;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+  scrollbar-color: oklch(0.4 0.02 245) transparent;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--table);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  accent-color: var(--accent);
+  caret-color: var(--accent);
+}
+
+::selection {
+  background: oklch(0.84 0.1 205 / 0.35);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.36 0.02 245);
+  border-radius: 10px;
+  border: 2px solid var(--table);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  line-height: 1.1;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Width-axis helpers: one family, three voices. */
+.wide {
+  font-stretch: 125%;
+  letter-spacing: -0.015em;
+}
+.narrow {
+  font-stretch: 75%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+main {
+  min-height: calc(100dvh - var(--header-h));
+}
+
+@media (max-width: 719px) {
+  main {
+    padding-bottom: 4.5rem;
+  }
+}
+
+.shell {
+  width: 100%;
+  max-width: 1480px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

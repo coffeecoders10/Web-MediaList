@@ -1,0 +1,142 @@
+/* The lit glass. Everything inside re-tints from the --lit tokens. */
+.panel {
+  --leader-track: oklch(0.2 0.02 245 / 0.14);
+  --leader-tick: oklch(0.86 0.012 230);
+  --leader-fill: oklch(0.42 0.12 250);
+  --leader-text: var(--lit-ink-2);
+  --tag-ink: var(--lit-ink-2);
+
+  position: relative;
+  padding: clamp(1rem, 0.5rem + 2vw, 2rem);
+  background: var(--lit);
+  color: var(--lit-ink);
+  border-radius: var(--r-lg);
+  box-shadow:
+    inset 0 1px 0 var(--lit-edge),
+    0 0 0 1px oklch(0.98 0.006 230 / 0.5),
+    0 24px 60px oklch(0 0 0 / 0.45);
+  animation: switch-on 900ms var(--ease-out) both;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+}
+
+.heading {
+  font-size: var(--fs-xl);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.count {
+  color: var(--lit-ink-2);
+  font-size: var(--fs-sm);
+  font-weight: 550;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.5rem), 1fr));
+  gap: clamp(1rem, 0.5rem + 1.6vw, 2rem);
+  list-style: none;
+  padding: 0;
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(6rem, 5rem + 4vw, 8.5rem) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Cover reads as a transparency: its own colours are the light source. */
+.cover {
+  border-radius: var(--r-sm);
+  box-shadow: 0 10px 24px oklch(0.2 0.03 245 / 0.35);
+}
+
+.text {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  font-stretch: 108%;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.link {
+  text-decoration: none;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.link:focus-visible {
+  outline: none;
+}
+.link:focus-visible::after {
+  outline: 2px solid var(--lit-ink);
+  outline-offset: 4px;
+  border-radius: var(--r-md);
+}
+
+.position {
+  font-weight: 650;
+  font-size: var(--fs-base);
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  justify-self: start;
+  background: var(--lit-ink);
+  color: var(--lit);
+}
+.step:hover:not(:disabled) {
+  background: oklch(0.3 0.02 245);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--lit-ink-2);
+}
+
+.empty button {
+  background: var(--lit-ink);
+  color: var(--lit);
+}
+
+/* The one authored moment: the panel warms up like a lamp coming on. */
+@keyframes switch-on {
+  0% {
+    filter: brightness(0.35);
+  }
+  30% {
+    filter: brightness(0.85);
+  }
+  42% {
+    filter: brightness(0.55);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}

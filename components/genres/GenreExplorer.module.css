@@ -1,0 +1,165 @@
+.page {
+  padding-block: clamp(1.25rem, 0.8rem + 2vw, 2.5rem) 5rem;
+}
+
+.layout {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .layout {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  }
+  .index {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    max-height: calc(100dvh - var(--header-h) - 3rem);
+    display: flex;
+    flex-direction: column;
+  }
+  .list {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: var(--fs-xl);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.list {
+  display: flex;
+  gap: 0.25rem;
+}
+
+@media (max-width: 879px) {
+  .list {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+  .trigger {
+    flex: none;
+    min-width: 8rem;
+  }
+}
+
+/* Each genre carries its own proportion: the rule under the name is its share of the largest genre. */
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0.75rem 0.875rem;
+  background: transparent;
+  border: 0;
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  text-align: left;
+  font-weight: 600;
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.trigger:hover {
+  background: var(--table-raised);
+  color: var(--ink);
+}
+.trigger[data-state="active"] {
+  background: var(--table-raised);
+  color: var(--ink);
+}
+
+.count {
+  color: var(--ink-3);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+
+.bar {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.4375rem;
+  max-width: calc(100% - 1.5rem);
+  height: 2px;
+  background: var(--rule-strong);
+  border-radius: 2px;
+}
+.trigger[data-state="active"] .bar {
+  background: var(--accent);
+}
+
+.content {
+  display: grid;
+  gap: 2rem;
+  min-width: 0;
+  outline: none;
+}
+
+.head {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.title {
+  font-size: var(--fs-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--rule);
+}
+.facts dt {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.facts dd {
+  font-size: var(--fs-md);
+  font-weight: 650;
+}
+.mix {
+  text-transform: none;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  gap: 2rem 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skeleton {
+  height: 30rem;
+  border-radius: var(--r-lg);
+  background: var(--table-raised);
+}
+
+.empty {
+  font-size: var(--fs-xl);
+  font-stretch: 118%;
+}
+.emptyText {
+  margin-top: 0.5rem;
+  color: var(--ink-2);
+}
