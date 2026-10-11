@@ -1,5 +1,6 @@
 .bar {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.875rem;
 }
 
@@ -95,8 +96,60 @@
   color: var(--ink);
 }
 
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.categoryRow {
+  min-width: 0;
+}
+
+.legendTrigger {
+  display: none;
+  place-items: center;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: 0;
+  border-radius: var(--r-md);
+  color: var(--ink-3);
+}
+.legendTrigger:hover {
+  color: var(--ink);
+}
+
+.iconOnly {
+  display: none;
+}
+
+.legend {
+  display: grid;
+  gap: 0.125rem;
+  list-style: none;
+  padding: 0;
+}
+.legend li[data-status="completed"] { --glyph: var(--st-completed); }
+.legend li[data-status="in-progress"] { --glyph: var(--st-in-progress); }
+.legend li[data-status="planned"] { --glyph: var(--st-planned); }
+.legend li[data-status="on-hold"] { --glyph: var(--st-on-hold); }
+.legend li[data-status="dropped"] { --glyph: var(--st-dropped); }
+.legend li[data-status] svg { color: var(--glyph); }
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.3125rem 0.25rem;
+}
+
 /* Category: a segmented strip that scrolls sideways on narrow screens. */
 .categories {
+  flex: 1;
+  min-width: 0;
   display: flex;
   gap: 0.25rem;
   overflow-x: auto;
@@ -166,6 +219,7 @@
 }
 
 .status {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -276,6 +330,52 @@
 
 .arrow {
   fill: var(--rule-strong);
+}
+
+/* Phones: categories and statuses collapse to icons; the info button explains them. */
+@media (max-width: 719px) {
+  .legendTrigger {
+    display: grid;
+  }
+
+  .iconOnly {
+    display: block;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .category {
+    flex: none;
+    justify-content: center;
+    padding: 0 0.75rem;
+  }
+  .categories {
+    justify-content: space-between;
+  }
+  .category[data-state="on"] .label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+  .category[data-state="on"]::after {
+    inset: auto 0.75rem -0.3125rem;
+  }
+  .category .count {
+    display: none;
+  }
+
+  .status {
+    padding: 0 0.75rem;
+  }
 }
 
 @keyframes pop {

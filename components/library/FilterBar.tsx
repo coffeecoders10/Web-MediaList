@@ -1,13 +1,35 @@
 "use client";
 
-import { CheckIcon, Cross2Icon, GridIcon, ListBulletIcon, MagnifyingGlassIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
+import {
+  CheckIcon,
+  Cross2Icon,
+  GridIcon,
+  InfoCircledIcon,
+  LayersIcon,
+  ListBulletIcon,
+  MagnifyingGlassIcon,
+  MixerHorizontalIcon,
+} from "@radix-ui/react-icons";
 import { Checkbox, Popover, ToggleGroup } from "radix-ui";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CategoryIcon, StatusGlyph } from "@/components/ui/Icons";
 import { Select } from "@/components/ui/Select";
-import { SORT_LABEL, SORTS, type LibraryFilters, type SortKey } from "@/lib/media/filters";
-import { CATEGORIES, CATEGORY_LABEL, STATUS_LABEL, STATUSES, isCategory, isStatus, type Category } from "@/lib/media/types";
+import {
+  SORT_LABEL,
+  SORTS,
+  type LibraryFilters,
+  type SortKey,
+} from "@/lib/media/filters";
+import {
+  CATEGORIES,
+  CATEGORY_LABEL,
+  STATUS_LABEL,
+  STATUSES,
+  isCategory,
+  isStatus,
+  type Category,
+} from "@/lib/media/types";
 import styles from "./FilterBar.module.css";
 
 interface FilterBarProps {
@@ -26,7 +48,13 @@ const RATING_OPTIONS = [
   { value: "9", label: "9 and up" },
 ];
 
-export function FilterBar({ filters, onChange, categoryCounts, total, genres }: FilterBarProps) {
+export function FilterBar({
+  filters,
+  onChange,
+  categoryCounts,
+  total,
+  genres,
+}: FilterBarProps) {
   // The box keeps what you typed; the URL (and the results) follow a beat later.
   const [typed, setTyped] = useState(filters.q);
   const [urlQ, setUrlQ] = useState(filters.q);
@@ -39,14 +67,20 @@ export function FilterBar({ filters, onChange, categoryCounts, total, genres }: 
   const commitSearch = (value: string) => {
     setTyped(value);
     window.clearTimeout(commitTimer.current);
-    commitTimer.current = window.setTimeout(() => onChange({ q: value.trim() }), 180);
+    commitTimer.current = window.setTimeout(
+      () => onChange({ q: value.trim() }),
+      180,
+    );
   };
 
   return (
     <div className={styles.bar}>
       <div className={styles.top}>
         <div className={styles.search}>
-          <MagnifyingGlassIcon className={styles.searchIcon} aria-hidden="true" />
+          <MagnifyingGlassIcon
+            className={styles.searchIcon}
+            aria-hidden="true"
+          />
           <input
             type="search"
             className={styles.searchInput}
@@ -57,7 +91,12 @@ export function FilterBar({ filters, onChange, categoryCounts, total, genres }: 
             onKeyDown={(e) => e.key === "Escape" && commitSearch("")}
           />
           {typed && (
-            <button type="button" className={styles.clear} aria-label="Clear search" onClick={() => commitSearch("")}>
+            <button
+              type="button"
+              className={styles.clear}
+              aria-label="Clear search"
+              onClick={() => commitSearch("")}
+            >
               <Cross2Icon />
             </button>
           )}
@@ -67,65 +106,152 @@ export function FilterBar({ filters, onChange, categoryCounts, total, genres }: 
           type="single"
           className={styles.view}
           value={filters.view}
-          onValueChange={(v) => (v === "grid" || v === "list") && onChange({ view: v })}
+          onValueChange={(v) =>
+            (v === "grid" || v === "list") && onChange({ view: v })
+          }
           aria-label="Layout"
         >
-          <ToggleGroup.Item value="grid" className={styles.viewItem} aria-label="Cover grid">
+          <ToggleGroup.Item
+            value="grid"
+            className={styles.viewItem}
+            aria-label="Cover grid"
+          >
             <GridIcon />
           </ToggleGroup.Item>
-          <ToggleGroup.Item value="list" className={styles.viewItem} aria-label="Detailed list">
+          <ToggleGroup.Item
+            value="list"
+            className={styles.viewItem}
+            aria-label="Detailed list"
+          >
             <ListBulletIcon />
           </ToggleGroup.Item>
         </ToggleGroup.Root>
       </div>
 
-      <ToggleGroup.Root
-        type="single"
-        className={styles.categories}
-        value={filters.category ?? "all"}
-        onValueChange={(v) => v && onChange({ category: isCategory(v) ? v : null })}
-        aria-label="Category"
-      >
-        <ToggleGroup.Item value="all" className={styles.category}>
-          All <span className={styles.count}>{total}</span>
-        </ToggleGroup.Item>
-        {CATEGORIES.map((c) => (
-          <ToggleGroup.Item key={c} value={c} className={styles.category}>
-            <CategoryIcon category={c} size={15} />
-            {CATEGORY_LABEL[c].plural}
-            <span className={styles.count}>{categoryCounts[c]}</span>
-          </ToggleGroup.Item>
-        ))}
-      </ToggleGroup.Root>
-
-      <div className={styles.row}>
+      <div className={styles.categoryRow}>
         <ToggleGroup.Root
-          type="multiple"
-          className={styles.statuses}
-          value={filters.statuses}
-          onValueChange={(v) => onChange({ statuses: v.filter(isStatus) })}
-          aria-label="Status"
+          type="single"
+          className={styles.categories}
+          value={filters.category ?? "all"}
+          onValueChange={(v) =>
+            v && onChange({ category: isCategory(v) ? v : null })
+          }
+          aria-label="Category"
         >
-          {STATUSES.map((s) => (
-            <ToggleGroup.Item key={s} value={s} className={styles.status} data-status={s}>
-              <StatusGlyph status={s} size={14} />
-              {STATUS_LABEL[s]}
+          <ToggleGroup.Item
+            value="all"
+            className={styles.category}
+            aria-label="All"
+          >
+            <LayersIcon className={styles.iconOnly} aria-hidden="true" />
+            <span className={styles.label}>All</span>{" "}
+            <span className={styles.count}>{total}</span>
+          </ToggleGroup.Item>
+          {CATEGORIES.map((c) => (
+            <ToggleGroup.Item
+              key={c}
+              value={c}
+              className={styles.category}
+              aria-label={CATEGORY_LABEL[c].plural}
+            >
+              <CategoryIcon category={c} size={15} />
+              <span className={styles.label}>{CATEGORY_LABEL[c].plural}</span>
+              <span className={styles.count}>{categoryCounts[c]}</span>
             </ToggleGroup.Item>
           ))}
         </ToggleGroup.Root>
+      </div>
+
+      <div className={styles.row}>
+        <div className={styles.statusRow}>
+          <ToggleGroup.Root
+            type="multiple"
+            className={styles.statuses}
+            value={filters.statuses}
+            onValueChange={(v) => onChange({ statuses: v.filter(isStatus) })}
+            aria-label="Status"
+          >
+            {STATUSES.map((s) => (
+              <ToggleGroup.Item
+                key={s}
+                value={s}
+                className={styles.status}
+                data-status={s}
+                aria-label={STATUS_LABEL[s]}
+              >
+                <StatusGlyph status={s} size={14} />
+                <span className={styles.label}>{STATUS_LABEL[s]}</span>
+              </ToggleGroup.Item>
+            ))}
+          </ToggleGroup.Root>
+          <Popover.Root>
+            <Popover.Trigger asChild>
+              <button
+                type="button"
+                className={styles.legendTrigger}
+                aria-label="What do the icons mean?"
+              >
+                <InfoCircledIcon />
+              </button>
+            </Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content
+                className={styles.popover}
+                align="end"
+                sideOffset={8}
+                collisionPadding={12}
+              >
+                <p className={styles.popoverHint}>Categories</p>
+                <ul className={styles.legend}>
+                  <li>
+                    <LayersIcon aria-hidden="true" /> All
+                  </li>
+                  {CATEGORIES.map((c) => (
+                    <li key={c}>
+                      <CategoryIcon category={c} size={15} />{" "}
+                      {CATEGORY_LABEL[c].plural}
+                    </li>
+                  ))}
+                </ul>
+                <p className={styles.popoverHint}>Status</p>
+                <ul className={styles.legend}>
+                  {STATUSES.map((s) => (
+                    <li key={s} data-status={s}>
+                      <StatusGlyph status={s} size={14} /> {STATUS_LABEL[s]}
+                    </li>
+                  ))}
+                </ul>
+                <Popover.Arrow className={styles.arrow} />
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover.Root>
+        </div>
 
         <div className={styles.selects}>
           <Popover.Root>
             <Popover.Trigger asChild>
-              <Button variant="outline" size="sm" className={styles.genreTrigger}>
+              <Button
+                variant="outline"
+                size="sm"
+                className={styles.genreTrigger}
+              >
                 <MixerHorizontalIcon aria-hidden="true" />
                 Genre
-                {filters.genres.length > 0 && <span className={styles.badge}>{filters.genres.length}</span>}
+                {filters.genres.length > 0 && (
+                  <span className={styles.badge}>{filters.genres.length}</span>
+                )}
               </Button>
             </Popover.Trigger>
             <Popover.Portal>
-              <Popover.Content className={styles.popover} align="end" sideOffset={8} collisionPadding={12}>
-                <p className={styles.popoverHint}>Titles must match every genre you pick.</p>
+              <Popover.Content
+                className={styles.popover}
+                align="end"
+                sideOffset={8}
+                collisionPadding={12}
+              >
+                <p className={styles.popoverHint}>
+                  Titles must match every genre you pick.
+                </p>
                 <ul className={styles.genreList}>
                   {genres.map((g) => {
                     const checked = filters.genres.includes(g.name);
@@ -138,7 +264,14 @@ export function FilterBar({ filters, onChange, categoryCounts, total, genres }: 
                             className={styles.checkbox}
                             checked={checked}
                             onCheckedChange={(on) =>
-                              onChange({ genres: on === true ? [...filters.genres, g.name] : filters.genres.filter((x) => x !== g.name) })
+                              onChange({
+                                genres:
+                                  on === true
+                                    ? [...filters.genres, g.name]
+                                    : filters.genres.filter(
+                                        (x) => x !== g.name,
+                                      ),
+                              })
                             }
                           >
                             <Checkbox.Indicator>
@@ -153,7 +286,11 @@ export function FilterBar({ filters, onChange, categoryCounts, total, genres }: 
                   })}
                 </ul>
                 {filters.genres.length > 0 && (
-                  <Button variant="quiet" size="sm" onClick={() => onChange({ genres: [] })}>
+                  <Button
+                    variant="quiet"
+                    size="sm"
+                    onClick={() => onChange({ genres: [] })}
+                  >
                     Clear genres
                   </Button>
                 )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon,PersonIcon, PlusIcon, UploadIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, Pencil1Icon, PersonIcon, UploadIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +26,7 @@ const summarize = (added: number, skipped: number) =>
 
 export function AppHeader() {
   const pathname = usePathname();
-  const { editMode, setEditMode, openEditor, notify }= useWorkspace();
+  const { editMode, setEditMode, notify } = useWorkspace();
   const { exportJson, importJson, add } = useMedia();
   const user = useUser();
   const legacy = useLegacy(user.userId);
@@ -89,14 +89,8 @@ export function AppHeader() {
         </nav>
 
         <div className={styles.tools}>
-          {editMode && (
-            <Button variant="solid" size="sm" onClick={() => openEditor({ mode: "new" })}>
-              <PlusIcon aria-hidden="true" />
-              Add title
-            </Button>
-          )}
-
           <label className={styles.switch}>
+            <Pencil1Icon className={styles.switchIcon} aria-hidden="true" />
             <span>Edit</span>
             <Switch.Root className={styles.switchRoot} aria-label="Edit mode" checked={editMode} onCheckedChange={setEditMode}>
               <Switch.Thumb className={styles.switchThumb} />

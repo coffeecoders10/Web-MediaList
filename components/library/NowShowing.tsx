@@ -21,7 +21,7 @@ export function NowShowing({ items, onShowPlanned }: { items: MediaItem[]; onSho
     <section className={styles.panel} aria-labelledby="now-showing">
       <div className={styles.head}>
         <h2 id="now-showing" className={styles.heading}>
-          Now showing
+          Now consuming
         </h2>
         <p className={styles.count}>
           {items.length === 0 ? "Nothing in progress" : `${items.length} in progress${items.length > shown.length ? ", latest four shown" : ""}`}

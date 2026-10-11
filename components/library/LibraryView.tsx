@@ -1,5 +1,6 @@
 "use client";
 
+import { PlusIcon } from "@radix-ui/react-icons";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { MediaCard } from "@/components/media/MediaCard";
@@ -23,7 +24,7 @@ import styles from "./LibraryView.module.css";
 
 export function LibraryView() {
   const { items } = useMedia();
-  const { editMode, openEditor, addSampleTitles } = useWorkspace();
+  const { editMode, openEditor } = useWorkspace();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -62,6 +63,14 @@ export function LibraryView() {
         <h1 id="library-heading" className="sr-only">
           Library
         </h1>
+        {editMode && (
+          <div className={styles.addRow}>
+            <Button variant="solid" size="sm" onClick={() => openEditor({ mode: "new" })}>
+              <PlusIcon aria-hidden="true" />
+              Add title
+            </Button>
+          </div>
+        )}
         <FilterBar filters={filters} onChange={update} categoryCounts={categoryCounts} total={items.length} genres={genres} />
 
         <div className={styles.summary} aria-live="polite">
@@ -81,16 +90,13 @@ export function LibraryView() {
             {items.length === 0 ? (
               <>
                 <h2>Your collection is empty</h2>
-                <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title, or start from the sample titles."}</p>
+                <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title."}</p>
                 <div className={styles.emptyActions}>
                   {editMode && (
                     <Button variant="solid" onClick={() => openEditor({ mode: "new" })}>
                       Add a title
                     </Button>
                   )}
-                  <Button variant={editMode ? "outline" : "solid"} onClick={() => void addSampleTitles()}>
-                    Add the sample titles
-                  </Button>
                 </div>
               </>
             ) : (

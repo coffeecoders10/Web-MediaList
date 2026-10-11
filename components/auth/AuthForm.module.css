@@ -10,7 +10,7 @@
   }
 }
 
-/* The lit panel: the single backlit surface, as on the library's Now showing strip. */
+/* The lit panel: the single backlit surface, as on the library's Now consuming strip. */
 .lit {
   display: none;
   position: relative;
