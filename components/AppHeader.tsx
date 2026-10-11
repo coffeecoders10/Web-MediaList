@@ -1,6 +1,6 @@
 "use client";
 
-import { ArchiveIcon, DownloadIcon, ExitIcon, MixIcon, PersonIcon, PlusIcon, UploadIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon,PersonIcon, PlusIcon, UploadIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +26,7 @@ const summarize = (added: number, skipped: number) =>
 
 export function AppHeader() {
   const pathname = usePathname();
-  const { editMode, setEditMode, openEditor, notify, addSampleTitles } = useWorkspace();
+  const { editMode, setEditMode, openEditor, notify }= useWorkspace();
   const { exportJson, importJson, add } = useMedia();
   const user = useUser();
   const legacy = useLegacy(user.userId);
@@ -42,6 +42,15 @@ export function AppHeader() {
     a.click();
     URL.revokeObjectURL(url);
     notify("Collection exported");
+  };
+
+  const copyUserId = async () => {
+    try {
+      await navigator.clipboard.writeText(user.userId);
+      notify("User ID copied");
+    } catch {
+      notify("Couldn't copy the user ID");
+    }
   };
 
   const onFile = async (file: File | undefined) => {
@@ -106,10 +115,12 @@ export function AppHeader() {
                   <strong>{user.fullName || user.username}</strong>
                   <span>@{user.username}</span>
                 </DropdownMenu.Label>
+                {editMode && (
+                  <DropdownMenu.Item className={styles.menuItem} onSelect={() => void copyUserId()}>
+                    <CopyIcon /> Copy user ID
+                  </DropdownMenu.Item>
+                )}
                 <DropdownMenu.Separator className={styles.menuSep} />
-                <DropdownMenu.Item className={styles.menuItem} onSelect={() => void addSampleTitles()}>
-                  <MixIcon /> Add sample titles
-                </DropdownMenu.Item>
                 {legacy.count > 0 && (
                   <DropdownMenu.Item className={styles.menuItem} disabled={importing} onSelect={() => void importFromBrowser()}>
                     <ArchiveIcon /> Import {legacy.count} saved in this browser
