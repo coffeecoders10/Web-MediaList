@@ -3,10 +3,10 @@
 import { PlusIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Cover } from "@/components/Cover";
-import { CategoryTag, ProgressLeader } from "@/components/media/Marks";
+import { CategoryTag, ProgressLeader, SeriesLine } from "@/components/media/Marks";
 import { Button } from "@/components/ui/Button";
 import { useWorkspace } from "@/components/workspace/Workspace";
-import { positionLabel, quickStep } from "@/lib/media/progress";
+import { quickStep } from "@/lib/media/progress";
 import { useMedia } from "@/lib/media/store";
 import type { MediaItem } from "@/lib/media/types";
 import styles from "./NowShowing.module.css";
@@ -21,7 +21,7 @@ export function NowShowing({ items, onShowPlanned }: { items: MediaItem[]; onSho
     <section className={styles.panel} aria-labelledby="now-showing">
       <div className={styles.head}>
         <h2 id="now-showing" className={styles.heading}>
-          Now showing
+          Now consuming
         </h2>
         <p className={styles.count}>
           {items.length === 0 ? "Nothing in progress" : `${items.length} in progress${items.length > shown.length ? ", latest four shown" : ""}`}
@@ -39,7 +39,6 @@ export function NowShowing({ items, onShowPlanned }: { items: MediaItem[]; onSho
         <ul className={styles.list}>
           {shown.map((item) => {
             const step = editMode ? quickStep(item) : null;
-            const position = positionLabel(item);
             return (
               <li key={item.id} className={styles.entry}>
                 <div className={styles.cover}>
@@ -52,7 +51,7 @@ export function NowShowing({ items, onShowPlanned }: { items: MediaItem[]; onSho
                       {item.title}
                     </Link>
                   </h3>
-                  {position && <p className={styles.position}>{position}</p>}
+                  <SeriesLine item={item} className={styles.position} />
                   <ProgressLeader item={item} />
                   {step && (
                     <Button variant="solid" size="sm" className={styles.step} onClick={() => save(step.apply())}>

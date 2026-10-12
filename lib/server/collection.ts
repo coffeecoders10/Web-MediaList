@@ -1,9 +1,9 @@
 import "server-only";
-import type { AddSummary } from "@/lib/media/api";
+import type { AddSummary, Submission } from "@/lib/media/api";
 import { mergeEntry, toUserEntry, type UserEntry } from "@/lib/media/model";
 import { CATEGORIES, itemKey, parseItemKey, type Category, type MediaItem } from "@/lib/media/types";
 import { BackboneError, userMedia } from "./backbone";
-import { fileInCatalog, readCatalogEntry, readCatalogs } from "./catalog";
+import { fileInCatalog, readCatalogs, updateCatalogEntry } from "./catalog";
 
 /**
  * One user's collection: a `user_media` document keyed by their Backbone `user_id`. It holds only
@@ -54,11 +54,11 @@ function serial<T>(userId: string, task: () => Promise<T>): Promise<T> {
 
 export async function loadLibrary(userId: string): Promise<MediaItem[]> {
   const doc = await readUserDoc(userId);
-  const refs = Object.values(doc.entries);
-  const catalogs = await readCatalogs(refs.map((r) => r.category));
+  const catalogs = await readCatalogs(Object.values(doc.entries).map((r) => r.category));
 
   const items: MediaItem[] = [];
-  for (const ref of refs) {
+  for (const [key, ref] of Object.entries(doc.entries)) {
+    if (key !== itemKey(ref.category, ref.catalogId)) continue; // a reference that doesn't point where it claims
     const entry = catalogs[ref.category]?.entries[String(ref.catalogId)];
     const item = entry && mergeEntry(entry, ref);
     if (item) items.push(item);
@@ -68,31 +68,32 @@ export async function loadLibrary(userId: string): Promise<MediaItem[]> {
 
 /**
  * Adds titles to the user's collection. Each is filed in the shared catalog first (reusing the
- * entry for the same work when there is one), then referenced from the user's document along with
- * their own status, progress, rating and notes. Titles the user already has are skipped.
+ * entry for the same work when there is one, and passing on any intentional edits to its shared
+ * fields), then referenced from the user's document along with their own status, progress, rating
+ * and notes. Titles the user already has are skipped.
  */
-export async function addItems(userId: string, items: MediaItem[]): Promise<AddSummary> {
-  const byCategory = new Map<Category, MediaItem[]>();
-  for (const item of items) byCategory.set(item.category, [...(byCategory.get(item.category) ?? []), item]);
+export async function addItems(userId: string, submissions: Submission[]): Promise<AddSummary> {
+  const byCategory = new Map<Category, Submission[]>();
+  for (const s of submissions) byCategory.set(s.item.category, [...(byCategory.get(s.item.category) ?? []), s]);
 
   const filedByCategory = await Promise.all(
     CATEGORIES.filter((c) => byCategory.has(c)).map(async (c) => [c, await fileInCatalog(c, byCategory.get(c)!)] as const),
   );
-  const filed = new Map<MediaItem, Awaited<ReturnType<typeof fileInCatalog>>[number]>();
-  for (const [category, results] of filedByCategory) byCategory.get(category)!.forEach((item, i) => filed.set(item, results[i]));
+  const filed = new Map<Submission, Awaited<ReturnType<typeof fileInCatalog>>[number]>();
+  for (const [category, results] of filedByCategory) byCategory.get(category)!.forEach((s, i) => filed.set(s, results[i]));
 
   return serial(userId, async () => {
     const doc = await readUserDoc(userId);
     const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
 
-    for (const item of items) {
-      const { entry, created } = filed.get(item)!;
-      const key = itemKey(item.category, entry.id);
+    for (const submission of submissions) {
+      const { entry, created } = filed.get(submission)!;
+      const key = itemKey(entry.category, entry.id);
       if (doc.entries[key]) {
         summary.skipped++;
         continue;
       }
-      const own = toUserEntry(item, entry);
+      const own = toUserEntry(submission.item, entry.id);
       doc.entries[key] = own;
       const merged = mergeEntry(entry, own);
       if (!merged) continue;
@@ -105,17 +106,25 @@ export async function addItems(userId: string, items: MediaItem[]): Promise<AddS
   });
 }
 
-/** Creates or replaces the user's entry for a catalog title. Shared fields they changed become their overrides. */
-export async function saveItem(userId: string, item: MediaItem): Promise<void> {
+/**
+ * Saves a title already in the catalog. Intentional edits to its shared fields (compared with `base`,
+ * what the form was opened with) update the catalog entry for everyone; the user's own fields are
+ * saved to their reference. Returns the title as it now stands, shared metadata included.
+ */
+export async function saveItem(userId: string, item: MediaItem, base: MediaItem | null | undefined): Promise<MediaItem> {
   const ref = parseItemKey(item.id);
   if (!ref || ref.category !== item.category) throw new BackboneError("Unknown title", 404);
-  const entry = await readCatalogEntry(ref.category, ref.catalogId);
+  const entry = await updateCatalogEntry(ref.category, ref.catalogId, item, base);
   if (!entry) throw new BackboneError("That title isn't in the catalog", 404);
 
-  await serial(userId, async () => {
+  return serial(userId, async () => {
     const doc = await readUserDoc(userId);
-    doc.entries[item.id] = toUserEntry({ ...item, catalogId: entry.id }, entry);
+    const own = toUserEntry(item, entry.id);
+    doc.entries[item.id] = own;
     await userMedia.write(userId, doc);
+    const merged = mergeEntry(entry, own);
+    if (!merged) throw new BackboneError("That title isn't valid", 404);
+    return merged;
   });
 }
 

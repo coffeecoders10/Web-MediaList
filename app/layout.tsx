@@ -10,7 +10,7 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Lightbox", template: "%s · Lightbox" },
+  title: { default: "The Archive", template: "%s · The Archive" },
   description: "A personal library of the books, movies, series and anime you've finished, are watching, or plan to get to.",
 };
 

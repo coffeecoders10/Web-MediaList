@@ -16,7 +16,7 @@ Several people, each with an account and their own collection. They log books, m
 
 ## Product Purpose
 
-A personal media tracker and showcase. It holds a collection of Books, Movies, TV Series and Anime with posters, ratings, genres, status and progress (pages/chapters/series for books, seasons/episodes for shows, episodes for anime). It has a browse view, an edit mode for add/edit/delete/progress updates, search/sort/filter, a genre explorer, a stats dashboard and a detail view per entry.
+A personal media tracker and showcase. It holds a collection of Books, Movies, TV Series and Anime with posters, ratings, genres, status and progress (chapters for books, seasons for TV series, seasons or episodes for anime). It has a browse view, an edit mode for add/edit/delete/progress updates, search/sort/filter, a genre explorer, a stats dashboard and a detail view per entry.
 
 ## Capabilities and Constraints
 

@@ -26,7 +26,6 @@ interface MediaBase {
   /** 0–10 in half-point steps; null when unrated. */
   rating: number | null;
   genres: string[];
-  tags: string[];
   synopsis: string;
   notes: string;
   posterUrl: string;
@@ -39,30 +38,58 @@ interface MediaBase {
   updatedAt: string;
 }
 
+/** The series (books) or franchise (movies) a work belongs to. */
+export interface WorkSeries {
+  name: string;
+  /** Volume (books) or part (movies) number within the series; null when unknown. */
+  volume: number | null;
+}
+
 export interface Book extends MediaBase {
   category: "book";
-  pagesTotal: number | null;
-  pagesRead: number;
   chaptersTotal: number | null;
   chaptersRead: number;
-  series: { name: string; volume: number; of: number | null } | null;
+  series: WorkSeries | null;
 }
 
 export interface Movie extends MediaBase {
   category: "movie";
+  /** Free-form kind of film, e.g. "Hollywood" or "Bollywood"; empty when not set. */
+  type: string;
   runtimeMinutes: number | null;
+  series: WorkSeries | null;
 }
 
-/** TV series and anime share the same episode-based progress model. */
-export interface Episodic extends MediaBase {
-  category: "series" | "anime";
-  /** Episode count per season, in order. */
-  seasons: number[];
-  /** Episodes watched across all seasons, counted from the first. */
-  watchedEpisodes: number;
+/** TV series are tracked by season only: how many there are, and which one you are on. */
+export interface Series extends MediaBase {
+  category: "series";
+  totalSeasons: number | null;
+  /** The season being watched; 0 before the first. */
+  currentSeason: number;
 }
 
-export type MediaItem = Book | Movie | Episodic;
+export const TRACKING_MODES = ["seasons", "episodes"] as const;
+export type TrackingMode = (typeof TRACKING_MODES)[number];
+
+/**
+ * Anime is tracked either by season or by episode. `tracking` picks which pair counts; the other pair
+ * is kept so switching modes never loses what was entered.
+ */
+export interface Anime extends MediaBase {
+  category: "anime";
+  tracking: TrackingMode;
+  totalSeasons: number | null;
+  currentSeason: number;
+  totalEpisodes: number | null;
+  currentEpisode: number;
+}
+
+export type MediaItem = Book | Movie | Series | Anime;
+
+/** The series an item belongs to; only books and movies have one. */
+export function seriesOf(item: MediaItem): WorkSeries | null {
+  return item.category === "book" || item.category === "movie" ? item.series : null;
+}
 
 export const CATEGORY_LABEL: Record<Category, { singular: string; plural: string }> = {
   book: { singular: "Book", plural: "Books" },
@@ -89,6 +116,10 @@ export function parseItemKey(key: string): { category: Category; catalogId: numb
 
 export function isCategory(value: unknown): value is Category {
   return typeof value === "string" && (CATEGORIES as readonly string[]).includes(value);
+}
+
+export function isTrackingMode(value: unknown): value is TrackingMode {
+  return typeof value === "string" && (TRACKING_MODES as readonly string[]).includes(value);
 }
 
 export function isStatus(value: unknown): value is Status {

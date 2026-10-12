@@ -8,9 +8,9 @@ import type { MediaItem } from "./types";
  * deleted, so nothing is lost if the import is declined or fails.
  */
 
-const LEGACY_KEY = "lightbox:collection:v1";
-const doneKey = (userId: string) => `lightbox:legacy-imported:${userId}`;
-const dismissedKey = (userId: string) => `lightbox:legacy-dismissed:${userId}`;
+const LEGACY_KEY = "the-archive:collection:v1";
+const doneKey = (userId: string) => `the-archive:legacy-imported:${userId}`;
+const dismissedKey = (userId: string) => `the-archive:legacy-dismissed:${userId}`;
 
 const listeners = new Set<() => void>();
 const emit = () => listeners.forEach((l) => l());

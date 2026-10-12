@@ -1,0 +1,450 @@
+[
+  {
+    "title": "The Secret of Secrets",
+    "author": "Dan Brown",
+    "year": 2025,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "In Prague, Robert Langdon attends a lecture by scientist Katherine Solomon, whose groundbreaking work on consciousness could overturn established beliefs. When a murder occurs and Katherine vanishes with her manuscript, Langdon follows a dangerous trail of symbols and secrets.",
+    "chaptersTotal": 139,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 6
+    }
+  },
+  {
+    "title": "Before the Coffee Gets Cold",
+    "author": "Toshikazu Kawaguchi",
+    "year": 2015,
+    "genres": [
+      "Fiction",
+      "Cozy"
+    ],
+    "synopsis": "At a small Tokyo cafe, visitors can travel through time under strict rules, including returning before their coffee gets cold. Four intertwined stories explore the conversations people wish they could have and the ways those moments can change them.",
+    "chaptersTotal": 4,
+    "series": {
+      "name": "Before the Coffee Gets Cold",
+      "volume": 1
+    }
+  },
+  {
+    "title": "After the Darkness",
+    "author": "Tilly Bagshawe",
+    "year": 2010,
+    "genres": [
+      "Drama",
+      "Mystery"
+    ],
+    "synopsis": "Grace Brookstein leads a privileged life until her financier husband dies and his business is exposed as a massive fraud. Blamed for crimes she did not understand, Grace fights to uncover the truth and reclaim her life.",
+    "chaptersTotal": null,
+    "series": null
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "year": 2003,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "After a curator is murdered at the Louvre, symbologist Robert Langdon and cryptologist Sophie Neveu decode clues hidden in art and history while evading forces determined to protect an ancient religious secret.",
+    "chaptersTotal": 105,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 2
+    }
+  },
+  {
+    "title": "The Lost Symbol",
+    "author": "Dan Brown",
+    "year": 2009,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Robert Langdon is drawn into a race through Washington, D.C., when his mentor Peter Solomon is kidnapped. Cryptic Masonic symbols and hidden histories lead him toward a secret that could change everything.",
+    "chaptersTotal": 133,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 3
+    }
+  },
+  {
+    "title": "The Doomsday Conspiracy",
+    "author": "Sidney Sheldon",
+    "year": 1991,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Naval intelligence officer Robert Bellamy is ordered to locate witnesses to a mysterious crash in Switzerland. As his investigation spans multiple countries, he discovers that powerful forces are hiding far more than a weather balloon accident.",
+    "chaptersTotal": null,
+    "series": null
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": 1988,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "Santiago, a young Andalusian shepherd, journeys toward the Egyptian pyramids in search of a treasure he has seen in a dream. Along the way, he learns about love, destiny, and the value of following his own path.",
+    "chaptersTotal": null,
+    "series": null
+  },
+  {
+    "title": "I Am Number Four",
+    "author": "Pittacus Lore",
+    "year": 2010,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "John Smith, a teenager hiding in a small Ohio town, is one of nine survivors from the planet Lorien. As the Mogadorians hunt the Garde down in numerical order, he realizes he is next and must master his emerging powers.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Power of Six",
+    "author": "Pittacus Lore",
+    "year": 2011,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "With three of the Garde dead, the survivors are scattered across the world. John runs with Sam and Six while Number Seven hides in Spain, and each learns more about their legacies and the enemy closing in.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 2
+    }
+  },
+  {
+    "title": "The Rise of Nine",
+    "author": "Pittacus Lore",
+    "year": 2012,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "John, Six and Sam search for Number Nine in New York while the Mogadorians tighten their grip. The Garde begin to come together, but their reunion draws even more dangerous attention.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 3
+    }
+  },
+  {
+    "title": "The Fall of Five",
+    "author": "Pittacus Lore",
+    "year": 2013,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "The reunited Garde gather strength and allies as the Mogadorian threat grows. Old loyalties are tested and a betrayal shakes the group at a crucial moment.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 4
+    }
+  },
+  {
+    "title": "The Revenge of Seven",
+    "author": "Pittacus Lore",
+    "year": 2014,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "The Garde fight to stay ahead of the Mogadorian invasion while searching for the means to stand against it. The cost of the war grows heavier for every survivor.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 5
+    }
+  },
+  {
+    "title": "The Fate of Ten",
+    "author": "Pittacus Lore",
+    "year": 2015,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "The Garde step up their fight to protect Earth as the Mogadorian leader prepares his final moves. The survivors must trust one another and push their powers to their limits.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 6
+    }
+  },
+  {
+    "title": "United as One",
+    "author": "Pittacus Lore",
+    "year": 2016,
+    "genres": [
+      "Young Adult",
+      "Action"
+    ],
+    "synopsis": "The final battle for Earth arrives as the surviving Garde and their human allies face the Mogadorian forces. The fate of both Lorien's legacy and humanity hangs on the outcome.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Lorien Legacies",
+      "volume": 7
+    }
+  },
+  {
+    "title": "Angels & Demons",
+    "author": "Dan Brown",
+    "year": 2000,
+    "genres": [
+      "Thriller",
+      "Mystery"
+    ],
+    "synopsis": "Called to examine a mysterious symbol at a Swiss research center, Robert Langdon uncovers a plot against the Catholic Church. He races through Rome and Vatican City to stop a deadly threat connected to the Illuminati.",
+    "chaptersTotal": 137,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Inferno",
+    "author": "Dan Brown",
+    "year": 2013,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Robert Langdon wakes in a Florence hospital with no memory of recent events and soon finds himself pursued by dangerous enemies. Following clues rooted in Dante's Inferno, he must unravel a plot with global consequences.",
+    "chaptersTotal": 104,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 4
+    }
+  },
+  {
+    "title": "Origin",
+    "author": "Dan Brown",
+    "year": 2017,
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "At a high-profile event in Bilbao, futurist Edmond Kirsch prepares to reveal a discovery about humanity's origins and future. When the presentation is disrupted, Robert Langdon and museum director Ambra Vidal search Spain for the key to Kirsch's secret.",
+    "chaptersTotal": 105,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 5
+    }
+  },
+  {
+    "title": "A Wanted Man",
+    "author": "Lee Child",
+    "year": 2012,
+    "genres": [
+      "Thriller",
+      "Action"
+    ],
+    "synopsis": "Jack Reacher accepts a ride from three strangers while hitchhiking toward Virginia. A nearby murder investigation reveals that his fellow travelers are involved in a dangerous conspiracy, and nobody is telling the whole truth.",
+    "chaptersTotal": 80,
+    "series": {
+      "name": "Jack Reacher",
+      "volume": 17
+    }
+  },
+  {
+    "title": "Personal",
+    "author": "Lee Child",
+    "year": 2014,
+    "genres": [
+      "Thriller",
+      "Action"
+    ],
+    "synopsis": "After an attempt on the French president's life, Jack Reacher is recruited to track a former military sniper he once helped imprison. With a major international summit approaching, Reacher pursues the killer across Europe.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Jack Reacher",
+      "volume": 19
+    }
+  },
+  {
+    "title": "Ten Little Indians",
+    "author": "Agatha Christie",
+    "year": 1939,
+    "genres": [
+      "Mystery"
+    ],
+    "synopsis": "Ten strangers gather on a remote island at the invitation of an unseen host. When they are accused of past crimes and begin dying one by one, the survivors realize that the killer must be among them. Also published as And Then There Were None.",
+    "chaptersTotal": 16,
+    "series": null
+  },
+  {
+    "title": "Killing Floor",
+    "author": "Lee Child",
+    "year": 1997,
+    "genres": [
+      "Thriller",
+      "Action"
+    ],
+    "synopsis": "Former military policeman Jack Reacher arrives in the town of Margrave, Georgia, and is promptly arrested for murder. Determined to clear his name, he investigates the killing and uncovers a violent criminal operation.",
+    "chaptersTotal": 34,
+    "series": {
+      "name": "Jack Reacher",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Mr. Mercedes",
+    "author": "Stephen King",
+    "year": 2014,
+    "genres": [
+      "Crime",
+      "Thriller"
+    ],
+    "synopsis": "A killer who drove a stolen Mercedes into a crowd taunts retired detective Bill Hodges with messages hinting that he may strike again. Hodges and unlikely allies race to stop him before he carries out an even deadlier attack.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Bill Hodges Trilogy",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Lost Hero",
+    "author": "Rick Riordan",
+    "year": 2010,
+    "genres": [
+      "Young Adult",
+      "Fantasy"
+    ],
+    "synopsis": "Jason, Piper and Leo arrive at Camp Half-Blood after a school trip goes terribly wrong. Jason has lost his memory, and the trio is sent on a quest to free Hera and head off a rising threat.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "The Heroes of Olympus",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Son of Neptune",
+    "author": "Rick Riordan",
+    "year": 2011,
+    "genres": [
+      "Young Adult",
+      "Fantasy"
+    ],
+    "synopsis": "Percy Jackson wakes with no memory and is drawn to Camp Jupiter, the Roman demigods' home. With Hazel and Frank, he sets out on a perilous quest north to Alaska.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "The Heroes of Olympus",
+      "volume": 2
+    }
+  },
+  {
+    "title": "The Mark of Athena",
+    "author": "Rick Riordan",
+    "year": 2012,
+    "genres": [
+      "Young Adult",
+      "Fantasy"
+    ],
+    "synopsis": "Seven Greek and Roman demigods sail the Argo II toward Rome in a race against Gaea. Tension between the two camps and Annabeth's own quest threaten to tear the crew apart.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "The Heroes of Olympus",
+      "volume": 3
+    }
+  },
+  {
+    "title": "The House of Hades",
+    "author": "Rick Riordan",
+    "year": 2013,
+    "genres": [
+      "Young Adult",
+      "Fantasy"
+    ],
+    "synopsis": "Percy and Annabeth struggle through Tartarus in search of the Doors of Death while the rest of the crew races to meet them. Each side must survive to close the doors before Gaea rises.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "The Heroes of Olympus",
+      "volume": 4
+    }
+  },
+  {
+    "title": "The Blood of Olympus",
+    "author": "Rick Riordan",
+    "year": 2014,
+    "genres": [
+      "Young Adult",
+      "Fantasy"
+    ],
+    "synopsis": "The seven demigods make their final push to stop Gaea from awakening fully, while the Greek and Roman camps edge toward open war. The heroes must unite to save Olympus and the world.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "The Heroes of Olympus",
+      "volume": 5
+    }
+  },
+  {
+    "title": "The Sacred Sword",
+    "author": "Scott Mariani",
+    "year": 2012,
+    "genres": [
+      "Thriller",
+      "Action",
+      "Mystery"
+    ],
+    "synopsis": "After two old friends die in a suspicious crash, former SAS soldier Ben Hope investigates their research into a mysterious ancient sword. The search takes him across countries as he uncovers the deadly secret behind the relic.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Ben Hope",
+      "volume": 7
+    }
+  },
+  {
+    "title": "Twelve Red Herrings",
+    "author": "Jeffrey Archer",
+    "year": 1994,
+    "genres": [
+      "Mystery",
+      "Drama"
+    ],
+    "synopsis": "A collection of twelve short stories about schemes, betrayals, ambition, love, and murder. Each tale plays with expectations and challenges readers to spot the misleading clue before the twist.",
+    "chaptersTotal": 12,
+    "series": null
+  },
+  {
+    "title": "Over My Dead Body",
+    "author": "Jeffrey Archer",
+    "year": 2021,
+    "genres": [
+      "Crime",
+      "Mystery"
+    ],
+    "synopsis": "Detective William Warwick joins a London unit dedicated to unsolved murders. As several old cases converge with the schemes of an elusive art criminal, Warwick must catch killers who believe they got away with their crimes.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "William Warwick",
+      "volume": 4
+    }
+  },
+  {
+    "title": "The Cassandra Sanction",
+    "author": "Scott Mariani",
+    "year": 2016,
+    "genres": [
+      "Thriller"
+    ],
+    "synopsis": "Ben Hope agrees to help a grieving brother investigate his scientist sister's apparent suicide. Their search uncovers suspicious deaths, professional assassins, and a far-reaching conspiracy meant to deceive the world.",
+    "chaptersTotal": null,
+    "series": {
+      "name": "Ben Hope",
+      "volume": 12
+    }
+  }
+]

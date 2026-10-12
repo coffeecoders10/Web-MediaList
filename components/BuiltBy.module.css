@@ -1,0 +1,27 @@
+.credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-3);
+  font-size: var(--fs-xs);
+}
+
+.logo {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+/* Page footer: sits under the main content, clear of the phone nav bar. */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem var(--gutter) 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 719px) {
+  .footer {
+    padding-bottom: 5rem;
+  }
+}

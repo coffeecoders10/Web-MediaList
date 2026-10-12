@@ -1,5 +1,5 @@
 {
-  "name": "medialist",
+  "name": "the-archive",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,6 +17,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@playwright/cli": "^0.1.22",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

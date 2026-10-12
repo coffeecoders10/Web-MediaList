@@ -79,6 +79,11 @@
   color: var(--ink-2);
 }
 
+.series {
+  margin-top: 0.125rem;
+  font-size: var(--fs-md);
+}
+
 .facts {
   display: flex;
   flex-wrap: wrap;

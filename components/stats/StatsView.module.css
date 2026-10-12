@@ -143,6 +143,9 @@
   align-items: center;
   gap: 0.875rem;
 }
+.rowWide {
+  grid-template-columns: 6.5rem minmax(0, 1fr) 6.5rem;
+}
 .rowLabel {
   font-weight: 600;
   text-decoration: none;
@@ -176,6 +179,12 @@ a.rowLabel:hover {
 .rowValue {
   text-align: right;
   font-weight: 700;
+}
+@media (min-width: 880px) {
+  .twoCol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem 2.5rem;
+  }
 }
 .muted {
   color: var(--ink-3);
@@ -280,6 +289,9 @@ a.rowLabel:hover {
   .row {
     grid-template-columns: 5rem minmax(0, 1fr) 3rem;
     gap: 0.625rem;
+  }
+  .rowWide {
+    grid-template-columns: 5rem minmax(0, 1fr) 5.75rem;
   }
   .columns {
     height: 10rem;

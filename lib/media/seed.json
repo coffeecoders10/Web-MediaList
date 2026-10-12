@@ -1,267 +1,792 @@
 [
   {
-    "id": "dune", "category": "book", "title": "Dune", "creator": "Frank Herbert", "year": 1965,
-    "status": "completed", "rating": 9.5, "genres": ["Science fiction", "Epic"],
+    "id": "dune",
+    "category": "book",
+    "title": "Dune",
+    "creator": "Frank Herbert",
+    "status": "completed",
+    "rating": 9.5,
+    "genres": [
+      "Science fiction",
+      "Epic"
+    ],
     "synopsis": "A noble family takes over a desert planet that holds the universe's most valuable resource, and a young heir finds himself at the centre of a prophecy.",
     "notes": "Reread. The appendices reward the patience.",
-    "art": { "hue": 62, "pattern": "sun" },
-    "addedAt": "2026-01-04", "startedAt": "2026-02-10", "finishedAt": "2026-03-18",
-    "pagesTotal": 688, "pagesRead": 688, "chaptersTotal": 48, "chaptersRead": 48,
-    "series": { "name": "Dune", "volume": 1, "of": 6 }
+    "art": {
+      "hue": 62,
+      "pattern": "sun"
+    },
+    "addedAt": "2026-01-04",
+    "startedAt": "2026-02-10",
+    "finishedAt": "2026-03-18",
+    "chaptersTotal": 48,
+    "chaptersRead": 48,
+    "series": {
+      "name": "Dune",
+      "volume": 1
+    },
+    "year": 1965
   },
   {
-    "id": "the-name-of-the-wind", "category": "book", "title": "The Name of the Wind", "creator": "Patrick Rothfuss", "year": 2007,
-    "status": "in-progress", "rating": null, "genres": ["Fantasy", "Adventure"],
+    "id": "the-name-of-the-wind",
+    "category": "book",
+    "title": "The Name of the Wind",
+    "creator": "Patrick Rothfuss",
+    "status": "in-progress",
+    "rating": null,
+    "genres": [
+      "Fantasy",
+      "Adventure"
+    ],
     "synopsis": "Kvothe, now an innkeeper, tells the true story of how a gifted orphan became a legend, from a travelling troupe to the University.",
-    "art": { "hue": 28, "pattern": "arches" },
-    "addedAt": "2026-08-02", "startedAt": "2026-09-01", "finishedAt": null,
-    "pagesTotal": 662, "pagesRead": 311, "chaptersTotal": 92, "chaptersRead": 43,
-    "series": { "name": "The Kingkiller Chronicle", "volume": 1, "of": 3 }
+    "art": {
+      "hue": 28,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-08-02",
+    "startedAt": "2026-09-01",
+    "finishedAt": null,
+    "chaptersTotal": 92,
+    "chaptersRead": 43,
+    "series": {
+      "name": "The Kingkiller Chronicle",
+      "volume": 1
+    },
+    "year": 2007
   },
   {
-    "id": "project-hail-mary", "category": "book", "title": "Project Hail Mary", "creator": "Andy Weir", "year": 2021,
-    "status": "completed", "rating": 9, "genres": ["Science fiction", "Adventure"],
+    "id": "project-hail-mary",
+    "category": "book",
+    "title": "Project Hail Mary",
+    "creator": "Andy Weir",
+    "status": "completed",
+    "rating": 9,
+    "genres": [
+      "Science fiction",
+      "Adventure"
+    ],
     "synopsis": "A lone astronaut wakes up on a ship with no memory of why he is there, and slowly works out that he is humanity's last chance.",
     "notes": "Finished it in two sittings. Rocky is the best character of the year.",
-    "art": { "hue": 232, "pattern": "orbit" },
-    "addedAt": "2026-05-12", "startedAt": "2026-05-20", "finishedAt": "2026-05-24",
-    "pagesTotal": 476, "pagesRead": 476, "chaptersTotal": 43, "chaptersRead": 43
+    "art": {
+      "hue": 232,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-05-12",
+    "startedAt": "2026-05-20",
+    "finishedAt": "2026-05-24",
+    "chaptersTotal": 43,
+    "chaptersRead": 43,
+    "year": 2021
   },
   {
-    "id": "piranesi", "category": "book", "title": "Piranesi", "creator": "Susanna Clarke", "year": 2020,
-    "status": "completed", "rating": 8.5, "genres": ["Fantasy", "Mystery"],
+    "id": "piranesi",
+    "category": "book",
+    "title": "Piranesi",
+    "creator": "Susanna Clarke",
+    "status": "completed",
+    "rating": 8.5,
+    "genres": [
+      "Fantasy",
+      "Mystery"
+    ],
     "synopsis": "Piranesi lives in a house of endless halls, tides and statues, and keeps careful journals until a stranger's arrival disturbs his world.",
-    "art": { "hue": 195, "pattern": "arches" },
-    "addedAt": "2026-07-01", "startedAt": "2026-07-08", "finishedAt": "2026-07-15",
-    "pagesTotal": 272, "pagesRead": 272, "chaptersTotal": null, "chaptersRead": 0
+    "art": {
+      "hue": 195,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-07-01",
+    "startedAt": "2026-07-08",
+    "finishedAt": "2026-07-15",
+    "chaptersTotal": null,
+    "chaptersRead": 0,
+    "year": 2020
   },
   {
-    "id": "the-left-hand-of-darkness", "category": "book", "title": "The Left Hand of Darkness", "creator": "Ursula K. Le Guin", "year": 1969,
-    "status": "on-hold", "rating": null, "genres": ["Science fiction", "Literary"],
+    "id": "the-left-hand-of-darkness",
+    "category": "book",
+    "title": "The Left Hand of Darkness",
+    "creator": "Ursula K. Le Guin",
+    "status": "on-hold",
+    "rating": null,
+    "genres": [
+      "Science fiction",
+      "Literary"
+    ],
     "synopsis": "An envoy to a frozen world of people with no fixed gender tries to persuade its kingdoms to join an interstellar alliance.",
     "notes": "Slow start, but I want to get back to it in winter.",
-    "art": { "hue": 215, "pattern": "bands" },
-    "addedAt": "2025-10-03", "startedAt": "2025-10-10", "finishedAt": null,
-    "pagesTotal": 304, "pagesRead": 140, "chaptersTotal": 20, "chaptersRead": 9
+    "art": {
+      "hue": 215,
+      "pattern": "bands"
+    },
+    "addedAt": "2025-10-03",
+    "startedAt": "2025-10-10",
+    "finishedAt": null,
+    "chaptersTotal": 20,
+    "chaptersRead": 9,
+    "year": 1969
   },
   {
-    "id": "klara-and-the-sun", "category": "book", "title": "Klara and the Sun", "creator": "Kazuo Ishiguro", "year": 2021,
-    "status": "planned", "rating": null, "genres": ["Literary", "Science fiction"],
+    "id": "klara-and-the-sun",
+    "category": "book",
+    "title": "Klara and the Sun",
+    "creator": "Kazuo Ishiguro",
+    "status": "planned",
+    "rating": null,
+    "genres": [
+      "Literary",
+      "Science fiction"
+    ],
     "synopsis": "Klara, an Artificial Friend, watches the world from a shop window and hopes to be chosen by a child who needs her.",
-    "art": { "hue": 85, "pattern": "sun" },
-    "addedAt": "2026-09-20", "startedAt": null, "finishedAt": null,
-    "pagesTotal": 303, "pagesRead": 0, "chaptersTotal": null, "chaptersRead": 0
+    "art": {
+      "hue": 85,
+      "pattern": "sun"
+    },
+    "addedAt": "2026-09-20",
+    "startedAt": null,
+    "finishedAt": null,
+    "chaptersTotal": null,
+    "chaptersRead": 0,
+    "year": 2021
   },
   {
-    "id": "mistborn-the-final-empire", "category": "book", "title": "Mistborn: The Final Empire", "creator": "Brandon Sanderson", "year": 2006,
-    "status": "completed", "rating": 8, "genres": ["Fantasy", "Adventure"],
+    "id": "mistborn-the-final-empire",
+    "category": "book",
+    "title": "Mistborn: The Final Empire",
+    "creator": "Brandon Sanderson",
+    "status": "completed",
+    "rating": 8,
+    "genres": [
+      "Fantasy",
+      "Adventure"
+    ],
     "synopsis": "A street thief discovers she can burn metals for superhuman power and joins a crew plotting to overthrow an immortal emperor.",
-    "art": { "hue": 300, "pattern": "rays" },
-    "addedAt": "2026-08-04", "startedAt": "2026-08-09", "finishedAt": "2026-09-02",
-    "pagesTotal": 541, "pagesRead": 541, "chaptersTotal": 38, "chaptersRead": 38,
-    "series": { "name": "Mistborn", "volume": 1, "of": 3 }
+    "art": {
+      "hue": 300,
+      "pattern": "rays"
+    },
+    "addedAt": "2026-08-04",
+    "startedAt": "2026-08-09",
+    "finishedAt": "2026-09-02",
+    "chaptersTotal": 38,
+    "chaptersRead": 38,
+    "series": {
+      "name": "Mistborn",
+      "volume": 1
+    },
+    "year": 2006
   },
   {
-    "id": "norwegian-wood", "category": "book", "title": "Norwegian Wood", "creator": "Haruki Murakami", "year": 1987,
-    "status": "dropped", "rating": 6, "genres": ["Literary", "Romance"],
+    "id": "norwegian-wood",
+    "category": "book",
+    "title": "Norwegian Wood",
+    "creator": "Haruki Murakami",
+    "status": "dropped",
+    "rating": 6,
+    "genres": [
+      "Literary",
+      "Romance"
+    ],
     "synopsis": "A man looks back on his student years in Tokyo and the fragile woman who tied him to his dead friend.",
     "notes": "Not the right time. Might try Kafka on the Shore instead.",
-    "art": { "hue": 150, "pattern": "blocks" },
-    "addedAt": "2025-11-02", "startedAt": "2025-11-05", "finishedAt": null,
-    "pagesTotal": 296, "pagesRead": 90, "chaptersTotal": 11, "chaptersRead": 3
+    "art": {
+      "hue": 150,
+      "pattern": "blocks"
+    },
+    "addedAt": "2025-11-02",
+    "startedAt": "2025-11-05",
+    "finishedAt": null,
+    "chaptersTotal": 11,
+    "chaptersRead": 3,
+    "year": 1987
   },
   {
-    "id": "blade-runner-2049", "category": "movie", "title": "Blade Runner 2049", "creator": "Denis Villeneuve", "year": 2017,
-    "status": "completed", "rating": 8.5, "genres": ["Science fiction", "Drama"],
+    "id": "blade-runner-2049",
+    "category": "movie",
+    "title": "Blade Runner 2049",
+    "creator": "Denis Villeneuve",
+    "year": 2017,
+    "status": "completed",
+    "rating": 8.5,
+    "genres": [
+      "Science fiction",
+      "Drama"
+    ],
     "synopsis": "A new blade runner unearths a secret that could plunge what remains of society into chaos, and goes looking for a missing predecessor.",
-    "art": { "hue": 45, "pattern": "sun" },
-    "addedAt": "2026-02-01", "startedAt": "2026-02-14", "finishedAt": "2026-02-14",
-    "runtimeMinutes": 164
+    "art": {
+      "hue": 45,
+      "pattern": "sun"
+    },
+    "addedAt": "2026-02-01",
+    "startedAt": "2026-02-14",
+    "finishedAt": "2026-02-14",
+    "runtimeMinutes": 164,
+    "type": "Hollywood"
   },
   {
-    "id": "spirited-away", "category": "movie", "title": "Spirited Away", "creator": "Hayao Miyazaki", "year": 2001,
-    "status": "completed", "rating": 9.5, "genres": ["Animation", "Fantasy"],
+    "id": "spirited-away",
+    "category": "movie",
+    "title": "Spirited Away",
+    "creator": "Hayao Miyazaki",
+    "year": 2001,
+    "status": "completed",
+    "rating": 9.5,
+    "genres": [
+      "Animation",
+      "Fantasy"
+    ],
     "synopsis": "A girl stumbles into a bathhouse for spirits and must work there to free her parents and find her way home.",
-    "art": { "hue": 10, "pattern": "arches" },
-    "addedAt": "2026-03-20", "startedAt": "2026-03-29", "finishedAt": "2026-03-29",
-    "runtimeMinutes": 125
+    "art": {
+      "hue": 10,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-03-20",
+    "startedAt": "2026-03-29",
+    "finishedAt": "2026-03-29",
+    "runtimeMinutes": 125,
+    "type": "Japanese"
   },
   {
-    "id": "parasite", "category": "movie", "title": "Parasite", "creator": "Bong Joon-ho", "year": 2019,
-    "status": "completed", "rating": 9, "genres": ["Thriller", "Drama", "Comedy"],
+    "id": "parasite",
+    "category": "movie",
+    "title": "Parasite",
+    "creator": "Bong Joon-ho",
+    "year": 2019,
+    "status": "completed",
+    "rating": 9,
+    "genres": [
+      "Thriller",
+      "Drama",
+      "Comedy"
+    ],
     "synopsis": "A poor family schemes its way into the employ of a wealthy household, with consequences nobody planned for.",
-    "art": { "hue": 140, "pattern": "blocks" },
-    "addedAt": "2026-04-02", "startedAt": "2026-04-11", "finishedAt": "2026-04-11",
-    "runtimeMinutes": 132
+    "art": {
+      "hue": 140,
+      "pattern": "blocks"
+    },
+    "addedAt": "2026-04-02",
+    "startedAt": "2026-04-11",
+    "finishedAt": "2026-04-11",
+    "runtimeMinutes": 132,
+    "type": "Korean"
   },
   {
-    "id": "past-lives", "category": "movie", "title": "Past Lives", "creator": "Celine Song", "year": 2023,
-    "status": "completed", "rating": 8.5, "genres": ["Drama", "Romance"],
+    "id": "past-lives",
+    "category": "movie",
+    "title": "Past Lives",
+    "creator": "Celine Song",
+    "year": 2023,
+    "status": "completed",
+    "rating": 8.5,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
     "synopsis": "Two childhood friends separated by emigration reunite decades later for one week in New York.",
-    "art": { "hue": 345, "pattern": "orbit" },
-    "addedAt": "2026-06-14", "startedAt": "2026-06-21", "finishedAt": "2026-06-21",
-    "runtimeMinutes": 105
+    "art": {
+      "hue": 345,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-06-14",
+    "startedAt": "2026-06-21",
+    "finishedAt": "2026-06-21",
+    "runtimeMinutes": 105,
+    "type": "Hollywood"
   },
   {
-    "id": "arrival", "category": "movie", "title": "Arrival", "creator": "Denis Villeneuve", "year": 2016,
-    "status": "completed", "rating": 8, "genres": ["Science fiction", "Drama"],
+    "id": "arrival",
+    "category": "movie",
+    "title": "Arrival",
+    "creator": "Denis Villeneuve",
+    "year": 2016,
+    "status": "completed",
+    "rating": 8,
+    "genres": [
+      "Science fiction",
+      "Drama"
+    ],
     "synopsis": "A linguist is recruited to find out why twelve alien ships have landed, and how to talk to the visitors.",
-    "art": { "hue": 175, "pattern": "orbit" },
-    "addedAt": "2026-09-12", "startedAt": "2026-09-19", "finishedAt": "2026-09-19",
-    "runtimeMinutes": 116
+    "art": {
+      "hue": 175,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-09-12",
+    "startedAt": "2026-09-19",
+    "finishedAt": "2026-09-19",
+    "runtimeMinutes": 116,
+    "type": "Hollywood"
   },
   {
-    "id": "the-grand-budapest-hotel", "category": "movie", "title": "The Grand Budapest Hotel", "creator": "Wes Anderson", "year": 2014,
-    "status": "completed", "rating": 8, "genres": ["Comedy", "Adventure"],
+    "id": "the-grand-budapest-hotel",
+    "category": "movie",
+    "title": "The Grand Budapest Hotel",
+    "creator": "Wes Anderson",
+    "year": 2014,
+    "status": "completed",
+    "rating": 8,
+    "genres": [
+      "Comedy",
+      "Adventure"
+    ],
     "synopsis": "A legendary concierge and his lobby boy are caught up in the theft of a priceless painting and a fight over a family fortune.",
-    "art": { "hue": 355, "pattern": "bands" },
-    "addedAt": "2025-12-01", "startedAt": "2025-12-06", "finishedAt": "2025-12-06",
-    "runtimeMinutes": 99
+    "art": {
+      "hue": 355,
+      "pattern": "bands"
+    },
+    "addedAt": "2025-12-01",
+    "startedAt": "2025-12-06",
+    "finishedAt": "2025-12-06",
+    "runtimeMinutes": 99,
+    "type": "Hollywood"
   },
   {
-    "id": "dune-part-two", "category": "movie", "title": "Dune: Part Two", "creator": "Denis Villeneuve", "year": 2024,
-    "status": "completed", "rating": 8.5, "genres": ["Science fiction", "Epic"],
+    "id": "dune-part-two",
+    "category": "movie",
+    "title": "Dune: Part Two",
+    "creator": "Denis Villeneuve",
+    "year": 2024,
+    "status": "completed",
+    "rating": 8.5,
+    "genres": [
+      "Science fiction",
+      "Epic"
+    ],
     "synopsis": "Paul Atreides joins the Fremen and sets out on a path of revenge against the conspirators who destroyed his family.",
     "notes": "Seen in IMAX. The sound design alone was worth it.",
-    "art": { "hue": 70, "pattern": "rays" },
-    "addedAt": "2026-03-01", "startedAt": "2026-03-09", "finishedAt": "2026-03-09",
-    "runtimeMinutes": 166
+    "art": {
+      "hue": 70,
+      "pattern": "rays"
+    },
+    "addedAt": "2026-03-01",
+    "startedAt": "2026-03-09",
+    "finishedAt": "2026-03-09",
+    "runtimeMinutes": 166,
+    "type": "Hollywood"
   },
   {
-    "id": "everything-everywhere-all-at-once", "category": "movie", "title": "Everything Everywhere All at Once", "creator": "Daniel Kwan, Daniel Scheinert", "year": 2022,
-    "status": "planned", "rating": null, "genres": ["Science fiction", "Comedy", "Drama"],
+    "id": "everything-everywhere-all-at-once",
+    "category": "movie",
+    "title": "Everything Everywhere All at Once",
+    "creator": "Daniel Kwan, Daniel Scheinert",
+    "year": 2022,
+    "status": "planned",
+    "rating": null,
+    "genres": [
+      "Science fiction",
+      "Comedy",
+      "Drama"
+    ],
     "synopsis": "A laundromat owner is pulled into a multiverse conflict where the only way to win is to connect with the people she loves.",
-    "art": { "hue": 320, "pattern": "orbit" },
-    "addedAt": "2026-08-15", "startedAt": null, "finishedAt": null,
-    "runtimeMinutes": 139
+    "art": {
+      "hue": 320,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-08-15",
+    "startedAt": null,
+    "finishedAt": null,
+    "runtimeMinutes": 139,
+    "type": "Hollywood"
   },
   {
-    "id": "in-the-mood-for-love", "category": "movie", "title": "In the Mood for Love", "creator": "Wong Kar-wai", "year": 2000,
-    "status": "planned", "rating": null, "genres": ["Romance", "Drama"],
+    "id": "in-the-mood-for-love",
+    "category": "movie",
+    "title": "In the Mood for Love",
+    "creator": "Wong Kar-wai",
+    "year": 2000,
+    "status": "planned",
+    "rating": null,
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
     "synopsis": "Two neighbours in 1960s Hong Kong discover that their spouses are having an affair, and grow close in the shadow of it.",
-    "art": { "hue": 18, "pattern": "bands" },
-    "addedAt": "2026-09-05", "startedAt": null, "finishedAt": null,
-    "runtimeMinutes": 98
+    "art": {
+      "hue": 18,
+      "pattern": "bands"
+    },
+    "addedAt": "2026-09-05",
+    "startedAt": null,
+    "finishedAt": null,
+    "runtimeMinutes": 98,
+    "type": "Hong Kong"
   },
   {
-    "id": "severance", "category": "series", "title": "Severance", "creator": "Dan Erickson", "year": 2022,
-    "status": "in-progress", "rating": 9, "genres": ["Science fiction", "Thriller", "Mystery"],
+    "id": "severance",
+    "category": "series",
+    "title": "Severance",
+    "creator": "Dan Erickson",
+    "year": 2022,
+    "status": "in-progress",
+    "rating": 9,
+    "genres": [
+      "Science fiction",
+      "Thriller",
+      "Mystery"
+    ],
     "synopsis": "Employees at a mysterious company have their work and personal memories surgically divided, until one of them starts asking what the work is for.",
-    "art": { "hue": 165, "pattern": "blocks" },
-    "addedAt": "2026-06-02", "startedAt": "2026-06-08", "finishedAt": null,
-    "seasons": [9, 10], "watchedEpisodes": 12
+    "art": {
+      "hue": 165,
+      "pattern": "blocks"
+    },
+    "addedAt": "2026-06-02",
+    "startedAt": "2026-06-08",
+    "finishedAt": null,
+    "totalSeasons": 2,
+    "currentSeason": 2
   },
   {
-    "id": "breaking-bad", "category": "series", "title": "Breaking Bad", "creator": "Vince Gilligan", "year": 2008,
-    "status": "completed", "rating": 10, "genres": ["Crime", "Drama", "Thriller"],
+    "id": "breaking-bad",
+    "category": "series",
+    "title": "Breaking Bad",
+    "creator": "Vince Gilligan",
+    "year": 2008,
+    "status": "completed",
+    "rating": 10,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
     "synopsis": "A high-school chemistry teacher diagnosed with cancer turns to making methamphetamine to secure his family's future.",
-    "art": { "hue": 130, "pattern": "sun" },
-    "addedAt": "2026-01-10", "startedAt": "2026-01-15", "finishedAt": "2026-04-27",
-    "seasons": [7, 13, 13, 13, 16], "watchedEpisodes": 62
+    "art": {
+      "hue": 130,
+      "pattern": "sun"
+    },
+    "addedAt": "2026-01-10",
+    "startedAt": "2026-01-15",
+    "finishedAt": "2026-04-27",
+    "totalSeasons": 5,
+    "currentSeason": 5
   },
   {
-    "id": "the-bear", "category": "series", "title": "The Bear", "creator": "Christopher Storer", "year": 2022,
-    "status": "on-hold", "rating": null, "genres": ["Drama", "Comedy"],
+    "id": "the-bear",
+    "category": "series",
+    "title": "The Bear",
+    "creator": "Christopher Storer",
+    "year": 2022,
+    "status": "on-hold",
+    "rating": null,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
     "synopsis": "A young chef returns to Chicago to run his late brother's sandwich shop, and its chaotic kitchen crew.",
-    "art": { "hue": 38, "pattern": "bands" },
-    "addedAt": "2026-02-03", "startedAt": "2026-02-10", "finishedAt": null,
-    "seasons": [8, 10, 10], "watchedEpisodes": 18
+    "art": {
+      "hue": 38,
+      "pattern": "bands"
+    },
+    "addedAt": "2026-02-03",
+    "startedAt": "2026-02-10",
+    "finishedAt": null,
+    "totalSeasons": 3,
+    "currentSeason": 2
   },
   {
-    "id": "chernobyl", "category": "series", "title": "Chernobyl", "creator": "Craig Mazin", "year": 2019,
-    "status": "completed", "rating": 9.5, "genres": ["Drama", "Historical"],
+    "id": "chernobyl",
+    "category": "series",
+    "title": "Chernobyl",
+    "creator": "Craig Mazin",
+    "year": 2019,
+    "status": "completed",
+    "rating": 9.5,
+    "genres": [
+      "Drama",
+      "Historical"
+    ],
     "synopsis": "A dramatisation of the 1986 nuclear disaster and the sacrifices made by those who contained it.",
-    "art": { "hue": 105, "pattern": "rays" },
-    "addedAt": "2025-10-20", "startedAt": "2025-10-25", "finishedAt": "2025-10-27",
-    "seasons": [5], "watchedEpisodes": 5
+    "art": {
+      "hue": 105,
+      "pattern": "rays"
+    },
+    "addedAt": "2025-10-20",
+    "startedAt": "2025-10-25",
+    "finishedAt": "2025-10-27",
+    "totalSeasons": 1,
+    "currentSeason": 1
   },
   {
-    "id": "succession", "category": "series", "title": "Succession", "creator": "Jesse Armstrong", "year": 2018,
-    "status": "in-progress", "rating": 9, "genres": ["Drama", "Comedy"],
+    "id": "succession",
+    "category": "series",
+    "title": "Succession",
+    "creator": "Jesse Armstrong",
+    "year": 2018,
+    "status": "in-progress",
+    "rating": 9,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
     "synopsis": "The Roy family, owners of a global media empire, jockey for control as their patriarch's health declines.",
-    "art": { "hue": 250, "pattern": "blocks" },
-    "addedAt": "2026-07-14", "startedAt": "2026-07-20", "finishedAt": null,
-    "seasons": [10, 10, 9, 10], "watchedEpisodes": 21
+    "art": {
+      "hue": 250,
+      "pattern": "blocks"
+    },
+    "addedAt": "2026-07-14",
+    "startedAt": "2026-07-20",
+    "finishedAt": null,
+    "totalSeasons": 4,
+    "currentSeason": 3
   },
   {
-    "id": "dark", "category": "series", "title": "Dark", "creator": "Baran bo Odar, Jantje Friese", "year": 2017,
-    "status": "planned", "rating": null, "genres": ["Science fiction", "Thriller", "Mystery"],
+    "id": "dark",
+    "category": "series",
+    "title": "Dark",
+    "creator": "Baran bo Odar, Jantje Friese",
+    "year": 2017,
+    "status": "planned",
+    "rating": null,
+    "genres": [
+      "Science fiction",
+      "Thriller",
+      "Mystery"
+    ],
     "synopsis": "The disappearance of two children in a German town exposes the secrets of four families across several generations.",
-    "art": { "hue": 205, "pattern": "orbit" },
-    "addedAt": "2026-05-30", "startedAt": null, "finishedAt": null,
-    "seasons": [10, 8, 8], "watchedEpisodes": 0
+    "art": {
+      "hue": 205,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-05-30",
+    "startedAt": null,
+    "finishedAt": null,
+    "totalSeasons": 3,
+    "currentSeason": 0
   },
   {
-    "id": "westworld", "category": "series", "title": "Westworld", "creator": "Jonathan Nolan, Lisa Joy", "year": 2016,
-    "status": "dropped", "rating": 6, "genres": ["Science fiction", "Drama"],
+    "id": "westworld",
+    "category": "series",
+    "title": "Westworld",
+    "creator": "Jonathan Nolan, Lisa Joy",
+    "year": 2016,
+    "status": "dropped",
+    "rating": 6,
+    "genres": [
+      "Science fiction",
+      "Drama"
+    ],
     "synopsis": "In a futuristic theme park staffed by lifelike androids, the hosts begin to question the loops they have been written into.",
     "notes": "Season one was brilliant. After season two I lost the thread.",
-    "art": { "hue": 55, "pattern": "arches" },
-    "addedAt": "2026-04-30", "startedAt": "2026-05-02", "finishedAt": null,
-    "seasons": [10, 10, 8, 8], "watchedEpisodes": 20
+    "art": {
+      "hue": 55,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-04-30",
+    "startedAt": "2026-05-02",
+    "finishedAt": null,
+    "totalSeasons": 4,
+    "currentSeason": 2
   },
   {
-    "id": "cowboy-bebop", "category": "anime", "title": "Cowboy Bebop", "creator": "Shinichirō Watanabe", "year": 1998,
-    "status": "completed", "rating": 9, "genres": ["Science fiction", "Action", "Adventure"],
+    "id": "cowboy-bebop",
+    "category": "anime",
+    "title": "Cowboy Bebop",
+    "creator": "Shinichirō Watanabe",
+    "year": 1998,
+    "status": "completed",
+    "rating": 9,
+    "genres": [
+      "Science fiction",
+      "Action",
+      "Adventure"
+    ],
     "synopsis": "A crew of bounty hunters drifts through the solar system, chasing payouts and running from their pasts.",
-    "art": { "hue": 8, "pattern": "rays" },
-    "addedAt": "2026-02-20", "startedAt": "2026-02-22", "finishedAt": "2026-04-02",
-    "seasons": [26], "watchedEpisodes": 26
+    "art": {
+      "hue": 8,
+      "pattern": "rays"
+    },
+    "addedAt": "2026-02-20",
+    "startedAt": "2026-02-22",
+    "finishedAt": "2026-04-02",
+    "totalSeasons": 1,
+    "currentSeason": 1,
+    "tracking": "episodes",
+    "totalEpisodes": 26,
+    "currentEpisode": 26
   },
   {
-    "id": "fullmetal-alchemist-brotherhood", "category": "anime", "title": "Fullmetal Alchemist: Brotherhood", "creator": "Bones", "year": 2009,
-    "status": "completed", "rating": 9.5, "genres": ["Action", "Adventure", "Fantasy"],
+    "id": "fullmetal-alchemist-brotherhood",
+    "category": "anime",
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "creator": "Bones",
+    "year": 2009,
+    "status": "completed",
+    "rating": 9.5,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
     "synopsis": "Two brothers search for the Philosopher's Stone to restore the bodies they lost to a forbidden alchemical ritual.",
-    "art": { "hue": 22, "pattern": "orbit" },
-    "addedAt": "2026-05-01", "startedAt": "2026-05-03", "finishedAt": "2026-08-16",
-    "seasons": [64], "watchedEpisodes": 64
+    "art": {
+      "hue": 22,
+      "pattern": "orbit"
+    },
+    "addedAt": "2026-05-01",
+    "startedAt": "2026-05-03",
+    "finishedAt": "2026-08-16",
+    "totalSeasons": 1,
+    "currentSeason": 1,
+    "tracking": "episodes",
+    "totalEpisodes": 64,
+    "currentEpisode": 64
   },
   {
-    "id": "frieren-beyond-journeys-end", "category": "anime", "title": "Frieren: Beyond Journey's End", "creator": "Madhouse", "year": 2023,
-    "status": "in-progress", "rating": 9, "genres": ["Fantasy", "Adventure", "Slice of life"],
+    "id": "frieren-beyond-journeys-end",
+    "category": "anime",
+    "title": "Frieren: Beyond Journey's End",
+    "creator": "Madhouse",
+    "year": 2023,
+    "status": "in-progress",
+    "rating": 9,
+    "genres": [
+      "Fantasy",
+      "Adventure",
+      "Slice of life"
+    ],
     "synopsis": "After defeating the Demon King, an elf mage sets out to understand the human companions whose lives passed in a blink.",
-    "art": { "hue": 175, "pattern": "arches" },
-    "addedAt": "2026-08-20", "startedAt": "2026-08-24", "finishedAt": null,
-    "seasons": [28], "watchedEpisodes": 19
+    "art": {
+      "hue": 175,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-08-20",
+    "startedAt": "2026-08-24",
+    "finishedAt": null,
+    "totalSeasons": 1,
+    "currentSeason": 1,
+    "tracking": "episodes",
+    "totalEpisodes": 28,
+    "currentEpisode": 19
   },
   {
-    "id": "attack-on-titan", "category": "anime", "title": "Attack on Titan", "creator": "Wit Studio, MAPPA", "year": 2013,
-    "status": "on-hold", "rating": null, "genres": ["Action", "Drama", "Fantasy"],
+    "id": "attack-on-titan",
+    "category": "anime",
+    "title": "Attack on Titan",
+    "creator": "Wit Studio, MAPPA",
+    "year": 2013,
+    "status": "on-hold",
+    "rating": null,
+    "genres": [
+      "Action",
+      "Drama",
+      "Fantasy"
+    ],
     "synopsis": "Humanity lives behind giant walls to hide from man-eating Titans, until a breach sends one boy on a quest for answers.",
-    "art": { "hue": 90, "pattern": "blocks" },
-    "addedAt": "2026-01-12", "startedAt": "2026-01-15", "finishedAt": null,
-    "seasons": [25, 12, 22, 28], "watchedEpisodes": 37
+    "art": {
+      "hue": 90,
+      "pattern": "blocks"
+    },
+    "addedAt": "2026-01-12",
+    "startedAt": "2026-01-15",
+    "finishedAt": null,
+    "totalSeasons": 4,
+    "currentSeason": 2,
+    "tracking": "seasons",
+    "totalEpisodes": 87,
+    "currentEpisode": 37
   },
   {
-    "id": "steins-gate", "category": "anime", "title": "Steins;Gate", "creator": "White Fox", "year": 2011,
-    "status": "completed", "rating": 9, "genres": ["Science fiction", "Thriller"],
+    "id": "steins-gate",
+    "category": "anime",
+    "title": "Steins;Gate",
+    "creator": "White Fox",
+    "year": 2011,
+    "status": "completed",
+    "rating": 9,
+    "genres": [
+      "Science fiction",
+      "Thriller"
+    ],
     "synopsis": "A self-proclaimed mad scientist discovers a way to send messages to the past and unravels the consequences.",
-    "art": { "hue": 70, "pattern": "bands" },
-    "addedAt": "2025-11-10", "startedAt": "2025-11-12", "finishedAt": "2025-12-04",
-    "seasons": [24], "watchedEpisodes": 24
+    "art": {
+      "hue": 70,
+      "pattern": "bands"
+    },
+    "addedAt": "2025-11-10",
+    "startedAt": "2025-11-12",
+    "finishedAt": "2025-12-04",
+    "totalSeasons": 1,
+    "currentSeason": 1,
+    "tracking": "episodes",
+    "totalEpisodes": 24,
+    "currentEpisode": 24
   },
   {
-    "id": "mob-psycho-100", "category": "anime", "title": "Mob Psycho 100", "creator": "Bones", "year": 2016,
-    "status": "planned", "rating": null, "genres": ["Action", "Comedy", "Slice of life"],
+    "id": "mob-psycho-100",
+    "category": "anime",
+    "title": "Mob Psycho 100",
+    "creator": "Bones",
+    "year": 2016,
+    "status": "planned",
+    "rating": null,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Slice of life"
+    ],
     "synopsis": "A middle-schooler with immense psychic power tries to live a normal life and keep his emotions in check.",
-    "art": { "hue": 280, "pattern": "sun" },
-    "addedAt": "2026-09-28", "startedAt": null, "finishedAt": null,
-    "seasons": [12, 13, 12], "watchedEpisodes": 0
+    "art": {
+      "hue": 280,
+      "pattern": "sun"
+    },
+    "addedAt": "2026-09-28",
+    "startedAt": null,
+    "finishedAt": null,
+    "totalSeasons": 3,
+    "currentSeason": 0,
+    "tracking": "seasons",
+    "totalEpisodes": 37,
+    "currentEpisode": 0
   },
   {
-    "id": "death-note", "category": "anime", "title": "Death Note", "creator": "Madhouse", "year": 2006,
-    "status": "completed", "rating": 8.5, "genres": ["Thriller", "Mystery", "Psychological"],
+    "id": "death-note",
+    "category": "anime",
+    "title": "Death Note",
+    "creator": "Madhouse",
+    "year": 2006,
+    "status": "completed",
+    "rating": 8.5,
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Psychological"
+    ],
     "synopsis": "A student finds a notebook that kills anyone whose name is written in it, and a genius detective sets out to stop him.",
-    "art": { "hue": 330, "pattern": "arches" },
-    "addedAt": "2026-04-02", "startedAt": "2026-04-04", "finishedAt": "2026-05-09",
-    "seasons": [37], "watchedEpisodes": 37
+    "art": {
+      "hue": 330,
+      "pattern": "arches"
+    },
+    "addedAt": "2026-04-02",
+    "startedAt": "2026-04-04",
+    "finishedAt": "2026-05-09",
+    "totalSeasons": 1,
+    "currentSeason": 1,
+    "tracking": "episodes",
+    "totalEpisodes": 37,
+    "currentEpisode": 37
   },
   {
-    "id": "vinland-saga", "category": "anime", "title": "Vinland Saga", "creator": "Wit Studio, MAPPA", "year": 2019,
-    "status": "in-progress", "rating": 9, "genres": ["Action", "Historical", "Adventure"],
+    "id": "vinland-saga",
+    "category": "anime",
+    "title": "Vinland Saga",
+    "creator": "Wit Studio, MAPPA",
+    "year": 2019,
+    "status": "in-progress",
+    "rating": 9,
+    "genres": [
+      "Action",
+      "Historical",
+      "Adventure"
+    ],
     "synopsis": "A young Viking raised on revenge joins the band that killed his father, and slowly learns what it would mean to have no enemies.",
-    "art": { "hue": 218, "pattern": "rays" },
-    "addedAt": "2026-06-18", "startedAt": "2026-06-21", "finishedAt": null,
-    "seasons": [24, 24], "watchedEpisodes": 30
+    "art": {
+      "hue": 218,
+      "pattern": "rays"
+    },
+    "addedAt": "2026-06-18",
+    "startedAt": "2026-06-21",
+    "finishedAt": null,
+    "totalSeasons": 2,
+    "currentSeason": 2,
+    "tracking": "seasons",
+    "totalEpisodes": 48,
+    "currentEpisode": 30
   }
 ]

@@ -1,5 +1,5 @@
-/* Lightbox design tokens. The ground is a dark table; the one lit surface is the
-   "Now showing" panel. Colour is reserved for status, so the rest stays neutral. */
+/* The Archive design tokens. The ground is a dark table; the one lit surface is the
+   "Now consuming" panel. Colour is reserved for status, so the rest stays neutral. */
 
 :root {
   color-scheme: dark;
@@ -169,12 +169,6 @@ p {
 
 main {
   min-height: calc(100dvh - var(--header-h));
-}
-
-@media (max-width: 719px) {
-  main {
-    padding-bottom: 4.5rem;
-  }
 }
 
 .shell {

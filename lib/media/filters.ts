@@ -1,4 +1,4 @@
-import { isCategory, isStatus, type Category, type MediaItem, type Status } from "./types";
+import { isCategory, isStatus, seriesOf, type Category, type MediaItem, type Status } from "./types";
 
 export const SORTS = ["updated", "added", "title", "rating", "year"] as const;
 export type SortKey = (typeof SORTS)[number];
@@ -70,7 +70,7 @@ const fold = (s: string) => s.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCa
 
 function matchesQuery(item: MediaItem, q: string): boolean {
   const haystack = fold(
-    [item.title, item.creator, item.genres.join(" "), item.tags.join(" "), item.category === "book" ? item.series?.name ?? "" : ""].join(" "),
+    [item.title, item.creator, item.genres.join(" "), seriesOf(item)?.name ?? ""].join(" "),
   );
   return fold(q)
     .split(/\s+/)
@@ -106,8 +106,4 @@ export function allGenres(items: MediaItem[]): { name: string; count: number }[]
   return [...counts]
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-}
-
-export function allTags(items: MediaItem[]): string[] {
-  return [...new Set(items.flatMap((item) => item.tags))].sort((a, b) => a.localeCompare(b));
 }

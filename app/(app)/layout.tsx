@@ -1,6 +1,8 @@
 import { Suspense, type ReactNode } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { AppFallback } from "@/components/AppFallback";
+import { BuiltBy } from "@/components/BuiltBy";
+import credit from "@/components/BuiltBy.module.css";
 import { Providers } from "@/components/Providers";
 import { loadLibrary } from "@/lib/server/collection";
 import { requireSession } from "@/lib/server/session";
@@ -24,6 +26,9 @@ async function Shell({ children }: { children: ReactNode }) {
     <Providers user={{ userId: session.userId, username: session.username, fullName: session.fullName }} initialItems={items}>
       <AppHeader />
       <main>{children}</main>
+      <footer className={credit.footer}>
+        <BuiltBy />
+      </footer>
     </Providers>
   );
 }

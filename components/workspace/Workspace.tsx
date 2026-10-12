@@ -41,7 +41,7 @@ interface Workspace {
 
 const WorkspaceContext = createContext<Workspace | null>(null);
 
-const EDIT_KEY = "lightbox:edit-mode";
+const EDIT_KEY = "the-archive:edit-mode";
 const editListeners = new Set<() => void>();
 
 function subscribeEdit(listener: () => void) {
@@ -81,7 +81,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   useEffect(() => onError((message) => notify(message)), [onError, notify]);
 
   const addSampleTitles = useCallback(async () => {
-    const result = await add(await loadSample());
+    const result = await add((await loadSample()).map((item) => ({ item })));
     if (!result.ok) return notify(result.error);
     notify(result.items.length ? `Added ${result.items.length} sample ${result.items.length === 1 ? "title" : "titles"}` : "You already have all the sample titles");
   }, [add, notify]);

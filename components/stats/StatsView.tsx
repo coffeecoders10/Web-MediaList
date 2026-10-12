@@ -79,28 +79,28 @@ export function StatsView() {
         <Panel title="What you've taken in" className={styles.wide}>
           <dl className={styles.totals}>
             <div>
-              <dt>Pages read</dt>
-              <dd>{formatNumber(stats.pagesRead)}</dd>
+              <dt>Chapters read</dt>
+              <dd>{formatNumber(stats.chaptersRead)}</dd>
             </div>
             <div>
               <dt>Hours of film</dt>
               <dd>{formatNumber(hours)}</dd>
             </div>
             <div>
-              <dt>Episodes watched</dt>
-              <dd>{formatNumber(stats.episodesWatched)}</dd>
+              <dt>Seasons watched</dt>
+              <dd>{formatNumber(stats.seasonsWatched)}</dd>
             </div>
             <div>
-              <dt>Average rating</dt>
-              <dd>{stats.averageRating === null ? "–" : stats.averageRating.toFixed(1)}</dd>
+              <dt>Completion rate</dt>
+              <dd>{Math.round((done / stats.total) * 100)}%</dd>
             </div>
           </dl>
         </Panel>
 
-        <Panel title="By type" note="Finished titles are the brighter part of each bar.">
+        <Panel title="By type">
           <ul className={styles.rows}>
             {CATEGORIES.map((c) => (
-              <li key={c} className={styles.row}>
+              <li key={c} className={`${styles.row} ${styles.rowWide}`}>
                 <span className={styles.rowLabel}>{CATEGORY_LABEL[c].plural}</span>
                 <span className={styles.rowTrack} aria-hidden="true">
                   <span className={styles.rowTotal} style={{ width: `${(stats.byCategory[c] / maxCategory) * 100}%` }}>
@@ -116,28 +116,9 @@ export function StatsView() {
           </ul>
         </Panel>
 
-        <Panel title="Top genres">
-          <ul className={styles.rows}>
-            {stats.topGenres.map((g) => (
-              <li key={g.name} className={styles.row}>
-                <Link href={`/genres?genre=${encodeURIComponent(g.name)}`} className={styles.rowLabel}>
-                  {g.name}
-                </Link>
-                <span className={styles.rowTrack} aria-hidden="true">
-                  <span className={styles.rowTotal} style={{ width: `${(g.count / maxGenre) * 100}%` }}>
-                    <span className={styles.rowDone} style={{ width: "100%" }} />
-                  </span>
-                </span>
-                <span className={styles.rowValue}>{g.count}</span>
-              </li>
-            ))}
-          </ul>
-        </Panel>
-
         <Panel
           title="How you rate"
           note={stats.rated ? `${stats.rated} of ${stats.total} titles rated` : "Rate a few titles to see the shape of your taste."}
-          className={styles.wide}
         >
           <ol className={styles.columns} aria-label="Number of titles at each rating">
             {stats.ratingBins.map((b) => (
@@ -151,6 +132,24 @@ export function StatsView() {
               </li>
             ))}
           </ol>
+        </Panel>
+
+        <Panel title="Top genres" className={styles.wide}>
+          <ul className={`${styles.rows} ${styles.twoCol}`}>
+            {stats.topGenres.map((g) => (
+              <li key={g.name} className={styles.row}>
+                <Link href={`/?genre=${encodeURIComponent(g.name)}`} className={styles.rowLabel}>
+                  {g.name}
+                </Link>
+                <span className={styles.rowTrack} aria-hidden="true">
+                  <span className={styles.rowTotal} style={{ width: `${(g.count / maxGenre) * 100}%` }}>
+                    <span className={styles.rowDone} style={{ width: "100%" }} />
+                  </span>
+                </span>
+                <span className={styles.rowValue}>{g.count}</span>
+              </li>
+            ))}
+          </ul>
         </Panel>
 
         <Panel

@@ -78,3 +78,27 @@
   font-size: var(--fs-xs);
   color: var(--leader-text, var(--ink-2));
 }
+
+/* Name and volume share a row; the name gives way first when space runs out. */
+.series {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+  font-size: var(--fs-sm);
+  color: var(--series-ink, var(--ink-2));
+}
+
+.seriesName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.volume {
+  flex: none;
+  font-weight: 650;
+  color: var(--series-strong, var(--ink));
+  white-space: nowrap;
+}

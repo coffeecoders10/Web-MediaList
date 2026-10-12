@@ -1,3 +1,10 @@
+import type { MediaItem } from "./types";
+
+/** The line under a title: creator, year and (for films) the kind of film, skipping whatever isn't set. */
+export function bylineOf(item: MediaItem): string {
+  return [item.creator, item.year, item.category === "movie" ? item.type : null].filter(Boolean).join(" · ");
+}
+
 export function formatRuntime(minutes: number): string {
   const h = Math.floor(minutes / 60);
   const m = minutes % 60;

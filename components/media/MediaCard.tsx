@@ -6,10 +6,11 @@ import { Cover } from "@/components/Cover";
 import { Button } from "@/components/ui/Button";
 import { StatusGlyph } from "@/components/ui/Icons";
 import { useWorkspace } from "@/components/workspace/Workspace";
+import { bylineOf } from "@/lib/media/format";
 import { quickStep } from "@/lib/media/progress";
 import { useMedia } from "@/lib/media/store";
 import { STATUS_LABEL, type MediaItem } from "@/lib/media/types";
-import { CategoryTag, ProgressLeader, Rating } from "./Marks";
+import { CategoryTag, ProgressLeader, Rating, SeriesLine } from "./Marks";
 import styles from "./MediaCard.module.css";
 
 export function MediaCard({ item }: { item: MediaItem }) {
@@ -39,7 +40,8 @@ export function MediaCard({ item }: { item: MediaItem }) {
             {item.title}
           </Link>
         </h3>
-        <p className={styles.byline}>{[item.creator, item.year].filter(Boolean).join(" · ")}</p>
+        <p className={styles.byline}>{bylineOf(item)}</p>
+        <SeriesLine item={item} />
         <div className={styles.foot}>
           <CategoryTag category={item.category} />
           <Rating value={item.rating} />

@@ -1,0 +1,443 @@
+[
+  {
+    "title": "High Potential",
+    "creator": "Drew Goddard",
+    "year": 2024,
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "Morgan, a single mother with a remarkable ability to spot patterns, is recruited to help the Los Angeles police solve difficult cases. Her unconventional methods challenge her rule-following detective partner.",
+    "totalSeasons": 2
+  },
+  {
+    "title": "Ghoul",
+    "creator": "Patrick Graham",
+    "year": 2018,
+    "genres": [
+      "Horror",
+      "Action"
+    ],
+    "synopsis": "In a dystopian India, a newly recruited interrogator arrives at a secret military detention center, where a mysterious prisoner unleashes a terrifying supernatural threat.",
+    "totalSeasons": 1
+  },
+  {
+    "title": "Community",
+    "creator": "Dan Harmon",
+    "year": 2009,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "A disbarred lawyer enrolls at Greendale Community College and forms a study group with an eccentric mix of students, whose friendships turn ordinary campus life into absurd adventures.",
+    "totalSeasons": 6
+  },
+  {
+    "title": "Love, Death & Robots",
+    "creator": "Tim Miller",
+    "year": 2019,
+    "genres": [
+      "Horror",
+      "Drama"
+    ],
+    "synopsis": "An adult animated anthology explores science fiction, horror, fantasy and dark humor through standalone stories told in a wide range of visual styles.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "Good Omens",
+    "creator": "Neil Gaiman",
+    "year": 2019,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "An angel and a demon who have grown fond of life on Earth form an unlikely alliance to prevent an approaching apocalypse and challenge the plans of Heaven and Hell.",
+    "totalSeasons": 3
+  },
+  {
+    "title": "Friends",
+    "creator": "David Crane, Marta Kauffman",
+    "year": 1994,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Six friends navigate careers, romance, family and adulthood while sharing everyday ups and downs in New York City.",
+    "totalSeasons": 10
+  },
+  {
+    "title": "The Bear",
+    "creator": "Christopher Storer",
+    "year": 2022,
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "synopsis": "A gifted fine-dining chef returns to Chicago to run his late brother's sandwich shop, where a struggling staff, family tensions and restaurant ambitions test his resolve.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "The Punisher",
+    "creator": "Steve Lightfoot",
+    "year": 2017,
+    "genres": [
+      "Comics"
+    ],
+    "synopsis": "Frank Castle, a former Marine haunted by his family's murder, pursues violent justice and uncovers conspiracies tied to his military past.",
+    "totalSeasons": 2
+  },
+  {
+    "title": "White Collar",
+    "creator": "Jeff Eastin",
+    "year": 2009,
+    "genres": [
+      "Detective"
+    ],
+    "synopsis": "Charming con artist Neal Caffrey makes a deal to assist FBI agent Peter Burke, using his expertise in forgery, theft and deception to catch sophisticated criminals.",
+    "totalSeasons": 6
+  },
+  {
+    "title": "Scorpion",
+    "creator": "Nick Santora",
+    "year": 2014,
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "An eccentric team of geniuses works with Homeland Security to solve high-stakes technical and national-security crises while struggling with everyday social challenges.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "The Witcher",
+    "creator": "Lauren Schmidt Hissrich",
+    "year": 2019,
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Geralt of Rivia, a solitary monster hunter, finds his fate intertwined with a powerful sorceress and a princess whose abilities could reshape a war-torn world.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "Castle",
+    "creator": "Andrew W. Marlowe",
+    "year": 2009,
+    "genres": [
+      "Detective"
+    ],
+    "synopsis": "A best-selling mystery novelist teams up with NYPD detective Kate Beckett, drawing on his imagination to help solve murders while developing a complicated partnership.",
+    "totalSeasons": 8
+  },
+  {
+    "title": "Stranger Things",
+    "creator": "Matt Duffer, Ross Duffer",
+    "year": 2016,
+    "genres": [
+      "Thriller",
+      "Horror"
+    ],
+    "synopsis": "After a boy vanishes in a small Indiana town, his friends uncover secret experiments, a mysterious girl and a dangerous alternate dimension.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "Moon Knight",
+    "creator": "Jeremy Slater",
+    "year": 2022,
+    "genres": [
+      "Comics"
+    ],
+    "synopsis": "A mild-mannered museum worker experiences blackouts and discovers he shares a body with a mercenary linked to an Egyptian god, pulling him into a supernatural mystery.",
+    "totalSeasons": 1
+  },
+  {
+    "title": "Tom Clancy's Jack Ryan",
+    "creator": "Carlton Cuse, Graham Roland",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "CIA analyst Jack Ryan is pulled out of his desk job and into dangerous field operations as he tracks international plots threatening global security.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "Altered Carbon",
+    "creator": "Laeta Kalogridis",
+    "year": 2018,
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "In a future where human consciousness can be transferred between bodies, a former soldier is revived to investigate a wealthy man's apparent murder.",
+    "totalSeasons": 2
+  },
+  {
+    "title": "Chernobyl",
+    "creator": "Craig Mazin",
+    "year": 2019,
+    "genres": [
+      "Drama",
+      "Horror"
+    ],
+    "synopsis": "This historical miniseries dramatizes the 1986 nuclear disaster in Soviet Ukraine and the efforts of scientists, workers and officials to contain its consequences.",
+    "totalSeasons": 1
+  },
+  {
+    "title": "The Boys",
+    "creator": "Eric Kripke",
+    "year": 2019,
+    "genres": [
+      "Horror",
+      "Action"
+    ],
+    "synopsis": "In a world where superheroes are powerful celebrities shielded by a corporation, a rogue group seeks to expose and confront their corruption and abuse.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "The Mentalist",
+    "creator": "Bruno Heller",
+    "year": 2008,
+    "genres": [
+      "Detective"
+    ],
+    "synopsis": "Patrick Jane, a brilliant observer and former fake psychic, works with California investigators to solve crimes while pursuing the serial killer who destroyed his family.",
+    "totalSeasons": 7
+  },
+  {
+    "title": "Sherlock",
+    "creator": "Mark Gatiss, Steven Moffat",
+    "year": 2010,
+    "genres": [
+      "Detective"
+    ],
+    "synopsis": "A modern-day Sherlock Holmes and Dr. John Watson investigate extraordinary crimes across London, relying on deduction, observation and an uneasy friendship.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "Brooklyn Nine-Nine",
+    "creator": "Dan Goor, Michael Schur",
+    "year": 2013,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Talented but immature detective Jake Peralta and his colleagues juggle crimes, office rivalries and friendships at a Brooklyn police precinct.",
+    "totalSeasons": 8
+  },
+  {
+    "title": "Grimm",
+    "creator": "Stephen Carpenter, David Greenwalt, Jim Kouf",
+    "year": 2011,
+    "genres": [
+      "Thriller"
+    ],
+    "synopsis": "Portland homicide detective Nick Burkhardt learns he is a Grimm, a guardian able to see the mythical creatures hiding among humans, complicating his police work.",
+    "totalSeasons": 6
+  },
+  {
+    "title": "The Last of Us",
+    "creator": "Craig Mazin, Neil Druckmann",
+    "year": 2023,
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "synopsis": "Decades after a fungal infection devastates civilization, a hardened survivor is tasked with escorting a teenage girl across a dangerous and divided America.",
+    "totalSeasons": 2
+  },
+  {
+    "title": "Modern Family",
+    "creator": "Christopher Lloyd, Steven Levitan",
+    "year": 2009,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Three interconnected households tackle parenting, marriage and generational differences in this mockumentary about an extended family.",
+    "totalSeasons": 11
+  },
+  {
+    "title": "Black Mirror",
+    "creator": "Charlie Brooker",
+    "year": 2011,
+    "genres": [
+      "Horror"
+    ],
+    "synopsis": "A speculative anthology tells unsettling standalone stories about technology, society and the unexpected consequences of modern innovations.",
+    "totalSeasons": 7
+  },
+  {
+    "title": "Breaking Bad",
+    "creator": "Vince Gilligan",
+    "year": 2008,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "After a cancer diagnosis, chemistry teacher Walter White begins manufacturing methamphetamine with a former student, setting off an escalating spiral of crime and moral compromise.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "House M.D.",
+    "creator": "David Shore",
+    "year": 2004,
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "Brilliant but abrasive diagnostician Dr. Gregory House leads a medical team that tackles baffling illnesses while clashing with patients, colleagues and authority.",
+    "totalSeasons": 8
+  },
+  {
+    "title": "Reacher",
+    "creator": "Nick Santora",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "Former military police investigator Jack Reacher travels with few possessions, repeatedly becoming entangled in conspiracies and using sharp deduction and combat skills to expose them.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "The Queen's Gambit",
+    "creator": "Scott Frank, Allan Scott",
+    "year": 2020,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "Orphaned chess prodigy Beth Harmon rises through the competitive chess world during the Cold War while grappling with addiction, loneliness and ambition.",
+    "totalSeasons": 1
+  },
+  {
+    "title": "Loki",
+    "creator": "Michael Waldron",
+    "year": 2021,
+    "genres": [
+      "Comics"
+    ],
+    "synopsis": "After escaping with the Tesseract, Loki is apprehended by an organization that oversees the timeline and becomes embroiled in conflicts involving identity, fate and the multiverse.",
+    "totalSeasons": 2
+  },
+  {
+    "title": "Castlevania",
+    "creator": "Warren Ellis",
+    "year": 2017,
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "synopsis": "A monster hunter, a sorceress and Dracula's son join forces to protect humanity from the vampire lord's campaign of vengeance in a dark fantasy world.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "Person of Interest",
+    "creator": "Jonathan Nolan",
+    "year": 2011,
+    "genres": [
+      "Detective",
+      "Thriller"
+    ],
+    "synopsis": "A reclusive billionaire and an ex-CIA operative use a predictive surveillance system to identify people connected to imminent violent crimes and intervene before it is too late.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "The Umbrella Academy",
+    "creator": "Steve Blackman",
+    "year": 2019,
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "synopsis": "Estranged siblings with unusual powers reunite after their adoptive father's death and confront family secrets, dangerous enemies and threats to the world.",
+    "totalSeasons": 4
+  },
+  {
+    "title": "A Series of Unfortunate Events",
+    "creator": "Mark Hudis, Barry Sonnenfeld",
+    "year": 2017,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "The Baudelaire orphans move between guardians while outwitting the scheming Count Olaf, who wants their inheritance, and uncovering clues about their parents' past.",
+    "totalSeasons": 3
+  },
+  {
+    "title": "The Night Agent",
+    "creator": "Shawn Ryan",
+    "year": 2023,
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "synopsis": "A low-level FBI agent assigned to an emergency phone line is pulled into a dangerous conspiracy that reaches into the highest levels of the US government.",
+    "totalSeasons": 3
+  },
+  {
+    "title": "Money Heist",
+    "creator": "Álex Pina",
+    "year": 2017,
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "A criminal mastermind known as the Professor recruits a team of specialists to carry out intricate heists while authorities race to stop them.",
+    "totalSeasons": 5
+  },
+  {
+    "title": "The Blacklist",
+    "creator": "Jon Bokenkamp",
+    "year": 2013,
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "synopsis": "A notorious criminal unexpectedly surrenders to the FBI and offers to help capture dangerous fugitives, but insists on working with rookie profiler Elizabeth Keen.",
+    "totalSeasons": 10
+  },
+  {
+    "title": "The Big Bang Theory",
+    "creator": "Chuck Lorre, Bill Prady",
+    "year": 2007,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "A group of socially awkward physicists and their friends balance careers, relationships and pop-culture obsessions as their lives evolve.",
+    "totalSeasons": 12
+  },
+  {
+    "title": "How I Met Your Mother",
+    "creator": "Carter Bays, Craig Thomas",
+    "year": 2005,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Ted Mosby recounts to his children the winding story of how he met their mother, revisiting the friendships, romances and misadventures of his twenties and thirties.",
+    "totalSeasons": 9
+  },
+  {
+    "title": "The Terminal List",
+    "creator": "David DiGilio",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "After a disastrous covert mission, Navy SEAL James Reece suspects a cover-up and sets out to uncover the truth as powerful enemies close in.",
+    "totalSeasons": 1
+  },
+  {
+    "title": "Rick and Morty",
+    "creator": "Dan Harmon, Justin Roiland",
+    "year": 2013,
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "An eccentric scientist drags his anxious grandson on chaotic journeys across planets, dimensions and alternate realities, disrupting the lives of their family.",
+    "totalSeasons": 9
+  },
+  {
+    "title": "Supernatural",
+    "creator": "Eric Kripke",
+    "year": 2005,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "Brothers Sam and Dean Winchester travel across the United States hunting monsters, demons and other supernatural threats while confronting dark family secrets.",
+    "totalSeasons": 15
+  }
+]
