@@ -2,6 +2,7 @@ import {
   ART_PATTERNS,
   isCategory,
   isStatus,
+  isTrackingMode,
   type ArtPattern,
   type CoverArt,
   type MediaItem,
@@ -12,6 +13,8 @@ type Raw = Record<string, unknown>;
 const str = (v: unknown, fallback = ""): string => (typeof v === "string" ? v.trim() : fallback);
 const count = (v: unknown): number => (typeof v === "number" && Number.isFinite(v) && v > 0 ? Math.floor(v) : 0);
 const countOrNull = (v: unknown): number | null => (count(v) > 0 ? count(v) : null);
+/** A count that can't exceed `max` when the total is known. */
+const upTo = (v: unknown, max: number | null): number => (max ? Math.min(count(v), max) : count(v));
 const dateOrNull = (v: unknown): string | null => (typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v) ? v.slice(0, 10) : null);
 
 const strings = (v: unknown): string[] =>
@@ -48,7 +51,6 @@ export function normalizeItem(input: unknown): MediaItem | null {
     status: isStatus(raw.status) ? raw.status : ("planned" as const),
     rating,
     genres: strings(raw.genres),
-    tags: strings(raw.tags),
     synopsis: str(raw.synopsis),
     notes: str(raw.notes),
     posterUrl: str(raw.posterUrl),
@@ -62,28 +64,32 @@ export function normalizeItem(input: unknown): MediaItem | null {
   switch (raw.category) {
     case "book": {
       const s = raw.series as Raw | null | undefined;
-      const pagesTotal = countOrNull(raw.pagesTotal);
       const chaptersTotal = countOrNull(raw.chaptersTotal);
       return {
         ...base,
         category: "book",
-        pagesTotal,
-        pagesRead: pagesTotal ? Math.min(count(raw.pagesRead), pagesTotal) : count(raw.pagesRead),
         chaptersTotal,
-        chaptersRead: chaptersTotal ? Math.min(count(raw.chaptersRead), chaptersTotal) : count(raw.chaptersRead),
-        series: s && str(s.name) ? { name: str(s.name), volume: Math.max(1, count(s.volume)), of: countOrNull(s.of) } : null,
+        chaptersRead: upTo(raw.chaptersRead, chaptersTotal),
+        series: s && str(s.name) ? { name: str(s.name), volume: countOrNull(s.volume) } : null,
       };
     }
     case "movie":
-      return { ...base, category: "movie", runtimeMinutes: countOrNull(raw.runtimeMinutes) };
+      return { ...base, category: "movie", type: str(raw.type), runtimeMinutes: countOrNull(raw.runtimeMinutes) };
+    case "series": {
+      const totalSeasons = countOrNull(raw.totalSeasons);
+      return { ...base, category: "series", totalSeasons, currentSeason: upTo(raw.currentSeason, totalSeasons) };
+    }
     default: {
-      const seasons = Array.isArray(raw.seasons) ? raw.seasons.map(count).filter((n) => n > 0) : [];
-      const total = seasons.reduce((a, b) => a + b, 0);
+      const totalSeasons = countOrNull(raw.totalSeasons);
+      const totalEpisodes = countOrNull(raw.totalEpisodes);
       return {
         ...base,
-        category: raw.category as "series" | "anime",
-        seasons,
-        watchedEpisodes: Math.min(count(raw.watchedEpisodes), total),
+        category: "anime",
+        tracking: isTrackingMode(raw.tracking) ? raw.tracking : "seasons",
+        totalSeasons,
+        currentSeason: upTo(raw.currentSeason, totalSeasons),
+        totalEpisodes,
+        currentEpisode: upTo(raw.currentEpisode, totalEpisodes),
       };
     }
   }

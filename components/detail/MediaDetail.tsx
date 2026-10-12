@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { Cover } from "@/components/Cover";
-import { CategoryTag, Rating, StatusMark } from "@/components/media/Marks";
+import { CategoryTag, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { MediaCard } from "@/components/media/MediaCard";
 import { Button } from "@/components/ui/Button";
 import { StatusGlyph } from "@/components/ui/Icons";
 import { Select } from "@/components/ui/Select";
 import { useWorkspace } from "@/components/workspace/Workspace";
-import { formatDate, formatRuntime } from "@/lib/media/format";
-import { setStatus } from "@/lib/media/progress";
+import { bylineOf, formatDate, formatRuntime } from "@/lib/media/format";
+import { getProgress, setStatus, trackerOf } from "@/lib/media/progress";
 import { useMedia } from "@/lib/media/store";
 import { STATUS_LABEL, STATUSES, type MediaItem, type Status } from "@/lib/media/types";
 import { ProgressPanel } from "./ProgressPanel";
@@ -81,7 +81,8 @@ export function MediaDetail({ id }: { id: string }) {
           <header className={styles.head}>
             <CategoryTag category={item.category} />
             <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.byline}>{[item.creator, item.year].filter(Boolean).join(" · ")}</p>
+            {bylineOf(item) && <p className={styles.byline}>{bylineOf(item)}</p>}
+            {item.category === "book" && item.series && <SeriesLine series={item.series} className={styles.series} />}
           </header>
 
           <dl className={styles.facts}>
@@ -113,15 +114,9 @@ export function MediaDetail({ id }: { id: string }) {
                 <dd>{formatRuntime(item.runtimeMinutes)}</dd>
               </div>
             )}
-            {item.category === "book" && item.pagesTotal && (
-              <div>
-                <dt>Length</dt>
-                <dd>{item.pagesTotal} pages</dd>
-              </div>
-            )}
           </dl>
 
-          {item.category !== "movie" && (
+          {trackerOf(item) && (editMode || getProgress(item)) && (
             <section className={styles.section} aria-labelledby="progress-heading">
               <h2 id="progress-heading" className={styles.sectionHead}>
                 Progress

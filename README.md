@@ -28,13 +28,18 @@ Browser ──Server Actions──▶ Next.js server ──▶ Backbone
 
 **Accounts and sessions.** Backbone's `/auth` only verifies credentials, so the Next server owns the session: after login or signup it sets a signed (HS256, `jose`) `httpOnly`, `SameSite=lax` cookie that lasts 30 days, which keeps users signed in across refreshes and browser restarts. `proxy.ts` does an optimistic redirect; every page, layout and Server Action re-verifies the session close to the data (`lib/server/session.ts`) and takes the user id from it, never from client input. Failed logins are throttled in `lib/server/throttle.ts`.
 
-**Shared catalog** (`lib/server/catalog.ts`, `sop-db-query.md`). One `media_list` row per category (book, movie, series, anime) holds `{ nextId, entries }`, so each category numbers its entries 1, 2, 3… Entries carry only metadata about the work: title, creator, year, genres, tags, synopsis, cover, and totals such as pages, chapters, series info, runtime or episodes per season. Backbone cannot list rows, so a manifest of row ids is kept in `user_media` under the reserved id `__catalog_manifest__`. The first request creates the catalog rows; creating that id is atomic, so concurrent first requests cannot both do it.
+**Shared catalog** (`lib/server/catalog.ts`, `sop-db-query.md`). One `media_list` row per category (book, movie, series, anime) holds `{ nextId, entries }`, so each category numbers its entries 1, 2, 3… Entries carry only metadata about the work: title, creator, year, genres, synopsis, cover, and totals such as chapters, series name and volume, runtime, total seasons or total episodes. Backbone cannot list rows, so a manifest of row ids is kept in `user_media` under the reserved id `__catalog_manifest__`. The first request creates the catalog rows; creating that id is atomic, so concurrent first requests cannot both do it.
 
-**Personal collections** (`lib/server/collection.ts`, `sop-db-query-dynamic.md`). `user_media/<user_id>` holds `{ entries: { "book-12": {...} } }`: a reference into the catalog plus only what is personal (status, progress, rating, notes, added/started/finished dates). If a user edits a shared field (say a title or a page count), the difference is stored as that user's `overrides`; the catalog entry itself is never changed by editing. Deleting removes the reference only.
+**Personal collections** (`lib/server/collection.ts`, `sop-db-query-dynamic.md`). `user_media/<user_id>` holds `{ entries: { "book-12": {...} } }`: a reference into the catalog plus only what is personal (status, progress, rating, notes, added/started/finished dates). If a user edits a shared field (say a title or a chapter count), the difference is stored as that user's `overrides`; the catalog entry itself is never changed by editing. Deleting removes the reference only.
+
+**What is tracked.** Progress is measured in one unit per category, and only the current position is personal: books count chapters (`chaptersRead` of `chaptersTotal`), TV series count seasons (`currentSeason` of `totalSeasons`), anime counts either seasons or episodes depending on the `tracking` mode the user picked (`currentSeason`/`currentEpisode` of `totalSeasons`/`totalEpisodes`), and movies have no progress. A book's series is `{ name, volume }`. Everything except the title is optional, including the started and finished dates; progress without a known total shows just the position. `lib/media/progress.ts` is the single source for labels, steppers and status changes.
+
+**Title suggestions.** While typing a title in the Add form, `GET /api/catalog/search?category=&q=` (a Route Handler, so keystrokes can run in parallel and be aborted) searches that category's shared catalog (`lib/media/search.ts`, with a 15 second in-memory copy of the catalog in `lib/server/catalog.ts`). Picking a suggestion fills the shared fields only, never status, progress, rating, notes or dates, and links the form to that catalog entry.
 
 **Adding a title.** The server files it in the catalog under a lock, then references it from the user's collection:
 
-1. `lib/media/match.ts` looks for the same work in that category: equal normalized titles (case, accents, punctuation and leading articles ignored), no disagreement on creator, year or book volume, and a creator or year match to back the title up. A bare title (no creator, no year) joins an existing entry only if exactly one entry has that title. When in doubt it creates a new entry: a near-duplicate is cheaper than merging two different works or editions.
+0. A title picked from the suggestions carries its `catalogId`, which is used directly as long as the title still agrees with that entry.
+1. Otherwise `lib/media/match.ts` looks for the same work in that category: equal normalized titles (case, accents, punctuation and leading articles ignored), no disagreement on creator, year or book volume, and a creator or year match to back the title up. A bare title (no creator, no year) joins an existing entry only if exactly one entry has that title. When in doubt it creates a new entry: a near-duplicate is cheaper than merging two different works or editions.
 2. If found, its id is reused. Otherwise a new entry takes `nextId`.
 3. `lib/server/lock.ts` serializes this per category across server instances. Backbone has no locking, but creating a `user_media` row with an existing id fails, so that is used as a mutex (with an expiry so a crashed holder cannot block others).
 
@@ -44,9 +49,9 @@ Browser ──Server Actions──▶ Next.js server ──▶ Backbone
 
 ## Layout
 
-- `app/(auth)/` login and signup. `app/(app)/` the signed-in app: Library (`/`), Genres, Stats, `media/[id]`. `app/actions/` Server Actions.
-- `components/` UI, each with its own CSS Module. Radix UI primitives provide dialogs, selects, toggles, menus, sliders and toasts.
-- `lib/media/` types, filtering, progress rules, stats, matching and the catalog/user split: pure functions, no React.
+- `app/(auth)/` login and signup. `app/(app)/` the signed-in app: Library (`/`), Genres, Stats, `media/[id]`. `app/actions/` Server Actions. `app/api/catalog/search` title suggestions.
+- `components/` UI, each with its own CSS Module. Radix UI primitives provide dialogs, selects, toggles, popovers (title suggestions), menus, sliders and toasts.
+- `lib/media/` types, filtering, progress rules, stats, matching, title search and the catalog/user split: pure functions, no React.
 - `lib/server/` server-only code: Backbone client, locking, catalog, collections, sessions.
 
 ## Known limitations

@@ -25,8 +25,11 @@ export interface CollectionStats {
   averageRating: number | null;
   ratingBins: RatingBin[];
   topGenres: { name: string; count: number }[];
-  pagesRead: number;
+  chaptersRead: number;
   movieMinutes: number;
+  /** Seasons reached across TV series and season-tracked anime. */
+  seasonsWatched: number;
+  /** Episodes reached across episode-tracked anime. */
   episodesWatched: number;
   months: MonthBucket[];
   recentlyFinished: MediaItem[];
@@ -45,8 +48,9 @@ export function computeStats(items: MediaItem[], now: Date, monthsBack = 12): Co
   const bins = new Map(RATING_BINS.map((v) => [v, 0]));
   let ratingSum = 0;
   let rated = 0;
-  let pagesRead = 0;
+  let chaptersRead = 0;
   let movieMinutes = 0;
+  let seasonsWatched = 0;
   let episodesWatched = 0;
 
   const months: MonthBucket[] = [];
@@ -73,10 +77,21 @@ export function computeStats(items: MediaItem[], now: Date, monthsBack = 12): Co
       bins.set(bin, (bins.get(bin) ?? 0) + 1);
     }
 
-    if (item.category === "book") pagesRead += item.pagesRead;
-    else if (item.category === "movie") {
-      if (item.status === "completed") movieMinutes += item.runtimeMinutes ?? 0;
-    } else episodesWatched += item.watchedEpisodes;
+    switch (item.category) {
+      case "book":
+        chaptersRead += item.chaptersRead;
+        break;
+      case "movie":
+        if (item.status === "completed") movieMinutes += item.runtimeMinutes ?? 0;
+        break;
+      case "series":
+        seasonsWatched += item.currentSeason;
+        break;
+      case "anime":
+        if (item.tracking === "episodes") episodesWatched += item.currentEpisode;
+        else seasonsWatched += item.currentSeason;
+        break;
+    }
 
     const month = item.finishedAt ? monthByKey.get(item.finishedAt.slice(0, 7)) : undefined;
     if (month) {
@@ -94,8 +109,9 @@ export function computeStats(items: MediaItem[], now: Date, monthsBack = 12): Co
     averageRating: rated ? ratingSum / rated : null,
     ratingBins: RATING_BINS.map((value) => ({ value, count: bins.get(value) ?? 0 })),
     topGenres: allGenres(items).slice(0, 8),
-    pagesRead,
+    chaptersRead,
     movieMinutes,
+    seasonsWatched,
     episodesWatched,
     months,
     recentlyFinished: items

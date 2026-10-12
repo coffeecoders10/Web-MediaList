@@ -1,0 +1,97 @@
+.wrap {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.popup {
+  z-index: 70;
+  width: var(--radix-popover-trigger-width);
+  max-height: min(var(--radix-popover-content-available-height), 20rem);
+  padding: 0.25rem;
+  overflow-y: auto;
+  background: var(--table-raised);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-md);
+  box-shadow: 0 18px 40px oklch(0 0 0 / 0.45);
+  transform-origin: var(--radix-popover-content-transform-origin);
+  animation: pop 140ms var(--ease-out);
+}
+
+.list {
+  display: grid;
+  gap: 0.125rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  user-select: none;
+}
+.option[data-active] {
+  background: var(--table-hover);
+}
+.option[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.thumb {
+  flex: none;
+  width: 1.75rem;
+}
+
+.text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sub {
+  overflow: hidden;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge {
+  flex: none;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+}
+
+.note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+}
+.note svg {
+  color: var(--st-completed);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}

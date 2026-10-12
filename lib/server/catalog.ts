@@ -1,6 +1,7 @@
 import "server-only";
-import { findMatch } from "@/lib/media/match";
-import { toCatalogEntry, type CatalogEntry } from "@/lib/media/model";
+import { findMatch, normalizeTitle } from "@/lib/media/match";
+import { mergeEntry, toCatalogEntry, type CatalogEntry } from "@/lib/media/model";
+import { searchEntries } from "@/lib/media/search";
 import { CATEGORIES, type Category, type MediaItem } from "@/lib/media/types";
 import { BackboneError, mediaList, userMedia } from "./backbone";
 import { withLock } from "./lock";
@@ -100,8 +101,40 @@ export async function readCatalogs(categories: Iterable<Category>): Promise<Part
   return Object.fromEntries(wanted.map((c, i) => [c, docs[i]]));
 }
 
+/**
+ * Title search reads a category's whole catalog on every keystroke, so it works from a short-lived
+ * copy instead. Filing a title refreshes the copy on this instance; other instances catch up within
+ * the TTL, which only means a brand-new title can take a few seconds to show up as a suggestion.
+ */
+const SEARCH_TTL_MS = 15_000;
+const searchCache = new Map<Category, { at: number; entries: CatalogEntry[] }>();
+
+async function searchableEntries(category: Category): Promise<CatalogEntry[]> {
+  const cached = searchCache.get(category);
+  if (cached && Date.now() - cached.at < SEARCH_TTL_MS) return cached.entries;
+  const entries = Object.values((await readCatalog(category)).entries);
+  searchCache.set(category, { at: Date.now(), entries });
+  return entries;
+}
+
+/** Shared catalog titles of one category that match what the user is typing, as items with default personal fields. */
+export async function searchCatalog(category: Category, query: string): Promise<MediaItem[]> {
+  const matches = searchEntries(await searchableEntries(category), query);
+  return matches.flatMap((entry) => mergeEntry(entry, { category, catalogId: entry.id }) ?? []);
+}
+
 export async function readCatalogEntry(category: Category, catalogId: number): Promise<CatalogEntry | null> {
   return (await readCatalog(category)).entries[String(catalogId)] ?? null;
+}
+
+/**
+ * The entry an item was explicitly picked from (title suggestions). The id is only trusted while the
+ * title still agrees with it, so an id carried in an imported file can't attach a different work.
+ */
+function linkedEntry(item: MediaItem, doc: CatalogDoc): CatalogEntry | null {
+  const entry = item.catalogId > 0 ? doc.entries[String(item.catalogId)] : undefined;
+  const sameWork = entry && entry.category === item.category && normalizeTitle(String(entry.title ?? "")) === normalizeTitle(item.title);
+  return sameWork ? entry : null;
 }
 
 export interface Filed {
@@ -123,7 +156,7 @@ export async function fileInCatalog(category: Category, items: MediaItem[]): Pro
     let changed = false;
 
     const filed = items.map((item): Filed => {
-      const match = findMatch(item, known);
+      const match = linkedEntry(item, doc) ?? findMatch(item, known);
       if (match) return { entry: match, created: false };
       const entry = toCatalogEntry(item, doc.nextId++, now);
       doc.entries[String(entry.id)] = entry;
@@ -132,7 +165,10 @@ export async function fileInCatalog(category: Category, items: MediaItem[]): Pro
       return { entry, created: true };
     });
 
-    if (changed) await mediaList.write((await catalogRows())[category], doc);
+    if (changed) {
+      await mediaList.write((await catalogRows())[category], doc);
+      searchCache.set(category, { at: Date.now(), entries: known.slice() });
+    }
     return filed;
   });
 }

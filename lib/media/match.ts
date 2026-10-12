@@ -7,7 +7,8 @@ import type { MediaItem } from "./types";
  * Matching only ever happens within one category, because each category has its own catalog.
  */
 
-const fold = (s: string) =>
+/** Lowercase, accent-free, punctuation-free text, for comparing titles and names. */
+export const fold = (s: string) =>
   s
     .normalize("NFKD")
     .replace(/\p{M}/gu, "")

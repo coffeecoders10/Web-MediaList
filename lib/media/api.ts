@@ -13,3 +13,8 @@ export interface AddSummary {
   /** Entries the collection already held. */
   skipped: number;
 }
+
+/** The `/api/catalog/search` response: shared catalog titles with personal fields left at their defaults. */
+export interface CatalogSearchResult {
+  results: MediaItem[];
+}

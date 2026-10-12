@@ -21,7 +21,7 @@ export function GenreExplorer() {
       <div className={`shell ${styles.page}`}>
         <h1 className={styles.empty}>No genres yet</h1>
         <p className={styles.emptyText}>
-          Genres appear as you tag titles. <Link href="/">Back to the library</Link>
+          Genres appear as you add them to titles. <Link href="/">Back to the library</Link>
         </p>
       </div>
     );

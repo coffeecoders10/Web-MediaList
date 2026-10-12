@@ -79,12 +79,16 @@ export function StatsView() {
         <Panel title="What you've taken in" className={styles.wide}>
           <dl className={styles.totals}>
             <div>
-              <dt>Pages read</dt>
-              <dd>{formatNumber(stats.pagesRead)}</dd>
+              <dt>Chapters read</dt>
+              <dd>{formatNumber(stats.chaptersRead)}</dd>
             </div>
             <div>
               <dt>Hours of film</dt>
               <dd>{formatNumber(hours)}</dd>
+            </div>
+            <div>
+              <dt>Seasons watched</dt>
+              <dd>{formatNumber(stats.seasonsWatched)}</dd>
             </div>
             <div>
               <dt>Episodes watched</dt>

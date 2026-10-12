@@ -3,9 +3,10 @@
 import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Cover } from "@/components/Cover";
-import { CategoryTag, ProgressLeader, Rating, StatusMark } from "@/components/media/Marks";
+import { CategoryTag, ProgressLeader, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { Button } from "@/components/ui/Button";
 import { useWorkspace } from "@/components/workspace/Workspace";
+import { bylineOf } from "@/lib/media/format";
 import type { MediaItem } from "@/lib/media/types";
 import styles from "./MediaTable.module.css";
 
@@ -50,7 +51,8 @@ export function MediaTable({ items }: { items: MediaItem[] }) {
                   <Link href={`/media/${item.id}`} className={styles.link}>
                     {item.title}
                   </Link>
-                  <span className={styles.sub}>{[item.creator, item.year].filter(Boolean).join(" · ")}</span>
+                  <span className={styles.sub}>{bylineOf(item)}</span>
+                  {item.category === "book" && item.series && <SeriesLine series={item.series} className={styles.sub} />}
                 </div>
               </td>
               <td className={styles.hideSm}>

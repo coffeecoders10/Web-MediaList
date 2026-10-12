@@ -24,23 +24,23 @@ export interface UserEntry extends Fields {
   overrides?: Fields;
 }
 
-const SHARED_COMMON = ["title", "creator", "year", "genres", "tags", "synopsis", "posterUrl", "art"];
+const SHARED_COMMON = ["title", "creator", "year", "genres", "synopsis", "posterUrl", "art"];
 const OWN_COMMON = ["status", "rating", "notes", "addedAt", "startedAt", "finishedAt", "updatedAt"];
 
 /** Metadata that describes the work itself, and so lives in the shared catalog. */
 const SHARED_KEYS: Record<Category, readonly string[]> = {
-  book: [...SHARED_COMMON, "pagesTotal", "chaptersTotal", "series"],
-  movie: [...SHARED_COMMON, "runtimeMinutes"],
-  series: [...SHARED_COMMON, "seasons"],
-  anime: [...SHARED_COMMON, "seasons"],
+  book: [...SHARED_COMMON, "chaptersTotal", "series"],
+  movie: [...SHARED_COMMON, "type", "runtimeMinutes"],
+  series: [...SHARED_COMMON, "totalSeasons"],
+  anime: [...SHARED_COMMON, "totalSeasons", "totalEpisodes"],
 };
 
 /** What only this user knows: where they are in it, what they thought of it. */
 const OWN_KEYS: Record<Category, readonly string[]> = {
-  book: [...OWN_COMMON, "pagesRead", "chaptersRead"],
+  book: [...OWN_COMMON, "chaptersRead"],
   movie: OWN_COMMON,
-  series: [...OWN_COMMON, "watchedEpisodes"],
-  anime: [...OWN_COMMON, "watchedEpisodes"],
+  series: [...OWN_COMMON, "currentSeason"],
+  anime: [...OWN_COMMON, "tracking", "currentSeason", "currentEpisode"],
 };
 
 function pick(source: Fields, keys: readonly string[]): Fields {
@@ -60,8 +60,8 @@ function same(a: unknown, b: unknown): boolean {
     const keys = new Set([...Object.keys(x), ...Object.keys(y)]);
     return [...keys].every((k) => same(x[k], y[k]));
   }
-  // A missing value and null mean the same thing here.
-  return (a ?? null) === (b ?? null);
+  // A missing value, null and an empty string all mean "not set" here.
+  return (a || null) === (b || null);
 }
 
 export function toCatalogEntry(item: MediaItem, id: number, now = new Date().toISOString()): CatalogEntry {

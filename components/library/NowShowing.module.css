@@ -95,9 +95,10 @@
   border-radius: var(--r-md);
 }
 
+/* The series line sits on the lit panel, so it takes the panel's dark ink. */
 .position {
-  font-weight: 650;
-  font-size: var(--fs-base);
+  --series-ink: var(--lit-ink-2);
+  --series-strong: var(--lit-ink);
 }
 
 .step {
