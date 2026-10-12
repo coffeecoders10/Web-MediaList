@@ -6,6 +6,7 @@ import {
   type ArtPattern,
   type CoverArt,
   type MediaItem,
+  type WorkSeries,
 } from "./types";
 
 type Raw = Record<string, unknown>;
@@ -19,6 +20,11 @@ const dateOrNull = (v: unknown): string | null => (typeof v === "string" && /^\d
 
 const strings = (v: unknown): string[] =>
   Array.isArray(v) ? [...new Set(v.map((g) => str(g)).filter(Boolean))] : [];
+
+function series(v: unknown): WorkSeries | null {
+  const s = v as Raw | null | undefined;
+  return s && typeof s === "object" && str(s.name) ? { name: str(s.name), volume: countOrNull(s.volume) } : null;
+}
 
 function art(v: unknown): CoverArt | undefined {
   if (!v || typeof v !== "object") return undefined;
@@ -63,18 +69,23 @@ export function normalizeItem(input: unknown): MediaItem | null {
 
   switch (raw.category) {
     case "book": {
-      const s = raw.series as Raw | null | undefined;
       const chaptersTotal = countOrNull(raw.chaptersTotal);
       return {
         ...base,
         category: "book",
         chaptersTotal,
         chaptersRead: upTo(raw.chaptersRead, chaptersTotal),
-        series: s && str(s.name) ? { name: str(s.name), volume: countOrNull(s.volume) } : null,
+        series: series(raw.series),
       };
     }
     case "movie":
-      return { ...base, category: "movie", type: str(raw.type), runtimeMinutes: countOrNull(raw.runtimeMinutes) };
+      return {
+        ...base,
+        category: "movie",
+        type: str(raw.type),
+        runtimeMinutes: countOrNull(raw.runtimeMinutes),
+        series: series(raw.series),
+      };
     case "series": {
       const totalSeasons = countOrNull(raw.totalSeasons);
       return { ...base, category: "series", totalSeasons, currentSeason: upTo(raw.currentSeason, totalSeasons) };

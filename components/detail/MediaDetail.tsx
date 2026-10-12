@@ -14,7 +14,7 @@ import { useWorkspace } from "@/components/workspace/Workspace";
 import { bylineOf, formatDate, formatRuntime } from "@/lib/media/format";
 import { getProgress, setStatus, trackerOf } from "@/lib/media/progress";
 import { useMedia } from "@/lib/media/store";
-import { STATUS_LABEL, STATUSES, type MediaItem, type Status } from "@/lib/media/types";
+import { STATUS_LABEL, STATUSES, seriesOf, type MediaItem, type Status } from "@/lib/media/types";
 import { ProgressPanel } from "./ProgressPanel";
 import styles from "./MediaDetail.module.css";
 
@@ -49,10 +49,10 @@ export function MediaDetail({ id }: { id: string }) {
     );
   }
 
-  const seriesMates =
-    item.category === "book" && item.series
-      ? items.filter((o): o is typeof item => o.category === "book" && o.series?.name === item.series?.name && o.id !== item.id)
-      : [];
+  const series = seriesOf(item);
+  const seriesMates = series
+    ? items.filter((o) => o.category === item.category && seriesOf(o)?.name === series.name && o.id !== item.id)
+    : [];
 
   return (
     <article className={`shell ${styles.page}`}>
@@ -82,7 +82,7 @@ export function MediaDetail({ id }: { id: string }) {
             <CategoryTag category={item.category} />
             <h1 className={styles.title}>{item.title}</h1>
             {bylineOf(item) && <p className={styles.byline}>{bylineOf(item)}</p>}
-            {item.category === "book" && item.series && <SeriesLine series={item.series} className={styles.series} />}
+            <SeriesLine item={item} className={styles.series} />
           </header>
 
           <dl className={styles.facts}>
@@ -170,7 +170,7 @@ export function MediaDetail({ id }: { id: string }) {
           {seriesMates.length > 0 && (
             <section className={styles.section} aria-labelledby="series-heading">
               <h2 id="series-heading" className={styles.sectionHead}>
-                More from {item.category === "book" && item.series?.name}
+                More from {series?.name}
               </h2>
               <ul className={styles.related}>
                 {seriesMates.map((o) => (

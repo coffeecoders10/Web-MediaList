@@ -9,7 +9,7 @@ import { inputClass } from "@/components/ui/Field";
 import type { CatalogSearchResult } from "@/lib/media/api";
 import { bylineOf } from "@/lib/media/format";
 import { MIN_QUERY } from "@/lib/media/search";
-import type { Category, MediaItem } from "@/lib/media/types";
+import { seriesOf, type Category, type MediaItem } from "@/lib/media/types";
 import styles from "./TitleCombobox.module.css";
 
 const DEBOUNCE_MS = 150;
@@ -160,7 +160,7 @@ export function TitleCombobox({ id, value, category, linked, owned, onChange, on
                     <div className={styles.text}>
                       <span className={styles.name}>{item.title}</span>
                       <span className={styles.sub}>
-                        {[bylineOf(item), item.category === "book" ? item.series?.name : null].filter(Boolean).join(" · ") || "No details yet"}
+                        {[bylineOf(item), seriesOf(item)?.name].filter(Boolean).join(" · ") || "No details yet"}
                       </span>
                     </div>
                     {taken && <span className={styles.badge}>In your collection</span>}

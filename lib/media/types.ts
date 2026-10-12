@@ -38,9 +38,10 @@ interface MediaBase {
   updatedAt: string;
 }
 
-export interface BookSeries {
+/** The series (books) or franchise (movies) a work belongs to. */
+export interface WorkSeries {
   name: string;
-  /** Volume number within the series; null when unknown. */
+  /** Volume (books) or part (movies) number within the series; null when unknown. */
   volume: number | null;
 }
 
@@ -48,7 +49,7 @@ export interface Book extends MediaBase {
   category: "book";
   chaptersTotal: number | null;
   chaptersRead: number;
-  series: BookSeries | null;
+  series: WorkSeries | null;
 }
 
 export interface Movie extends MediaBase {
@@ -56,6 +57,7 @@ export interface Movie extends MediaBase {
   /** Free-form kind of film, e.g. "Hollywood" or "Bollywood"; empty when not set. */
   type: string;
   runtimeMinutes: number | null;
+  series: WorkSeries | null;
 }
 
 /** TV series are tracked by season only: how many there are, and which one you are on. */
@@ -83,6 +85,11 @@ export interface Anime extends MediaBase {
 }
 
 export type MediaItem = Book | Movie | Series | Anime;
+
+/** The series an item belongs to; only books and movies have one. */
+export function seriesOf(item: MediaItem): WorkSeries | null {
+  return item.category === "book" || item.category === "movie" ? item.series : null;
+}
 
 export const CATEGORY_LABEL: Record<Category, { singular: string; plural: string }> = {
   book: { singular: "Book", plural: "Books" },

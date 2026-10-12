@@ -177,12 +177,12 @@ function EditorForm({ target }: { target: EditorTarget }) {
             </Field>
           </div>
 
-          {category === "book" && (
+          {(category === "book" || category === "movie") && (
             <div className={styles.seriesRow}>
-              <Field label="Series" htmlFor={id("seriesName")} hint="Leave empty for a standalone book.">
+              <Field label="Series" htmlFor={id("seriesName")} hint={`Leave empty for a standalone ${category}.`}>
                 <input {...text("seriesName")} autoComplete="off" />
               </Field>
-              <Field label="Vol." htmlFor={id("seriesVolume")} error={errors.seriesVolume}>
+              <Field label={category === "book" ? "Vol." : "Part"} htmlFor={id("seriesVolume")} error={errors.seriesVolume}>
                 <input {...text("seriesVolume", { inputMode: "numeric", placeholder: "1" })} />
               </Field>
             </div>

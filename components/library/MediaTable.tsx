@@ -52,7 +52,7 @@ export function MediaTable({ items }: { items: MediaItem[] }) {
                     {item.title}
                   </Link>
                   <span className={styles.sub}>{bylineOf(item)}</span>
-                  {item.category === "book" && item.series && <SeriesLine series={item.series} className={styles.sub} />}
+                  <SeriesLine item={item} className={styles.sub} />
                 </div>
               </td>
               <td className={styles.hideSm}>

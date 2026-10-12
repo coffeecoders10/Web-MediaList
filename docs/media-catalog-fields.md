@@ -35,6 +35,7 @@ synopsis
 posterUrl
 art
 runtimeMinutes
+series           { name, volume }, the franchise and the part within it (volume is the part number)
 ```
 
 ### TV series
@@ -105,7 +106,10 @@ Full catalog entries (shared keys only):
   "posterUrl": "", "chaptersTotal": 10, "series": { "name": "Dune", "volume": 2 } }
 
 { "category": "movie", "title": "Arrival", "creator": "Denis Villeneuve", "year": 2016, "type": "Hollywood",
-  "genres": ["Science fiction"], "runtimeMinutes": 116 }
+  "genres": ["Science fiction"], "runtimeMinutes": 116, "series": null }
+
+{ "category": "movie", "title": "Harry Potter and the Chamber of Secrets", "creator": "Chris Columbus", "year": 2002,
+  "type": "Hollywood", "genres": ["Fantasy"], "runtimeMinutes": 161, "series": { "name": "Harry Potter", "volume": 2 } }
 
 { "category": "series", "title": "Severance", "creator": "Dan Erickson", "year": 2022,
   "genres": ["Thriller"], "totalSeasons": 2 }

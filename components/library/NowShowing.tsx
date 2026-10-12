@@ -51,7 +51,7 @@ export function NowShowing({ items, onShowPlanned }: { items: MediaItem[]; onSho
                       {item.title}
                     </Link>
                   </h3>
-                  {item.category === "book" && item.series && <SeriesLine series={item.series} className={styles.position} />}
+                  <SeriesLine item={item} className={styles.position} />
                   <ProgressLeader item={item} />
                   {step && (
                     <Button variant="solid" size="sm" className={styles.step} onClick={() => save(step.apply())}>

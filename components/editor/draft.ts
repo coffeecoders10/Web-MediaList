@@ -20,11 +20,12 @@ export interface Draft {
   art: CoverArt | undefined;
   startedAt: string;
   finishedAt: string;
+  // Books and movies: the series (or franchise) and the volume (or part) within it
+  seriesName: string;
+  seriesVolume: string;
   // Books
   chaptersTotal: string;
   chaptersRead: string;
-  seriesName: string;
-  seriesVolume: string;
   // Movies
   type: string;
   runtimeMinutes: string;
@@ -85,7 +86,12 @@ function specifics(item: MediaItem): Partial<Draft> {
         seriesVolume: text(item.series?.volume),
       };
     case "movie":
-      return { type: item.type, runtimeMinutes: text(item.runtimeMinutes) };
+      return {
+        type: item.type,
+        runtimeMinutes: text(item.runtimeMinutes),
+        seriesName: item.series?.name ?? "",
+        seriesVolume: text(item.series?.volume),
+      };
     case "series":
       return { totalSeasons: text(item.totalSeasons), currentSeason: text(item.currentSeason) };
     case "anime":
@@ -177,6 +183,7 @@ export function validate(d: Draft): DraftErrors {
       break;
     case "movie":
       whole("runtimeMinutes", "Runtime");
+      whole("seriesVolume", "Part");
       break;
     case "series":
       whole("totalSeasons", "Total seasons");
@@ -236,7 +243,13 @@ export function fromDraft(d: Draft, base: MediaItem | null): MediaItem {
       };
       break;
     case "movie":
-      item = { ...common, category: "movie", type: d.type.trim(), runtimeMinutes: num(d.runtimeMinutes) || null };
+      item = {
+        ...common,
+        category: "movie",
+        type: d.type.trim(),
+        runtimeMinutes: num(d.runtimeMinutes) || null,
+        series: isBlank(d.seriesName) ? null : { name: d.seriesName.trim(), volume: num(d.seriesVolume) || null },
+      };
       break;
     case "series":
       item = { ...common, category: "series", totalSeasons: num(d.totalSeasons) || null, currentSeason: num(d.currentSeason) };

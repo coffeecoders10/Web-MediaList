@@ -41,7 +41,7 @@ export function MediaCard({ item }: { item: MediaItem }) {
           </Link>
         </h3>
         <p className={styles.byline}>{bylineOf(item)}</p>
-        {item.category === "book" && item.series && <SeriesLine series={item.series} />}
+        <SeriesLine item={item} />
         <div className={styles.foot}>
           <CategoryTag category={item.category} />
           <Rating value={item.rating} />

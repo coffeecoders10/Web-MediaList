@@ -1,0 +1,2096 @@
+[
+  {
+    "title": "Glass Onion",
+    "director": "Rian Johnson",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Mystery",
+      "Comedy"
+    ],
+    "synopsis": "A detective investigates a murder mystery during a tech billionaire's private island getaway.",
+    "runtimeMinutes": 139,
+    "series": {
+      "name": "Knives Out",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Bhool Bhulaiyaa",
+    "director": "Priyadarshan",
+    "year": 2007,
+    "type": "Bollywood",
+    "genres": [
+      "Thriller"
+    ],
+    "synopsis": "A psychiatrist confronts apparent supernatural events in an ancestral palace.",
+    "runtimeMinutes": 159,
+    "series": {
+      "name": "Bhool Bhulaiyaa",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Last Night in Soho",
+    "director": "Edgar Wright",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Horror"
+    ],
+    "synopsis": "A fashion student experiences haunting visions of 1960s London.",
+    "runtimeMinutes": 116,
+    "series": null
+  },
+  {
+    "title": "Mars Attacks!",
+    "director": "Tim Burton",
+    "year": 1996,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Invasion"
+    ],
+    "synopsis": "An alien invasion throws Earth into satirical chaos.",
+    "runtimeMinutes": 106,
+    "series": null
+  },
+  {
+    "title": "Princess Mononoke",
+    "director": "Hayao Miyazaki",
+    "year": 1997,
+    "type": "Ghibli",
+    "genres": [
+      "Slice of Life",
+      "Action"
+    ],
+    "synopsis": "A cursed prince is drawn into a conflict between forest spirits and industrial expansion.",
+    "runtimeMinutes": 134,
+    "series": null
+  },
+  {
+    "title": "Space Jam",
+    "director": "Joe Pytka",
+    "year": 1996,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Michael Jordan teams up with animated characters for a high-stakes basketball game.",
+    "runtimeMinutes": 88,
+    "series": {
+      "name": "Space Jam",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Spirited Away",
+    "director": "Hayao Miyazaki",
+    "year": 2001,
+    "type": "Ghibli",
+    "genres": [
+      "Slice of Life",
+      "Horror"
+    ],
+    "synopsis": "A girl must work in a spirit-world bathhouse to rescue her parents.",
+    "runtimeMinutes": 125,
+    "series": null
+  },
+  {
+    "title": "The Sandlot",
+    "director": "David Mickey Evans",
+    "year": 1993,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Slice of Life"
+    ],
+    "synopsis": "A new kid bonds with neighborhood friends through summer baseball.",
+    "runtimeMinutes": 101,
+    "series": null
+  },
+  {
+    "title": "The Usual Suspects",
+    "director": "Bryan Singer",
+    "year": 1995,
+    "type": "Hollywood",
+    "genres": [
+      "Thriller"
+    ],
+    "synopsis": "A survivor recounts the events behind a deadly criminal conspiracy.",
+    "runtimeMinutes": 106,
+    "series": null
+  },
+  {
+    "title": "Your Name",
+    "director": "Makoto Shinkai",
+    "year": 2016,
+    "type": "Anime",
+    "genres": [
+      "Slice of Life"
+    ],
+    "synopsis": "Two teenagers mysteriously swap bodies across distance and time.",
+    "runtimeMinutes": 106,
+    "series": null
+  },
+  {
+    "title": "13 Hours: The Secret Soldiers of Benghazi",
+    "director": "Michael Bay",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Security contractors defend a diplomatic compound during a deadly attack in Libya.",
+    "runtimeMinutes": 144,
+    "series": null
+  },
+  {
+    "title": "After Earth",
+    "director": "M. Night Shyamalan",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Apocalypse"
+    ],
+    "synopsis": "A father and son struggle to survive on an abandoned future Earth.",
+    "runtimeMinutes": 100,
+    "series": null
+  },
+  {
+    "title": "American Made",
+    "director": "Doug Liman",
+    "year": 2017,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic",
+      "Drama"
+    ],
+    "synopsis": "A pilot becomes entangled in drug smuggling and covert government operations.",
+    "runtimeMinutes": 115,
+    "series": null
+  },
+  {
+    "title": "Catch Me If You Can",
+    "director": "Steven Spielberg",
+    "year": 2002,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic",
+      "Thriller"
+    ],
+    "synopsis": "A gifted young con artist stays one step ahead of an FBI agent.",
+    "runtimeMinutes": 141,
+    "series": null
+  },
+  {
+    "title": "The Conjuring",
+    "director": "James Wan",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Horror"
+    ],
+    "synopsis": "Paranormal investigators help a family terrorized by sinister forces in their farmhouse.",
+    "runtimeMinutes": 112,
+    "series": {
+      "name": "The Conjuring",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Mumbai Pune Mumbai",
+    "director": "Satish Rajwade",
+    "year": 2010,
+    "type": "Marathi",
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "synopsis": "Two strangers from rival Maharashtra cities develop an unexpected connection.",
+    "runtimeMinutes": 102,
+    "series": null
+  },
+  {
+    "title": "No Strings Attached",
+    "director": "Ivan Reitman",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "synopsis": "Two friends attempt a casual relationship without falling in love.",
+    "runtimeMinutes": 108,
+    "series": null
+  },
+  {
+    "title": "Reservoir Dogs",
+    "director": "Quentin Tarantino",
+    "year": 1992,
+    "type": "Hollywood",
+    "genres": [
+      "Guns",
+      "Drama"
+    ],
+    "synopsis": "A botched jewel heist leaves criminals suspicious of a traitor among them.",
+    "runtimeMinutes": 99,
+    "series": null
+  },
+  {
+    "title": "The Theory of Everything",
+    "director": "James Marsh",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic"
+    ],
+    "synopsis": "Physicist Stephen Hawking navigates scientific discovery, love and illness.",
+    "runtimeMinutes": 123,
+    "series": null
+  },
+  {
+    "title": "10 Things I Hate About You",
+    "director": "Gil Junger",
+    "year": 1999,
+    "type": "Hollywood",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "synopsis": "A high-school dating scheme turns into an unexpected romance.",
+    "runtimeMinutes": 97,
+    "series": null
+  },
+  {
+    "title": "Due Date",
+    "director": "Todd Phillips",
+    "year": 2010,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Slice of Life"
+    ],
+    "synopsis": "An anxious father-to-be takes a chaotic cross-country road trip with a stranger.",
+    "runtimeMinutes": 95,
+    "series": null
+  },
+  {
+    "title": "Jack Reacher",
+    "director": "Christopher McQuarrie",
+    "year": 2012,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "A former military investigator probes a sniper case that is more complex than it seems.",
+    "runtimeMinutes": 130,
+    "series": {
+      "name": "Jack Reacher",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Knives Out",
+    "director": "Rian Johnson",
+    "year": 2019,
+    "type": "Hollywood",
+    "genres": [
+      "Mystery"
+    ],
+    "synopsis": "A private detective investigates the suspicious death of a wealthy novelist.",
+    "runtimeMinutes": 130,
+    "series": {
+      "name": "Knives Out",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Live Free or Die Hard",
+    "director": "Len Wiseman",
+    "year": 2007,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "John McClane fights cyberterrorists attacking America's infrastructure.",
+    "runtimeMinutes": 128,
+    "series": {
+      "name": "Die Hard",
+      "volume": 4
+    }
+  },
+  {
+    "title": "Murder Mystery",
+    "director": "Kyle Newacheck",
+    "year": 2019,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "synopsis": "A married couple become suspects in a murder aboard a luxurious yacht.",
+    "runtimeMinutes": 97,
+    "series": {
+      "name": "Murder Mystery",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Murder on the Orient Express",
+    "director": "Kenneth Branagh",
+    "year": 2017,
+    "type": "Hollywood",
+    "genres": [
+      "Detective",
+      "Thriller"
+    ],
+    "synopsis": "Detective Hercule Poirot investigates a murder on a snowbound train.",
+    "runtimeMinutes": 114,
+    "series": {
+      "name": "Hercule Poirot",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Queen",
+    "director": "Vikas Bahl",
+    "year": 2014,
+    "type": "Bollywood",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "synopsis": "An abandoned bride travels alone on her planned honeymoon and discovers independence.",
+    "runtimeMinutes": 146,
+    "series": null
+  },
+  {
+    "title": "Top Gun",
+    "director": "Tony Scott",
+    "year": 1986,
+    "type": "Hollywood",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "An ambitious naval aviator trains among elite fighter pilots.",
+    "runtimeMinutes": 110,
+    "series": {
+      "name": "Top Gun",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Uncharted",
+    "director": "Ruben Fleischer",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Mystery"
+    ],
+    "synopsis": "A treasure hunter joins a dangerous search for a lost fortune.",
+    "runtimeMinutes": 116,
+    "series": null
+  },
+  {
+    "title": "Arrival",
+    "director": "Denis Villeneuve",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Sci-fi"
+    ],
+    "synopsis": "A linguist tries to communicate with mysterious extraterrestrial visitors.",
+    "runtimeMinutes": 116,
+    "series": null
+  },
+  {
+    "title": "Die Hard",
+    "director": "John McTiernan",
+    "year": 1988,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "A New York cop battles armed criminals inside a Los Angeles skyscraper.",
+    "runtimeMinutes": 132,
+    "series": {
+      "name": "Die Hard",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Harry Potter and the Goblet of Fire",
+    "director": "Mike Newell",
+    "year": 2005,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry is unexpectedly entered into a perilous magical tournament.",
+    "runtimeMinutes": 157,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 4
+    }
+  },
+  {
+    "title": "Love and Monsters",
+    "director": "Michael Matthews",
+    "year": 2020,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Thriller"
+    ],
+    "synopsis": "A young survivor crosses a monster-filled wilderness to reunite with his girlfriend.",
+    "runtimeMinutes": 109,
+    "series": null
+  },
+  {
+    "title": "The Hangover Part II",
+    "director": "Todd Phillips",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "A bachelor-party trip to Bangkok spirals into another missing-person mystery.",
+    "runtimeMinutes": 102,
+    "series": {
+      "name": "The Hangover",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Valerian and the City of a Thousand Planets",
+    "director": "Luc Besson",
+    "year": 2017,
+    "type": "Hollywood",
+    "genres": [
+      "Sci-fi",
+      "Action"
+    ],
+    "synopsis": "Two space agents uncover a conspiracy threatening a vast interstellar city.",
+    "runtimeMinutes": 137,
+    "series": null
+  },
+  {
+    "title": "All the Old Knives",
+    "director": "Janus Metz Pedersen",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Mystery"
+    ],
+    "synopsis": "Former CIA colleagues revisit a deadly hijacking and an unresolved betrayal.",
+    "runtimeMinutes": 101,
+    "series": null
+  },
+  {
+    "title": "The Bourne Supremacy",
+    "director": "Paul Greengrass",
+    "year": 2004,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Jason Bourne is forced back into danger as his past catches up with him.",
+    "runtimeMinutes": 108,
+    "series": {
+      "name": "Bourne",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Enola Holmes 2",
+    "director": "Harry Bradbeer",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "A young detective takes her first official case involving a missing girl.",
+    "runtimeMinutes": 129,
+    "series": {
+      "name": "Enola Holmes",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Friends with Benefits",
+    "director": "Will Gluck",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Romance",
+      "Slice of Life"
+    ],
+    "synopsis": "Two friends test whether intimacy can remain free of emotional commitment.",
+    "runtimeMinutes": 109,
+    "series": null
+  },
+  {
+    "title": "The Garden of Words",
+    "director": "Makoto Shinkai",
+    "year": 2013,
+    "type": "Anime",
+    "genres": [
+      "Slice of Life",
+      "Romance"
+    ],
+    "synopsis": "A student and an older woman form a connection during rainy mornings in a garden.",
+    "runtimeMinutes": 46,
+    "series": null
+  },
+  {
+    "title": "Pulp Fiction",
+    "director": "Quentin Tarantino",
+    "year": 1994,
+    "type": "Hollywood",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "Interwoven Los Angeles crime stories collide through violence, loyalty and chance.",
+    "runtimeMinutes": 154,
+    "series": null
+  },
+  {
+    "title": "The Secret World of Arrietty",
+    "director": "Hiromasa Yonebayashi",
+    "year": 2010,
+    "type": "Ghibli",
+    "genres": [
+      "Slice of Life",
+      "Drama"
+    ],
+    "synopsis": "A tiny girl secretly living beneath a house befriends a human boy.",
+    "runtimeMinutes": 94,
+    "series": null
+  },
+  {
+    "title": "Assassin's Creed",
+    "director": "Justin Kurzel",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "A man experiences his ancestor's memories through an advanced machine.",
+    "runtimeMinutes": 115,
+    "series": {
+      "name": "Assassin's Creed",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Drifting Home",
+    "director": "Hiroyasu Ishida",
+    "year": 2022,
+    "type": "Anime",
+    "genres": [
+      "Slice of Life",
+      "Drama"
+    ],
+    "synopsis": "Children trapped in a drifting apartment building search for a way home.",
+    "runtimeMinutes": 120,
+    "series": null
+  },
+  {
+    "title": "Knight and Day",
+    "director": "James Mangold",
+    "year": 2010,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "A woman becomes caught up in a rogue spy's dangerous mission.",
+    "runtimeMinutes": 109,
+    "series": null
+  },
+  {
+    "title": "Lucy",
+    "director": "Luc Besson",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Thriller",
+      "Sci-fi"
+    ],
+    "synopsis": "A woman gains extraordinary mental abilities after exposure to a synthetic drug.",
+    "runtimeMinutes": 89,
+    "series": null
+  },
+  {
+    "title": "My Neighbor Totoro",
+    "director": "Hayao Miyazaki",
+    "year": 1988,
+    "type": "Ghibli",
+    "genres": [
+      "Slice of Life"
+    ],
+    "synopsis": "Two sisters befriend gentle forest spirits near their new rural home.",
+    "runtimeMinutes": 86,
+    "series": null
+  },
+  {
+    "title": "Now You See Me",
+    "director": "Louis Leterrier",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Thriller"
+    ],
+    "synopsis": "Illusionists pull off spectacular heists while pursued by investigators.",
+    "runtimeMinutes": 115,
+    "series": {
+      "name": "Now You See Me",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Oppenheimer",
+    "director": "Christopher Nolan",
+    "year": 2023,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic"
+    ],
+    "synopsis": "The physicist behind the atomic bomb grapples with wartime ambition and its consequences.",
+    "runtimeMinutes": 180,
+    "series": null
+  },
+  {
+    "title": "Sky High",
+    "director": "Mike Mitchell",
+    "year": 2005,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Superhero"
+    ],
+    "synopsis": "The son of superheroes attends a school for young people with extraordinary powers.",
+    "runtimeMinutes": 100,
+    "series": null
+  },
+  {
+    "title": "The Terminal",
+    "director": "Steven Spielberg",
+    "year": 2004,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Biopic"
+    ],
+    "synopsis": "A traveler becomes stranded inside an airport when his passport loses validity.",
+    "runtimeMinutes": 128,
+    "series": null
+  },
+  {
+    "title": "The Tomorrow War",
+    "director": "Chris McKay",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Guns",
+      "Sci-fi",
+      "Apocalypse"
+    ],
+    "synopsis": "A soldier is recruited to fight aliens in a future war.",
+    "runtimeMinutes": 138,
+    "series": null
+  },
+  {
+    "title": "Yeh Jawaani Hai Deewani",
+    "director": "Ayan Mukerji",
+    "year": 2013,
+    "type": "Bollywood",
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "Former friends reunite while balancing love, travel and changing dreams.",
+    "runtimeMinutes": 160,
+    "series": null
+  },
+  {
+    "title": "You Don't Mess with the Zohan",
+    "director": "Dennis Dugan",
+    "year": 2008,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "synopsis": "An Israeli counterterrorist fakes his death to pursue hairstyling in New York.",
+    "runtimeMinutes": 113,
+    "series": null
+  },
+  {
+    "title": "3 Idiots",
+    "director": "Rajkumar Hirani",
+    "year": 2009,
+    "type": "Bollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Three engineering students question academic pressure and conventional success.",
+    "runtimeMinutes": 170,
+    "series": null
+  },
+  {
+    "title": "Andhadhun",
+    "director": "Sriram Raghavan",
+    "year": 2018,
+    "type": "Bollywood",
+    "genres": [
+      "Thriller",
+      "Drama"
+    ],
+    "synopsis": "A pianist becomes entangled in a murder and an elaborate web of deception.",
+    "runtimeMinutes": 139,
+    "series": null
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows – Part 2",
+    "director": "David Yates",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry and his allies confront Voldemort in the final battle for Hogwarts.",
+    "runtimeMinutes": 130,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 8
+    }
+  },
+  {
+    "title": "Inside Out",
+    "director": "Pete Docter",
+    "year": 2015,
+    "type": "Disney",
+    "genres": [
+      "Slice of Life"
+    ],
+    "synopsis": "Personified emotions guide a young girl through a difficult move.",
+    "runtimeMinutes": 95,
+    "series": {
+      "name": "Inside Out",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Se7en",
+    "director": "David Fincher",
+    "year": 1995,
+    "type": "Hollywood",
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Two detectives investigate murders inspired by the seven deadly sins.",
+    "runtimeMinutes": 127,
+    "series": null
+  },
+  {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "director": "Chris Columbus",
+    "year": 2002,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry returns to Hogwarts as a mysterious threat petrifies students.",
+    "runtimeMinutes": 161,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Howl's Moving Castle",
+    "director": "Hayao Miyazaki",
+    "year": 2004,
+    "type": "Ghibli",
+    "genres": [
+      "Slice of Life",
+      "Action"
+    ],
+    "synopsis": "A young woman under a curse finds refuge in a wizard's moving castle.",
+    "runtimeMinutes": 119,
+    "series": null
+  },
+  {
+    "title": "The Hunger Games: Mockingjay – Part 1",
+    "director": "Francis Lawrence",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "Katniss becomes a symbol of rebellion against the Capitol.",
+    "runtimeMinutes": 123,
+    "series": {
+      "name": "The Hunger Games",
+      "volume": 3
+    }
+  },
+  {
+    "title": "6 Underground",
+    "director": "Michael Bay",
+    "year": 2019,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "synopsis": "A billionaire assembles a team of operatives to overthrow a dictator.",
+    "runtimeMinutes": 128,
+    "series": null
+  },
+  {
+    "title": "The Dictator",
+    "director": "Larry Charles",
+    "year": 2012,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "synopsis": "An authoritarian ruler encounters unexpected challenges while visiting New York.",
+    "runtimeMinutes": 83,
+    "series": null
+  },
+  {
+    "title": "Enola Holmes",
+    "director": "Harry Bradbeer",
+    "year": 2020,
+    "type": "Hollywood",
+    "genres": [
+      "Detective",
+      "Drama"
+    ],
+    "synopsis": "Sherlock Holmes's younger sister searches for her missing mother.",
+    "runtimeMinutes": 123,
+    "series": {
+      "name": "Enola Holmes",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Frozen",
+    "director": "Chris Buck, Jennifer Lee",
+    "year": 2013,
+    "type": "Disney",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "Two royal sisters face an eternal winter created by uncontrolled ice powers.",
+    "runtimeMinutes": 102,
+    "series": {
+      "name": "Frozen",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Hunger Games: Mockingjay – Part 2",
+    "director": "Francis Lawrence",
+    "year": 2015,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "Katniss leads the rebellion toward its final confrontation with the Capitol.",
+    "runtimeMinutes": 137,
+    "series": {
+      "name": "The Hunger Games",
+      "volume": 4
+    }
+  },
+  {
+    "title": "Kingsman",
+    "director": "Matthew Vaughn",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "synopsis": "A streetwise recruit trains for a secret organization of elite spies.",
+    "runtimeMinutes": 129,
+    "series": {
+      "name": "Kingsman",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Munna Bhai M.B.B.S.",
+    "director": "Rajkumar Hirani",
+    "year": 2003,
+    "type": "Bollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "A lovable gangster pretends to be a medical student to impress his parents.",
+    "runtimeMinutes": 156,
+    "series": {
+      "name": "Munna Bhai",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Hangover",
+    "director": "Todd Phillips",
+    "year": 2009,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Friends retrace a wild Las Vegas night to find a missing groom.",
+    "runtimeMinutes": 100,
+    "series": {
+      "name": "The Hangover",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Imitation Game",
+    "director": "Morten Tyldum",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic"
+    ],
+    "synopsis": "Alan Turing and his team work to crack Germany's Enigma code.",
+    "runtimeMinutes": 114,
+    "series": null
+  },
+  {
+    "title": "Meg 2: The Trench",
+    "director": "Ben Wheatley",
+    "year": 2023,
+    "type": "Hollywood",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "An underwater exploration team encounters prehistoric creatures in the deep ocean.",
+    "runtimeMinutes": 116,
+    "series": {
+      "name": "The Meg",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Before We Go",
+    "director": "Chris Evans",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Romance"
+    ],
+    "synopsis": "Two strangers spend a transformative night together in New York City.",
+    "runtimeMinutes": 95,
+    "series": null
+  },
+  {
+    "title": "Bird Box",
+    "director": "Susanne Bier",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "synopsis": "A mother attempts to survive entities that drive people to suicide when seen.",
+    "runtimeMinutes": 124,
+    "series": null
+  },
+  {
+    "title": "Bohemian Rhapsody",
+    "director": "Bryan Singer",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Biopic"
+    ],
+    "synopsis": "The rise of Queen and its iconic singer Freddie Mercury unfolds on screen.",
+    "runtimeMinutes": 134,
+    "series": null
+  },
+  {
+    "title": "Darkest Hour",
+    "director": "Chris Gorak",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Thriller"
+    ],
+    "synopsis": "An alien attack plunges Moscow into darkness and forces survivors to fight back.",
+    "runtimeMinutes": 89,
+    "series": null
+  },
+  {
+    "title": "The Hunger Games: Catching Fire",
+    "director": "Francis Lawrence",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "Katniss and Peeta are forced into a special edition of the deadly Games.",
+    "runtimeMinutes": 146,
+    "series": {
+      "name": "The Hunger Games",
+      "volume": 2
+    }
+  },
+  {
+    "title": "In Time",
+    "director": "Andrew Niccol",
+    "year": 2011,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Guns"
+    ],
+    "synopsis": "In a society where lifespan is currency, a young man challenges the system.",
+    "runtimeMinutes": 109,
+    "series": null
+  },
+  {
+    "title": "Inglourious Basterds",
+    "director": "Quentin Tarantino",
+    "year": 2009,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Allied soldiers and a cinema owner pursue revenge in Nazi-occupied France.",
+    "runtimeMinutes": 153,
+    "series": null
+  },
+  {
+    "title": "Sinister",
+    "director": "Scott Derrickson",
+    "year": 2012,
+    "type": "Hollywood",
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "synopsis": "A true-crime writer discovers disturbing home movies linked to a supernatural threat.",
+    "runtimeMinutes": 110,
+    "series": null
+  },
+  {
+    "title": "The Guilty",
+    "director": "Antoine Fuqua",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Detective",
+      "Thriller"
+    ],
+    "synopsis": "An emergency call operator tries to save a kidnapped woman by phone.",
+    "runtimeMinutes": 90,
+    "series": null
+  },
+  {
+    "title": "Up",
+    "director": "Pete Docter, Bob Peterson",
+    "year": 2009,
+    "type": "Disney",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "An elderly man flies his home toward South America and gains an unlikely companion.",
+    "runtimeMinutes": 96,
+    "series": null
+  },
+  {
+    "title": "WALL-E",
+    "director": "Andrew Stanton",
+    "year": 2008,
+    "type": "Disney",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "A lonely waste-collecting robot discovers love and humanity's abandoned home.",
+    "runtimeMinutes": 98,
+    "series": null
+  },
+  {
+    "title": "Big Hero 6",
+    "director": "Don Hall, Chris Williams",
+    "year": 2014,
+    "type": "Disney",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "A robotics prodigy and his healthcare robot confront a masked villain.",
+    "runtimeMinutes": 102,
+    "series": null
+  },
+  {
+    "title": "Central Intelligence",
+    "director": "Rawson Marshall Thurber",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Comedy",
+      "Guns"
+    ],
+    "synopsis": "An accountant gets pulled into international espionage by an old classmate.",
+    "runtimeMinutes": 107,
+    "series": null
+  },
+  {
+    "title": "John Wick",
+    "director": "Chad Stahelski",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "A retired assassin returns to his violent former world after a personal loss.",
+    "runtimeMinutes": 101,
+    "series": {
+      "name": "John Wick",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Jumper",
+    "director": "Doug Liman",
+    "year": 2008,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Thriller"
+    ],
+    "synopsis": "A man able to teleport discovers he is being hunted by a secret organization.",
+    "runtimeMinutes": 88,
+    "series": null
+  },
+  {
+    "title": "Lights Out",
+    "director": "David F. Sandberg",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Horror"
+    ],
+    "synopsis": "A family is terrorized by a deadly presence that appears in the darkness.",
+    "runtimeMinutes": 81,
+    "series": null
+  },
+  {
+    "title": "Red Notice",
+    "director": "Rawson Marshall Thurber",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Action"
+    ],
+    "synopsis": "An FBI profiler joins forces with a thief to catch a notorious art criminal.",
+    "runtimeMinutes": 118,
+    "series": null
+  },
+  {
+    "title": "The 5th Wave",
+    "director": "J Blakeson",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse"
+    ],
+    "synopsis": "A teenager searches for her brother after devastating waves of alien attacks.",
+    "runtimeMinutes": 112,
+    "series": null
+  },
+  {
+    "title": "The Grand Budapest Hotel",
+    "director": "Wes Anderson",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Drama"
+    ],
+    "synopsis": "A hotel concierge and his protégé become embroiled in a murder and stolen-art mystery.",
+    "runtimeMinutes": 99,
+    "series": null
+  },
+  {
+    "title": "The Meg",
+    "director": "Jon Turteltaub",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "A rescue diver encounters a giant prehistoric shark in the deep sea.",
+    "runtimeMinutes": 113,
+    "series": {
+      "name": "The Meg",
+      "volume": 1
+    }
+  },
+  {
+    "title": "A Good Day to Die Hard",
+    "director": "John Moore",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "John McClane travels to Russia and uncovers a deadly conspiracy.",
+    "runtimeMinutes": 98,
+    "series": {
+      "name": "Die Hard",
+      "volume": 5
+    }
+  },
+  {
+    "title": "Mr. & Mrs. Smith",
+    "director": "Doug Liman",
+    "year": 2005,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Romance"
+    ],
+    "synopsis": "A married couple discover they are assassins working for rival organizations.",
+    "runtimeMinutes": 120,
+    "series": null
+  },
+  {
+    "title": "Rush Hour",
+    "director": "Brett Ratner",
+    "year": 1998,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "synopsis": "A Hong Kong detective and an LAPD officer team up to rescue a kidnapped girl.",
+    "runtimeMinutes": 98,
+    "series": {
+      "name": "Rush Hour",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Safe House",
+    "director": "Daniel Espinosa",
+    "year": 2012,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns",
+      "Thriller"
+    ],
+    "synopsis": "A rookie CIA officer must protect a fugitive operative after an attack.",
+    "runtimeMinutes": 115,
+    "series": null
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "director": "Frank Darabont",
+    "year": 1994,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "synopsis": "A banker forms an enduring friendship while imprisoned for murder.",
+    "runtimeMinutes": 142,
+    "series": null
+  },
+  {
+    "title": "The Equalizer",
+    "director": "Antoine Fuqua",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Guns"
+    ],
+    "synopsis": "A retired operative uses his skills to protect vulnerable people from criminals.",
+    "runtimeMinutes": 132,
+    "series": {
+      "name": "The Equalizer",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Maze Runner",
+    "director": "Wes Ball",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "A teenager wakes in a mysterious maze with no memory of his past.",
+    "runtimeMinutes": 113,
+    "series": {
+      "name": "Maze Runner",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Prestige",
+    "director": "Christopher Nolan",
+    "year": 2006,
+    "type": "Hollywood",
+    "genres": [
+      "Mystery",
+      "Drama"
+    ],
+    "synopsis": "Two rival magicians sacrifice everything to outdo each other's illusions.",
+    "runtimeMinutes": 130,
+    "series": null
+  },
+  {
+    "title": "Without Remorse",
+    "director": "Stefano Sollima",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "An elite Navy SEAL seeks justice after his pregnant wife is murdered.",
+    "runtimeMinutes": 109,
+    "series": null
+  },
+  {
+    "title": "Annihilation",
+    "director": "Alex Garland",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Thriller"
+    ],
+    "synopsis": "A biologist enters a mysterious zone where nature mutates unpredictably.",
+    "runtimeMinutes": 115,
+    "series": null
+  },
+  {
+    "title": "The Bourne Ultimatum",
+    "director": "Paul Greengrass",
+    "year": 2007,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Jason Bourne follows clues to uncover the truth about his secret-agent origins.",
+    "runtimeMinutes": 115,
+    "series": {
+      "name": "Bourne",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Death on the Nile",
+    "director": "Kenneth Branagh",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Detective",
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Hercule Poirot investigates a murder aboard a river cruise in Egypt.",
+    "runtimeMinutes": 127,
+    "series": {
+      "name": "Hercule Poirot",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Die Hard with a Vengeance",
+    "director": "John McTiernan",
+    "year": 1995,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "John McClane is drawn into a bomber's deadly game across New York.",
+    "runtimeMinutes": 128,
+    "series": {
+      "name": "Die Hard",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows – Part 1",
+    "director": "David Yates",
+    "year": 2010,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry and his friends go into hiding to find Voldemort's Horcruxes.",
+    "runtimeMinutes": 146,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 7
+    }
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "director": "Alfonso Cuarón",
+    "year": 2004,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry learns a dangerous escaped prisoner may be connected to his past.",
+    "runtimeMinutes": 142,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Interceptor",
+    "director": "Matthew Reilly",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Guns",
+      "Action"
+    ],
+    "synopsis": "An army captain and passengers fight to retake a hijacked commercial flight.",
+    "runtimeMinutes": 99,
+    "series": null
+  },
+  {
+    "title": "Kung Fu Panda",
+    "director": "John Stevenson, Mark Osborne",
+    "year": 2008,
+    "type": "Disney",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "synopsis": "An unlikely panda trains to become a kung fu warrior and save his valley.",
+    "runtimeMinutes": 92,
+    "series": {
+      "name": "Kung Fu Panda",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Rush Hour 3",
+    "director": "Brett Ratner",
+    "year": 2007,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "synopsis": "Detectives Carter and Lee investigate a conspiracy that takes them to Paris.",
+    "runtimeMinutes": 91,
+    "series": {
+      "name": "Rush Hour",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Tag",
+    "director": "Jeff Tomsic",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy",
+      "Biopic",
+      "Slice of Life"
+    ],
+    "synopsis": "A group of friends continue a years-long competitive game of tag.",
+    "runtimeMinutes": 100,
+    "series": null
+  },
+  {
+    "title": "The Adam Project",
+    "director": "Shawn Levy",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns",
+      "Sci-fi"
+    ],
+    "synopsis": "A time-traveling pilot teams up with his younger self to save the future.",
+    "runtimeMinutes": 106,
+    "series": null
+  },
+  {
+    "title": "Maze Runner: The Scorch Trials",
+    "director": "Wes Ball",
+    "year": 2015,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "The Gladers flee into a devastated world and uncover dangerous secrets.",
+    "runtimeMinutes": 131,
+    "series": {
+      "name": "Maze Runner",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Bubble",
+    "director": "Tetsuro Araki",
+    "year": 2022,
+    "type": "Anime",
+    "genres": [
+      "Action",
+      "Slice of Life"
+    ],
+    "synopsis": "In a gravity-defying Tokyo, a young parkour athlete encounters a mysterious girl.",
+    "runtimeMinutes": 101,
+    "series": null
+  },
+  {
+    "title": "Rim of the World",
+    "director": "McG",
+    "year": 2019,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Comedy"
+    ],
+    "synopsis": "Four teenagers must save the world during an alien invasion.",
+    "runtimeMinutes": 98,
+    "series": null
+  },
+  {
+    "title": "Taken",
+    "director": "Pierre Morel",
+    "year": 2008,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "A former intelligence operative races to rescue his kidnapped daughter.",
+    "runtimeMinutes": 90,
+    "series": null
+  },
+  {
+    "title": "Maze Runner: The Death Cure",
+    "director": "Wes Ball",
+    "year": 2018,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "Thomas undertakes a final rescue mission against WCKD.",
+    "runtimeMinutes": 143,
+    "series": {
+      "name": "Maze Runner",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Burnt",
+    "director": "John Wells",
+    "year": 2015,
+    "type": "Hollywood",
+    "genres": [
+      "Drama",
+      "Slice of Life"
+    ],
+    "synopsis": "A troubled chef attempts to rebuild his career and earn a third Michelin star.",
+    "runtimeMinutes": 101,
+    "series": null
+  },
+  {
+    "title": "Die Harder",
+    "director": "Renny Harlin",
+    "year": 1990,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "John McClane confronts terrorists who take control of an airport.",
+    "runtimeMinutes": 124,
+    "series": {
+      "name": "Die Hard",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Edge of Tomorrow",
+    "director": "Doug Liman",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns",
+      "Thriller"
+    ],
+    "synopsis": "A soldier relives the same battle while learning to defeat aliens.",
+    "runtimeMinutes": 113,
+    "series": null
+  },
+  {
+    "title": "Predestination",
+    "director": "Michael Spierig, Peter Spierig",
+    "year": 2014,
+    "type": "Hollywood",
+    "genres": [
+      "Sci-fi"
+    ],
+    "synopsis": "A time-traveling agent hunts an elusive bomber across tangled timelines.",
+    "runtimeMinutes": 97,
+    "series": null
+  },
+  {
+    "title": "Sherlock Holmes",
+    "director": "Guy Ritchie",
+    "year": 2009,
+    "type": "Hollywood",
+    "genres": [
+      "Mystery",
+      "Detective"
+    ],
+    "synopsis": "The famed detective confronts a deadly occult-themed conspiracy in Victorian London.",
+    "runtimeMinutes": 128,
+    "series": {
+      "name": "Sherlock Holmes",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Silence",
+    "director": "John R. Leonetti",
+    "year": 2019,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Horror"
+    ],
+    "synopsis": "A family seeks shelter from creatures that hunt by sound.",
+    "runtimeMinutes": 90,
+    "series": null
+  },
+  {
+    "title": "Cars",
+    "director": "John Lasseter",
+    "year": 2006,
+    "type": "Disney",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "A race car gets stranded in a small town and learns the value of friendship.",
+    "runtimeMinutes": 117,
+    "series": {
+      "name": "Cars",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Dhamaal",
+    "director": "Indra Kumar",
+    "year": 2007,
+    "type": "Bollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "Four friends scramble to find hidden treasure before a police inspector.",
+    "runtimeMinutes": 136,
+    "series": null
+  },
+  {
+    "title": "Dune",
+    "director": "Denis Villeneuve",
+    "year": 2021,
+    "type": "Hollywood",
+    "genres": [
+      "Sci-fi",
+      "Drama"
+    ],
+    "synopsis": "A young noble heir faces political betrayal and a destiny on a desert planet.",
+    "runtimeMinutes": 155,
+    "series": {
+      "name": "Dune",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Harry Potter and the Order of the Phoenix",
+    "director": "David Yates",
+    "year": 2007,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "Harry organizes a student defense group as Voldemort's threat grows.",
+    "runtimeMinutes": 138,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 5
+    }
+  },
+  {
+    "title": "The Hangover Part III",
+    "director": "Todd Phillips",
+    "year": 2013,
+    "type": "Hollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "The Wolfpack confronts consequences of their previous misadventures.",
+    "runtimeMinutes": 100,
+    "series": {
+      "name": "The Hangover",
+      "volume": 3
+    }
+  },
+  {
+    "title": "The Bourne Identity",
+    "director": "Doug Liman",
+    "year": 2002,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "An amnesiac man discovers his lethal training while searching for his identity.",
+    "runtimeMinutes": 119,
+    "series": {
+      "name": "Bourne",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "director": "Chris Columbus",
+    "year": 2001,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "synopsis": "An orphan discovers he is a wizard and begins studying at Hogwarts.",
+    "runtimeMinutes": 152,
+    "series": {
+      "name": "Harry Potter",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Independence Day",
+    "director": "Roland Emmerich",
+    "year": 1996,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse"
+    ],
+    "synopsis": "Humanity unites to resist a massive alien invasion.",
+    "runtimeMinutes": 145,
+    "series": {
+      "name": "Independence Day",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Jack Reacher: Never Go Back",
+    "director": "Edward Zwick",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Jack Reacher investigates a conspiracy after an Army major is arrested.",
+    "runtimeMinutes": 118,
+    "series": {
+      "name": "Jack Reacher",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Leo",
+    "director": "Robert Marianetti, Robert Smigel, David Wachtenheim",
+    "year": 2023,
+    "type": "Animated",
+    "genres": [
+      "Comedy",
+      "Slice of Life"
+    ],
+    "synopsis": "An aging classroom lizard helps students navigate their problems.",
+    "runtimeMinutes": 102,
+    "series": null
+  },
+  {
+    "title": "Zindagi Na Milegi Dobara",
+    "director": "Zoya Akhtar",
+    "year": 2011,
+    "type": "Bollywood",
+    "genres": [
+      "Slice of Life"
+    ],
+    "synopsis": "Three friends take a road trip across Spain and rethink their lives.",
+    "runtimeMinutes": 153,
+    "series": null
+  },
+  {
+    "title": "Zootopia",
+    "director": "Byron Howard, Rich Moore",
+    "year": 2016,
+    "type": "Disney",
+    "genres": [
+      "Romance",
+      "Action"
+    ],
+    "synopsis": "A rookie rabbit officer teams up with a fox to solve a missing-mammals case.",
+    "runtimeMinutes": 108,
+    "series": {
+      "name": "Zootopia",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Bastille Day",
+    "director": "James Watkins",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns",
+      "Drama"
+    ],
+    "synopsis": "A CIA agent and a pickpocket uncover a terrorist plot in Paris.",
+    "runtimeMinutes": 92,
+    "series": null
+  },
+  {
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "year": 2010,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Sci-fi"
+    ],
+    "synopsis": "A thief enters dreams to plant an idea in a target's subconscious.",
+    "runtimeMinutes": 148,
+    "series": null
+  },
+  {
+    "title": "Inferno",
+    "director": "Ron Howard",
+    "year": 2016,
+    "type": "Hollywood",
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "synopsis": "Robert Langdon must decode clues to prevent a catastrophic biological attack.",
+    "runtimeMinutes": 121,
+    "series": {
+      "name": "Robert Langdon",
+      "volume": 3
+    }
+  },
+  {
+    "title": "Tangled",
+    "director": "Nathan Greno, Byron Howard",
+    "year": 2010,
+    "type": "Disney",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "synopsis": "A long-haired princess escapes her tower and explores the outside world.",
+    "runtimeMinutes": 100,
+    "series": null
+  },
+  {
+    "title": "The Dark Knight",
+    "director": "Christopher Nolan",
+    "year": 2008,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "synopsis": "Batman faces a chaotic criminal mastermind threatening Gotham City.",
+    "runtimeMinutes": 152,
+    "series": null
+  },
+  {
+    "title": "Top Gun: Maverick",
+    "director": "Joseph Kosinski",
+    "year": 2022,
+    "type": "Hollywood",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "An experienced pilot trains a new generation for a perilous mission.",
+    "runtimeMinutes": 130,
+    "series": {
+      "name": "Top Gun",
+      "volume": 2
+    }
+  },
+  {
+    "title": "Welcome",
+    "director": "Anees Bazmee",
+    "year": 2007,
+    "type": "Bollywood",
+    "genres": [
+      "Comedy"
+    ],
+    "synopsis": "A man falls in love with a woman whose family is tied to organized crime.",
+    "runtimeMinutes": 159,
+    "series": {
+      "name": "Welcome",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Collateral",
+    "director": "Michael Mann",
+    "year": 2004,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Drama",
+      "Guns"
+    ],
+    "synopsis": "A cab driver is forced to drive a contract killer around Los Angeles.",
+    "runtimeMinutes": 120,
+    "series": null
+  },
+  {
+    "title": "The Hunger Games",
+    "director": "Gary Ross",
+    "year": 2012,
+    "type": "Hollywood",
+    "genres": [
+      "Apocalypse",
+      "Action"
+    ],
+    "synopsis": "A young woman volunteers for a televised fight to the death.",
+    "runtimeMinutes": 142,
+    "series": {
+      "name": "The Hunger Games",
+      "volume": 1
+    }
+  },
+  {
+    "title": "It",
+    "director": "Andy Muschietti",
+    "year": 2017,
+    "type": "Hollywood",
+    "genres": [
+      "Horror"
+    ],
+    "synopsis": "A group of children confront an ancient evil lurking in their hometown.",
+    "runtimeMinutes": 135,
+    "series": {
+      "name": "It",
+      "volume": 1
+    }
+  },
+  {
+    "title": "Jujutsu Kaisen 0",
+    "director": "Sunghoo Park",
+    "year": 2021,
+    "type": "Anime",
+    "genres": [
+      "Action"
+    ],
+    "synopsis": "A student with a powerful curse enrolls at a school for jujutsu sorcerers.",
+    "runtimeMinutes": 105,
+    "series": {
+      "name": "Jujutsu Kaisen",
+      "volume": 1
+    }
+  },
+  {
+    "title": "The Old Guard",
+    "director": "Gina Prince-Bythewood",
+    "year": 2020,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Guns"
+    ],
+    "synopsis": "Immortal mercenaries must protect their identities from those who would exploit them.",
+    "runtimeMinutes": 125,
+    "series": {
+      "name": "The Old Guard",
+      "volume": 1
+    }
+  },
+  {
+    "title": "2 States",
+    "director": "Abhishek Varman",
+    "year": 2014,
+    "type": "Bollywood",
+    "genres": [
+      "Drama",
+      "Biopic"
+    ],
+    "synopsis": "Two students from different Indian cultures try to win their families' approval.",
+    "runtimeMinutes": 149,
+    "series": null
+  },
+  {
+    "title": "Rush Hour 2",
+    "director": "Brett Ratner",
+    "year": 2001,
+    "type": "Hollywood",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "synopsis": "Carter and Lee pursue counterfeiters and criminals across Hong Kong and Las Vegas.",
+    "runtimeMinutes": 90,
+    "series": {
+      "name": "Rush Hour",
+      "volume": 2
+    }
+  }
+]

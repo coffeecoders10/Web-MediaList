@@ -7,9 +7,10 @@
  *   node scripts/clear-catalog.mjs --yes book movie   # clears only the listed categories
  *
  * Credentials come from .env.local (BACKBONE_URL, BACKBONE_DB_QUERY_API_KEY and the optional table names).
- * Each row keeps its `nextId`, so ids are never reused and stale references in user collections can't
- * end up pointing at a different title. User collections themselves are not touched: Backbone cannot
- * list rows, and those references are ignored when they no longer match a catalog entry.
+ * Each row's `nextId` is reset to 1, so the next import numbers entries from 1 again. Ids are therefore
+ * reused: a user collection that still references an old id will point at whichever new title gets it,
+ * unless the title no longer agrees (those references are ignored). User collections themselves are not
+ * touched: Backbone cannot list rows.
  */
 import { resolve } from "node:path";
 
@@ -71,20 +72,18 @@ for (const category of targets) {
   try {
     const doc = (await request(path)).pjson ?? {};
     const count = Object.keys(doc.entries ?? {}).length;
-    const highest = Math.max(0, ...Object.values(doc.entries ?? {}).map((e) => Number(e?.id) || 0));
-    const nextId = Math.max(Number(doc.nextId) || 1, highest + 1);
-    const clean = count === 0 && doc.v === 1 && doc.category === category && doc.nextId === nextId;
+    const clean = count === 0 && doc.v === 1 && doc.category === category && doc.nextId === 1;
 
     if (clean) {
       console.log(`${category.padEnd(7)} row ${row}: already clean`);
     } else if (!confirmed) {
-      console.log(`${category.padEnd(7)} row ${row}: ${count} entries would be removed (dry run)`);
+      console.log(`${category.padEnd(7)} row ${row}: ${count} entries would be removed and ids reset (dry run)`);
     } else {
-      await request(path, "PUT", { pjson: { v: 1, category, nextId, entries: {} } });
+      await request(path, "PUT", { pjson: { v: 1, category, nextId: 1, entries: {} } });
       const after = (await request(path)).pjson ?? {};
       const left = Object.keys(after.entries ?? {}).length;
-      if (left !== 0) throw new Error(`${left} entries remain after clearing`);
-      console.log(`${category.padEnd(7)} row ${row}: removed ${count} entries, verified empty`);
+      if (left !== 0 || after.nextId !== 1) throw new Error(`${left} entries remain, nextId ${after.nextId}`);
+      console.log(`${category.padEnd(7)} row ${row}: removed ${count} entries, ids reset, verified empty`);
     }
   } catch (e) {
     failed = true;

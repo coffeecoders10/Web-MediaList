@@ -1,4 +1,4 @@
-import { isCategory, isStatus, type Category, type MediaItem, type Status } from "./types";
+import { isCategory, isStatus, seriesOf, type Category, type MediaItem, type Status } from "./types";
 
 export const SORTS = ["updated", "added", "title", "rating", "year"] as const;
 export type SortKey = (typeof SORTS)[number];
@@ -70,7 +70,7 @@ const fold = (s: string) => s.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCa
 
 function matchesQuery(item: MediaItem, q: string): boolean {
   const haystack = fold(
-    [item.title, item.creator, item.genres.join(" "), item.category === "book" ? item.series?.name ?? "" : ""].join(" "),
+    [item.title, item.creator, item.genres.join(" "), seriesOf(item)?.name ?? ""].join(" "),
   );
   return fold(q)
     .split(/\s+/)

@@ -30,7 +30,7 @@ const OWN_COMMON = ["status", "rating", "notes", "addedAt", "startedAt", "finish
 /** Metadata that describes the work itself, and so lives in the shared catalog. */
 const SHARED_KEYS: Record<Category, readonly string[]> = {
   book: [...SHARED_COMMON, "chaptersTotal", "series"],
-  movie: [...SHARED_COMMON, "type", "runtimeMinutes"],
+  movie: [...SHARED_COMMON, "type", "runtimeMinutes", "series"],
   series: [...SHARED_COMMON, "totalSeasons"],
   anime: [...SHARED_COMMON, "totalSeasons", "totalEpisodes"],
 };
