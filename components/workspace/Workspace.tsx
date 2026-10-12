@@ -13,6 +13,7 @@ import {
   type ReactNode,
 } from "react";
 import { Button } from "@/components/ui/Button";
+import { BulkAddDialog } from "@/components/bulk/BulkAddDialog";
 import { EditorDrawer } from "@/components/editor/EditorDrawer";
 import { loadSample } from "@/lib/media/sample";
 import { useMedia } from "@/lib/media/store";
@@ -33,6 +34,9 @@ interface Workspace {
   editor: EditorTarget | null;
   openEditor: (target: EditorTarget) => void;
   closeEditor: () => void;
+  bulkAddOpen: boolean;
+  openBulkAdd: () => void;
+  closeBulkAdd: () => void;
   requestDelete: (item: MediaItem, onDeleted?: () => void) => void;
   notify: (message: string, action?: Notice["action"]) => void;
   /** Adds the bundled sample titles to the collection, reporting the result. */
@@ -70,6 +74,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const media = useMedia();
   const editMode = useSyncExternalStore(subscribeEdit, readEdit, () => false);
   const [editor, setEditor] = useState<EditorTarget | null>(null);
+  const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [notices, setNotices] = useState<Notice[]>([]);
   const [pendingDelete, setPendingDelete] = useState<{ item: MediaItem; onDeleted?: () => void } | null>(null);
 
@@ -102,11 +107,14 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       editor,
       openEditor: setEditor,
       closeEditor: () => setEditor(null),
+      bulkAddOpen,
+      openBulkAdd: () => setBulkAddOpen(true),
+      closeBulkAdd: () => setBulkAddOpen(false),
       requestDelete: (item, onDeleted) => setPendingDelete({ item, onDeleted }),
       notify,
       addSampleTitles,
     }),
-    [editMode, editor, notify, addSampleTitles],
+    [editMode, editor, bulkAddOpen, notify, addSampleTitles],
   );
 
   return (
@@ -114,6 +122,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       <Toast.Provider duration={6000} swipeDirection="right">
         {children}
         <EditorDrawer />
+        <BulkAddDialog />
 
         <AlertDialog.Root open={pendingDelete !== null} onOpenChange={(open) => !open && setPendingDelete(null)}>
           <AlertDialog.Portal>

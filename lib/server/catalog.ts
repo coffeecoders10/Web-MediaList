@@ -1,6 +1,6 @@
 import "server-only";
 import { findMatch, normalizeTitle } from "@/lib/media/match";
-import type { Submission } from "@/lib/media/api";
+import type { BrowseEntry, Submission } from "@/lib/media/api";
 import { mergeEntry, sharedChanges, toCatalogEntry, type CatalogEntry } from "@/lib/media/model";
 import { searchEntries } from "@/lib/media/search";
 import { CATEGORIES, type Category, type MediaItem } from "@/lib/media/types";
@@ -122,6 +122,16 @@ async function searchableEntries(category: Category): Promise<CatalogEntry[]> {
 export async function searchCatalog(category: Category, query: string): Promise<MediaItem[]> {
   const matches = searchEntries(await searchableEntries(category), query);
   return matches.flatMap((entry) => mergeEntry(entry, { category, catalogId: entry.id }) ?? []);
+}
+
+/** Every shared catalog title in slim form, for the bulk-add picker. Works from the short-lived search copy. */
+export async function browseCatalog(): Promise<BrowseEntry[]> {
+  const lists = await Promise.all(CATEGORIES.map(async (category) => searchableEntries(category)));
+  return lists.flat().flatMap((entry): BrowseEntry[] => {
+    const item = mergeEntry(entry, { category: entry.category, catalogId: entry.id });
+    if (!item) return [];
+    return [{ key: item.id, category: item.category, title: item.title, creator: item.creator, year: item.year, genres: item.genres }];
+  });
 }
 
 /** A few random catalog titles, each from a different category, preferring ones that have a poster. */
