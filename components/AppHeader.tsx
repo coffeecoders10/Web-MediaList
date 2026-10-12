@@ -1,10 +1,10 @@
 "use client";
 
-import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, Pencil1Icon, PersonIcon, UploadIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, Pencil1Icon, PersonIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { logout } from "@/app/actions/auth";
 import { useUser } from "@/components/Providers";
 import { Button } from "@/components/ui/Button";
@@ -17,7 +17,6 @@ import dialog from "@/components/workspace/Workspace.module.css";
 
 const NAV = [
   { href: "/", label: "Library" },
-  { href: "/genres", label: "Genres" },
   { href: "/stats", label: "Stats" },
 ];
 
@@ -27,10 +26,9 @@ const summarize = (added: number, skipped: number) =>
 export function AppHeader() {
   const pathname = usePathname();
   const { editMode, setEditMode, notify } = useWorkspace();
-  const { exportJson, importJson, add } = useMedia();
+  const { exportJson, add } = useMedia();
   const user = useUser();
   const legacy = useLegacy(user.userId);
-  const fileRef = useRef<HTMLInputElement>(null);
   const [offerOpen, setOfferOpen] = useState(true);
   const [importing, setImporting] = useState(false);
 
@@ -51,15 +49,6 @@ export function AppHeader() {
     } catch {
       notify("Couldn't copy the user ID");
     }
-  };
-
-  const onFile = async (file: File | undefined) => {
-    if (!file) return;
-    const result = await importJson(await file.text());
-    if (fileRef.current) fileRef.current.value = "";
-    if (!result) return notify("That file has no usable titles. Nothing was changed.");
-    if (!result.ok) return notify(result.error);
-    notify(summarize(result.items.length, result.skipped));
   };
 
   const importFromBrowser = async () => {
@@ -120,9 +109,6 @@ export function AppHeader() {
                     <ArchiveIcon /> Import {legacy.count} saved in this browser
                   </DropdownMenu.Item>
                 )}
-                <DropdownMenu.Item className={styles.menuItem} onSelect={() => fileRef.current?.click()}>
-                  <UploadIcon /> Import from JSON
-                </DropdownMenu.Item>
                 <DropdownMenu.Item className={styles.menuItem} onSelect={download}>
                   <DownloadIcon /> Export as JSON
                 </DropdownMenu.Item>
@@ -133,13 +119,6 @@ export function AppHeader() {
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="application/json,.json"
-            hidden
-            onChange={(e) => void onFile(e.target.files?.[0])}
-          />
         </div>
       </div>
 

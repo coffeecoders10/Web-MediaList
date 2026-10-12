@@ -129,7 +129,7 @@ export function MediaDetail({ id }: { id: string }) {
             <ul className={styles.genres} aria-label="Genres">
               {item.genres.map((g) => (
                 <li key={g}>
-                  <Link href={`/genres?genre=${encodeURIComponent(g)}`} className={styles.genre}>
+                  <Link href={`/?genre=${encodeURIComponent(g)}`} className={styles.genre}>
                     {g}
                   </Link>
                 </li>
@@ -187,7 +187,7 @@ export function MediaDetail({ id }: { id: string }) {
       {related.length > 0 && (
         <section className={styles.more} aria-labelledby="related-heading">
           <h2 id="related-heading" className={styles.sectionHead}>
-            If you like this
+            Similar to this
           </h2>
           <ul className={styles.related}>
             {related.map((o) => (
