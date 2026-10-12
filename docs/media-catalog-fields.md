@@ -73,7 +73,9 @@ totalEpisodes
 | TV series | `currentSeason` |
 | Anime | `tracking` (`"seasons"` or `"episodes"`), `currentSeason`, `currentEpisode` |
 
-If a user edits a shared key for their own copy, the difference is stored as that user's `overrides`. The catalog entry itself is not changed.
+A collection entry holds only the reference (`category`, `catalogId`) and these personal keys, never a copy of the shared ones.
+
+Editing a shared key updates the catalog entry itself, so every user who has the title sees the change. Only intentional changes are written: a field must differ from what the form was opened with, and an empty value never overwrites an existing one. A title typed by hand that matches an existing entry only fills in keys the entry has no value for.
 
 ## Progress display
 

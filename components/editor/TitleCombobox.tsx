@@ -178,7 +178,7 @@ export function TitleCombobox({ id, value, category, linked, owned, onChange, on
 
       {linked && (
         <p className={styles.note}>
-          <CheckIcon aria-hidden="true" /> Using the shared catalog entry. Its details are filled in below.
+          <CheckIcon aria-hidden="true" /> Using the shared catalog entry. Its details are filled in below; changes you save to them update it for everyone.
           <Button variant="quiet" size="sm" onClick={onUnlink}>
             Don’t link
           </Button>

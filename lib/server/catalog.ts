@@ -1,6 +1,7 @@
 import "server-only";
 import { findMatch, normalizeTitle } from "@/lib/media/match";
-import { mergeEntry, toCatalogEntry, type CatalogEntry } from "@/lib/media/model";
+import type { Submission } from "@/lib/media/api";
+import { mergeEntry, sharedChanges, toCatalogEntry, type CatalogEntry } from "@/lib/media/model";
 import { searchEntries } from "@/lib/media/search";
 import { CATEGORIES, type Category, type MediaItem } from "@/lib/media/types";
 import { BackboneError, mediaList, userMedia } from "./backbone";
@@ -143,21 +144,54 @@ export interface Filed {
   created: boolean;
 }
 
+/** Fields that say which work an entry is. Changing one must not turn the entry into a copy of another. */
+const IDENTITY_KEYS = ["title", "creator", "year", "series"];
+
 /**
- * Files each item in its category's catalog: reuses the entry for the same work if there is one,
- * otherwise creates it. The read-match-write runs under a lock per category, so users adding the
- * same new title at the same moment end up sharing one entry instead of creating two.
+ * The entry with the intentional shared-field changes in `item` applied (`entry` itself when there are
+ * none). Throws if the change would make it the same work as another entry, since the catalog never
+ * holds two of those.
  */
-export async function fileInCatalog(category: Category, items: MediaItem[]): Promise<Filed[]> {
+function amend(entry: CatalogEntry, others: CatalogEntry[], item: MediaItem, base: MediaItem | null | undefined): CatalogEntry {
+  const changes = sharedChanges(item, base, entry);
+  if (Object.keys(changes).length === 0) return entry;
+
+  const updated: CatalogEntry = { ...entry, ...changes };
+  if (IDENTITY_KEYS.some((key) => key in changes)) {
+    const asItem = mergeEntry(updated, { category: entry.category, catalogId: entry.id });
+    if (asItem && findMatch(asItem, others.filter((e) => e.id !== entry.id))) {
+      throw new BackboneError("Another title in the shared catalog already has that title, creator and year.", 409);
+    }
+  }
+  return updated;
+}
+
+const remember = (category: Category, entries: CatalogEntry[]) => searchCache.set(category, { at: Date.now(), entries });
+
+/**
+ * Files each submission in its category's catalog: reuses the entry for the same work if there is one
+ * (applying any intentional changes to its shared fields), otherwise creates it. The read-match-write
+ * runs under a lock per category, so users adding the same new title at the same moment end up sharing
+ * one entry instead of creating two.
+ */
+export async function fileInCatalog(category: Category, submissions: Submission[]): Promise<Filed[]> {
   return withLock(`catalog:${category}`, async () => {
     const doc = await readCatalog(category);
     const known = Object.values(doc.entries);
     const now = new Date().toISOString();
     let changed = false;
 
-    const filed = items.map((item): Filed => {
+    const filed = submissions.map(({ item, base }): Filed => {
       const match = linkedEntry(item, doc) ?? findMatch(item, known);
-      if (match) return { entry: match, created: false };
+      if (match) {
+        const entry = amend(match, known, item, base);
+        if (entry !== match) {
+          doc.entries[String(entry.id)] = entry;
+          known[known.indexOf(match)] = entry;
+          changed = true;
+        }
+        return { entry, created: false };
+      }
       const entry = toCatalogEntry(item, doc.nextId++, now);
       doc.entries[String(entry.id)] = entry;
       known.push(entry);
@@ -167,8 +201,37 @@ export async function fileInCatalog(category: Category, items: MediaItem[]): Pro
 
     if (changed) {
       await mediaList.write((await catalogRows())[category], doc);
-      searchCache.set(category, { at: Date.now(), entries: known.slice() });
+      remember(category, known);
     }
     return filed;
+  });
+}
+
+/**
+ * Applies the intentional shared-field changes in `item` to an existing entry, for every user who has
+ * it. Returns the entry as it now is, or null if it doesn't exist. Reads without the lock first, so
+ * saving only personal progress never takes it.
+ */
+export async function updateCatalogEntry(
+  category: Category,
+  catalogId: number,
+  item: MediaItem,
+  base: MediaItem | null | undefined,
+): Promise<CatalogEntry | null> {
+  const current = await readCatalogEntry(category, catalogId);
+  if (!current || Object.keys(sharedChanges(item, base, current)).length === 0) return current;
+
+  return withLock(`catalog:${category}`, async () => {
+    const doc = await readCatalog(category);
+    const entry = doc.entries[String(catalogId)];
+    if (!entry) return null;
+
+    const updated = amend(entry, Object.values(doc.entries), item, base);
+    if (updated !== entry) {
+      doc.entries[String(catalogId)] = updated;
+      await mediaList.write((await catalogRows())[category], doc);
+      remember(category, Object.values(doc.entries));
+    }
+    return updated;
   });
 }

@@ -10,7 +10,7 @@ import { Select } from "@/components/ui/Select";
 import { useWorkspace, type EditorTarget } from "@/components/workspace/Workspace";
 import { allGenres } from "@/lib/media/filters";
 import { useMedia } from "@/lib/media/store";
-import { CATEGORIES, CATEGORY_LABEL, STATUS_LABEL, STATUSES, isCategory, type Category, type Status } from "@/lib/media/types";
+import { CATEGORIES, CATEGORY_LABEL, STATUS_LABEL, STATUSES, isCategory, type Category, type MediaItem, type Status } from "@/lib/media/types";
 import { applyCatalogItem, emptyDraft, fromDraft, toDraft, validate, type Draft, type DraftErrors, type TextKey } from "./draft";
 import { GenreInput } from "./GenreInput";
 import { ProgressFields, type Bind } from "./ProgressFields";
@@ -51,6 +51,9 @@ function EditorForm({ target }: { target: EditorTarget }) {
   const { closeEditor, notify } = useWorkspace();
   const base = target.mode === "edit" ? (get(target.id) ?? null) : null;
   const [draft, setDraft] = useState<Draft>(() => (base ? toDraft(base) : emptyDraft()));
+  // The catalog title the form was filled from. Edits are judged against it, so only fields the user
+  // actually changed reach the shared entry.
+  const [picked, setPicked] = useState<MediaItem | null>(null);
   const [errors, setErrors] = useState<DraftErrors>({});
   const [saving, setSaving] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -99,7 +102,7 @@ function EditorForm({ target }: { target: EditorTarget }) {
     // A new title waits for the server, which decides whether it is already in the shared catalog.
     setSaving(true);
     setFormError(null);
-    const result = await add([item]);
+    const result = await add([{ item, base: draft.catalogId === null ? null : picked }]);
     setSaving(false);
     if (!result.ok) return setFormError(result.error);
     if (result.items.length === 0) return setFormError("That title is already in your collection.");
@@ -160,7 +163,10 @@ function EditorForm({ target }: { target: EditorTarget }) {
                 owned={(item) => items.some((i) => i.id === item.id)}
                 // Typing again means it is no longer the catalog's title, so the link goes.
                 onChange={(title) => setDraft((d) => ({ ...d, title, catalogId: null }))}
-                onPick={(item) => setDraft((d) => applyCatalogItem(d, item))}
+                onPick={(item) => {
+                  setPicked(item);
+                  setDraft((d) => applyCatalogItem(d, item));
+                }}
                 onUnlink={() => set("catalogId", null)}
                 invalid={!!errors.title}
                 describedBy={describedBy(id("title"), { error: errors.title })}
@@ -274,7 +280,8 @@ function EditorForm({ target }: { target: EditorTarget }) {
           </div>
           {base && (
             <p className={styles.note}>
-              Changes to the title, genres or totals apply to your copy only. The shared catalog entry stays as it is for everyone else.
+              Details of the work (title, creator, genres, totals, cover) are shared, so changes to them update the catalog entry for everyone who has
+              it. Clearing a field doesn’t remove it from the shared entry. Your status, progress, rating, notes and dates stay yours.
             </p>
           )}
           {draft.status === "completed" && category !== "movie" && (

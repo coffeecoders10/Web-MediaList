@@ -5,8 +5,8 @@ import { itemKey, type Category, type MediaItem } from "./types";
  * The stored shapes. The merged `MediaItem` the UI works with is split in two:
  *
  * - `CatalogEntry`: shared, canonical metadata. One per title per category, numbered 1, 2, 3...
- * - `UserEntry`: one user's relationship to a catalog entry (status, progress, rating, notes,
- *   dates), plus `overrides` for any shared field that user has edited for themselves.
+ * - `UserEntry`: one user's reference to a catalog entry plus what is personal to them (status,
+ *   progress, rating, notes, dates). It never holds metadata about the work.
  *
  * Both are stored as flat JSON and validated through `normalizeItem` whenever they are read.
  */
@@ -21,7 +21,6 @@ export interface CatalogEntry extends Fields {
 export interface UserEntry extends Fields {
   category: Category;
   catalogId: number;
-  overrides?: Fields;
 }
 
 const SHARED_COMMON = ["title", "creator", "year", "genres", "synopsis", "posterUrl", "art"];
@@ -68,23 +67,40 @@ export function toCatalogEntry(item: MediaItem, id: number, now = new Date().toI
   return { id, category: item.category, createdAt: now, ...pick(item as unknown as Fields, SHARED_KEYS[item.category]) };
 }
 
-/** Builds the collection entry for an item against its catalog entry; edits to shared fields become overrides. */
-export function toUserEntry(item: MediaItem, catalog: CatalogEntry): UserEntry {
-  const source = item as unknown as Fields;
-  const overrides: Fields = {};
-  for (const key of SHARED_KEYS[item.category]) {
-    if (!same(source[key], catalog[key])) overrides[key] = source[key] ?? null;
-  }
-  const entry: UserEntry = { category: item.category, catalogId: catalog.id, ...pick(source, OWN_KEYS[item.category]) };
-  if (Object.keys(overrides).length > 0) entry.overrides = overrides;
-  return entry;
+/** The collection entry for an item: a reference to its catalog entry and the user's own fields. */
+export function toUserEntry(item: MediaItem, catalogId: number): UserEntry {
+  return { category: item.category, catalogId, ...pick(item as unknown as Fields, OWN_KEYS[item.category]) };
 }
 
-/** The full item the UI shows: catalog metadata, then this user's overrides, then their own fields. */
+const isEmpty = (v: unknown) => v === undefined || v === null || v === "" || (Array.isArray(v) && v.length === 0);
+
+/**
+ * The shared fields of `item` that should be written to `entry`: the intentional changes only.
+ *
+ * - `base` is the shared data the form was opened with (ignored unless it is for this same entry). A
+ *   field counts as changed when it differs from `base`, so a stale copy of a field someone else has
+ *   since corrected is never written back.
+ * - Without a `base` (a title typed by hand that turned out to exist already) nothing is known to be
+ *   intentional, so a field is only filled in where the entry has no value yet.
+ * - An empty value never overwrites anything, and a value the entry already has is not rewritten.
+ */
+export function sharedChanges(item: MediaItem, base: MediaItem | null | undefined, entry: CatalogEntry): Fields {
+  const source = item as unknown as Fields;
+  const opened = base && base.category === entry.category && base.catalogId === entry.id ? (base as unknown as Fields) : null;
+  const changes: Fields = {};
+  for (const key of SHARED_KEYS[entry.category]) {
+    const value = source[key];
+    if (isEmpty(value) || same(value, entry[key])) continue;
+    if (opened ? same(value, opened[key]) : !isEmpty(entry[key])) continue;
+    changes[key] = value;
+  }
+  return changes;
+}
+
+/** The full item the UI shows: the catalog's metadata plus this user's own fields. */
 export function mergeEntry(catalog: CatalogEntry, user: UserEntry): MediaItem | null {
   return normalizeItem({
     ...pick(catalog, SHARED_KEYS[catalog.category]),
-    ...user.overrides,
     ...pick(user, OWN_KEYS[user.category]),
     id: itemKey(user.category, user.catalogId),
     catalogId: user.catalogId,

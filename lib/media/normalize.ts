@@ -1,3 +1,4 @@
+import type { Submission } from "./api";
 import {
   ART_PATTERNS,
   isCategory,
@@ -116,6 +117,22 @@ export function normalizeList(input: unknown): MediaItem[] {
       seen.add(item.id);
       out.push(item);
     }
+  }
+  return out;
+}
+
+/** Validates titles sent to be added. A `base` only counts when it describes the same kind of title. */
+export function normalizeSubmissions(input: unknown): Submission[] {
+  if (!Array.isArray(input)) return [];
+  const seen = new Set<string>();
+  const out: Submission[] = [];
+  for (const entry of input) {
+    const raw = (entry ?? {}) as Raw;
+    const item = normalizeItem(raw.item);
+    if (!item || seen.has(item.id)) continue;
+    seen.add(item.id);
+    const base = normalizeItem(raw.base);
+    out.push({ item, base: base?.category === item.category ? base : null });
   }
   return out;
 }

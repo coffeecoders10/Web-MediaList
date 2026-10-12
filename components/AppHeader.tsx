@@ -64,7 +64,7 @@ export function AppHeader() {
 
   const importFromBrowser = async () => {
     setImporting(true);
-    const result = await add(readLegacyItems());
+    const result = await add(readLegacyItems().map((item) => ({ item })));
     setImporting(false);
     if (!result.ok) return notify(result.error);
     markLegacyImported(user.userId);

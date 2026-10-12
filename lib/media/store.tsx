@@ -2,7 +2,7 @@
 
 import { createContext, use, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { addToCollection, removeFromCollection, saveToCollection } from "@/app/actions/library";
-import type { AddSummary } from "./api";
+import type { AddSummary, Submission } from "./api";
 import { normalizeList } from "./normalize";
 import type { MediaItem } from "./types";
 
@@ -11,10 +11,14 @@ export type AddOutcome = ({ ok: true } & AddSummary) | { ok: false; error: strin
 interface MediaStore {
   items: MediaItem[];
   get: (id: string) => MediaItem | undefined;
-  /** Saves changes to an entry already in the collection (also re-adds one that was just removed). Optimistic. */
+  /**
+   * Saves changes to an entry already in the collection (also re-adds one that was just removed).
+   * Optimistic. Edits to shared metadata go to the catalog entry, so the server's version of the
+   * title replaces the optimistic one once it answers.
+   */
   save: (item: MediaItem) => void;
   /** Adds new titles; waits for the server because it decides their ids. */
-  add: (items: MediaItem[]) => Promise<AddOutcome>;
+  add: (titles: Submission[]) => Promise<AddOutcome>;
   remove: (id: string) => MediaItem | undefined;
   exportJson: () => string;
   /** Adds the titles in a JSON export. Returns how many were new to the collection, or null when the file held none. */
@@ -55,8 +59,12 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
       const stamped = { ...item, updatedAt: new Date().toISOString() } as MediaItem;
       const before = itemsRef.current.find((i) => i.id === stamped.id);
       setItems((prev) => (prev.some((i) => i.id === stamped.id) ? prev.map((i) => (i.id === stamped.id ? stamped : i)) : [stamped, ...prev]));
-      void enqueue(() => saveToCollection(stamped)).then((result) => {
-        if (result.ok) return;
+      void enqueue(() => saveToCollection(stamped, before)).then((result) => {
+        if (result.ok) {
+          // Show what the catalog now holds, unless a newer edit has already replaced this one.
+          setItems((prev) => prev.map((i) => (i.id === stamped.id && i.updatedAt === stamped.updatedAt ? result.item : i)));
+          return;
+        }
         // Put back what was there before this edit.
         setItems((prev) => (before ? prev.map((i) => (i.id === before.id ? before : i)) : prev.filter((i) => i.id !== stamped.id)));
         fail(`Couldn't save “${stamped.title}”. ${result.error}`);
@@ -66,7 +74,7 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
   );
 
   const add = useCallback(
-    async (batch: MediaItem[]): Promise<AddOutcome> => {
+    async (batch: Submission[]): Promise<AddOutcome> => {
       const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
       for (let i = 0; i < batch.length; i += CHUNK) {
         let result;
@@ -114,7 +122,7 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
         return null;
       }
       const list = normalizeList(parsed);
-      return list.length === 0 ? null : add(list);
+      return list.length === 0 ? null : add(list.map((item) => ({ item })));
     },
     [add],
   );
