@@ -124,6 +124,20 @@ export async function searchCatalog(category: Category, query: string): Promise<
   return matches.flatMap((entry) => mergeEntry(entry, { category, catalogId: entry.id }) ?? []);
 }
 
+/** A few random catalog titles, each from a different category, preferring ones that have a poster. */
+export async function randomCatalogItems(count: number): Promise<MediaItem[]> {
+  const shuffle = <T,>(list: T[]) => list.map((v) => [Math.random(), v] as const).sort((a, b) => a[0] - b[0]).map(([, v]) => v);
+  const pools = await Promise.all(
+    CATEGORIES.map(async (category) => {
+      const items = (await searchableEntries(category)).flatMap((entry) => mergeEntry(entry, { category, catalogId: entry.id }) ?? []);
+      const [withPoster, without] = [items.filter((i) => i.posterUrl), items.filter((i) => !i.posterUrl)];
+      return [...shuffle(withPoster), ...shuffle(without)];
+    }),
+  );
+  const picks = shuffle(pools.filter((pool) => pool.length > 0)).map((pool) => pool[0]);
+  return picks.slice(0, count);
+}
+
 export async function readCatalogEntry(category: Category, catalogId: number): Promise<CatalogEntry | null> {
   return (await readCatalog(category)).entries[String(catalogId)] ?? null;
 }

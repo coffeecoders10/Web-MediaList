@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { AuthCovers } from "@/components/auth/AuthCovers";
 import { AuthForm } from "@/components/auth/AuthForm";
 
 export const metadata: Metadata = { title: "Create account" };
 
 export default function SignupPage() {
-  return <AuthForm mode="signup" />;
+  return <AuthForm mode="signup" covers={<AuthCovers />} />;
 }

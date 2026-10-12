@@ -3,25 +3,13 @@
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 import { Toggle } from "radix-ui";
 import Link from "next/link";
-import { useActionState, useId, useState } from "react";
+import { useActionState, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { login, signup, type AuthFormState } from "@/app/actions/auth";
 import { BuiltBy } from "@/components/BuiltBy";
 import { Wordmark } from "@/components/Wordmark";
-import { Cover } from "@/components/Cover";
 import { Button } from "@/components/ui/Button";
 import { describedBy, Field, inputClass } from "@/components/ui/Field";
-import { normalizeItem } from "@/lib/media/normalize";
-import type { MediaItem } from "@/lib/media/types";
 import styles from "./AuthForm.module.css";
-
-/** Decorative covers for the lit panel, drawn from the generated-cover system rather than real artwork. */
-const COVERS = [
-  { title: "Dune", category: "book", art: { hue: 62, pattern: "sun" } },
-  { title: "Piranesi", category: "book", art: { hue: 195, pattern: "arches" } },
-  { title: "Spirited Away", category: "movie", art: { hue: 330, pattern: "rays" } },
-]
-  .map((c, i) => normalizeItem({ ...c, id: `cover-${i}` }))
-  .filter((c): c is MediaItem => c !== null);
 
 const COPY = {
   login: {
@@ -44,26 +32,26 @@ const COPY = {
   },
 } as const;
 
-export function AuthForm({ mode }: { mode: "login" | "signup" }) {
+export function AuthForm({ mode, covers }: { mode: "login" | "signup"; covers: ReactNode }) {
   const copy = COPY[mode];
   const uid = useId();
   const [state, formAction, pending] = useActionState<AuthFormState | undefined, FormData>(copy.action, undefined);
   const [showPassword, setShowPassword] = useState(false);
+  const usernameRef = useRef<HTMLInputElement>(null);
   const fields = state?.fields ?? {};
   const id = (name: string) => `${uid}-${name}`;
   const passwordHint = mode === "signup" ? "At least 8 characters." : undefined;
   const usernameHint = mode === "signup" ? "Letters, numbers and underscores." : undefined;
 
+  // Focus the first field on desktop only: on a phone it would raise the keyboard over the page before anyone has read it.
+  useEffect(() => {
+    if (window.matchMedia("(pointer: fine)").matches) usernameRef.current?.focus();
+  }, []);
+
   return (
     <div className={styles.page}>
       <aside className={styles.lit} aria-hidden="true">
-        <div className={styles.covers}>
-          {COVERS.map((item, i) => (
-            <div key={item.id} className={styles.coverSlot} data-slot={i}>
-              <Cover item={item} />
-            </div>
-          ))}
-        </div>
+        {covers}
         <p className={styles.tagline}>Every story you’ve finished, filed away and kept.</p>
       </aside>
 
@@ -87,15 +75,17 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
 
           <Field label="Username" htmlFor={id("username")} error={fields.username} hint={usernameHint}>
             <input
+              ref={usernameRef}
               id={id("username")}
               name="username"
               className={inputClass}
               defaultValue={state?.values?.username}
               autoComplete="username"
               autoCapitalize="none"
+              autoCorrect="off"
               spellCheck={false}
+              enterKeyHint="next"
               required
-              autoFocus
               aria-invalid={fields.username ? true : undefined}
               aria-describedby={describedBy(id("username"), { error: fields.username, hint: usernameHint })}
             />
@@ -109,6 +99,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
                 className={inputClass}
                 defaultValue={state?.values?.fullName}
                 autoComplete="name"
+                enterKeyHint="next"
                 required
                 aria-invalid={fields.fullName ? true : undefined}
                 aria-describedby={describedBy(id("fullName"), { error: fields.fullName })}
@@ -124,6 +115,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
                 className={`${inputClass} ${styles.secretInput}`}
                 type={showPassword ? "text" : "password"}
                 autoComplete={mode === "login" ? "current-password" : "new-password"}
+                enterKeyHint="go"
                 required
                 aria-invalid={fields.password ? true : undefined}
                 aria-describedby={describedBy(id("password"), { error: fields.password, hint: passwordHint })}
@@ -142,9 +134,11 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         <p className={styles.switch}>
           {copy.switchText} <Link href={copy.switchLink.href}>{copy.switchLink.label}</Link>
         </p>
-
-        <BuiltBy />
       </section>
+
+      <div className={styles.credit}>
+        <BuiltBy />
+      </div>
     </div>
   );
 }

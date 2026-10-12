@@ -2,40 +2,79 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   min-height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @media (min-width: 900px) {
   .page {
     grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
+    grid-template-rows: 1fr auto;
+  }
+
+  .page > .lit {
+    grid-row: 1 / span 2;
+  }
+}
+
+/* Under the tagline card on phones; at the foot of the form column on desktop. */
+.credit {
+  order: 3;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--gutter) 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .credit {
+    order: 0;
+    padding-block: 0 2rem;
   }
 }
 
 /* The lit panel: the single backlit surface, as on the library's Now consuming strip. */
 .lit {
-  display: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
   position: relative;
-  align-content: center;
-  justify-items: start;
-  gap: 3rem;
-  padding: 3rem var(--gutter);
-  margin: 1rem 0 1rem 1rem;
+  padding: 1rem var(--gutter);
+  order: 2;
+  margin: 0 1rem 1rem;
   border-radius: var(--r-lg);
   background: linear-gradient(160deg, var(--lit-edge), var(--lit) 42%, oklch(0.8 0.014 230));
   color: var(--lit-ink);
   overflow: hidden;
 }
 
+/* Phones keep a compact version of the panel below the form: tagline with a row of covers beneath it. */
 @media (min-width: 900px) {
   .lit {
-    display: grid;
+    grid-template-columns: none;
+    align-content: center;
+    justify-items: start;
+    gap: 3rem;
+    padding: 3rem var(--gutter);
+    order: 0;
+    margin: 1rem 0 1rem 1rem;
   }
 }
 
 .covers {
   display: flex;
   align-items: flex-end;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  width: min(100%, 34rem);
+  gap: 0.5rem;
+  width: min(100%, 16rem);
+  justify-self: end;
+  order: 2;
+}
+
+@media (min-width: 900px) {
+  .covers {
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    width: min(100%, 34rem);
+    justify-self: start;
+    order: 0;
+  }
 }
 
 .coverSlot {
@@ -45,17 +84,28 @@
   box-shadow: 0 18px 36px oklch(0.2 0.03 245 / 0.35);
 }
 
-.coverSlot[data-slot="0"] {
-  transform: translateY(-1.5rem);
+.coverSlot {
+  box-shadow: 0 8px 16px oklch(0.2 0.03 245 / 0.3);
 }
 
-.coverSlot[data-slot="2"] {
-  transform: translateY(1.25rem);
+@media (min-width: 900px) {
+  .coverSlot {
+    box-shadow: 0 18px 36px oklch(0.2 0.03 245 / 0.35);
+  }
+
+  .coverSlot[data-slot="0"] {
+    transform: translateY(-1.5rem);
+  }
+
+  .coverSlot[data-slot="2"] {
+    transform: translateY(1.25rem);
+  }
 }
 
 .tagline {
-  max-width: 18ch;
-  font-size: var(--fs-xl);
+  order: 1;
+  max-width: 20ch;
+  font-size: 1.75rem;
   font-stretch: 118%;
   font-weight: 750;
   line-height: 1.05;
@@ -63,15 +113,23 @@
   color: var(--lit-ink);
 }
 
+@media (min-width: 900px) {
+  .tagline {
+    order: 0;
+    max-width: 18ch;
+    font-size: var(--fs-xl);
+  }
+}
+
 .panel {
   display: grid;
   align-content: center;
   justify-items: stretch;
-  gap: 1.75rem;
+  gap: 1.25rem;
   width: 100%;
   max-width: 26rem;
   margin-inline: auto;
-  padding: 2.5rem var(--gutter);
+  padding: 1.5rem var(--gutter);
 }
 
 .head {
@@ -92,7 +150,7 @@
 
 .form {
   display: grid;
-  gap: 1.125rem;
+  gap: 0.875rem;
 }
 
 .alert {
@@ -140,9 +198,65 @@
 .switch {
   color: var(--ink-2);
   font-size: var(--fs-sm);
+  text-align: center;
 }
 
 .switch a {
+  display: inline-block;
+  padding-block: 0.75rem; /* a thumb-sized target without changing how the line reads */
+  margin-block: -0.75rem;
   color: var(--accent);
   font-weight: 600;
+}
+
+/* Phone sizing: 16px text stops iOS zooming the page on focus, and taller controls are easier to hit. */
+.form input {
+  font-size: 1rem;
+  min-height: 3rem;
+}
+
+.form .submit {
+  min-height: 3rem;
+}
+
+.reveal {
+  width: 3rem;
+}
+
+.secretInput {
+  padding-right: 3rem;
+}
+
+@media (min-width: 900px) {
+  .switch {
+    text-align: start;
+  }
+
+  .form input {
+    font-size: inherit;
+    min-height: 2.5rem;
+  }
+
+  .form .submit {
+    min-height: 2.5rem;
+  }
+
+  .reveal {
+    width: 2.75rem;
+  }
+
+  .secretInput {
+    padding-right: 2.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .panel {
+    gap: 1.75rem;
+    padding: 2.5rem var(--gutter);
+  }
+
+  .form {
+    gap: 1.125rem;
+  }
 }
