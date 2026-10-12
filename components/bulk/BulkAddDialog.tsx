@@ -51,7 +51,7 @@ function BulkAddPicker() {
     const controller = new AbortController();
     (async () => {
       try {
-        const res = await fetch("/api/catalog/browse", { signal: controller.signal });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/catalog/browse`, { signal: controller.signal });
         if (!res.ok) throw new Error(`Browse failed (${res.status})`);
         const data = (await res.json()) as CatalogBrowseResult;
         setLoad({ state: "ready", entries: data.entries });
