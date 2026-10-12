@@ -1,6 +1,6 @@
 "use client";
 
-import { PlusIcon } from "@radix-ui/react-icons";
+import { PlusIcon, StackIcon } from "@radix-ui/react-icons";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { MediaCard } from "@/components/media/MediaCard";
@@ -24,7 +24,7 @@ import styles from "./LibraryView.module.css";
 
 export function LibraryView() {
   const { items } = useMedia();
-  const { editMode, openEditor } = useWorkspace();
+  const { editMode, openEditor, openBulkAdd } = useWorkspace();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -65,6 +65,10 @@ export function LibraryView() {
         </h1>
         {editMode && (
           <div className={styles.addRow}>
+            <Button variant="outline" size="sm" onClick={openBulkAdd}>
+              <StackIcon aria-hidden="true" />
+              Bulk add
+            </Button>
             <Button variant="solid" size="sm" onClick={() => openEditor({ mode: "new" })}>
               <PlusIcon aria-hidden="true" />
               Add title
@@ -93,9 +97,14 @@ export function LibraryView() {
                 <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title."}</p>
                 <div className={styles.emptyActions}>
                   {editMode && (
-                    <Button variant="solid" onClick={() => openEditor({ mode: "new" })}>
-                      Add a title
-                    </Button>
+                    <>
+                      <Button variant="solid" onClick={() => openEditor({ mode: "new" })}>
+                        Add a title
+                      </Button>
+                      <Button variant="outline" onClick={openBulkAdd}>
+                        Bulk add from the catalog
+                      </Button>
+                    </>
                   )}
                 </div>
               </>

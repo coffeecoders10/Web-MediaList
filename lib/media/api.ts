@@ -1,4 +1,4 @@
-import type { MediaItem } from "./types";
+import type { Category, MediaItem } from "./types";
 
 /** What the library Server Actions return. Expected failures come back as values, not exceptions. */
 export type ActionResult<T = object> = ({ ok: true } & T) | { ok: false; error: string };
@@ -18,6 +18,22 @@ export interface AddSummary {
   matched: number;
   /** Entries the collection already held. */
   skipped: number;
+}
+
+/** One shared catalog title as the bulk-add picker lists it: just enough to recognise and filter it. */
+export interface BrowseEntry {
+  /** Collection key (`book-12`), the same id the title has once it is in a collection. */
+  key: string;
+  category: Category;
+  title: string;
+  creator: string;
+  year: number | null;
+  genres: string[];
+}
+
+/** The `/api/catalog/browse` response: every shared catalog title, for picking several at once. */
+export interface CatalogBrowseResult {
+  entries: BrowseEntry[];
 }
 
 /** The `/api/catalog/search` response: shared catalog titles with personal fields left at their defaults. */

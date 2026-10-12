@@ -4,7 +4,7 @@ import type { ActionResult, AddSummary } from "@/lib/media/api";
 import { normalizeItem, normalizeSubmissions } from "@/lib/media/normalize";
 import type { MediaItem } from "@/lib/media/types";
 import { BackboneError } from "@/lib/server/backbone";
-import { addItems, removeItem, saveItem } from "@/lib/server/collection";
+import { addCatalogTitles, addItems, removeItem, saveItem } from "@/lib/server/collection";
 import { requireSession } from "@/lib/server/session";
 
 /**
@@ -28,6 +28,18 @@ export async function addToCollection(raw: unknown): Promise<ActionResult<AddSum
   if (submissions.length === 0) return { ok: false, error: "There's nothing valid to add." };
   try {
     return { ok: true, ...(await addItems(userId, submissions)) };
+  } catch (error) {
+    return failure(error);
+  }
+}
+
+/** Adds existing shared catalog titles, by key, as completed. Personal fields are left for the user to fill in. */
+export async function addCatalogTitlesToCollection(raw: unknown): Promise<ActionResult<AddSummary>> {
+  const { userId } = await requireSession();
+  const keys = Array.isArray(raw) ? [...new Set(raw.filter((k): k is string => typeof k === "string"))].slice(0, MAX_IMPORT) : [];
+  if (keys.length === 0) return { ok: false, error: "Pick at least one title to add." };
+  try {
+    return { ok: true, ...(await addCatalogTitles(userId, keys)) };
   } catch (error) {
     return failure(error);
   }

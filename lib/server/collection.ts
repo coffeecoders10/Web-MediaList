@@ -1,5 +1,6 @@
 import "server-only";
 import type { AddSummary, Submission } from "@/lib/media/api";
+import { reconcile } from "@/lib/media/progress";
 import { mergeEntry, toUserEntry, type UserEntry } from "@/lib/media/model";
 import { CATEGORIES, itemKey, parseItemKey, type Category, type MediaItem } from "@/lib/media/types";
 import { BackboneError, userMedia } from "./backbone";
@@ -99,6 +100,42 @@ export async function addItems(userId: string, submissions: Submission[]): Promi
       if (!merged) continue;
       summary.items.push(merged);
       summary[created ? "created" : "matched"]++;
+    }
+
+    if (summary.items.length > 0) await userMedia.write(userId, doc);
+    return summary;
+  });
+}
+
+/**
+ * Adds existing shared catalog titles to the user's collection as completed. Nothing personal is
+ * invented: no rating, dates or notes, just status Completed and progress at the full total
+ * (x/x chapters, y/y seasons) wherever the catalog knows it. Titles already held are skipped.
+ */
+export async function addCatalogTitles(userId: string, keys: string[]): Promise<AddSummary> {
+  const refs = keys.flatMap((key) => parseItemKey(key) ?? []);
+  const catalogs = await readCatalogs(refs.map((r) => r.category));
+
+  return serial(userId, async () => {
+    const doc = await readUserDoc(userId);
+    const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
+
+    for (const ref of refs) {
+      const key = itemKey(ref.category, ref.catalogId);
+      const entry = catalogs[ref.category]?.entries[String(ref.catalogId)];
+      if (!entry) continue; // gone from the catalog since the list was loaded
+      if (doc.entries[key]) {
+        summary.skipped++;
+        continue;
+      }
+      const blank = mergeEntry(entry, { category: ref.category, catalogId: ref.catalogId });
+      if (!blank) continue;
+      const own = toUserEntry(reconcile({ ...blank, status: "completed" }), entry.id);
+      doc.entries[key] = own;
+      const merged = mergeEntry(entry, own);
+      if (!merged) continue;
+      summary.items.push(merged);
+      summary.matched++;
     }
 
     if (summary.items.length > 0) await userMedia.write(userId, doc);

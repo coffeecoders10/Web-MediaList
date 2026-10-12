@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, use, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { addToCollection, removeFromCollection, saveToCollection } from "@/app/actions/library";
+import { addCatalogTitlesToCollection, addToCollection, removeFromCollection, saveToCollection } from "@/app/actions/library";
 import type { AddSummary, Submission } from "./api";
 import { normalizeList } from "./normalize";
 import type { MediaItem } from "./types";
@@ -19,6 +19,8 @@ interface MediaStore {
   save: (item: MediaItem) => void;
   /** Adds new titles; waits for the server because it decides their ids. */
   add: (titles: Submission[]) => Promise<AddOutcome>;
+  /** Adds existing catalog titles (by key) as completed, at full progress. Waits for the server. */
+  addCompleted: (keys: string[]) => Promise<AddOutcome>;
   remove: (id: string) => MediaItem | undefined;
   exportJson: () => string;
   /** Adds the titles in a JSON export. Returns how many were new to the collection, or null when the file held none. */
@@ -96,6 +98,28 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
     [enqueue],
   );
 
+  const addCompleted = useCallback(
+    async (keys: string[]): Promise<AddOutcome> => {
+      const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
+      for (let i = 0; i < keys.length; i += CHUNK) {
+        let result;
+        try {
+          result = await enqueue(() => addCatalogTitlesToCollection(keys.slice(i, i + CHUNK)));
+        } catch {
+          return { ok: false, error: "Couldn't reach the server. Check your connection and try again." };
+        }
+        if (!result.ok) return result;
+        summary.items.push(...result.items);
+        summary.matched += result.matched;
+        summary.skipped += result.skipped;
+      }
+      const added = summary.items;
+      setItems((prev) => [...added, ...prev.filter((p) => !added.some((a) => a.id === p.id))]);
+      return { ok: true, ...summary };
+    },
+    [enqueue],
+  );
+
   const remove = useCallback(
     (id: string) => {
       const removed = itemsRef.current.find((i) => i.id === id);
@@ -133,8 +157,8 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
   }, []);
 
   const value = useMemo(
-    () => ({ items, get, save, add, remove, exportJson, importJson, onError }),
-    [items, get, save, add, remove, exportJson, importJson, onError],
+    () => ({ items, get, save, add, addCompleted, remove, exportJson, importJson, onError }),
+    [items, get, save, add, addCompleted, remove, exportJson, importJson, onError],
   );
 
   return <MediaContext value={value}>{children}</MediaContext>;
