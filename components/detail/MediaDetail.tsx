@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import { Cover } from "@/components/Cover";
 import { CategoryTag, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { MediaCard } from "@/components/media/MediaCard";
+import { RatingEditor } from "@/components/media/RatingEditor";
 import { Button } from "@/components/ui/Button";
 import { StatusGlyph } from "@/components/ui/Icons";
 import { Select } from "@/components/ui/Select";
@@ -105,7 +106,7 @@ export function MediaDetail({ id }: { id: string }) {
             <div>
               <dt>Rating</dt>
               <dd>
-                <Rating value={item.rating} size="lg" />
+                {editMode ? <RatingEditor item={item} /> : <Rating value={item.rating} size="lg" />}
               </dd>
             </div>
             {item.category === "movie" && item.runtimeMinutes && (

@@ -1,0 +1,2910 @@
+[
+  {
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "creator": "Hiromu Arakawa",
+    "studio": "Bones",
+    "year": 2009,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Drama"
+    ],
+    "synopsis": "Two brothers who broke an alchemical taboo search for the Philosopher's Stone to restore their bodies while uncovering a nationwide conspiracy.",
+    "totalSeasons": 1,
+    "totalEpisodes": 64
+  },
+  {
+    "title": "Fullmetal Alchemist",
+    "creator": "Hiromu Arakawa",
+    "studio": "Bones",
+    "year": 2003,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Drama"
+    ],
+    "synopsis": "The Elric brothers pursue forbidden alchemical secrets in an alternate telling of their quest to undo a devastating childhood mistake.",
+    "totalSeasons": 1,
+    "totalEpisodes": 51
+  },
+  {
+    "title": "Hunter x Hunter (2011)",
+    "creator": "Yoshihiro Togashi",
+    "studio": "Madhouse",
+    "year": 2011,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "synopsis": "Gon becomes a licensed Hunter to find his father, meeting close friends and dangerous foes along the way.",
+    "totalSeasons": 1,
+    "totalEpisodes": 148
+  },
+  {
+    "title": "Death Note",
+    "creator": "Tsugumi Ohba",
+    "studio": "Madhouse",
+    "year": 2006,
+    "genres": [
+      "Mystery",
+      "Psychological",
+      "Thriller",
+      "Supernatural"
+    ],
+    "synopsis": "A gifted student obtains a notebook that kills anyone whose name he writes and enters a battle of wits with a legendary detective.",
+    "totalSeasons": 1,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "Code Geass: Lelouch of the Rebellion",
+    "creator": "Ichiro Okouchi, Goro Taniguchi",
+    "studio": "Sunrise",
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Military",
+      "Drama",
+      "Sci-Fi"
+    ],
+    "synopsis": "An exiled prince gains the power to command anyone and leads a masked rebellion against a vast empire.",
+    "totalSeasons": 2,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Steins;Gate",
+    "creator": "5pb., Nitroplus",
+    "studio": "White Fox",
+    "year": 2011,
+    "genres": [
+      "Sci-Fi",
+      "Mystery",
+      "Thriller",
+      "Drama"
+    ],
+    "synopsis": "A group of eccentric inventors discovers a way to send messages into the past, unleashing dangerous consequences.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Steins;Gate 0",
+    "creator": "5pb., Nitroplus",
+    "studio": "White Fox",
+    "year": 2018,
+    "genres": [
+      "Sci-Fi",
+      "Drama",
+      "Thriller"
+    ],
+    "synopsis": "A grief-stricken scientist is drawn into an alternative timeline where artificial intelligence and time travel collide.",
+    "totalSeasons": 1,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "Cowboy Bebop",
+    "creator": "Shinichiro Watanabe",
+    "studio": "Sunrise",
+    "year": 1998,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Drama"
+    ],
+    "synopsis": "A crew of bounty hunters drifts through the solar system, chasing criminals and confronting unfinished business.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Samurai Champloo",
+    "creator": "Shinichiro Watanabe",
+    "studio": "Manglobe",
+    "year": 2004,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Historical"
+    ],
+    "synopsis": "A wandering swordsman, a disciplined samurai, and a young waitress travel across Edo-era Japan searching for a mysterious man.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Mob Psycho 100",
+    "creator": "ONE",
+    "studio": "Bones",
+    "year": 2016,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural",
+      "Coming-of-Age"
+    ],
+    "synopsis": "A timid psychic tries to improve himself without relying on his overwhelming powers while assisting a fraudulent spirit consultant.",
+    "totalSeasons": 3,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "One-Punch Man",
+    "creator": "ONE",
+    "studio": "Madhouse, J.C.Staff",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Superhero",
+      "Sci-Fi"
+    ],
+    "synopsis": "A hero who defeats almost every opponent with one punch struggles with boredom and the absurdities of superhero society.",
+    "totalSeasons": 3,
+    "totalEpisodes": 36
+  },
+  {
+    "title": "Gintama",
+    "creator": "Hideaki Sorachi",
+    "studio": "Sunrise, Bandai Namco Pictures",
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Adventure",
+      "Sci-Fi",
+      "Historical"
+    ],
+    "synopsis": "A lazy samurai and his odd-job friends cause chaos in an alternate Edo occupied by aliens.",
+    "totalSeasons": 10,
+    "totalEpisodes": 367
+  },
+  {
+    "title": "JoJo's Bizarre Adventure",
+    "creator": "Hirohiko Araki",
+    "studio": "David Production",
+    "year": 2012,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Supernatural",
+      "Fantasy"
+    ],
+    "synopsis": "Generations of the Joestar family confront extraordinary enemies using supernatural techniques and increasingly bizarre powers.",
+    "totalSeasons": 5,
+    "totalEpisodes": 190
+  },
+  {
+    "title": "Dragon Ball",
+    "creator": "Akira Toriyama",
+    "studio": "Toei Animation",
+    "year": 1986,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Martial Arts",
+      "Fantasy"
+    ],
+    "synopsis": "Young Goku trains as a martial artist and travels the world looking for seven wish-granting Dragon Balls.",
+    "totalSeasons": 1,
+    "totalEpisodes": 153
+  },
+  {
+    "title": "Dragon Ball Z",
+    "creator": "Akira Toriyama",
+    "studio": "Toei Animation",
+    "year": 1989,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Martial Arts",
+      "Sci-Fi"
+    ],
+    "synopsis": "Adult Goku and his allies defend Earth against intergalactic warriors, androids, and increasingly powerful villains.",
+    "totalSeasons": 1,
+    "totalEpisodes": 291
+  },
+  {
+    "title": "Dragon Ball Super",
+    "creator": "Akira Toriyama",
+    "studio": "Toei Animation",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Martial Arts"
+    ],
+    "synopsis": "Goku explores divine realms and new universes while facing opponents powerful enough to challenge gods.",
+    "totalSeasons": 1,
+    "totalEpisodes": 131
+  },
+  {
+    "title": "Dragon Ball DAIMA",
+    "creator": "Akira Toriyama",
+    "studio": "Toei Animation",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "synopsis": "Goku and his companions are transformed into smaller versions of themselves and venture into the Demon Realm.",
+    "totalSeasons": 1,
+    "totalEpisodes": 20
+  },
+  {
+    "title": "Naruto: Shippuden",
+    "creator": "Masashi Kishimoto",
+    "studio": "Pierrot",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Martial Arts",
+      "Fantasy"
+    ],
+    "synopsis": "An older Naruto returns from training and faces the Akatsuki as the ninja world approaches a catastrophic war.",
+    "totalSeasons": 1,
+    "totalEpisodes": 500
+  },
+  {
+    "title": "Boruto: Naruto Next Generations",
+    "creator": "Ukyo Kodachi, Masashi Kishimoto",
+    "studio": "Pierrot",
+    "year": 2017,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Martial Arts"
+    ],
+    "synopsis": "Naruto's son trains as a ninja in a rapidly modernizing village while a new generation confronts dangerous threats.",
+    "totalSeasons": 1,
+    "totalEpisodes": 293
+  },
+  {
+    "title": "Yu Yu Hakusho",
+    "creator": "Yoshihiro Togashi",
+    "studio": "Pierrot",
+    "year": 1992,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Supernatural",
+      "Martial Arts"
+    ],
+    "synopsis": "A delinquent returns from death as a Spirit Detective responsible for stopping supernatural disturbances.",
+    "totalSeasons": 1,
+    "totalEpisodes": 112
+  },
+  {
+    "title": "Rurouni Kenshin (1996)",
+    "creator": "Nobuhiro Watsuki",
+    "studio": "Gallop, Studio Deen",
+    "year": 1996,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Historical",
+      "Martial Arts"
+    ],
+    "synopsis": "A former assassin vows never to kill again while protecting people in Meiji-era Japan.",
+    "totalSeasons": 1,
+    "totalEpisodes": 95
+  },
+  {
+    "title": "Rurouni Kenshin (2023)",
+    "creator": "Nobuhiro Watsuki",
+    "studio": "Liden Films",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Historical",
+      "Martial Arts"
+    ],
+    "synopsis": "A peaceful wandering swordsman struggles to live by his vow of nonviolence as old enemies return in a new adaptation.",
+    "totalSeasons": 2,
+    "totalEpisodes": 47
+  },
+  {
+    "title": "Inuyasha",
+    "creator": "Rumiko Takahashi",
+    "studio": "Sunrise",
+    "year": 2000,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Romance"
+    ],
+    "synopsis": "A modern schoolgirl travels to feudal Japan and joins a half-demon in searching for fragments of a powerful jewel.",
+    "totalSeasons": 1,
+    "totalEpisodes": 167
+  },
+  {
+    "title": "Inuyasha: The Final Act",
+    "creator": "Rumiko Takahashi",
+    "studio": "Sunrise",
+    "year": 2009,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Romance"
+    ],
+    "synopsis": "Inuyasha and Kagome's journey reaches its conclusion as their allies face Naraku in a final struggle.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Fairy Tail",
+    "creator": "Hiro Mashima",
+    "studio": "A-1 Pictures, Satelight, Bridge, CloverWorks",
+    "year": 2009,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "synopsis": "Young wizards from a boisterous guild take on magical jobs and fight to protect their found family.",
+    "totalSeasons": 3,
+    "totalEpisodes": 328
+  },
+  {
+    "title": "Fairy Tail: 100 Years Quest",
+    "creator": "Hiro Mashima, Atsuo Ueda",
+    "studio": "J.C.Staff",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "synopsis": "Natsu and his guildmates undertake an ancient quest to seal mighty Dragon Gods.",
+    "totalSeasons": 1,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "The Seven Deadly Sins",
+    "creator": "Nakaba Suzuki",
+    "studio": "A-1 Pictures, Studio Deen",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Comedy"
+    ],
+    "synopsis": "A princess gathers legendary disgraced knights to reclaim her kingdom from corrupt Holy Knights.",
+    "totalSeasons": 5,
+    "totalEpisodes": 100
+  },
+  {
+    "title": "Soul Eater",
+    "creator": "Atsushi Okubo",
+    "studio": "Bones",
+    "year": 2008,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Dark Fantasy",
+      "Supernatural"
+    ],
+    "synopsis": "Students at a supernatural academy battle evil souls while trying to forge powerful death scythes.",
+    "totalSeasons": 1,
+    "totalEpisodes": 51
+  },
+  {
+    "title": "Noragami",
+    "creator": "Adachitoka",
+    "studio": "Bones",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural",
+      "Fantasy"
+    ],
+    "synopsis": "A minor god takes odd jobs to build a following and befriends a girl whose spirit slips from her body.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Blue Exorcist",
+    "creator": "Kazue Kato",
+    "studio": "A-1 Pictures, Studio VOLN",
+    "year": 2011,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Supernatural",
+      "School"
+    ],
+    "synopsis": "A teenager discovers he is Satan's son and trains to become an exorcist despite his demonic heritage.",
+    "totalSeasons": 5,
+    "totalEpisodes": 73
+  },
+  {
+    "title": "Solo Leveling",
+    "creator": "Chugong",
+    "studio": "A-1 Pictures",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "synopsis": "A low-ranked hunter discovers a unique leveling system that lets him grow stronger after surviving a deadly dungeon.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Kaiju No. 8",
+    "creator": "Naoya Matsumoto",
+    "studio": "Production I.G",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Military",
+      "Comedy"
+    ],
+    "synopsis": "A monster-cleanup worker accidentally becomes a kaiju and attempts to join the elite force that hunts them.",
+    "totalSeasons": 2,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "DAN DA DAN",
+    "creator": "Yukinobu Tatsu",
+    "studio": "Science SARU",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural",
+      "Sci-Fi",
+      "Romance"
+    ],
+    "synopsis": "Two teenagers argue over ghosts and aliens before discovering that both are real and extremely dangerous.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "WIND BREAKER",
+    "creator": "Satoru Nii",
+    "studio": "CloverWorks",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "School",
+      "Delinquent",
+      "Drama"
+    ],
+    "synopsis": "A fierce high-school fighter finds purpose when his new classmates defend their neighborhood together.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Hell's Paradise",
+    "creator": "Yuji Kaku",
+    "studio": "MAPPA",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Dark Fantasy",
+      "Supernatural"
+    ],
+    "synopsis": "Condemned criminals and their executioners search a monstrous island for an elixir of immortality.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Sakamoto Days",
+    "creator": "Yuto Suzuki",
+    "studio": "TMS Entertainment",
+    "year": 2025,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Crime"
+    ],
+    "synopsis": "A retired elite assassin runs a convenience store and protects his quiet family life from enemies who will not leave him alone.",
+    "totalSeasons": 1,
+    "totalEpisodes": 22
+  },
+  {
+    "title": "Frieren: Beyond Journey's End",
+    "creator": "Kanehito Yamada, Tsukasa Abe",
+    "studio": "Madhouse",
+    "year": 2023,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Drama"
+    ],
+    "synopsis": "An elf mage revisits places from a legendary quest and learns to understand the fleeting lives of her former companions.",
+    "totalSeasons": 2,
+    "totalEpisodes": 38
+  },
+  {
+    "title": "Delicious in Dungeon",
+    "creator": "Ryoko Kui",
+    "studio": "Trigger",
+    "year": 2024,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Food"
+    ],
+    "synopsis": "A dungeon party cooks monsters for food while descending through dangerous ruins to rescue a lost teammate.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The Apothecary Diaries",
+    "creator": "Natsu Hyuga",
+    "studio": "Toho Animation Studio, OLM",
+    "year": 2023,
+    "genres": [
+      "Mystery",
+      "Drama",
+      "Historical",
+      "Comedy"
+    ],
+    "synopsis": "A clever young apothecary uses her medical knowledge to investigate mysteries inside an imperial palace.",
+    "totalSeasons": 2,
+    "totalEpisodes": 48
+  },
+  {
+    "title": "Spy x Family",
+    "creator": "Tatsuya Endo",
+    "studio": "Wit Studio, CloverWorks",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Spy",
+      "Slice of Life"
+    ],
+    "synopsis": "A secret agent forms a fake family for a mission, unaware his wife is an assassin and his daughter can read minds.",
+    "totalSeasons": 3,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Assassination Classroom",
+    "creator": "Yusei Matsui",
+    "studio": "Lerche",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Comedy",
+      "School",
+      "Sci-Fi"
+    ],
+    "synopsis": "A class of struggling students must assassinate their wildly powerful, tentacled teacher before he destroys Earth.",
+    "totalSeasons": 2,
+    "totalEpisodes": 47
+  },
+  {
+    "title": "Great Teacher Onizuka",
+    "creator": "Toru Fujisawa",
+    "studio": "Pierrot",
+    "year": 1999,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "School"
+    ],
+    "synopsis": "A former biker gang member becomes a teacher and wins over troubled students with unconventional lessons.",
+    "totalSeasons": 1,
+    "totalEpisodes": 43
+  },
+  {
+    "title": "The Disastrous Life of Saiki K.",
+    "creator": "Shuichi Aso",
+    "studio": "J.C.Staff, Egg Firm",
+    "year": 2016,
+    "genres": [
+      "Comedy",
+      "Supernatural",
+      "School"
+    ],
+    "synopsis": "A teenage psychic with almost unlimited powers desperately tries to have an ordinary school life.",
+    "totalSeasons": 3,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Kaguya-sama: Love Is War",
+    "creator": "Aka Akasaka",
+    "studio": "A-1 Pictures",
+    "year": 2019,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School",
+      "Psychological"
+    ],
+    "synopsis": "Two prideful student council leaders turn romantic confession into an elaborate contest of schemes.",
+    "totalSeasons": 3,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "Daily Lives of High School Boys",
+    "creator": "Yasunobu Yamauchi",
+    "studio": "Sunrise",
+    "year": 2012,
+    "genres": [
+      "Comedy",
+      "Slice of Life",
+      "School"
+    ],
+    "synopsis": "A group of schoolboys transform ordinary daily situations into wildly theatrical comedy sketches.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Nichijou - My Ordinary Life",
+    "creator": "Keiichi Arawi",
+    "studio": "Kyoto Animation",
+    "year": 2011,
+    "genres": [
+      "Comedy",
+      "Slice of Life",
+      "Surreal"
+    ],
+    "synopsis": "Schoolgirls, a robot, and a precocious professor inhabit a world where everyday events explode into absurd comedy.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Grand Blue Dreaming",
+    "creator": "Kenji Inoue, Kimitake Yoshioka",
+    "studio": "Zero-G, Liber",
+    "year": 2018,
+    "genres": [
+      "Comedy",
+      "Slice of Life",
+      "College"
+    ],
+    "synopsis": "A college student joins a diving club whose members seem far more interested in partying than diving.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Prison School",
+    "creator": "Akira Hiramoto",
+    "studio": "J.C.Staff",
+    "year": 2015,
+    "genres": [
+      "Comedy",
+      "School",
+      "Ecchi"
+    ],
+    "synopsis": "Five boys at a former girls' academy are imprisoned by a strict underground student council for breaking school rules.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Hinamatsuri",
+    "creator": "Masao Otake",
+    "studio": "Feel",
+    "year": 2018,
+    "genres": [
+      "Comedy",
+      "Supernatural",
+      "Slice of Life"
+    ],
+    "synopsis": "A yakuza member unexpectedly becomes guardian to a deadpan girl with devastating telekinetic powers.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Barakamon",
+    "creator": "Satsuki Yoshino",
+    "studio": "Kinema Citrus",
+    "year": 2014,
+    "genres": [
+      "Comedy",
+      "Slice of Life",
+      "Drama"
+    ],
+    "synopsis": "A hotheaded calligrapher relocates to a small island where lively locals help him rethink his art and life.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Handa-kun",
+    "creator": "Satsuki Yoshino",
+    "studio": "Diomedea",
+    "year": 2016,
+    "genres": [
+      "Comedy",
+      "School",
+      "Slice of Life"
+    ],
+    "synopsis": "A socially anxious calligraphy prodigy mistakes his classmates' admiration for widespread hostility.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "The Devil Is a Part-Timer!",
+    "creator": "Satoshi Wagahara",
+    "studio": "White Fox, Studio 3Hz",
+    "year": 2013,
+    "genres": [
+      "Comedy",
+      "Fantasy",
+      "Slice of Life"
+    ],
+    "synopsis": "A defeated demon lord escapes to modern Tokyo and struggles to make ends meet working at a fast-food restaurant.",
+    "totalSeasons": 2,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "The Way of the Househusband",
+    "creator": "Kousuke Oono",
+    "studio": "J.C.Staff",
+    "year": 2021,
+    "genres": [
+      "Comedy",
+      "Slice of Life"
+    ],
+    "synopsis": "A feared former yakuza legend approaches chores, cooking, and shopping with the intensity of gang warfare.",
+    "totalSeasons": 2,
+    "totalEpisodes": 10
+  },
+  {
+    "title": "Uncle from Another World",
+    "creator": "Hotondoshindeiru",
+    "studio": "AtelierPontdarc",
+    "year": 2022,
+    "genres": [
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A man awakens from a long coma and recounts his hilariously misguided adventures in a fantasy world.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Bocchi the Rock!",
+    "creator": "Aki Hamaji",
+    "studio": "CloverWorks",
+    "year": 2022,
+    "genres": [
+      "Comedy",
+      "Music",
+      "Slice of Life"
+    ],
+    "synopsis": "An extremely shy guitarist joins a small rock band and slowly learns to connect with others.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "K-On!",
+    "creator": "Kakifly",
+    "studio": "Kyoto Animation",
+    "year": 2009,
+    "genres": [
+      "Comedy",
+      "Music",
+      "Slice of Life",
+      "School"
+    ],
+    "synopsis": "Four schoolgirls form a light music club and discover friendship while practicing, performing, and enjoying snacks.",
+    "totalSeasons": 2,
+    "totalEpisodes": 39
+  },
+  {
+    "title": "Azumanga Daioh",
+    "creator": "Kiyohiko Azuma",
+    "studio": "J.C.Staff",
+    "year": 2002,
+    "genres": [
+      "Comedy",
+      "Slice of Life",
+      "School"
+    ],
+    "synopsis": "Six girls and their eccentric teachers share an affectionate series of jokes and everyday school adventures.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Ouran High School Host Club",
+    "creator": "Bisco Hatori",
+    "studio": "Bones",
+    "year": 2006,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School"
+    ],
+    "synopsis": "A scholarship student accidentally joins a wealthy academy's flamboyant host club and discovers unexpected friendships.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Monthly Girls' Nozaki-kun",
+    "creator": "Izumi Tsubaki",
+    "studio": "Doga Kobo",
+    "year": 2014,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School"
+    ],
+    "synopsis": "A girl's confession leads her to become an assistant to the oblivious boy she likes, a popular romance manga artist.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Romantic Killer",
+    "creator": "Wataru Momose",
+    "studio": "Domerica",
+    "year": 2022,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Fantasy"
+    ],
+    "synopsis": "A gamer determined to avoid romance is forced into a series of dating scenarios by a meddling magical creature.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Tomo-chan Is a Girl!",
+    "creator": "Fumita Yanagida",
+    "studio": "Lay-duce",
+    "year": 2023,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School"
+    ],
+    "synopsis": "A sporty girl tries to convince her childhood best friend to see her as a romantic partner.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "My Dress-Up Darling",
+    "creator": "Shinichi Fukuda",
+    "studio": "CloverWorks",
+    "year": 2022,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Slice of Life"
+    ],
+    "synopsis": "A shy dollmaker teams up with an outgoing cosplayer to create intricate costumes and discovers a new bond.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Horimiya",
+    "creator": "HERO, Daisuke Hagiwara",
+    "studio": "CloverWorks",
+    "year": 2021,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School",
+      "Slice of Life"
+    ],
+    "synopsis": "Two classmates who hide different sides of themselves develop a close friendship and an unexpectedly sincere romance.",
+    "totalSeasons": 2,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Toradora!",
+    "creator": "Yuyuko Takemiya",
+    "studio": "J.C.Staff",
+    "year": 2008,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Drama",
+      "School"
+    ],
+    "synopsis": "Two misunderstood classmates make a pact to help each other win their crushes, with complicated results.",
+    "totalSeasons": 1,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Fruits Basket (2019)",
+    "creator": "Natsuki Takaya",
+    "studio": "TMS Entertainment",
+    "year": 2019,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Fantasy",
+      "Slice of Life"
+    ],
+    "synopsis": "An optimistic orphan befriends a family burdened by a supernatural zodiac curse and long-kept emotional wounds.",
+    "totalSeasons": 3,
+    "totalEpisodes": 63
+  },
+  {
+    "title": "Violet Evergarden",
+    "creator": "Kana Akatsuki",
+    "studio": "Kyoto Animation",
+    "year": 2018,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Slice of Life"
+    ],
+    "synopsis": "A former child soldier becomes a letter writer, learning to interpret emotions and her own past.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Your Lie in April",
+    "creator": "Naoshi Arakawa",
+    "studio": "A-1 Pictures",
+    "year": 2014,
+    "genres": [
+      "Drama",
+      "Music",
+      "Romance",
+      "School"
+    ],
+    "synopsis": "A former piano prodigy rediscovers music through a spirited violinist who changes his outlook on life.",
+    "totalSeasons": 1,
+    "totalEpisodes": 22
+  },
+  {
+    "title": "Anohana: The Flower We Saw That Day",
+    "creator": "Mari Okada",
+    "studio": "A-1 Pictures",
+    "year": 2011,
+    "genres": [
+      "Drama",
+      "Supernatural",
+      "Slice of Life"
+    ],
+    "synopsis": "Estranged childhood friends reunite when one of them begins seeing the ghost of a girl they lost years earlier.",
+    "totalSeasons": 1,
+    "totalEpisodes": 11
+  },
+  {
+    "title": "Clannad",
+    "creator": "Key",
+    "studio": "Kyoto Animation",
+    "year": 2007,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Slice of Life",
+      "Supernatural"
+    ],
+    "synopsis": "A disengaged student forms life-changing relationships that continue from school into the challenges of adulthood.",
+    "totalSeasons": 2,
+    "totalEpisodes": 47
+  },
+  {
+    "title": "Angel Beats!",
+    "creator": "Jun Maeda",
+    "studio": "P.A. Works",
+    "year": 2010,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Drama",
+      "Supernatural"
+    ],
+    "synopsis": "Teenagers trapped in an afterlife school rebel against its strange rules while confronting regrets from their former lives.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Ranking of Kings",
+    "creator": "Sosuke Toka",
+    "studio": "Wit Studio",
+    "year": 2021,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Drama"
+    ],
+    "synopsis": "A deaf prince dismissed as weak tries to prove his courage in a kingdom tangled in secrets and betrayals.",
+    "totalSeasons": 2,
+    "totalEpisodes": 33
+  },
+  {
+    "title": "Made in Abyss",
+    "creator": "Akihito Tsukushi",
+    "studio": "Kinema Citrus",
+    "year": 2017,
+    "genres": [
+      "Adventure",
+      "Dark Fantasy",
+      "Mystery",
+      "Drama"
+    ],
+    "synopsis": "A young cave raider and a mysterious robot boy descend into a beautiful but lethal abyss in search of her mother.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "To Your Eternity",
+    "creator": "Yoshitoki Oima",
+    "studio": "Brain's Base, Drive, Massket",
+    "year": 2021,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy",
+      "Supernatural"
+    ],
+    "synopsis": "An immortal shapeshifter learns humanity through the people it meets and the lives it is forced to lose.",
+    "totalSeasons": 3,
+    "totalEpisodes": 62
+  },
+  {
+    "title": "Dororo (2019)",
+    "creator": "Osamu Tezuka",
+    "studio": "MAPPA, Tezuka Productions",
+    "year": 2019,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Dark Fantasy",
+      "Historical"
+    ],
+    "synopsis": "A warrior missing parts of his body hunts demons to reclaim what was sacrificed before his birth.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Vinland Saga",
+    "creator": "Makoto Yukimura",
+    "studio": "Wit Studio, MAPPA",
+    "year": 2019,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Historical",
+      "Drama"
+    ],
+    "synopsis": "A boy caught in Viking warfare grows into a man questioning vengeance, violence, and the meaning of freedom.",
+    "totalSeasons": 2,
+    "totalEpisodes": 48
+  },
+  {
+    "title": "Berserk (1997)",
+    "creator": "Kentaro Miura",
+    "studio": "OLM",
+    "year": 1997,
+    "genres": [
+      "Action",
+      "Dark Fantasy",
+      "Drama",
+      "Horror"
+    ],
+    "synopsis": "A mercenary joins a charismatic commander whose ambitions propel their band of warriors toward a devastating fate.",
+    "totalSeasons": 1,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Claymore",
+    "creator": "Norihiro Yagi",
+    "studio": "Madhouse",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Dark Fantasy",
+      "Horror",
+      "Adventure"
+    ],
+    "synopsis": "A half-human warrior hunts shape-shifting monsters while resisting the dangerous power within herself.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Hellsing",
+    "creator": "Kouta Hirano",
+    "studio": "Gonzo",
+    "year": 2001,
+    "genres": [
+      "Action",
+      "Horror",
+      "Supernatural"
+    ],
+    "synopsis": "A secret British organization uses a powerful vampire to combat supernatural threats.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Hellsing Ultimate",
+    "creator": "Kouta Hirano",
+    "studio": "Satelight, Madhouse, Graphinica",
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Horror",
+      "Supernatural"
+    ],
+    "synopsis": "The Hellsing organization sends its formidable vampire enforcer against undead armies and fanatical enemies.",
+    "totalSeasons": 1,
+    "totalEpisodes": 10
+  },
+  {
+    "title": "Devilman Crybaby",
+    "creator": "Go Nagai",
+    "studio": "Science SARU",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Horror",
+      "Dark Fantasy",
+      "Psychological"
+    ],
+    "synopsis": "A sensitive teenager merges with a demon to battle infernal creatures as paranoia spreads through society.",
+    "totalSeasons": 1,
+    "totalEpisodes": 10
+  },
+  {
+    "title": "Cyberpunk: Edgerunners",
+    "creator": "CD Projekt Red, Rafal Jaki",
+    "studio": "Trigger",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Crime",
+      "Drama"
+    ],
+    "synopsis": "A desperate street kid becomes a mercenary in a futuristic city ruled by corporations, implants, and violence.",
+    "totalSeasons": 1,
+    "totalEpisodes": 10
+  },
+  {
+    "title": "PLUTO",
+    "creator": "Naoki Urasawa, Takashi Nagasaki",
+    "studio": "Studio M2",
+    "year": 2023,
+    "genres": [
+      "Mystery",
+      "Sci-Fi",
+      "Drama",
+      "Psychological"
+    ],
+    "synopsis": "A robot detective investigates killings targeting powerful robots and the humans connected to them.",
+    "totalSeasons": 1,
+    "totalEpisodes": 8
+  },
+  {
+    "title": "Monster",
+    "creator": "Naoki Urasawa",
+    "studio": "Madhouse",
+    "year": 2004,
+    "genres": [
+      "Mystery",
+      "Crime",
+      "Psychological",
+      "Thriller"
+    ],
+    "synopsis": "A brilliant surgeon pursues a former patient whose life he saved and who may be responsible for a string of murders.",
+    "totalSeasons": 1,
+    "totalEpisodes": 74
+  },
+  {
+    "title": "Psycho-Pass",
+    "creator": "Gen Urobuchi",
+    "studio": "Production I.G, Tatsunoko Production",
+    "year": 2012,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Crime",
+      "Psychological"
+    ],
+    "synopsis": "In a surveillance state that predicts criminal intent, inspectors question the morality of their automated justice system.",
+    "totalSeasons": 3,
+    "totalEpisodes": 41
+  },
+  {
+    "title": "Ghost in the Shell: Stand Alone Complex",
+    "creator": "Masamune Shirow",
+    "studio": "Production I.G",
+    "year": 2002,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Crime",
+      "Cyberpunk"
+    ],
+    "synopsis": "An elite cybercrime squad investigates terrorism, hacking, and identity in a deeply networked future.",
+    "totalSeasons": 2,
+    "totalEpisodes": 52
+  },
+  {
+    "title": "Serial Experiments Lain",
+    "creator": "Chiaki J. Konaka, Yasuyuki Ueda",
+    "studio": "Triangle Staff",
+    "year": 1998,
+    "genres": [
+      "Mystery",
+      "Sci-Fi",
+      "Psychological",
+      "Drama"
+    ],
+    "synopsis": "An isolated schoolgirl receives an email from a dead classmate and becomes absorbed in a network blurring virtual and physical reality.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Neon Genesis Evangelion",
+    "creator": "Hideaki Anno",
+    "studio": "Gainax, Tatsunoko Production",
+    "year": 1995,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Psychological",
+      "Drama",
+      "Sci-Fi"
+    ],
+    "synopsis": "Troubled teenagers pilot colossal biomechanical weapons against enigmatic attackers while humanity's survival hangs in the balance.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Gurren Lagann",
+    "creator": "Kazuki Nakashima, Hiroyuki Imaishi",
+    "studio": "Gainax",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Mecha",
+      "Comedy",
+      "Sci-Fi"
+    ],
+    "synopsis": "Two underground villagers discover a powerful mecha and launch an ever-escalating rebellion against oppressive rulers.",
+    "totalSeasons": 1,
+    "totalEpisodes": 27
+  },
+  {
+    "title": "Kill la Kill",
+    "creator": "Kazuki Nakashima, Hiroyuki Imaishi",
+    "studio": "Trigger",
+    "year": 2013,
+    "genres": [
+      "Action",
+      "Comedy",
+      "School",
+      "Fantasy"
+    ],
+    "synopsis": "A student armed with a giant scissor blade challenges an authoritarian academy while seeking answers about her father's death.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "FLCL",
+    "creator": "Yoji Enokido, Kazuya Tsurumaki",
+    "studio": "Gainax, Production I.G",
+    "year": 2000,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Sci-Fi",
+      "Surreal"
+    ],
+    "synopsis": "A bored boy's life is upended by an alien woman on a Vespa and robots bursting from his head.",
+    "totalSeasons": 1,
+    "totalEpisodes": 6
+  },
+  {
+    "title": "Trigun",
+    "creator": "Yasuhiro Nightow",
+    "studio": "Madhouse",
+    "year": 1998,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Sci-Fi",
+      "Western"
+    ],
+    "synopsis": "A pacifist gunslinger with a huge bounty tries to avoid killing despite leaving chaos wherever he goes.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Trigun Stampede",
+    "creator": "Yasuhiro Nightow",
+    "studio": "Orange",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Western"
+    ],
+    "synopsis": "An idealistic outlaw travels a desert world as bounty hunters and his dangerous past close in around him.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Space Dandy",
+    "creator": "Shinichiro Watanabe",
+    "studio": "Bones",
+    "year": 2014,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Sci-Fi"
+    ],
+    "synopsis": "An eccentric alien hunter and his misfit crew drift through a galaxy of ridiculous, experimental adventures.",
+    "totalSeasons": 2,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Black Lagoon",
+    "creator": "Rei Hiroe",
+    "studio": "Madhouse",
+    "year": 2006,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "synopsis": "A Japanese salaryman is stranded among violent modern pirates and joins their smuggling business in Southeast Asia.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Jormungand",
+    "creator": "Keitaro Takahashi",
+    "studio": "White Fox",
+    "year": 2012,
+    "genres": [
+      "Action",
+      "Military",
+      "Crime",
+      "Thriller"
+    ],
+    "synopsis": "A child soldier becomes bodyguard to a charismatic arms dealer as her team navigates wars and international conspiracies.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Gangsta.",
+    "creator": "Kohske",
+    "studio": "Manglobe",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "synopsis": "Two mercenaries take dangerous jobs in a corrupt city divided among mafia families and enhanced fighters.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Banana Fish",
+    "creator": "Akimi Yoshida",
+    "studio": "MAPPA",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "synopsis": "A young New York gang leader and a visiting Japanese photographer uncover a conspiracy around a mysterious substance.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Odd Taxi",
+    "creator": "Kazuya Konomoto",
+    "studio": "OLM, P.I.C.S.",
+    "year": 2021,
+    "genres": [
+      "Mystery",
+      "Crime",
+      "Comedy",
+      "Psychological"
+    ],
+    "synopsis": "A quiet taxi driver becomes entangled in a missing-person mystery involving a web of eccentric city residents.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Death Parade",
+    "creator": "Yuzuru Tachikawa",
+    "studio": "Madhouse",
+    "year": 2015,
+    "genres": [
+      "Mystery",
+      "Drama",
+      "Psychological",
+      "Supernatural"
+    ],
+    "synopsis": "Newly deceased strangers play high-stakes games in a mysterious bar where an arbiter judges their souls.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "ID: INVADED",
+    "creator": "Otaro Maijo, Ei Aoki",
+    "studio": "NAZ",
+    "year": 2020,
+    "genres": [
+      "Mystery",
+      "Crime",
+      "Sci-Fi",
+      "Psychological"
+    ],
+    "synopsis": "Investigators enter the subconscious worlds of suspected serial killers to uncover clues hidden in their minds.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Moriarty the Patriot",
+    "creator": "Ryosuke Takeuchi, Hikaru Miyoshi",
+    "studio": "Production I.G",
+    "year": 2020,
+    "genres": [
+      "Mystery",
+      "Crime",
+      "Historical",
+      "Thriller"
+    ],
+    "synopsis": "A brilliant criminal strategist uses elaborate schemes to challenge class inequality in Victorian Britain.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The Case Study of Vanitas",
+    "creator": "Jun Mochizuki",
+    "studio": "Bones",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Mystery",
+      "Supernatural"
+    ],
+    "synopsis": "A human doctor who treats vampires travels through steampunk Paris with a reluctant vampire companion.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Undead Girl Murder Farce",
+    "creator": "Yugo Aosaki",
+    "studio": "Lapin Track",
+    "year": 2023,
+    "genres": [
+      "Mystery",
+      "Fantasy",
+      "Supernatural",
+      "Historical"
+    ],
+    "synopsis": "An immortal detective whose head has been stolen solves strange crimes alongside a half-demon and a resourceful maid.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Hyouka",
+    "creator": "Honobu Yonezawa",
+    "studio": "Kyoto Animation",
+    "year": 2012,
+    "genres": [
+      "Mystery",
+      "Slice of Life",
+      "School"
+    ],
+    "synopsis": "A student who hates wasting energy joins a literature club and discovers the pleasure of unraveling small mysteries.",
+    "totalSeasons": 1,
+    "totalEpisodes": 22
+  },
+  {
+    "title": "Gosick",
+    "creator": "Kazuki Sakuraba",
+    "studio": "Bones",
+    "year": 2011,
+    "genres": [
+      "Mystery",
+      "Historical",
+      "Drama",
+      "Romance"
+    ],
+    "synopsis": "A transfer student befriends an eccentric young genius who solves mysteries in a fictional European kingdom.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Darker than Black",
+    "creator": "Tensai Okamura",
+    "studio": "Bones",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Mystery",
+      "Sci-Fi",
+      "Supernatural"
+    ],
+    "synopsis": "A covert operative with supernatural powers navigates conspiracies following a mysterious astronomical disaster.",
+    "totalSeasons": 2,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "Durarara!!",
+    "creator": "Ryohgo Narita",
+    "studio": "Brain's Base, Shuka",
+    "year": 2010,
+    "genres": [
+      "Action",
+      "Mystery",
+      "Supernatural",
+      "Urban Fantasy"
+    ],
+    "synopsis": "Gangs, urban legends, and a headless rider weave together in the bustling Tokyo district of Ikebukuro.",
+    "totalSeasons": 2,
+    "totalEpisodes": 60
+  },
+  {
+    "title": "Great Pretender",
+    "creator": "Ryota Kosawa",
+    "studio": "Wit Studio",
+    "year": 2020,
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Drama",
+      "Adventure"
+    ],
+    "synopsis": "A small-time Japanese con artist joins globe-trotting swindlers who target wealthy criminals through elaborate scams.",
+    "totalSeasons": 1,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "Tokyo Ghoul",
+    "creator": "Sui Ishida",
+    "studio": "Pierrot",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Dark Fantasy",
+      "Horror",
+      "Psychological"
+    ],
+    "synopsis": "A student becomes half-ghoul and struggles between human society and the hidden world of flesh-eating creatures.",
+    "totalSeasons": 4,
+    "totalEpisodes": 48
+  },
+  {
+    "title": "Tokyo Revengers",
+    "creator": "Ken Wakui",
+    "studio": "Liden Films",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Sci-Fi"
+    ],
+    "synopsis": "A directionless young man travels back to his school years to change the violent fate of his old girlfriend.",
+    "totalSeasons": 3,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Bungo Stray Dogs",
+    "creator": "Kafka Asagiri, Sango Harukawa",
+    "studio": "Bones",
+    "year": 2016,
+    "genres": [
+      "Action",
+      "Mystery",
+      "Supernatural",
+      "Crime"
+    ],
+    "synopsis": "Gifted detectives with literary-inspired powers clash with criminal organizations and shadowy conspirators.",
+    "totalSeasons": 5,
+    "totalEpisodes": 60
+  },
+  {
+    "title": "The Promised Neverland",
+    "creator": "Kaiu Shirai, Posuka Demizu",
+    "studio": "CloverWorks",
+    "year": 2019,
+    "genres": [
+      "Mystery",
+      "Thriller",
+      "Dark Fantasy",
+      "Drama"
+    ],
+    "synopsis": "Children at a seemingly idyllic orphanage discover a horrifying secret and plan a desperate escape.",
+    "totalSeasons": 2,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "Deadman Wonderland",
+    "creator": "Jinsei Kataoka, Kazuma Kondou",
+    "studio": "Manglobe",
+    "year": 2011,
+    "genres": [
+      "Action",
+      "Horror",
+      "Survival",
+      "Sci-Fi"
+    ],
+    "synopsis": "Framed for a school massacre, a teenager enters a brutal prison where inmates battle using blood-based powers.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Another",
+    "creator": "Yukito Ayatsuji",
+    "studio": "P.A. Works",
+    "year": 2012,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Supernatural",
+      "Thriller"
+    ],
+    "synopsis": "A transfer student notices classmates behaving strangely around a quiet girl as a deadly curse grips his class.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Higurashi: When They Cry (2006)",
+    "creator": "Ryukishi07",
+    "studio": "Studio Deen",
+    "year": 2006,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Psychological",
+      "Supernatural"
+    ],
+    "synopsis": "A boy moves to a rural village whose annual festival is linked to disturbing disappearances and repeated tragedies.",
+    "totalSeasons": 1,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Elfen Lied",
+    "creator": "Lynn Okamoto",
+    "studio": "Arms",
+    "year": 2004,
+    "genres": [
+      "Horror",
+      "Action",
+      "Psychological",
+      "Drama"
+    ],
+    "synopsis": "A dangerous young mutant escapes a research facility and forms a fragile bond with two unsuspecting students.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Ajin: Demi-Human",
+    "creator": "Gamon Sakurai",
+    "studio": "Polygon Pictures",
+    "year": 2016,
+    "genres": [
+      "Action",
+      "Horror",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "synopsis": "A student learns he is an immortal being and becomes hunted by authorities and a violent extremist group.",
+    "totalSeasons": 2,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Inuyashiki: Last Hero",
+    "creator": "Hiroya Oku",
+    "studio": "MAPPA",
+    "year": 2017,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Drama",
+      "Thriller"
+    ],
+    "synopsis": "A lonely older man gains advanced cybernetic powers and must confront a teenager who received similar abilities.",
+    "totalSeasons": 1,
+    "totalEpisodes": 11
+  },
+  {
+    "title": "Zom 100: Bucket List of the Dead",
+    "creator": "Haro Aso, Kotaro Takata",
+    "studio": "Bug Films",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Horror",
+      "Survival"
+    ],
+    "synopsis": "A miserable office worker treats a zombie apocalypse as the first real opportunity to enjoy life.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "GATE",
+    "creator": "Takumi Yanai",
+    "studio": "A-1 Pictures",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Military",
+      "Isekai"
+    ],
+    "synopsis": "A portal links modern Japan with a magical world, sending soldiers and diplomats into a clash of civilizations.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Log Horizon",
+    "creator": "Mamare Touno",
+    "studio": "Satelight, Studio Deen",
+    "year": 2013,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Isekai",
+      "Strategy"
+    ],
+    "synopsis": "Thousands of players trapped in an online game build a functioning society while adapting to its strange rules.",
+    "totalSeasons": 3,
+    "totalEpisodes": 62
+  },
+  {
+    "title": "No Game No Life",
+    "creator": "Yuu Kamiya",
+    "studio": "Madhouse",
+    "year": 2014,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "Genius gaming siblings are summoned to a world where every dispute is settled through contests and strategy.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Sword Art Online",
+    "creator": "Reki Kawahara",
+    "studio": "A-1 Pictures",
+    "year": 2012,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Romance",
+      "Sci-Fi",
+      "Video Game"
+    ],
+    "synopsis": "Gamers become trapped in a deadly virtual reality and fight for survival across several evolving digital worlds.",
+    "totalSeasons": 3,
+    "totalEpisodes": 96
+  },
+  {
+    "title": "Sword Art Online Alternative: Gun Gale Online",
+    "creator": "Keiichi Sigsawa",
+    "studio": "Studio 3Hz, A-1 Pictures",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Video Game"
+    ],
+    "synopsis": "A shy young woman becomes a formidable competitor in a virtual-reality shooter full of risky team tournaments.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Overlord",
+    "creator": "Kugane Maruyama",
+    "studio": "Madhouse",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Dark Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A gamer finds himself trapped as an all-powerful undead ruler and seeks answers in a world transformed by magic.",
+    "totalSeasons": 4,
+    "totalEpisodes": 52
+  },
+  {
+    "title": "KonoSuba: God's Blessing on This Wonderful World!",
+    "creator": "Natsume Akatsuki",
+    "studio": "Studio Deen, Drive",
+    "year": 2016,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "An unlucky adventurer assembles a hilariously dysfunctional party and repeatedly botches heroic quests.",
+    "totalSeasons": 3,
+    "totalEpisodes": 31
+  },
+  {
+    "title": "That Time I Got Reincarnated as a Slime",
+    "creator": "Fuse",
+    "studio": "Eight Bit",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "Reborn as a slime with unusual abilities, a former salaryman builds a welcoming nation of monsters.",
+    "totalSeasons": 4,
+    "totalEpisodes": 96
+  },
+  {
+    "title": "Re:Zero - Starting Life in Another World",
+    "creator": "Tappei Nagatsuki",
+    "studio": "White Fox",
+    "year": 2016,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Psychological",
+      "Isekai"
+    ],
+    "synopsis": "A boy transported to another world can rewind time by dying but must endure terrible losses to protect the people he loves.",
+    "totalSeasons": 4,
+    "totalEpisodes": 85
+  },
+  {
+    "title": "Mushoku Tensei: Jobless Reincarnation",
+    "creator": "Rifujin na Magonote",
+    "studio": "Studio Bind",
+    "year": 2021,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Drama",
+      "Isekai"
+    ],
+    "synopsis": "A reclusive man begins a second life in a magical world and attempts to grow beyond his old failings.",
+    "totalSeasons": 3,
+    "totalEpisodes": 61
+  },
+  {
+    "title": "The Eminence in Shadow",
+    "creator": "Daisuke Aizawa",
+    "studio": "Nexus",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A reincarnated boy role-plays as a mysterious mastermind, unaware that his invented secret conspiracy is real.",
+    "totalSeasons": 2,
+    "totalEpisodes": 32
+  },
+  {
+    "title": "Cautious Hero: The Hero Is Overpowered but Overly Cautious",
+    "creator": "Light Tuchihi",
+    "studio": "White Fox",
+    "year": 2019,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A goddess summons an absurdly powerful hero who refuses to take even the smallest risk without preparation.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Saga of Tanya the Evil",
+    "creator": "Carlo Zen",
+    "studio": "NUT",
+    "year": 2017,
+    "genres": [
+      "Action",
+      "Military",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A ruthless salaryman is reincarnated as a child soldier and climbs the ranks of a magical alternate-world army.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "So I'm a Spider, So What?",
+    "creator": "Okina Baba",
+    "studio": "Millepensee",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A schoolgirl reincarnated as a weak dungeon spider survives through creativity, leveling, and tenacity.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Tsukimichi: Moonlit Fantasy",
+    "creator": "Kei Azumi",
+    "studio": "C2C, J.C.Staff",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "Rejected by a goddess, a summoned teenager builds his own place in a fantasy world with unlikely allies.",
+    "totalSeasons": 2,
+    "totalEpisodes": 37
+  },
+  {
+    "title": "Shangri-La Frontier",
+    "creator": "Katarina, Ryosuke Fuji",
+    "studio": "C2C",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Video Game"
+    ],
+    "synopsis": "A gamer who specializes in terrible games challenges a polished virtual world full of secrets and superbosses.",
+    "totalSeasons": 2,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "The Faraway Paladin",
+    "creator": "Kanata Yanagino",
+    "studio": "Children's Playground Entertainment, OLM",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "Raised by three undead guardians, a young paladin enters the wider world to uphold the ideals they taught him.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Reincarnated as a Sword",
+    "creator": "Yuu Tanaka",
+    "studio": "C2C",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Isekai"
+    ],
+    "synopsis": "A sentient magical sword and a young catgirl warrior form a partnership to fight monsters and pursue freedom.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Campfire Cooking in Another World with My Absurd Skill",
+    "creator": "Ren Eguchi",
+    "studio": "MAPPA",
+    "year": 2023,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Food",
+      "Isekai"
+    ],
+    "synopsis": "Summoned to another world, a cautious traveler uses an online grocery skill to cook irresistible meals for powerful companions.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Restaurant to Another World",
+    "creator": "Junpei Inuzuka",
+    "studio": "Silver Link, OLM",
+    "year": 2017,
+    "genres": [
+      "Fantasy",
+      "Comedy",
+      "Food",
+      "Slice of Life"
+    ],
+    "synopsis": "A mysterious restaurant opens its doors to fantasy-world patrons, each with memories tied to favorite dishes.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The Ancient Magus' Bride",
+    "creator": "Kore Yamazaki",
+    "studio": "Wit Studio, Studio Kafka",
+    "year": 2017,
+    "genres": [
+      "Fantasy",
+      "Romance",
+      "Drama",
+      "Supernatural"
+    ],
+    "synopsis": "A lonely girl with magical sight becomes apprentice to a mysterious nonhuman mage in an enchanted countryside.",
+    "totalSeasons": 2,
+    "totalEpisodes": 48
+  },
+  {
+    "title": "Natsume's Book of Friends",
+    "creator": "Yuki Midorikawa",
+    "studio": "Brain's Base, Shuka",
+    "year": 2008,
+    "genres": [
+      "Fantasy",
+      "Supernatural",
+      "Drama",
+      "Slice of Life"
+    ],
+    "synopsis": "A boy who can see spirits inherits a book of bound yokai names and tries to return them while building human friendships.",
+    "totalSeasons": 7,
+    "totalEpisodes": 86
+  },
+  {
+    "title": "Undead Unluck",
+    "creator": "Yoshifumi Tozuka",
+    "studio": "David Production",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural"
+    ],
+    "synopsis": "A girl cursed with terrible luck joins an immortal fighter in a battle involving secret organizations and reality-bending powers.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The God of High School",
+    "creator": "Yongje Park",
+    "studio": "MAPPA",
+    "year": 2020,
+    "genres": [
+      "Action",
+      "Martial Arts",
+      "Supernatural"
+    ],
+    "synopsis": "A national martial arts competition becomes a battleground for fighters wielding powers beyond human limits.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Tower of God",
+    "creator": "SIU",
+    "studio": "Telecom Animation Film, The Answer Studio",
+    "year": 2020,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Mystery"
+    ],
+    "synopsis": "A young man enters a mysterious tower where every level demands trials, alliances, and difficult sacrifices.",
+    "totalSeasons": 2,
+    "totalEpisodes": 39
+  },
+  {
+    "title": "Noblesse",
+    "creator": "Son Jeho, Lee Kwangsu",
+    "studio": "Production I.G",
+    "year": 2020,
+    "genres": [
+      "Action",
+      "Supernatural",
+      "School"
+    ],
+    "synopsis": "An ancient noble vampire awakens into the modern world and protects school friends against clandestine threats.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Scissor Seven",
+    "creator": "He Xiaofeng",
+    "studio": "Sharefun Studio, AHA Entertainment",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Martial Arts"
+    ],
+    "synopsis": "A forgetful amateur assassin moonlights as a barber while stumbling through absurd missions and uncovering his past.",
+    "totalSeasons": 5,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Link Click",
+    "creator": "Li Haoling",
+    "studio": "LAN Studio, Haoliners Animation League",
+    "year": 2021,
+    "genres": [
+      "Mystery",
+      "Drama",
+      "Supernatural",
+      "Thriller"
+    ],
+    "synopsis": "Two friends enter photographs to relive moments in others' lives and become caught in dangerous time-sensitive mysteries.",
+    "totalSeasons": 2,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "Akudama Drive",
+    "creator": "Kazutaka Kodaka",
+    "studio": "Pierrot",
+    "year": 2020,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Crime",
+      "Cyberpunk"
+    ],
+    "synopsis": "A civilian is swept into a dangerous mission alongside notorious criminals in a neon-drenched dystopia.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Lycoris Recoil",
+    "creator": "Spider Lily",
+    "studio": "A-1 Pictures",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Slice of Life",
+      "Spy"
+    ],
+    "synopsis": "Two covert operatives who pose as cafe employees take missions while questioning the system they serve.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Vivy: Fluorite Eye's Song",
+    "creator": "Tappei Nagatsuki, Eiji Umehara",
+    "studio": "Wit Studio",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Drama",
+      "Music"
+    ],
+    "synopsis": "An android singer receives a mission from the future to prevent a war between humans and artificial intelligence.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Aldnoah.Zero",
+    "creator": "Gen Urobuchi, Katsuhiko Takayama",
+    "studio": "A-1 Pictures, TROYCA",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Military"
+    ],
+    "synopsis": "War erupts between Earth and an advanced Martian empire, forcing young pilots to counter overwhelming technology.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Mobile Suit Gundam 00",
+    "creator": "Sunrise, Hajime Yatate, Yoshiyuki Tomino",
+    "studio": "Sunrise",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Military"
+    ],
+    "synopsis": "A mysterious organization uses advanced mobile suits to intervene in global conflicts in an attempt to end warfare.",
+    "totalSeasons": 2,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Mobile Suit Gundam: Iron-Blooded Orphans",
+    "creator": "Sunrise, Hajime Yatate, Yoshiyuki Tomino",
+    "studio": "Sunrise",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Military",
+      "Drama"
+    ],
+    "synopsis": "Child laborers on Mars revolt against their employers and build a mercenary group fighting for independence.",
+    "totalSeasons": 2,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "Mobile Suit Gundam: The Witch from Mercury",
+    "creator": "Sunrise, Hajime Yatate, Yoshiyuki Tomino",
+    "studio": "Sunrise",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "School",
+      "Drama"
+    ],
+    "synopsis": "A shy young pilot enrolls at a corporate-backed academy where students duel using powerful mobile suits.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Mobile Suit Gundam Wing",
+    "creator": "Sunrise, Hajime Yatate, Yoshiyuki Tomino",
+    "studio": "Sunrise",
+    "year": 1995,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Military"
+    ],
+    "synopsis": "Five young pilots are dispatched from space colonies to challenge a militarized Earth government.",
+    "totalSeasons": 1,
+    "totalEpisodes": 49
+  },
+  {
+    "title": "Eureka Seven",
+    "creator": "Bones",
+    "studio": "Bones",
+    "year": 2005,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Mecha",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "synopsis": "A teenager joins a rebel airship crew and falls for a mysterious girl while learning to pilot a surfing mecha.",
+    "totalSeasons": 1,
+    "totalEpisodes": 50
+  },
+  {
+    "title": "SSSS.Gridman",
+    "creator": "Tsuburaya Productions",
+    "studio": "Trigger",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Mystery"
+    ],
+    "synopsis": "An amnesiac student partners with a digital giant to defend his city from kaiju attacks that seem to erase memories.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "SSSS.Dynazenon",
+    "creator": "Tsuburaya Productions",
+    "studio": "Trigger",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Sci-Fi",
+      "Drama"
+    ],
+    "synopsis": "A group of strangers pilots a combining giant robot while mysterious monsters and personal traumas surface.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Kabaneri of the Iron Fortress",
+    "creator": "Ichiro Okouchi",
+    "studio": "Wit Studio",
+    "year": 2016,
+    "genres": [
+      "Action",
+      "Horror",
+      "Steampunk",
+      "Survival"
+    ],
+    "synopsis": "Survivors travel in an armored train through a land overrun by undead creatures during an alternate industrial revolution.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Deca-Dence",
+    "creator": "Hiroshi Seko, Yuzuru Tachikawa",
+    "studio": "NUT",
+    "year": 2020,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "synopsis": "Humanity survives in a moving fortress while a young mechanic uncovers the disturbing truth behind its battles.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "God Eater",
+    "creator": "Bandai Namco Entertainment",
+    "studio": "ufotable",
+    "year": 2015,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Post-Apocalyptic"
+    ],
+    "synopsis": "A new recruit joins an elite squad using living weapons to fight monstrous predators in a ruined world.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Black Bullet",
+    "creator": "Shiden Kanzaki",
+    "studio": "Kinema Citrus",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "synopsis": "Special agents and genetically altered children defend a quarantined city against parasitic monsters.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Darling in the Franxx",
+    "creator": "Code:000",
+    "studio": "Trigger, A-1 Pictures, CloverWorks",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Mecha",
+      "Romance",
+      "Sci-Fi",
+      "Drama"
+    ],
+    "synopsis": "Teenagers raised to pilot giant robots find love and question the harsh civilization that controls their lives.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Plastic Memories",
+    "creator": "Naotaka Hayashi",
+    "studio": "Doga Kobo",
+    "year": 2015,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "synopsis": "A new employee retrieves android companions approaching the end of their lifespans and forms a painful attachment.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Heavenly Delusion",
+    "creator": "Masakazu Ishiguro",
+    "studio": "Production I.G",
+    "year": 2023,
+    "genres": [
+      "Adventure",
+      "Mystery",
+      "Sci-Fi",
+      "Post-Apocalyptic"
+    ],
+    "synopsis": "Two travelers cross a monster-haunted Japan while children inside a sealed institution question their sheltered lives.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Summer Time Rendering",
+    "creator": "Yasuki Tanaka",
+    "studio": "OLM",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Mystery",
+      "Thriller",
+      "Supernatural"
+    ],
+    "synopsis": "A young man returns to his island hometown for a funeral and becomes trapped in a time-loop mystery involving shapeshifters.",
+    "totalSeasons": 1,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Orb: On the Movements of the Earth",
+    "creator": "Uoto",
+    "studio": "Madhouse",
+    "year": 2024,
+    "genres": [
+      "Drama",
+      "Historical",
+      "Mystery",
+      "Seinen"
+    ],
+    "synopsis": "In a dangerous era of religious orthodoxy, thinkers risk their lives to investigate forbidden astronomical ideas.",
+    "totalSeasons": 1,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Wistoria: Wand and Sword",
+    "creator": "Fujino Omori, Toshi Aoi",
+    "studio": "Actas, Bandai Namco Pictures",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "School"
+    ],
+    "synopsis": "A boy unable to cast spells fights through a magic academy using swordsmanship and determination.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Ragna Crimson",
+    "creator": "Daiki Kobayashi",
+    "studio": "Silver Link",
+    "year": 2023,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Dark Fantasy"
+    ],
+    "synopsis": "A young dragon hunter gains memories of a stronger future self and wages a ruthless campaign against powerful dragons.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The Elusive Samurai",
+    "creator": "Yusei Matsui",
+    "studio": "CloverWorks",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Historical",
+      "Comedy"
+    ],
+    "synopsis": "A young noble heir survives the destruction of his clan and relies on his uncanny talent for evasion to reclaim his home.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Lazarus",
+    "creator": "Shinichiro Watanabe",
+    "studio": "MAPPA",
+    "year": 2025,
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "synopsis": "An elite team hunts a scientist whose miracle drug threatens to kill millions when its hidden effects emerge.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Gachiakuta",
+    "creator": "Kei Urana",
+    "studio": "Bones Film",
+    "year": 2025,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Dark Fantasy"
+    ],
+    "synopsis": "A boy falsely accused of murder falls into a wasteland of living trash and discovers strange powers in discarded objects.",
+    "totalSeasons": 1,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "The Summer Hikaru Died",
+    "creator": "Mokumokuren",
+    "studio": "CygamesPictures",
+    "year": 2025,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Drama",
+      "Supernatural"
+    ],
+    "synopsis": "A teenager suspects his best friend has been replaced by something inhuman but cannot bear to let him go.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Takopi's Original Sin",
+    "creator": "Taizan 5",
+    "studio": "Enishiya",
+    "year": 2025,
+    "genres": [
+      "Drama",
+      "Sci-Fi",
+      "Psychological"
+    ],
+    "synopsis": "An optimistic alien tries to help an unhappy schoolgirl without understanding the painful consequences of his interventions.",
+    "totalSeasons": 1,
+    "totalEpisodes": 6
+  },
+  {
+    "title": "The Fragrant Flower Blooms with Dignity",
+    "creator": "Saka Mikami",
+    "studio": "CloverWorks",
+    "year": 2025,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School",
+      "Drama"
+    ],
+    "synopsis": "Students from rival neighboring schools form an unlikely relationship that challenges their classmates' prejudices.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Fate/Zero",
+    "creator": "Gen Urobuchi, Type-Moon",
+    "studio": "ufotable",
+    "year": 2011,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Supernatural",
+      "Drama"
+    ],
+    "synopsis": "Seven mages summon legendary heroic spirits to compete in a secret battle for a wish-granting artifact.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "Fate/stay night: Unlimited Blade Works",
+    "creator": "Kinoko Nasu, Type-Moon",
+    "studio": "ufotable",
+    "year": 2014,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Supernatural",
+      "Romance"
+    ],
+    "synopsis": "A schoolboy is pulled into a deadly contest among mages and summoned heroes after witnessing a supernatural duel.",
+    "totalSeasons": 2,
+    "totalEpisodes": 26
+  },
+  {
+    "title": "Puella Magi Madoka Magica",
+    "creator": "Magica Quartet",
+    "studio": "Shaft",
+    "year": 2011,
+    "genres": [
+      "Dark Fantasy",
+      "Drama",
+      "Psychological",
+      "Magical Girl"
+    ],
+    "synopsis": "A seemingly cheerful offer to become a magical girl hides devastating consequences for a group of schoolgirls.",
+    "totalSeasons": 1,
+    "totalEpisodes": 12
+  },
+  {
+    "title": "Pokémon (Original Series)",
+    "creator": "Satoshi Tajiri",
+    "studio": "OLM",
+    "year": 1997,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Monster Taming"
+    ],
+    "synopsis": "Young trainer Ash Ketchum and Pikachu travel through new regions and compete in battles while befriending remarkable creatures.",
+    "totalSeasons": 5,
+    "totalEpisodes": 276
+  },
+  {
+    "title": "Digimon Adventure",
+    "creator": "Akiyoshi Hongo",
+    "studio": "Toei Animation",
+    "year": 1999,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Monster Taming"
+    ],
+    "synopsis": "Seven children enter a digital realm and partner with creatures that evolve to protect both worlds.",
+    "totalSeasons": 1,
+    "totalEpisodes": 54
+  },
+  {
+    "title": "Yu-Gi-Oh! Duel Monsters",
+    "creator": "Kazuki Takahashi",
+    "studio": "Gallop",
+    "year": 2000,
+    "genres": [
+      "Adventure",
+      "Fantasy",
+      "Strategy",
+      "Game"
+    ],
+    "synopsis": "A teenager with an ancient spirit inside a puzzle challenges rivals through high-stakes card duels.",
+    "totalSeasons": 1,
+    "totalEpisodes": 224
+  },
+  {
+    "title": "Cardcaptor Sakura",
+    "creator": "CLAMP",
+    "studio": "Madhouse",
+    "year": 1998,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Magical Girl"
+    ],
+    "synopsis": "A schoolgirl accidentally releases magical cards and works to retrieve them with help from friends and a guardian creature.",
+    "totalSeasons": 3,
+    "totalEpisodes": 70
+  },
+  {
+    "title": "Sailor Moon",
+    "creator": "Naoko Takeuchi",
+    "studio": "Toei Animation",
+    "year": 1992,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Magical Girl"
+    ],
+    "synopsis": "A cheerful schoolgirl discovers her destiny as a guardian who fights evil alongside fellow magical warriors.",
+    "totalSeasons": 5,
+    "totalEpisodes": 200
+  },
+  {
+    "title": "Food Wars! Shokugeki no Soma",
+    "creator": "Yuto Tsukuda, Shun Saeki",
+    "studio": "J.C.Staff",
+    "year": 2015,
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Food",
+      "School"
+    ],
+    "synopsis": "A talented young cook enrolls in a prestigious culinary academy where competitive cooking battles decide reputations and futures.",
+    "totalSeasons": 5,
+    "totalEpisodes": 86
+  },
+  {
+    "title": "Beelzebub",
+    "creator": "Ryuhei Tamura",
+    "studio": "Pierrot+",
+    "year": 2011,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural",
+      "School"
+    ],
+    "synopsis": "A feared high-school delinquent accidentally becomes caretaker to the infant son of a demon king.",
+    "totalSeasons": 1,
+    "totalEpisodes": 60
+  },
+  {
+    "title": "Cells at Work!",
+    "creator": "Akane Shimizu",
+    "studio": "David Production",
+    "year": 2018,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Educational"
+    ],
+    "synopsis": "Anthropomorphized blood cells and immune cells confront everyday threats inside a bustling human body.",
+    "totalSeasons": 2,
+    "totalEpisodes": 21
+  },
+  {
+    "title": "Cells at Work! CODE BLACK",
+    "creator": "Shigemitsu Harada, Issei Hatsuyoshiya",
+    "studio": "Liden Films",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Drama",
+      "Educational"
+    ],
+    "synopsis": "Exhausted blood cells struggle to keep a badly neglected body alive through one medical crisis after another.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Komi Can't Communicate",
+    "creator": "Tomohito Oda",
+    "studio": "OLM",
+    "year": 2021,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School",
+      "Slice of Life"
+    ],
+    "synopsis": "A popular but painfully shy girl tries to make one hundred friends with support from a kind classmate.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "My Teen Romantic Comedy SNAFU",
+    "creator": "Wataru Watari",
+    "studio": "Brain's Base, Feel",
+    "year": 2013,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Drama",
+      "School"
+    ],
+    "synopsis": "A cynical loner joins a school service club and gradually learns how complicated sincere friendships can be.",
+    "totalSeasons": 3,
+    "totalEpisodes": 38
+  },
+  {
+    "title": "The Dangers in My Heart",
+    "creator": "Norio Sakurai",
+    "studio": "Shin-Ei Animation",
+    "year": 2023,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School",
+      "Slice of Life"
+    ],
+    "synopsis": "A socially awkward boy unexpectedly connects with a bright, popular girl and navigates their first feelings.",
+    "totalSeasons": 2,
+    "totalEpisodes": 25
+  },
+  {
+    "title": "The Quintessential Quintuplets",
+    "creator": "Negi Haruba",
+    "studio": "Tezuka Productions, Bibury Animation Studios",
+    "year": 2019,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "School"
+    ],
+    "synopsis": "A struggling student tutors five very different sisters while a future marriage adds a mystery to their tangled relationships.",
+    "totalSeasons": 2,
+    "totalEpisodes": 24
+  },
+  {
+    "title": "Black Cat",
+    "creator": "Kentaro Yabuki",
+    "studio": "Gonzo",
+    "year": 2005,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Crime"
+    ],
+    "synopsis": "A legendary assassin abandons his criminal organization and becomes a bounty hunter in pursuit of a freer life.",
+    "totalSeasons": 1,
+    "totalEpisodes": 23
+  },
+  {
+    "title": "Shaman King (2021)",
+    "creator": "Hiroyuki Takei",
+    "studio": "Bridge",
+    "year": 2021,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Supernatural",
+      "Fantasy"
+    ],
+    "synopsis": "A laid-back boy who speaks with spirits enters a tournament to become the powerful Shaman King.",
+    "totalSeasons": 1,
+    "totalEpisodes": 52
+  },
+  {
+    "title": "Ninja Kamui",
+    "creator": "Sunghoo Park",
+    "studio": "E&H Production",
+    "year": 2024,
+    "genres": [
+      "Action",
+      "Martial Arts",
+      "Thriller"
+    ],
+    "synopsis": "A retired ninja seeks revenge after his family is attacked, drawing him into a conspiracy involving powerful technology.",
+    "totalSeasons": 1,
+    "totalEpisodes": 13
+  },
+  {
+    "title": "Afro Samurai",
+    "creator": "Takashi Okazaki",
+    "studio": "Gonzo",
+    "year": 2007,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Samurai",
+      "Drama"
+    ],
+    "synopsis": "A swordsman journeys through a stylized world of deadly duels to avenge his father's murder.",
+    "totalSeasons": 1,
+    "totalEpisodes": 5
+  },
+  {
+    "title": "STEEL BALL RUN: JoJo's Bizarre Adventure",
+    "creator": "Hirohiko Araki",
+    "studio": "David Production",
+    "year": 2026,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Historical",
+      "Supernatural"
+    ],
+    "synopsis": "A former jockey and a mysterious outlaw enter a perilous cross-country horse race through nineteenth-century America, where supernatural powers and hidden agendas shape the competition.",
+    "totalSeasons": 1,
+    "totalEpisodes": 5
+  }
+]

@@ -1,0 +1,55 @@
+.editor {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  /* A fixed width: its parent shrinks to fit its content, so a percentage or flex-grown width would collapse to nothing. */
+  width: 18rem;
+  max-width: 100%;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 1.5rem;
+  touch-action: none;
+  user-select: none;
+}
+
+.track {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  background: var(--rule-strong);
+  border-radius: 4px;
+}
+
+.range {
+  position: absolute;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.thumb {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--ink);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.5);
+}
+
+.thumb:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.value {
+  min-width: 4.75rem;
+  text-align: right;
+  font-weight: 650;
+  white-space: nowrap;
+}
