@@ -5,8 +5,17 @@ import styles from "./BuiltBy.module.css";
 export function BuiltBy({ className }: { className?: string }) {
   return (
     <p className={`${styles.credit} ${className ?? ""}`}>
-      <Image src="/coffeecoders_logo.png" alt="" width={20} height={20} className={styles.logo} />
-      <span>Built by CoffeeCoders</span>
+      <a href="https://coffeecoders.cc" className={styles.link}>
+        <Image
+          src="https://coffeecoders.cc/coffeecoders_logo.png"
+          alt=""
+          width={20}
+          height={20}
+          unoptimized
+          className={styles.logo}
+        />
+        <span>Built by CoffeeCoders</span>
+      </a>
     </p>
   );
 }
