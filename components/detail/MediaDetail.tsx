@@ -1,12 +1,13 @@
 "use client";
 
-import { ArrowLeftIcon, Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, CheckIcon, Pencil1Icon, PlusIcon, TrashIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { Cover } from "@/components/Cover";
 import { CategoryTag, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { MediaCard } from "@/components/media/MediaCard";
+import { displayName, useLinks, useProfile } from "@/components/profile/ProfileProviders";
 import { RatingEditor } from "@/components/media/RatingEditor";
 import { Button } from "@/components/ui/Button";
 import { StatusGlyph } from "@/components/ui/Icons";
@@ -23,6 +24,8 @@ export function MediaDetail({ id }: { id: string }) {
   const { get, items, save } = useMedia();
   const { editMode, openEditor, requestDelete } = useWorkspace();
   const router = useRouter();
+  const links = useLinks();
+  const profile = useProfile();
   const item = get(id);
 
   const related = useMemo(() => {
@@ -40,10 +43,10 @@ export function MediaDetail({ id }: { id: string }) {
     return (
       <div className={`shell ${styles.page}`}>
         <div className={styles.missing}>
-          <h1>That title isn’t in your collection</h1>
+          <h1>{profile ? `That title isn’t in ${displayName(profile.owner)}’s collection` : "That title isn’t in your collection"}</h1>
           <p>It may have been deleted, or the link is out of date.</p>
-          <Link href="/" className={styles.back}>
-            <ArrowLeftIcon aria-hidden="true" /> Back to the library
+          <Link href={links.library} className={styles.back}>
+            <ArrowLeftIcon aria-hidden="true" /> {profile ? `Back to ${displayName(profile.owner)}’s library` : "Back to the library"}
           </Link>
         </div>
       </div>
@@ -57,8 +60,8 @@ export function MediaDetail({ id }: { id: string }) {
 
   return (
     <article className={`shell ${styles.page}`}>
-      <Link href="/" className={styles.back}>
-        <ArrowLeftIcon aria-hidden="true" /> Library
+      <Link href={links.library} className={styles.back}>
+        <ArrowLeftIcon aria-hidden="true" /> {profile ? `${displayName(profile.owner)}’s library` : "Library"}
       </Link>
 
       <div className={styles.layout}>
@@ -66,6 +69,16 @@ export function MediaDetail({ id }: { id: string }) {
           <div className={styles.cover} role="img" aria-label={`Cover of ${item.title}`}>
             <Cover item={item} />
           </div>
+          {profile?.viewer &&
+            (profile.owned.has(item.id) ? (
+              <p className={styles.owned}>
+                <CheckIcon aria-hidden="true" /> In your list
+              </p>
+            ) : (
+              <Button variant="solid" onClick={() => void profile.addToList([item.id])}>
+                <PlusIcon aria-hidden="true" /> Add to my list
+              </Button>
+            ))}
           {editMode && (
             <div className={styles.manage}>
               <Button variant="outline" onClick={() => openEditor({ mode: "edit", id: item.id })}>
@@ -130,7 +143,7 @@ export function MediaDetail({ id }: { id: string }) {
             <ul className={styles.genres} aria-label="Genres">
               {item.genres.map((g) => (
                 <li key={g}>
-                  <Link href={`/?genre=${encodeURIComponent(g)}`} className={styles.genre}>
+                  <Link href={links.genre(g)} className={styles.genre}>
                     {g}
                   </Link>
                 </li>

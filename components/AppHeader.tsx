@@ -1,6 +1,6 @@
 "use client";
 
-import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, Pencil1Icon, PersonIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, HamburgerMenuIcon, Link2Icon, Pencil1Icon, PersonIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { Wordmark } from "@/components/Wordmark";
 import { useWorkspace } from "@/components/workspace/Workspace";
 import { dismissLegacyOffer, markLegacyImported, readLegacyItems, useLegacy } from "@/lib/media/legacy";
+import { profileUrl } from "@/lib/media/share";
 import { useMedia } from "@/lib/media/store";
 import styles from "./AppHeader.module.css";
 import dialog from "@/components/workspace/Workspace.module.css";
@@ -51,6 +52,15 @@ export function AppHeader() {
     }
   };
 
+  const copyProfileLink = async () => {
+    try {
+      await navigator.clipboard.writeText(profileUrl(user.username));
+      notify("Profile link copied. Anyone with it can view your library and stats.");
+    } catch {
+      notify("Couldn't copy the link");
+    }
+  };
+
   const importFromBrowser = async () => {
     setImporting(true);
     const result = await add(readLegacyItems().map((item) => ({ item })));
@@ -88,8 +98,8 @@ export function AppHeader() {
 
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-              <Button variant="quiet" size="sm" icon aria-label="Account and collection data">
-                <PersonIcon />
+              <Button variant="quiet" size="sm" icon aria-label="Menu">
+                <HamburgerMenuIcon />
               </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
@@ -103,6 +113,15 @@ export function AppHeader() {
                     <CopyIcon /> Copy user ID
                   </DropdownMenu.Item>
                 )}
+                <DropdownMenu.Separator className={styles.menuSep} />
+                <DropdownMenu.Item asChild className={styles.menuItem}>
+                  <Link href="/friends">
+                    <PersonIcon /> Friends
+                  </Link>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item className={styles.menuItem} onSelect={() => void copyProfileLink()}>
+                  <Link2Icon /> Copy my profile link
+                </DropdownMenu.Item>
                 <DropdownMenu.Separator className={styles.menuSep} />
                 {legacy.count > 0 && (
                   <DropdownMenu.Item className={styles.menuItem} disabled={importing} onSelect={() => void importFromBrowser()}>

@@ -16,6 +16,15 @@
   background: var(--st-in-progress);
 }
 
+/* On someone else's profile the same bezel runs in the accent colour. */
+.header[data-viewing]::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--accent);
+}
+
 .bar {
   display: flex;
   align-items: center;

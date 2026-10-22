@@ -2,8 +2,9 @@ import "server-only";
 import type { AddSummary, Submission } from "@/lib/media/api";
 import { reconcile } from "@/lib/media/progress";
 import { mergeEntry, toUserEntry, type UserEntry } from "@/lib/media/model";
-import { CATEGORIES, itemKey, parseItemKey, type Category, type MediaItem } from "@/lib/media/types";
+import { CATEGORIES, itemKey, parseItemKey, type Category, type MediaItem, type Status } from "@/lib/media/types";
 import { BackboneError, userMedia } from "./backbone";
+import { readOrCreate, serial as queue } from "./documents";
 import { fileInCatalog, readCatalogs, updateCatalogEntry } from "./catalog";
 
 /**
@@ -18,39 +19,9 @@ interface UserDoc extends Record<string, unknown> {
   entries: Record<string, UserEntry>;
 }
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 async function readUserDoc(userId: string): Promise<UserDoc> {
-  for (let attempt = 0; attempt < 8; attempt++) {
-    const doc = await userMedia.read<Partial<UserDoc>>(userId);
-    if (doc) return { v: 1, entries: doc.entries && typeof doc.entries === "object" ? doc.entries : {} };
-
-    // First visit (or an interrupted one): create the row and give it an initial document.
-    const created = await userMedia.create(userId);
-    const empty: UserDoc = { v: 1, entries: {} };
-    if (created) {
-      await userMedia.write(userId, empty);
-      return empty;
-    }
-    await sleep(100); // another request is creating it right now
-  }
-  // The row exists but never received a document; writing one is safe because there is nothing to lose.
-  const empty: UserDoc = { v: 1, entries: {} };
-  await userMedia.write(userId, empty);
-  return empty;
-}
-
-/**
- * Backbone documents are replaced whole, so concurrent read-modify-writes for one user would drop
- * each other's changes. This queues them per user within a server instance; the client also sends
- * its own changes one at a time, which covers requests landing on different instances.
- */
-const queues = new Map<string, Promise<unknown>>();
-function serial<T>(userId: string, task: () => Promise<T>): Promise<T> {
-  const run = (queues.get(userId) ?? Promise.resolve()).catch(() => {}).then(task);
-  queues.set(userId, run);
-  void run.finally(() => queues.get(userId) === run && queues.delete(userId)).catch(() => {});
-  return run;
+  const doc = await readOrCreate<UserDoc>(userId, { v: 1, entries: {} });
+  return { v: 1, entries: doc.entries && typeof doc.entries === "object" ? doc.entries : {} };
 }
 
 export async function loadLibrary(userId: string): Promise<MediaItem[]> {
@@ -83,7 +54,7 @@ export async function addItems(userId: string, submissions: Submission[]): Promi
   const filed = new Map<Submission, Awaited<ReturnType<typeof fileInCatalog>>[number]>();
   for (const [category, results] of filedByCategory) byCategory.get(category)!.forEach((s, i) => filed.set(s, results[i]));
 
-  return serial(userId, async () => {
+  return queue(userId, async () => {
     const doc = await readUserDoc(userId);
     const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
 
@@ -108,15 +79,15 @@ export async function addItems(userId: string, submissions: Submission[]): Promi
 }
 
 /**
- * Adds existing shared catalog titles to the user's collection as completed. Nothing personal is
- * invented: no rating, dates or notes, just status Completed and progress at the full total
- * (x/x chapters, y/y seasons) wherever the catalog knows it. Titles already held are skipped.
+ * Adds existing shared catalog titles to the user's collection, as completed unless `status` says
+ * otherwise. Nothing personal is invented: no rating, dates or notes, just the status and the progress
+ * that goes with it (the full total for Completed, none for Planned). Titles already held are skipped.
  */
-export async function addCatalogTitles(userId: string, keys: string[]): Promise<AddSummary> {
+export async function addCatalogTitles(userId: string, keys: string[], status: Status = "completed"): Promise<AddSummary> {
   const refs = keys.flatMap((key) => parseItemKey(key) ?? []);
   const catalogs = await readCatalogs(refs.map((r) => r.category));
 
-  return serial(userId, async () => {
+  return queue(userId, async () => {
     const doc = await readUserDoc(userId);
     const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
 
@@ -130,7 +101,7 @@ export async function addCatalogTitles(userId: string, keys: string[]): Promise<
       }
       const blank = mergeEntry(entry, { category: ref.category, catalogId: ref.catalogId });
       if (!blank) continue;
-      const own = toUserEntry(reconcile({ ...blank, status: "completed" }), entry.id);
+      const own = toUserEntry(reconcile({ ...blank, status }), entry.id);
       doc.entries[key] = own;
       const merged = mergeEntry(entry, own);
       if (!merged) continue;
@@ -154,7 +125,7 @@ export async function saveItem(userId: string, item: MediaItem, base: MediaItem 
   const entry = await updateCatalogEntry(ref.category, ref.catalogId, item, base);
   if (!entry) throw new BackboneError("That title isn't in the catalog", 404);
 
-  return serial(userId, async () => {
+  return queue(userId, async () => {
     const doc = await readUserDoc(userId);
     const own = toUserEntry(item, entry.id);
     doc.entries[item.id] = own;
@@ -167,7 +138,7 @@ export async function saveItem(userId: string, item: MediaItem, base: MediaItem 
 
 /** Removes a title from the user's collection only. The shared catalog entry stays for everyone else. */
 export async function removeItem(userId: string, key: string): Promise<void> {
-  await serial(userId, async () => {
+  await queue(userId, async () => {
     const doc = await readUserDoc(userId);
     if (!(key in doc.entries)) return;
     delete doc.entries[key];

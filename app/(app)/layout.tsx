@@ -5,6 +5,7 @@ import { BuiltBy } from "@/components/BuiltBy";
 import credit from "@/components/BuiltBy.module.css";
 import { Providers } from "@/components/Providers";
 import { loadLibrary } from "@/lib/server/collection";
+import { registerHandle } from "@/lib/server/directory";
 import { requireSession } from "@/lib/server/session";
 
 /**
@@ -21,7 +22,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
 async function Shell({ children }: { children: ReactNode }) {
   const session = await requireSession();
-  const items = await loadLibrary(session.userId);
+  // Accounts that signed in before profiles existed become findable on their next visit.
+  const [items] = await Promise.all([
+    loadLibrary(session.userId),
+    registerHandle(session).catch((error) => console.error("[directory]", error)),
+  ]);
   return (
     <Providers user={{ userId: session.userId, username: session.username, fullName: session.fullName }} initialItems={items}>
       <AppHeader />

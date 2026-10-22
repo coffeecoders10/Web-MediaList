@@ -46,6 +46,21 @@ export async function addCatalogTitlesToCollection(raw: unknown): Promise<Action
 }
 
 /**
+ * "Add to my list" from someone else's profile: adds their titles, by key, as Planned. What they
+ * thought of a title is theirs, so nothing but the title itself comes across.
+ */
+export async function addToMyList(raw: unknown): Promise<ActionResult<AddSummary>> {
+  const { userId } = await requireSession();
+  const keys = Array.isArray(raw) ? [...new Set(raw.filter((k): k is string => typeof k === "string"))].slice(0, MAX_IMPORT) : [];
+  if (keys.length === 0) return { ok: false, error: "Pick at least one title to add." };
+  try {
+    return { ok: true, ...(await addCatalogTitles(userId, keys, "planned")) };
+  } catch (error) {
+    return failure(error);
+  }
+}
+
+/**
  * Saves a title already in the catalog: the user's own status, progress, rating, notes and dates, plus any
  * intentional edits to its shared metadata (judged against `rawBase`, what the edit started from).
  */

@@ -169,3 +169,27 @@ export function useMedia(): MediaStore {
   if (!ctx) throw new Error("useMedia must be used inside <MediaProvider>");
   return ctx;
 }
+
+const READ_ONLY = "This collection is read-only.";
+
+/**
+ * Someone else's collection, shown on their profile. It answers every read the way the real store
+ * does, and refuses every write, so no component can change it by accident.
+ */
+export function ReadOnlyMediaProvider({ items, children }: { items: MediaItem[]; children: ReactNode }) {
+  const value = useMemo<MediaStore>(
+    () => ({
+      items,
+      get: (id) => items.find((i) => i.id === id),
+      save: () => {},
+      add: async () => ({ ok: false, error: READ_ONLY }),
+      addCompleted: async () => ({ ok: false, error: READ_ONLY }),
+      remove: () => undefined,
+      exportJson: () => JSON.stringify(items, null, 2),
+      importJson: async () => ({ ok: false, error: READ_ONLY }),
+      onError: () => () => {},
+    }),
+    [items],
+  );
+  return <MediaContext value={value}>{children}</MediaContext>;
+}

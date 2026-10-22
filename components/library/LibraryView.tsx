@@ -4,6 +4,7 @@ import { PlusIcon, StackIcon } from "@radix-ui/react-icons";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { MediaCard } from "@/components/media/MediaCard";
+import { displayName, useProfile } from "@/components/profile/ProfileProviders";
 import { Button } from "@/components/ui/Button";
 import { useWorkspace } from "@/components/workspace/Workspace";
 import {
@@ -25,6 +26,7 @@ import styles from "./LibraryView.module.css";
 export function LibraryView() {
   const { items } = useMedia();
   const { editMode, openEditor, openBulkAdd } = useWorkspace();
+  const profile = useProfile();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -93,8 +95,14 @@ export function LibraryView() {
           <div className={styles.empty}>
             {items.length === 0 ? (
               <>
-                <h2>Your collection is empty</h2>
-                <p>{editMode ? "Add the first book, movie, series or anime you want to keep track of." : "Turn on Edit in the top bar to add your first title."}</p>
+                <h2>{profile ? `${displayName(profile.owner)} hasn’t added anything yet` : "Your collection is empty"}</h2>
+                <p>
+                  {profile
+                    ? "Their collection is empty for now. Check back later."
+                    : editMode
+                      ? "Add the first book, movie, series or anime you want to keep track of."
+                      : "Turn on Edit in the top bar to add your first title."}
+                </p>
                 <div className={styles.emptyActions}>
                   {editMode && (
                     <>
