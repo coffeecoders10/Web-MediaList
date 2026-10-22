@@ -1,6 +1,6 @@
 "use client";
 
-import { CopyIcon, MixerHorizontalIcon, PlusIcon, TrashIcon } from "@radix-ui/react-icons";
+import { CopyIcon, Cross2Icon, EyeOpenIcon, PlusIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useState, useSyncExternalStore, useTransition, type FormEvent } from "react";
@@ -118,12 +118,17 @@ export function FriendsView({ friends }: { friends: FriendSummary[] }) {
                     {friend.fullName && <span>@{friend.username}</span>}
                   </Link>
                   <div className={styles.buttons}>
-                    <Link href={`/u/${friend.username}/compare`} className={buttonClass({ variant: "outline", size: "sm" })}>
-                      <MixerHorizontalIcon aria-hidden="true" />
-                      Compare
+                    <Link
+                      href={`/u/${friend.username}`}
+                      className={buttonClass({ variant: "outline", size: "sm" })}
+                      aria-label={`View @${friend.username}'s profile`}
+                    >
+                      <EyeOpenIcon aria-hidden="true" />
+                      <span className={styles.label}>View</span>
                     </Link>
-                    <Button variant="quiet" size="sm" icon aria-label={`Remove @${friend.username}`} disabled={pending} onClick={() => remove(friend)}>
-                      <TrashIcon />
+                    <Button variant="quiet" size="sm" disabled={pending} onClick={() => remove(friend)} aria-label={`Remove @${friend.username} from friends`}>
+                      <Cross2Icon aria-hidden="true" />
+                      <span className={styles.label}>Remove friend</span>
                     </Button>
                   </div>
                 </li>

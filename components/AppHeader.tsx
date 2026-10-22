@@ -1,6 +1,6 @@
 "use client";
 
-import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, HamburgerMenuIcon, Link2Icon, Pencil1Icon, PersonIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, HamburgerMenuIcon, Link2Icon, Pencil1Icon, PersonIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -114,6 +114,11 @@ export function AppHeader() {
                   </DropdownMenu.Item>
                 )}
                 <DropdownMenu.Separator className={styles.menuSep} />
+                <DropdownMenu.Item asChild className={styles.menuItem}>
+                  <Link href="/">
+                    <ReaderIcon /> My library
+                  </Link>
+                </DropdownMenu.Item>
                 <DropdownMenu.Item asChild className={styles.menuItem}>
                   <Link href="/friends">
                     <PersonIcon /> Friends

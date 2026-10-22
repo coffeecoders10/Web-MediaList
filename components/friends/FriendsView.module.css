@@ -120,12 +120,13 @@
   gap: 0.25rem;
 }
 
-@media (max-width: 479px) {
-  .person {
-    flex-wrap: wrap;
+@media (max-width: 719px) {
+  .label {
+    display: none;
   }
-  .buttons {
-    width: 100%;
-    justify-content: flex-end;
+  .buttons > * {
+    width: 2.25rem;
+    padding: 0;
+    justify-content: center;
   }
 }

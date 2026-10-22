@@ -1,9 +1,9 @@
 "use client";
 
-import { CheckIcon, CopyIcon, EyeOpenIcon, HomeIcon, MixerHorizontalIcon, PersonIcon, PlusIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, Cross2Icon, ExitIcon, HamburgerMenuIcon, Link2Icon, MixerHorizontalIcon, PersonIcon, PlusIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { DropdownMenu } from "radix-ui";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { logout } from "@/app/actions/auth";
 import { Wordmark } from "@/components/Wordmark";
@@ -16,9 +16,9 @@ import app from "@/components/AppHeader.module.css";
 import styles from "./ProfileHeader.module.css";
 
 /**
- * Everything on a profile page sits under this header. The top bar is the app's own, with Home always
- * at hand and a chip naming whose archive this is, so it is never unclear whose pages these are. The
- * band below is the profile itself: who, what you can do, and where to go.
+ * Everything on a profile page sits under this header. The top bar is the app's own, with a back arrow
+ * in place of a Home tab and the same account menu. The band below is the profile itself: who, what you
+ * can do, and where to go.
  */
 export function ProfileHeader({ owner, viewer }: { owner: Person; viewer: Person | null }) {
   const pathname = usePathname();
@@ -32,20 +32,8 @@ export function ProfileHeader({ owner, viewer }: { owner: Person; viewer: Person
     <>
       <header className={app.header} data-viewing="">
         <div className={`shell ${app.bar}`}>
+          <BackButton />
           <Wordmark />
-          {viewer ? (
-            <Link href="/" className={buttonClass({ variant: "outline", size: "sm" })}>
-              <HomeIcon aria-hidden="true" />
-              Home
-            </Link>
-          ) : null}
-
-          <Link href={base} className={styles.chip} aria-label={`Viewing ${displayName(owner)}'s archive`}>
-            <EyeOpenIcon aria-hidden="true" />
-            <span className={styles.chipText}>Viewing</span>
-            <Avatar person={owner} size="sm" />
-            <strong>@{owner.username}</strong>
-          </Link>
 
           <div className={app.tools}>
             {viewer ? (
@@ -71,8 +59,7 @@ export function ProfileHeader({ owner, viewer }: { owner: Person; viewer: Person
             <div className={styles.names}>
               <p className={styles.name}>{owner.fullName || `@${owner.username}`}</p>
               <p className={styles.handle}>
-                {owner.fullName && <>@{owner.username} · </>}
-                <span className={styles.readonly}>Read-only</span>
+                {owner.fullName && <>@{owner.username}</>}
               </p>
             </div>
           </div>
@@ -92,20 +79,27 @@ export function ProfileHeader({ owner, viewer }: { owner: Person; viewer: Person
   );
 }
 
+function BackButton() {
+  const router = useRouter();
+  return (
+    <Button
+      variant="quiet"
+      size="sm"
+      icon
+      aria-label="Back"
+      onClick={() => (window.history.length > 1 ? router.back() : router.push("/"))}
+    >
+      <ArrowLeftIcon />
+    </Button>
+  );
+}
+
 function Actions({ owner, viewer }: { owner: Person; viewer: Person | null }) {
   const profile = useProfile();
   const { notify } = useWorkspace();
   const [busy, setBusy] = useState(false);
   const base = `/u/${owner.username}`;
-
-  const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(profileUrl(owner.username));
-      notify("Profile link copied");
-    } catch {
-      notify("Couldn't copy the link");
-    }
-  };
+  const friendLabel = profile?.isFriend ? "Remove friend" : "Add friend";
 
   const toggleFriend = async () => {
     if (!profile) return;
@@ -118,13 +112,13 @@ function Actions({ owner, viewer }: { owner: Person; viewer: Person | null }) {
     <div className={styles.actions}>
       {viewer ? (
         <>
-          <Link href={`${base}/compare`} className={buttonClass({ variant: "solid", size: "sm" })}>
+          <Link href={`${base}/compare`} className={buttonClass({ variant: "solid", size: "sm" })} aria-label="Compare libraries">
             <MixerHorizontalIcon aria-hidden="true" />
-            Compare
+            <span className={styles.label}>Compare</span>
           </Link>
-          <Button variant="outline" size="sm" onClick={() => void toggleFriend()} disabled={busy} aria-pressed={profile?.isFriend}>
-            {profile?.isFriend ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}
-            {profile?.isFriend ? "Friends" : "Add friend"}
+          <Button variant="outline" size="sm" onClick={() => void toggleFriend()} disabled={busy} aria-label={friendLabel}>
+            {profile?.isFriend ? <Cross2Icon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}
+            <span className={styles.label}>{friendLabel}</span>
           </Button>
         </>
       ) : (
@@ -133,19 +127,26 @@ function Actions({ owner, viewer }: { owner: Person; viewer: Person | null }) {
           Sign in to compare
         </Link>
       )}
-      <Button variant="quiet" size="sm" icon aria-label="Copy profile link" onClick={() => void copyLink()}>
-        <CopyIcon />
-      </Button>
     </div>
   );
 }
 
 function AccountMenu({ viewer }: { viewer: Person }) {
+  const { notify } = useWorkspace();
+  const copyProfileLink = async () => {
+    try {
+      await navigator.clipboard.writeText(profileUrl(viewer.username));
+      notify("Profile link copied. Anyone with it can view your library and stats.");
+    } catch {
+      notify("Couldn't copy the link");
+    }
+  };
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button variant="quiet" size="sm" icon aria-label="Your account">
-          <PersonIcon />
+        <Button variant="quiet" size="sm" icon aria-label="Menu">
+          <HamburgerMenuIcon />
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
@@ -157,7 +158,7 @@ function AccountMenu({ viewer }: { viewer: Person }) {
           <DropdownMenu.Separator className={app.menuSep} />
           <DropdownMenu.Item asChild className={app.menuItem}>
             <Link href="/">
-              <HomeIcon /> My library
+              <ReaderIcon /> My library
             </Link>
           </DropdownMenu.Item>
           <DropdownMenu.Item asChild className={app.menuItem}>
@@ -165,9 +166,12 @@ function AccountMenu({ viewer }: { viewer: Person }) {
               <PersonIcon /> Friends
             </Link>
           </DropdownMenu.Item>
+          <DropdownMenu.Item className={app.menuItem} onSelect={() => void copyProfileLink()}>
+            <Link2Icon /> Copy my profile link
+          </DropdownMenu.Item>
           <DropdownMenu.Separator className={app.menuSep} />
           <DropdownMenu.Item className={app.menuItem} onSelect={() => void logout()}>
-            Sign out
+            <ExitIcon /> Sign out
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
