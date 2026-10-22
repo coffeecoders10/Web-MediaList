@@ -16,6 +16,15 @@
   background: var(--st-in-progress);
 }
 
+/* On someone else's profile the same bezel runs in the accent colour. */
+.header[data-viewing]::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--accent);
+}
+
 .bar {
   display: flex;
   align-items: center;
@@ -59,15 +68,7 @@
 
 .navLink[aria-current="page"] {
   color: var(--ink);
-}
-
-.navLink[aria-current="page"]::after {
-  content: "";
-  position: absolute;
-  inset: auto 0.75rem 0.1875rem;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
+  background: var(--table-hover);
 }
 
 .tools {
@@ -145,6 +146,7 @@
   outline: none;
   cursor: pointer;
   user-select: none;
+  text-decoration: none;
 }
 
 .menuItem[data-highlighted] {
@@ -244,9 +246,5 @@
     flex: 1;
     justify-content: center;
     min-height: 2.75rem;
-  }
-
-  .navLink[aria-current="page"]::after {
-    inset: auto 25% 0.125rem;
   }
 }

@@ -111,3 +111,14 @@
   justify-content: flex-end;
   max-width: calc(100% - 3.25rem);
 }
+
+/* A mark, not a control: you already have this title. */
+.owned {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--r-md);
+  background: oklch(0.14 0.014 245 / 0.88);
+  color: var(--st-completed);
+}

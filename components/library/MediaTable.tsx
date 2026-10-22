@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Cover } from "@/components/Cover";
 import { CategoryTag, ProgressLeader, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { Button } from "@/components/ui/Button";
+import { useLinks } from "@/components/profile/ProfileProviders";
 import { useWorkspace } from "@/components/workspace/Workspace";
 import { bylineOf } from "@/lib/media/format";
 import type { MediaItem } from "@/lib/media/types";
@@ -12,6 +13,7 @@ import styles from "./MediaTable.module.css";
 
 export function MediaTable({ items }: { items: MediaItem[] }) {
   const { editMode, openEditor, requestDelete } = useWorkspace();
+  const links = useLinks();
 
   return (
     <div className={styles.wrap}>
@@ -48,7 +50,7 @@ export function MediaTable({ items }: { items: MediaItem[] }) {
                   <Cover item={item} compact />
                 </div>
                 <div className={styles.titleText}>
-                  <Link href={`/media/${item.id}`} className={styles.link}>
+                  <Link href={links.media(item.id)} className={styles.link}>
                     {item.title}
                   </Link>
                   <span className={styles.sub}>{bylineOf(item)}</span>

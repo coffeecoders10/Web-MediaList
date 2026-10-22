@@ -1,0 +1,79 @@
+/* The profile band: transparent, set off from the page by its bottom border. */
+.band {
+  border-bottom: 1px solid var(--rule);
+}
+
+.bandInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding-block: 1.25rem 0.75rem;
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  margin-right: auto;
+}
+
+.names {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--fs-xl);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.handle {
+  color: var(--ink-2);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  order: 3;
+  width: 100%;
+  margin-inline: -0.75rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 719px) {
+  .actions {
+    flex-wrap: nowrap;
+    margin-left: auto;
+  }
+
+  .label {
+    display: none;
+  }
+
+  .actions > * {
+    width: 2.25rem;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 720px) {
+  .tabs {
+    order: 0;
+    width: auto;
+    margin-inline: 0;
+  }
+}

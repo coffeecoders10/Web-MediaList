@@ -1,0 +1,132 @@
+.page {
+  display: grid;
+  gap: 1.75rem;
+  padding-block: clamp(1.25rem, 0.8rem + 2vw, 2.5rem) 5rem;
+}
+
+.heading {
+  font-size: var(--fs-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.layout {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .layout {
+    grid-template-columns: minmax(18rem, 24rem) minmax(0, 1fr);
+    gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  }
+}
+
+.side {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.subhead {
+  font-size: var(--fs-lg);
+  font-stretch: 110%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.muted {
+  color: var(--ink-2);
+}
+
+.form {
+  display: grid;
+  gap: 0.875rem;
+  justify-items: start;
+}
+.form > :first-child {
+  justify-self: stretch;
+}
+
+.share {
+  display: grid;
+  gap: 0.625rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.link {
+  display: grid;
+  gap: 0.625rem;
+  justify-items: start;
+}
+.link output {
+  max-width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--r-sm);
+  background: var(--table-input);
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.people {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--rule);
+}
+.person:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.names {
+  display: grid;
+  min-width: 0;
+  margin-right: auto;
+  text-decoration: none;
+}
+.names strong {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+.names span {
+  color: var(--ink-3);
+  font-size: var(--fs-sm);
+}
+.names:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.buttons {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 719px) {
+  .label {
+    display: none;
+  }
+  .buttons > * {
+    width: 2.25rem;
+    padding: 0;
+    justify-content: center;
+  }
+}

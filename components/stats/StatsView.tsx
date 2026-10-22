@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, type ReactNode } from "react";
 import { Cover } from "@/components/Cover";
 import { Rating, StatusMark } from "@/components/media/Marks";
+import { displayName, useLinks, useProfile } from "@/components/profile/ProfileProviders";
 import { formatDate, formatNumber } from "@/lib/media/format";
 import { computeStats } from "@/lib/media/stats";
 import { useMedia } from "@/lib/media/store";
@@ -24,6 +25,9 @@ function Panel({ title, note, children, className }: { title: string; note?: Rea
 
 export function StatsView() {
   const { items } = useMedia();
+  const links = useLinks();
+  const profile = useProfile();
+  const subject = profile ? displayName(profile.owner) : null;
   const stats = useMemo(() => computeStats(items, new Date()), [items]);
 
   if (stats.total === 0) {
@@ -31,7 +35,13 @@ export function StatsView() {
       <div className={`shell ${styles.page}`}>
         <h1 className={styles.heading}>Stats</h1>
         <p className={styles.lead}>
-          Nothing to count yet. <Link href="/">Add a few titles</Link> and they&apos;ll show up here.
+          {subject ? (
+            <>{subject} hasn&apos;t added any titles yet, so there&apos;s nothing to count.</>
+          ) : (
+            <>
+              Nothing to count yet. <Link href="/">Add a few titles</Link> and they&apos;ll show up here.
+            </>
+          )}
         </p>
       </div>
     );
@@ -50,7 +60,7 @@ export function StatsView() {
       <h1 className={styles.heading}>Stats</h1>
 
       <p className={styles.lead}>
-        You&apos;ve finished <strong>{done}</strong> of {stats.total} titles
+        {subject ? `${subject} has` : "You've"} finished <strong>{done}</strong> of {stats.total} titles
         {stats.byStatus["in-progress"] > 0 && (
           <>
             , with <strong>{stats.byStatus["in-progress"]}</strong> in progress
@@ -76,7 +86,7 @@ export function StatsView() {
       </div>
 
       <div className={styles.grid}>
-        <Panel title="What you've taken in" className={styles.wide}>
+        <Panel title={subject ? "What they've taken in" : "What you've taken in"} className={styles.wide}>
           <dl className={styles.totals}>
             <div>
               <dt>Chapters read</dt>
@@ -117,8 +127,8 @@ export function StatsView() {
         </Panel>
 
         <Panel
-          title="How you rate"
-          note={stats.rated ? `${stats.rated} of ${stats.total} titles rated` : "Rate a few titles to see the shape of your taste."}
+          title={subject ? "How they rate" : "How you rate"}
+          note={stats.rated ? `${stats.rated} of ${stats.total} titles rated` : subject ? "No ratings yet." : "Rate a few titles to see the shape of your taste."}
         >
           <ol className={styles.columns} aria-label="Number of titles at each rating">
             {stats.ratingBins.map((b) => (
@@ -138,7 +148,7 @@ export function StatsView() {
           <ul className={`${styles.rows} ${styles.twoCol}`}>
             {stats.topGenres.map((g) => (
               <li key={g.name} className={styles.row}>
-                <Link href={`/?genre=${encodeURIComponent(g.name)}`} className={styles.rowLabel}>
+                <Link href={links.genre(g.name)} className={styles.rowLabel}>
                   {g.name}
                 </Link>
                 <span className={styles.rowTrack} aria-hidden="true">
@@ -186,7 +196,7 @@ export function StatsView() {
                     <Cover item={item} compact />
                   </div>
                   <div className={styles.recentText}>
-                    <Link href={`/media/${item.id}`} className={styles.recentLink}>
+                    <Link href={links.media(item.id)} className={styles.recentLink}>
                       {item.title}
                     </Link>
                     <span className={styles.muted}>{item.finishedAt && formatDate(item.finishedAt)}</span>

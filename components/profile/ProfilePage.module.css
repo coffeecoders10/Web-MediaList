@@ -1,0 +1,24 @@
+.missing {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  max-width: 36rem;
+  padding-block: clamp(2rem, 1rem + 5vw, 5rem);
+}
+
+.missing h1 {
+  font-size: var(--fs-xl);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.missing p {
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

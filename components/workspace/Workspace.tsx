@@ -70,9 +70,11 @@ function writeEdit(on: boolean) {
 
 let noticeSeq = 0;
 
-export function WorkspaceProvider({ children }: { children: ReactNode }) {
+/** `readOnly` is for another person's profile: edit mode can't be turned on, and the editing dialogs aren't mounted. */
+export function WorkspaceProvider({ children, readOnly = false }: { children: ReactNode; readOnly?: boolean }) {
   const media = useMedia();
-  const editMode = useSyncExternalStore(subscribeEdit, readEdit, () => false);
+  const storedEdit = useSyncExternalStore(subscribeEdit, readEdit, () => false);
+  const editMode = storedEdit && !readOnly;
   const [editor, setEditor] = useState<EditorTarget | null>(null);
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [notices, setNotices] = useState<Notice[]>([]);
@@ -121,10 +123,10 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     <WorkspaceContext value={value}>
       <Toast.Provider duration={6000} swipeDirection="right">
         {children}
-        <EditorDrawer />
-        <BulkAddDialog />
+        {!readOnly && <EditorDrawer />}
+        {!readOnly && <BulkAddDialog />}
 
-        <AlertDialog.Root open={pendingDelete !== null} onOpenChange={(open) => !open && setPendingDelete(null)}>
+        <AlertDialog.Root open={!readOnly && pendingDelete !== null} onOpenChange={(open) => !open && setPendingDelete(null)}>
           <AlertDialog.Portal>
             <AlertDialog.Overlay className={styles.overlay} />
             <AlertDialog.Content className={styles.alert}>

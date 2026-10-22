@@ -1,9 +1,10 @@
 "use client";
 
-import { Pencil1Icon, PlusIcon, TrashIcon } from "@radix-ui/react-icons";
+import { CheckIcon, Pencil1Icon, PlusIcon, TrashIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Cover } from "@/components/Cover";
 import { Button } from "@/components/ui/Button";
+import { useLinks, useProfile } from "@/components/profile/ProfileProviders";
 import { StatusGlyph } from "@/components/ui/Icons";
 import { useWorkspace } from "@/components/workspace/Workspace";
 import { bylineOf } from "@/lib/media/format";
@@ -16,6 +17,8 @@ import styles from "./MediaCard.module.css";
 export function MediaCard({ item }: { item: MediaItem }) {
   const { editMode, openEditor, requestDelete } = useWorkspace();
   const { save } = useMedia();
+  const links = useLinks();
+  const profile = useProfile();
   const step = editMode ? quickStep(item) : null;
   const showProgress = item.status === "in-progress" || item.status === "on-hold";
 
@@ -36,7 +39,7 @@ export function MediaCard({ item }: { item: MediaItem }) {
 
       <div className={styles.meta}>
         <h3 className={styles.title}>
-          <Link href={`/media/${item.id}`} className={styles.link}>
+          <Link href={links.media(item.id)} className={styles.link}>
             {item.title}
           </Link>
         </h3>
@@ -47,6 +50,21 @@ export function MediaCard({ item }: { item: MediaItem }) {
           <Rating value={item.rating} />
         </div>
       </div>
+
+      {profile?.viewer && (
+        <div className={styles.actions}>
+          {profile.owned.has(item.id) ? (
+            <span className={styles.owned} title="Already in your list">
+              <CheckIcon aria-hidden="true" />
+              <span className="sr-only">{item.title} is already in your list</span>
+            </span>
+          ) : (
+            <Button size="sm" variant="float" icon aria-label={`Add ${item.title} to my list`} title="Add to my list" onClick={() => void profile.addToList([item.id])}>
+              <PlusIcon />
+            </Button>
+          )}
+        </div>
+      )}
 
       {editMode && (
         <div className={styles.actions}>

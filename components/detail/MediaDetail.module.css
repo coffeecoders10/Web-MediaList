@@ -197,3 +197,12 @@
 .missing p {
   color: var(--ink-2);
 }
+
+.owned {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  color: var(--st-completed);
+  font-weight: 550;
+}

@@ -3,7 +3,9 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { authRequest } from "@/lib/server/backbone";
+import { registerHandle } from "@/lib/server/directory";
 import { endSession, startSession } from "@/lib/server/session";
+import type { SessionUser } from "@/lib/session-token";
 import { clearFailures, isThrottled, recordAttempt } from "@/lib/server/throttle";
 
 export interface AuthFormState {
@@ -13,6 +15,15 @@ export interface AuthFormState {
   fields?: Partial<Record<"username" | "fullName" | "password", string>>;
   /** Echoed back so a failed submit doesn't clear what was typed. Never the password. */
   values?: { username: string; fullName: string };
+}
+
+/** Makes the account findable by username for profile links and friends. Never blocks signing in. */
+async function listInDirectory(user: SessionUser) {
+  try {
+    await registerHandle(user);
+  } catch (error) {
+    console.error("[auth] couldn't list the user in the directory:", error);
+  }
 }
 
 const field = (data: FormData, name: string) => {
@@ -64,7 +75,9 @@ export async function login(_prev: AuthFormState | undefined, data: FormData): P
   }
 
   keys.forEach(clearFailures);
-  await startSession({ userId: result.data.user.user_id, username: result.data.user.username, fullName: result.data.user.full_name });
+  const user = { userId: result.data.user.user_id, username: result.data.user.username, fullName: result.data.user.full_name };
+  await startSession(user);
+  await listInDirectory(user);
   redirect("/");
 }
 
@@ -95,7 +108,9 @@ export async function signup(_prev: AuthFormState | undefined, data: FormData): 
     return { error: result.data.error ?? "Couldn't create your account. Try again.", values };
   }
 
-  await startSession({ userId: result.data.user.user_id, username: result.data.user.username, fullName: result.data.user.full_name });
+  const user = { userId: result.data.user.user_id, username: result.data.user.username, fullName: result.data.user.full_name };
+  await startSession(user);
+  await listInDirectory(user);
   redirect("/");
 }
 
