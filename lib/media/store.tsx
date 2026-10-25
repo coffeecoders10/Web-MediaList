@@ -4,7 +4,7 @@ import { createContext, use, useCallback, useEffect, useMemo, useRef, useState, 
 import { addCatalogTitlesToCollection, addToCollection, removeFromCollection, saveToCollection } from "@/app/actions/library";
 import type { AddSummary, Submission } from "./api";
 import { normalizeList } from "./normalize";
-import type { MediaItem } from "./types";
+import type { MediaItem, Status } from "./types";
 
 export type AddOutcome = ({ ok: true } & AddSummary) | { ok: false; error: string };
 
@@ -19,8 +19,8 @@ interface MediaStore {
   save: (item: MediaItem) => void;
   /** Adds new titles; waits for the server because it decides their ids. */
   add: (titles: Submission[]) => Promise<AddOutcome>;
-  /** Adds existing catalog titles (by key) as completed, at full progress. Waits for the server. */
-  addCompleted: (keys: string[]) => Promise<AddOutcome>;
+  /** Adds existing catalog titles (by key) as planned, or as completed at full progress. Waits for the server. */
+  addFromCatalog: (keys: string[], status: Extract<Status, "planned" | "completed">) => Promise<AddOutcome>;
   remove: (id: string) => MediaItem | undefined;
   exportJson: () => string;
   /** Adds the titles in a JSON export. Returns how many were new to the collection, or null when the file held none. */
@@ -98,13 +98,13 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
     [enqueue],
   );
 
-  const addCompleted = useCallback(
-    async (keys: string[]): Promise<AddOutcome> => {
+  const addFromCatalog = useCallback(
+    async (keys: string[], status: Extract<Status, "planned" | "completed">): Promise<AddOutcome> => {
       const summary: AddSummary = { items: [], created: 0, matched: 0, skipped: 0 };
       for (let i = 0; i < keys.length; i += CHUNK) {
         let result;
         try {
-          result = await enqueue(() => addCatalogTitlesToCollection(keys.slice(i, i + CHUNK)));
+          result = await enqueue(() => addCatalogTitlesToCollection(keys.slice(i, i + CHUNK), status));
         } catch {
           return { ok: false, error: "Couldn't reach the server. Check your connection and try again." };
         }
@@ -157,8 +157,8 @@ export function MediaProvider({ initialItems, children }: { initialItems: MediaI
   }, []);
 
   const value = useMemo(
-    () => ({ items, get, save, add, addCompleted, remove, exportJson, importJson, onError }),
-    [items, get, save, add, addCompleted, remove, exportJson, importJson, onError],
+    () => ({ items, get, save, add, addFromCatalog, remove, exportJson, importJson, onError }),
+    [items, get, save, add, addFromCatalog, remove, exportJson, importJson, onError],
   );
 
   return <MediaContext value={value}>{children}</MediaContext>;
@@ -183,7 +183,7 @@ export function ReadOnlyMediaProvider({ items, children }: { items: MediaItem[];
       get: (id) => items.find((i) => i.id === id),
       save: () => {},
       add: async () => ({ ok: false, error: READ_ONLY }),
-      addCompleted: async () => ({ ok: false, error: READ_ONLY }),
+      addFromCatalog: async () => ({ ok: false, error: READ_ONLY }),
       remove: () => undefined,
       exportJson: () => JSON.stringify(items, null, 2),
       importJson: async () => ({ ok: false, error: READ_ONLY }),

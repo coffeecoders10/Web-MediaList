@@ -14,6 +14,8 @@ import styles from "./BulkAddDialog.module.css";
 /** Rows drawn at once; the filters narrow a large catalog down, and "Show more" reveals the rest. */
 const PAGE = 100;
 
+type AddStatus = "planned" | "completed";
+
 const fold = (s: string) => s.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
 
 export function BulkAddDialog() {
@@ -34,7 +36,7 @@ type Load = { state: "loading" } | { state: "error" } | { state: "ready"; entrie
 
 /** Mounted only while the dialog is open, so every opening starts fresh and re-reads the catalog. */
 function BulkAddPicker() {
-  const { items, addCompleted } = useMedia();
+  const { items, addFromCatalog } = useMedia();
   const { closeBulkAdd, notify } = useWorkspace();
   const [load, setLoad] = useState<Load>({ state: "loading" });
   const [attempt, setAttempt] = useState(0);
@@ -43,6 +45,7 @@ function BulkAddPicker() {
   const [genres, setGenres] = useState<string[]>([]);
   const [picked, setPicked] = useState<Set<string>>(() => new Set());
   const [limit, setLimit] = useState(PAGE);
+  const [adding, setAdding] = useState<AddStatus | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const query = useDeferredValue(q);
@@ -126,18 +129,20 @@ function BulkAddPicker() {
     setLimit(PAGE);
   };
 
-  const submit = async () => {
+  const submit = async (status: AddStatus) => {
     setSaving(true);
+    setAdding(status);
     setError(null);
-    const result = await addCompleted([...picked]);
+    const result = await addFromCatalog([...picked], status);
     setSaving(false);
+    setAdding(null);
     if (!result.ok) return setError(result.error);
     closeBulkAdd();
     const n = result.items.length;
     notify(
       n === 0
         ? "Those titles are already in your collection"
-        : `Added ${n} ${n === 1 ? "title" : "titles"} as completed. Update their status, progress and ratings when you can.`,
+        : `Added ${n} ${n === 1 ? "title" : "titles"} as ${status === "completed" ? "completed. Update their progress and ratings when you can" : "planned"}.`,
     );
   };
 
@@ -148,7 +153,7 @@ function BulkAddPicker() {
       <header className={styles.head}>
         <div className={styles.heading}>
           <Dialog.Title className={styles.title}>Bulk add from the catalog</Dialog.Title>
-          <Dialog.Description className={styles.lede}>Tick the titles you’ve already finished.</Dialog.Description>
+          <Dialog.Description className={styles.lede}>Tick the titles to add, then pick how they go in.</Dialog.Description>
         </div>
         <Dialog.Close asChild>
           <Button variant="quiet" size="sm" icon aria-label="Close">
@@ -160,8 +165,8 @@ function BulkAddPicker() {
       <div className={styles.notice} role="note">
         <InfoCircledIcon className={styles.noticeIcon} aria-hidden="true" />
         <p>
-          <strong>These go in as Completed, with progress filled to 100%</strong>.{" "}
-          <span>You’ll need to update your status, progress and ratings afterwards.</span>
+          <strong>Completed titles go in with progress filled to 100%</strong>, planned ones with none.{" "}
+          <span>You can update status, progress and ratings afterwards.</span>
         </p>
       </div>
 
@@ -367,13 +372,11 @@ function BulkAddPicker() {
             )}
           </p>
         )}
-        <Dialog.Close asChild>
-          <Button variant="outline" disabled={saving}>
-            Cancel
-          </Button>
-        </Dialog.Close>
-        <Button variant="solid" disabled={count === 0 || saving} onClick={() => void submit()}>
-          {saving ? "Adding…" : count > 0 ? `Add ${count} as completed` : "Add as completed"}
+        <Button variant="solid" disabled={count === 0 || saving} onClick={() => void submit("planned")}>
+          {adding === "planned" ? "Adding…" : count > 0 ? `Add ${count} as planned` : "Add as planned"}
+        </Button>
+        <Button variant="outline" disabled={count === 0 || saving} onClick={() => void submit("completed")}>
+          {adding === "completed" ? "Adding…" : count > 0 ? `Add ${count} as completed` : "Add as completed"}
         </Button>
       </footer>
     </>

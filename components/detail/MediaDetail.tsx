@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import { Cover } from "@/components/Cover";
 import { CategoryTag, Rating, SeriesLine, StatusMark } from "@/components/media/Marks";
 import { MediaCard } from "@/components/media/MediaCard";
+import { AddToListMenu } from "@/components/profile/AddToListMenu";
 import { displayName, useLinks, useProfile } from "@/components/profile/ProfileProviders";
 import { RatingEditor } from "@/components/media/RatingEditor";
 import { Button } from "@/components/ui/Button";
@@ -75,9 +76,11 @@ export function MediaDetail({ id }: { id: string }) {
                 <CheckIcon aria-hidden="true" /> In your list
               </p>
             ) : (
-              <Button variant="solid" onClick={() => void profile.addToList([item.id])}>
-                <PlusIcon aria-hidden="true" /> Add to my list
-              </Button>
+              <AddToListMenu keys={[item.id]} label="Add to my list" align="start">
+                <Button variant="solid">
+                  <PlusIcon aria-hidden="true" /> Add to my list
+                </Button>
+              </AddToListMenu>
             ))}
           {editMode && (
             <div className={styles.manage}>

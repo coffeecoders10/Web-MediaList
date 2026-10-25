@@ -4,6 +4,7 @@ import { CheckIcon, Pencil1Icon, PlusIcon, TrashIcon } from "@radix-ui/react-ico
 import Link from "next/link";
 import { Cover } from "@/components/Cover";
 import { Button } from "@/components/ui/Button";
+import { AddToListMenu } from "@/components/profile/AddToListMenu";
 import { useLinks, useProfile } from "@/components/profile/ProfileProviders";
 import { StatusGlyph } from "@/components/ui/Icons";
 import { useWorkspace } from "@/components/workspace/Workspace";
@@ -59,9 +60,11 @@ export function MediaCard({ item }: { item: MediaItem }) {
               <span className="sr-only">{item.title} is already in your list</span>
             </span>
           ) : (
-            <Button size="sm" variant="float" icon aria-label={`Add ${item.title} to my list`} title="Add to my list" onClick={() => void profile.addToList([item.id])}>
-              <PlusIcon />
-            </Button>
+            <AddToListMenu keys={[item.id]} label={`Add ${item.title} to my list`}>
+              <Button size="sm" variant="float" icon aria-label={`Add ${item.title} to my list`} title="Add to my list">
+                <PlusIcon />
+              </Button>
+            </AddToListMenu>
           )}
         </div>
       )}

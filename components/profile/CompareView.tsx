@@ -102,9 +102,9 @@ export function CompareView({ mine }: { mine: MediaItem[] }) {
   const missingShown = showAllMissing ? missing : missing.slice(0, SHOWN);
   const toAdd = missing.filter((i) => !profile.owned.has(i.id));
 
-  const addAll = async () => {
+  const addAll = async (status: "planned" | "completed") => {
     setAdding(true);
-    await profile.addToList(toAdd.map((i) => i.id));
+    await profile.addToList(toAdd.map((i) => i.id), status);
     setAdding(false);
     setConfirming(false);
   };
@@ -228,10 +228,13 @@ export function CompareView({ mine }: { mine: MediaItem[] }) {
               ) : confirming ? (
                 <>
                   <p>
-                    Add {toAdd.length} {toAdd.length === 1 ? "title" : "titles"} to your list as Planned?
+                    Add {toAdd.length} {toAdd.length === 1 ? "title" : "titles"} to your list?
                   </p>
-                  <Button variant="solid" size="sm" disabled={adding} onClick={() => void addAll()}>
-                    {adding ? "Adding…" : "Add them"}
+                  <Button variant="solid" size="sm" disabled={adding} onClick={() => void addAll("planned")}>
+                    {adding ? "Adding…" : "Add as planned"}
+                  </Button>
+                  <Button variant="outline" size="sm" disabled={adding} onClick={() => void addAll("completed")}>
+                    Add as completed
                   </Button>
                   <Button variant="quiet" size="sm" disabled={adding} onClick={() => setConfirming(false)}>
                     Cancel

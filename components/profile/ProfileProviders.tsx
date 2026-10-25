@@ -24,7 +24,7 @@ interface ProfileContextValue {
   /** Collection keys the viewer already has. */
   owned: ReadonlySet<string>;
   /** Adds titles from this profile to the viewer's list as Planned. */
-  addToList: (keys: string[]) => Promise<boolean>;
+  addToList: (keys: string[], status: "planned" | "completed") => Promise<boolean>;
 }
 
 /** Null everywhere outside someone else's profile, which is how shared components know to go read-only. */
@@ -86,8 +86,8 @@ function ProfileState({ owner, viewer, viewerKeys, isFriend: initialFriend, chil
   );
 
   const addToList = useCallback(
-    async (keys: string[]) => {
-      const result = await addToMyList(keys);
+    async (keys: string[], status: "planned" | "completed") => {
+      const result = await addToMyList(keys, status);
       if (!result.ok) {
         notify(result.error);
         return false;
@@ -96,7 +96,7 @@ function ProfileState({ owner, viewer, viewerKeys, isFriend: initialFriend, chil
       const added = result.items.length;
       notify(
         added > 0
-          ? `Added ${added} ${added === 1 ? "title" : "titles"} to your list as Planned`
+          ? `Added ${added} ${added === 1 ? "title" : "titles"} to your list as ${status === "completed" ? "Completed" : "Planned"}`
           : "Those titles are already in your list",
       );
       return true;

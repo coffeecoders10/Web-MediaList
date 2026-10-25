@@ -33,28 +33,31 @@ export async function addToCollection(raw: unknown): Promise<ActionResult<AddSum
   }
 }
 
-/** Adds existing shared catalog titles, by key, as completed. Personal fields are left for the user to fill in. */
-export async function addCatalogTitlesToCollection(raw: unknown): Promise<ActionResult<AddSummary>> {
+/** Only these two make sense for a title added without any personal details. */
+const addStatus = (raw: unknown) => (raw === "planned" ? "planned" : "completed");
+
+/** Adds existing shared catalog titles, by key, as planned or completed. Personal fields are left for the user to fill in. */
+export async function addCatalogTitlesToCollection(raw: unknown, rawStatus?: unknown): Promise<ActionResult<AddSummary>> {
   const { userId } = await requireSession();
   const keys = Array.isArray(raw) ? [...new Set(raw.filter((k): k is string => typeof k === "string"))].slice(0, MAX_IMPORT) : [];
   if (keys.length === 0) return { ok: false, error: "Pick at least one title to add." };
   try {
-    return { ok: true, ...(await addCatalogTitles(userId, keys)) };
+    return { ok: true, ...(await addCatalogTitles(userId, keys, addStatus(rawStatus))) };
   } catch (error) {
     return failure(error);
   }
 }
 
 /**
- * "Add to my list" from someone else's profile: adds their titles, by key, as Planned. What they
- * thought of a title is theirs, so nothing but the title itself comes across.
+ * "Add to my list" from someone else's profile: adds their titles, by key, as Planned (the default) or
+ * Completed. What they thought of a title is theirs, so nothing but the title itself comes across.
  */
-export async function addToMyList(raw: unknown): Promise<ActionResult<AddSummary>> {
+export async function addToMyList(raw: unknown, rawStatus?: unknown): Promise<ActionResult<AddSummary>> {
   const { userId } = await requireSession();
   const keys = Array.isArray(raw) ? [...new Set(raw.filter((k): k is string => typeof k === "string"))].slice(0, MAX_IMPORT) : [];
   if (keys.length === 0) return { ok: false, error: "Pick at least one title to add." };
   try {
-    return { ok: true, ...(await addCatalogTitles(userId, keys, "planned")) };
+    return { ok: true, ...(await addCatalogTitles(userId, keys, addStatus(rawStatus ?? "planned"))) };
   } catch (error) {
     return failure(error);
   }
