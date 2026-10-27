@@ -246,5 +246,25 @@
     flex: 1;
     justify-content: center;
     min-height: 2.75rem;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Tabs show an underline for the active page, never a filled block. */
+  .navLink:hover,
+  .navLink:active,
+  .navLink:focus,
+  .navLink:focus-visible,
+  .navLink[aria-current="page"] {
+    background: transparent;
+    outline: none;
+  }
+  .navLink[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    inset: auto 0.75rem 0;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
   }
 }

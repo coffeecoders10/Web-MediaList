@@ -372,6 +372,16 @@
   .category .count {
     display: none;
   }
+  /* Tabs show an underline only, never a filled block. */
+  .category,
+  .category:hover,
+  .category:active,
+  .category:focus,
+  .category:focus-visible {
+    background: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 
   .status {
     padding: 0 0.75rem;

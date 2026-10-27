@@ -1,14 +1,14 @@
 import { isCategory, isStatus, seriesOf, type Category, type MediaItem, type Status } from "./types";
 
-export const SORTS = ["updated", "added", "title", "rating", "year"] as const;
+export const SORTS = ["updated", "added", "rating", "title", "year"] as const;
 export type SortKey = (typeof SORTS)[number];
 
 export const SORT_LABEL: Record<SortKey, string> = {
-  updated: "Recently updated",
-  added: "Recently added",
-  title: "Title A–Z",
-  rating: "Highest rated",
-  year: "Newest release",
+  updated: "Updated",
+  added: "Added",
+  rating: "Ratings",
+  title: "Title",
+  year: "New",
 };
 
 export interface LibraryFilters {

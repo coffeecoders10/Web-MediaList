@@ -47,6 +47,62 @@
   }
 }
 
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+.pageBtn {
+  display: grid;
+  place-items: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.pageBtn:hover:not(:disabled) {
+  background: var(--table-hover);
+  color: var(--ink);
+}
+.pageBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.pageBtn[aria-current="page"] {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* Phones: one row only. Drop the jump arrows (1 and the last page stay as numbers) and tighten up. */
+@media (max-width: 719px) {
+  .pager {
+    flex-wrap: nowrap;
+    gap: 0.125rem;
+  }
+  .pageEdge {
+    display: none;
+  }
+  .pageBtn {
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.25rem;
+  }
+}
+
+.pageGap {
+  padding: 0 0.25rem;
+  color: var(--ink-3);
+}
+
 .empty {
   display: grid;
   justify-items: start;
