@@ -42,10 +42,8 @@ interface FilterBarProps {
 
 const RATING_OPTIONS = [
   { value: "0", label: "Any rating" },
-  { value: "6", label: "6 and up" },
-  { value: "7", label: "7 and up" },
-  { value: "8", label: "8 and up" },
-  { value: "9", label: "9 and up" },
+  { value: "-1", label: "Unrated" },
+  ...Array.from({ length: 10 }, (_, i) => ({ value: String(i + 1), label: `${i + 1}+` })),
 ];
 
 export function FilterBar({
