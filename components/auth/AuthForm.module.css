@@ -102,6 +102,60 @@
   }
 }
 
+/* Poster placeholder: a 2:3 card with a light sweep, staggered so the three cards ripple left to right. */
+.skeleton {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  background: oklch(0.2 0.03 245 / 0.1);
+  animation: posterBreathe 1.8s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 150ms);
+}
+
+.skeleton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.6) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: posterSweep 1.8s var(--ease-out) infinite;
+  animation-delay: calc(var(--i, 0) * 150ms);
+}
+
+/* A faint film-frame motif: a title bar and two caption lines near the foot, like a real poster. */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 8% 12%;
+  height: 22%;
+  background:
+    linear-gradient(oklch(0.2 0.03 245 / 0.12) 0 0) 0 0 / 100% 22% no-repeat,
+    linear-gradient(oklch(0.2 0.03 245 / 0.08) 0 0) 0 55% / 70% 12% no-repeat,
+    linear-gradient(oklch(0.2 0.03 245 / 0.08) 0 0) 0 100% / 45% 12% no-repeat;
+  border-radius: 2px;
+}
+
+@keyframes posterSweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes posterBreathe {
+  50% {
+    background: oklch(0.2 0.03 245 / 0.17);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  .skeleton::before {
+    animation: none;
+  }
+}
+
 .tagline {
   order: 1;
   max-width: 20ch;

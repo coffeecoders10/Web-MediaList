@@ -9,6 +9,28 @@
   isolation: isolate;
 }
 
+/* Shimmer behind a poster image: visible only while the image is still downloading, then covered by it. */
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.14) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: coverSweep 1.8s var(--ease-out) infinite;
+}
+
+@keyframes coverSweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover::before {
+    animation: none;
+  }
+}
+
 .cover img,
 .cover svg {
   position: absolute;
