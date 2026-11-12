@@ -23,7 +23,7 @@ Differences from [`db_query`](sop-db-query.md):
 | Base URL | `<BACKBONE_URL>` (local default `http://localhost:5000`) |
 | Auth header | `Authorization: Bearer <db_query_api_key>` (same key as `db_query`) |
 | Content type | `Content-Type: application/json` |
-| Table name | Currently only `user_media`. New tables must be added server-side by the Backbone owner. |
+| Table name | The name of the per-user table to use (the examples below use `user_media`). Tables are added server-side by the Backbone owner; ask them which names are available. |
 
 Keep the key in your backend's environment only. Because the key grants access to every
 id, your backend must verify the logged-in user owns the id before proxying a request.

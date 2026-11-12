@@ -2,9 +2,9 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { authRequest } from "@/lib/server/backbone";
+import { authRequest, requestResetCode, updatePassword } from "@/lib/server/backbone";
 import { registerHandle } from "@/lib/server/directory";
-import { endSession, startSession } from "@/lib/server/session";
+import { endSession, requireSession, startSession } from "@/lib/server/session";
 import type { SessionUser } from "@/lib/session-token";
 import { clearFailures, isThrottled, recordAttempt } from "@/lib/server/throttle";
 
@@ -117,4 +117,92 @@ export async function signup(_prev: AuthFormState | undefined, data: FormData): 
 export async function logout(): Promise<void> {
   await endSession();
   redirect("/login");
+}
+
+export interface PasswordFormState {
+  error?: string;
+  fields?: Partial<Record<"username" | "code" | "current" | "password" | "confirm", string>>;
+  /** Echoed back so a failed submit doesn't clear what was typed. Never a password or code. */
+  username?: string;
+  done?: boolean;
+}
+
+function validateNewPassword(password: string, confirm: string): PasswordFormState["fields"] {
+  const fields: NonNullable<PasswordFormState["fields"]> = {};
+  if (password.length < 8) fields.password = "Use at least 8 characters.";
+  else if (password !== confirm) fields.confirm = "The passwords don't match.";
+  return fields;
+}
+
+/**
+ * Signed-out reset. The code comes from the admin, who issues it out of band; this form only
+ * redeems it. Every "no" is answered the same way so it can't be used to discover usernames.
+ */
+export async function resetPassword(_prev: PasswordFormState | undefined, data: FormData): Promise<PasswordFormState> {
+  const username = field(data, "username").trim();
+  const code = field(data, "code").trim();
+  const password = field(data, "password");
+  const confirm = field(data, "confirm");
+  if (!username || !code) return { error: "Enter your username and the reset code.", username };
+  const fields = validateNewPassword(password, confirm);
+  if (Object.keys(fields ?? {}).length) return { fields, username };
+
+  const ip = await clientId();
+  const keys = [`reset-ip:${ip}`, `reset-user:${username.toLowerCase()}`];
+  if (isThrottled(keys[0], 20) || isThrottled(keys[1], 6)) {
+    return { error: "Too many attempts. Wait a few minutes and try again.", username };
+  }
+
+  let result;
+  try {
+    result = await updatePassword({ username, code, password });
+  } catch (error) {
+    console.error("[auth] password reset request failed:", error);
+    return { error: "Couldn't reach the sign-in service. Try again in a moment.", username };
+  }
+
+  if (result.ok) {
+    keys.forEach(clearFailures);
+    return { done: true };
+  }
+  if (result.status === 404 || result.status === 400) {
+    keys.forEach(recordAttempt);
+    return { error: "That username and reset code don't match. Check them, or ask for a new code.", username };
+  }
+  console.error("[auth] password reset failed:", result.url, result.status, result.data);
+  return { error: "Couldn't reset your password. Try again.", username };
+}
+
+/** Signed-in change. The current password proves who is asking, then the reset flow is run on their behalf. */
+export async function changePassword(_prev: PasswordFormState | undefined, data: FormData): Promise<PasswordFormState> {
+  const session = await requireSession();
+  const current = field(data, "current");
+  const password = field(data, "password");
+  const confirm = field(data, "confirm");
+  if (!current) return { fields: { current: "Enter your current password." } };
+  const fields = validateNewPassword(password, confirm);
+  if (Object.keys(fields ?? {}).length) return { fields };
+
+  const key = `change:${session.userId}`;
+  if (isThrottled(key, 6)) return { error: "Too many attempts. Wait a few minutes and try again." };
+
+  try {
+    const check = await authRequest("login", { username: session.username, password: current });
+    if (check.status === 401) {
+      recordAttempt(key);
+      return { fields: { current: "That isn't your current password." } };
+    }
+    if (!check.ok) throw new Error(`login check failed (${check.status})`);
+
+    const issued = await requestResetCode(session.username);
+    if (!issued.ok || !issued.data.reset_code) throw new Error(`reset code failed (${issued.status})`);
+    const updated = await updatePassword({ username: session.username, code: issued.data.reset_code, password });
+    if (!updated.ok) throw new Error(`update failed (${updated.status}): ${updated.data.error}`);
+  } catch (error) {
+    console.error("[auth] change password failed:", error);
+    return { error: "Couldn't change your password. Try again in a moment." };
+  }
+
+  clearFailures(key);
+  return { done: true };
 }

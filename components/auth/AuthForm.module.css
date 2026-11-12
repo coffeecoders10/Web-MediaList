@@ -314,3 +314,27 @@
     gap: 1.125rem;
   }
 }
+
+/* Confirmation after a password change or reset. */
+.notice {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 550;
+}
+
+/* The change-password card inside the signed-in app, where there is no side panel. */
+.inApp {
+  align-content: start;
+  padding-block: 2.5rem;
+}
+
+.forgot {
+  justify-self: end;
+  padding-block: 0.5rem;
+  margin-block: -0.5rem;
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}

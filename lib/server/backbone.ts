@@ -61,6 +61,19 @@ export async function authRequest(action: "signup" | "login", body: Record<strin
   return call<{ user?: BackboneUser; error?: string }>(`/auth/${action}`, "POST", body, false);
 }
 
+/**
+ * Password reset (docs/backend-arch-docs/sop-password-reset.md). Backbone returns the reset code to
+ * whoever asks, so `requestResetCode` must only run after the app has verified the user itself.
+ * The public reset form never calls it: those codes are issued by an admin out of band.
+ */
+export async function requestResetCode(username: string) {
+  return call<{ reset_code?: string; error?: string }>("/auth/reset-password", "POST", { username }, false);
+}
+
+export async function updatePassword(body: { username: string; code: string; password: string }) {
+  return call<{ user?: BackboneUser; error?: string }>("/auth/update-password", "PUT", body, false);
+}
+
 export interface BackboneUser {
   user_id: string;
   username: string;

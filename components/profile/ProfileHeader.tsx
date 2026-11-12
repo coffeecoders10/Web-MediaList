@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeftIcon, Cross2Icon, ExitIcon, HamburgerMenuIcon, Link2Icon, MixerHorizontalIcon, PersonIcon, PlusIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, Cross2Icon, ExitIcon, HamburgerMenuIcon, Link2Icon, LockClosedIcon, MixerHorizontalIcon, PersonIcon, PlusIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { DropdownMenu } from "radix-ui";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -170,6 +170,11 @@ function AccountMenu({ viewer }: { viewer: Person }) {
             <Link2Icon /> Copy my profile link
           </DropdownMenu.Item>
           <DropdownMenu.Separator className={app.menuSep} />
+          <DropdownMenu.Item asChild className={app.menuItem}>
+            <Link href="/account/password">
+              <LockClosedIcon /> Change password
+            </Link>
+          </DropdownMenu.Item>
           <DropdownMenu.Item className={app.menuItem} onSelect={() => void logout()}>
             <ExitIcon /> Sign out
           </DropdownMenu.Item>

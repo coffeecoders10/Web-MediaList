@@ -126,6 +126,12 @@ export function AuthForm({ mode, covers }: { mode: "login" | "signup"; covers: R
             </div>
           </Field>
 
+          {mode === "login" && (
+            <Link href="/reset-password" className={styles.forgot}>
+              Forgot password?
+            </Link>
+          )}
+
           <Button type="submit" variant="solid" className={styles.submit} disabled={pending} aria-busy={pending}>
             {pending ? copy.pending : copy.submit}
           </Button>

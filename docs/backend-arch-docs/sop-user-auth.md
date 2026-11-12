@@ -96,7 +96,8 @@ curl -X POST "$URL/auth/login" -H "Content-Type: application/json" \
 ## Client gotchas
 
 - There is no rate limiting. Throttle login attempts in your own client/backend.
-- There are no password-reset, change-password, or delete-account endpoints.
+- Password reset is covered in [sop-password-reset.md](sop-password-reset.md). There are
+  no change-password (while logged in) or delete-account endpoints.
 - Malformed JSON gives `400`, not `500`.
 
 ## Verification checklist

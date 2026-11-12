@@ -1,6 +1,6 @@
 "use client";
 
-import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, HamburgerMenuIcon, Link2Icon, Pencil1Icon, PersonIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { ArchiveIcon, CopyIcon, DownloadIcon, ExitIcon, HamburgerMenuIcon, Link2Icon, LockClosedIcon, Pencil1Icon, PersonIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { AlertDialog, DropdownMenu, Switch } from "radix-ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -137,6 +137,11 @@ export function AppHeader() {
                   <DownloadIcon /> Export as JSON
                 </DropdownMenu.Item>
                 <DropdownMenu.Separator className={styles.menuSep} />
+                <DropdownMenu.Item asChild className={styles.menuItem}>
+                  <Link href="/account/password">
+                    <LockClosedIcon /> Change password
+                  </Link>
+                </DropdownMenu.Item>
                 <DropdownMenu.Item className={styles.menuItem} onSelect={() => void logout()}>
                   <ExitIcon /> Sign out
                 </DropdownMenu.Item>

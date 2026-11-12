@@ -5,7 +5,7 @@ import { SESSION_COOKIE, verifySession } from "@/lib/session-token";
  * Optimistic gate only: it spares signed-out visitors a round trip through the app and keeps signed-in
  * users out of the login forms. The real checks happen next to the data (see lib/server/session.ts).
  */
-const PUBLIC = ["/login", "/signup"];
+const PUBLIC = ["/login", "/signup", "/reset-password"];
 /** Profiles are for sharing: anyone with the link can look, signed in or not. Acting on one needs an account. */
 const isProfile = (pathname: string) => pathname.startsWith("/u/");
 
